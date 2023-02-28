@@ -13,16 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('formations', function (Blueprint $table) {
+        Schema::create('quiz_tips', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
+            $table->foreignId('quiz_id')->constrained();
             $table->string('name');
-            $table->string('slug')->unique();
-            $table->text('description')->nullable();
-            $table->integer('price')->nullable();
-            $table->integer('points')->nullable();
-            $table->integer('access_months')->nullable()->comment('Number of days to access the formation');
-            $table->boolean('is_fifo')->default(1);
             $table->boolean('active')->default(1);
             $table->timestamps();
             $table->softDeletes();
@@ -36,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formations');
+        Schema::dropIfExists('quiz_tips');
     }
 };

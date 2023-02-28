@@ -17,6 +17,13 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->integer('commission')->default(0);
+            $table->string('bank_iban')->nullable();
+            $table->string('bank_name')->nullable();
+            $table->string('identify_image')->nullable();
+            $table->boolean('financial_approved')->default(0);
+            $table->boolean('available_meetings')->default(1);
+            $table->string('sex_meetings')->default('both')->comment('male / female');
+            $table->string('meeting_type')->default('both')->comment('online / person');
             $table->timestamps();
         });
     }

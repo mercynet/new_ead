@@ -13,17 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('formations', function (Blueprint $table) {
+        Schema::create('pages', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained();
             $table->string('name');
             $table->string('slug')->unique();
-            $table->text('description')->nullable();
-            $table->integer('price')->nullable();
-            $table->integer('points')->nullable();
-            $table->integer('access_months')->nullable()->comment('Number of days to access the formation');
-            $table->boolean('is_fifo')->default(1);
-            $table->boolean('active')->default(1);
+            $table->text('description');
+            $table->boolean('active')->default(0);
+            $table->dateTime('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -36,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('formations');
+        Schema::dropIfExists('pages');
     }
 };

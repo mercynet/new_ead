@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('addons', function (Blueprint $table) {
+        Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price')->default(0);
-            $table->string('identifier')->unique();
-            $table->string('purchase_code')->unique();
-            $table->string('version')->default(0.01);
-            $table->longText('description')->nullable();
-            $table->boolean('active')->default(1);
+            $table->integer('discount')->default(0);
+            $table->integer('commission')->default(0);
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addons');
+        Schema::dropIfExists('groups');
     }
 };

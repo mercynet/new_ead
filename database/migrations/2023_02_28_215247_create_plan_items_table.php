@@ -13,16 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('addons', function (Blueprint $table) {
+        Schema::create('plan_items', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price')->default(0);
-            $table->string('identifier')->unique();
-            $table->string('purchase_code')->unique();
-            $table->string('version')->default(0.01);
-            $table->longText('description')->nullable();
-            $table->boolean('active')->default(1);
+            $table->boolean('is_featured')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -33,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('addons');
+        Schema::dropIfExists('plan_items');
     }
 };
