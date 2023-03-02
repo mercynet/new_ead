@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\Searchable;
-use App\Traits\HasLogs;
+
+use App\Traits\HasLog;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 /**
@@ -15,11 +17,18 @@ use Illuminate\Database\Eloquent\Relations\MorphToMany;
  */
 class Tag extends Model
 {
-    use HasFactory, HasLogs, Searchable;
-    protected $fillable = ['name', 'slug'];
+    use HasFactory, HasLog;
 
-    public function products(): MorphToMany
+    /**
+     * @var string[]
+     */
+    protected $fillable = ['name', 'slug', 'language_id'];
+
+    /**
+     * @return BelongsTo
+     */
+    public function language(): BelongsTo
     {
-        return $this->morphedByMany(Product::class, 'taggable');
+        return $this->belongsTo(Language::class);
     }
 }

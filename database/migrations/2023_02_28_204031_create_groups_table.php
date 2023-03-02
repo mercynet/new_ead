@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('discount')->default(0);
             $table->integer('commission')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

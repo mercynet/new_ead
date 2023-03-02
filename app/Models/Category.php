@@ -2,8 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\Searchable;
-use App\Traits\HasLogs;
+use App\Traits\HasLog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -23,19 +22,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Category extends Model
 {
-    use HasFactory, HasLogs, SoftDeletes, Searchable;
+    use HasFactory, HasLog, SoftDeletes;
 
     protected $fillable = ['category_id', 'name', 'slug'];
-
-    public function products(): BelongsToMany
-    {
-        return $this->belongsToMany(Product::class);
-    }
-
-    public function subproducts(): HasManyThrough
-    {
-        return $this->hasManyThrough(Product::class, CategoryProduct::class, 'category_id', 'id', 'category_id', 'category_id');
-    }
 
     public function parent(): BelongsTo
     {

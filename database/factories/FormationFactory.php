@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Formation;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
@@ -20,9 +21,13 @@ class FormationFactory extends Factory
     {
         $name = fake()->sentence(5);
         return [
+            'user_id' => User::inRandomOrder()->first(),
             'name' => $name,
             'slug' => Str::slug($name),
             'description' => fake()->paragraph(5),
+            'price' => fake()->randomFloat(2),
+            'points' => fake()->randomNumber(10),
+            'access_months' => fake()->randomDigitNotZero(),
             'is_fifo' => fake()->boolean(),
             'active' => fake()->boolean(),
         ];

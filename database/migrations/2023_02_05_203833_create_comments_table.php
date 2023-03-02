@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('comment');
             $table->dateTime('activated_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

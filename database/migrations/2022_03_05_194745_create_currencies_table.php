@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('thousands')->default('.');
             $table->string('decimal')->default(',');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

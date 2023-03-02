@@ -10,9 +10,9 @@ enum CourseLevel
     public static function getLabel(self $value): string
     {
         return match ($value) {
-            self::intermediate => 'Intermediário',
-            self::advanced => 'Avançado',
-            default => 'Iniciante'
+            self::intermediate => trans('courses.enums.levels.intermediate'),
+            self::advanced => trans('courses.enums.levels.advanced'),
+            default => trans('courses.enums.levels.begginner'),
         };
     }
 

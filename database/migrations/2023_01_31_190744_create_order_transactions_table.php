@@ -22,6 +22,7 @@ return new class extends Migration
             $table->boolean('user_notified')->default(0);
             $table->boolean('admin_notified')->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

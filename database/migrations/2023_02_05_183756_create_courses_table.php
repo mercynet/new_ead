@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('language_id')->nullable()->constrained();
             $table->integer('order')->default(0);
             $table->string('name');
             $table->string('slug')->unique();
@@ -29,6 +30,8 @@ return new class extends Migration
             $table->boolean('active')->default(1);
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
+            $table->integer('price')->default(0);
+            $table->integer('access_months')->nullable()->comment('Number of days to access the course');
             $table->dateTime('started_at')->nullable();
             $table->dateTime('ended_at')->nullable();
             $table->timestamps();

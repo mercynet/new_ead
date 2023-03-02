@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\Searchable;
+use App\Traits\HasLog;
 use App\Traits\Price;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,31 +15,27 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  */
 class OrderLine extends Model
 {
-    use HasFactory, Searchable, SoftDeletes, Price;
+    use HasFactory, SoftDeletes, HasLog, Price;
 
     /**
      * @var string[]
      */
     protected $fillable = [
         'order_id',
-        'product_id',
-        'product_sku',
-        'product_price',
-        'product_discount',
-        'product_quantity',
-        'product_details',
+        'model_type',
+        'model_id',
+        'model_name',
+        'model_price',
+        'model_discount',
+        'model_quantity',
+        'model_details',
     ];
 
     /**
      * @var string[]
      */
-    protected $searchableFields = ['*'];
-
-    /**
-     * @var string[]
-     */
     protected $casts = [
-        'product_details' => 'array',
+        'model_details' => 'array',
     ];
 
     /**
@@ -48,13 +44,5 @@ class OrderLine extends Model
     public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function product(): BelongsTo
-    {
-        return $this->belongsTo(Product::class);
     }
 }

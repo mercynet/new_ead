@@ -13,6 +13,7 @@ return new class extends Migration {
     public function up()
     {
         Schema::create('order_lines', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('order_id')->constrained();
             $table->string('model_type');
             $table->integer('model_id');
@@ -23,7 +24,6 @@ return new class extends Migration {
             $table->json('model_details')->nullable();
             $table->timestamps();
             $table->softDeletes();
-            $table->primary(['order_id', 'model_type', 'model_id']);
         });
     }
 

@@ -23,6 +23,7 @@ return new class extends Migration
             $table->longText('description')->nullable();
             $table->boolean('active')->default(1);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

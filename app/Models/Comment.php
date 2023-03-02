@@ -2,25 +2,27 @@
 
 namespace App\Models;
 
+use App\Traits\HasLog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static inRandomOrder()
  */
 class Comment extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes, HasLog;
 
     protected $fillable = [
         'comment_id',
+        'commentable_id',
+        'commentable_type',
         'comment',
         'activated_at',
-        'commentable_id',
-        'commentable_type'
     ];
 
     protected $casts = [

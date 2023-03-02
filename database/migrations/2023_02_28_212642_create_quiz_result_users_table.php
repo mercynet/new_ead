@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('quiz_id')->constrained();
-            $table->foreignId('quiz_tip_id')->constrained();
             $table->string('model_type');
             $table->integer('model_id');
             $table->integer('result');

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('count_user')->default(1);
             $table->string('name');
             $table->string('code')->unique();
+            $table->boolean('active')->default(0);
             $table->dateTime('date_from')->nullable();
             $table->dateTime('date_to')->nullable();
             $table->timestamps();

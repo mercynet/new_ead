@@ -16,6 +16,8 @@ return new class extends Migration
         Schema::create('user_infos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
+            $table->foreignId('language_id')->nullable()->constrained();
+            $table->foreignId('timezone_id')->nullable()->constrained();
             $table->string('document')->unique();
             $table->string('identity_registry')->nullable()->unique();
             $table->string('avatar')->nullable();

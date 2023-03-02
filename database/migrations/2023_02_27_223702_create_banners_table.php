@@ -23,8 +23,7 @@ return new class extends Migration
             $table->string('video')->nullable();
             $table->string('banner')->nullable();
             $table->string('banner_mobile')->nullable();
-            $table->string('local')->default('hero')
-                ->comment('categories / lesson / account / hero / home_middle / home_footer');
+            $table->string('local')->default('hero')->comment('categories / lesson / account / hero / home_middle / home_footer');
             $table->boolean('active')->default(1);
             $table->dateTime('date_from')->nullable();
             $table->dateTime('date_to')->nullable();

@@ -18,12 +18,13 @@ return new class extends Migration
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('image');
-            $table->string('position_x',64)->nullable();
-            $table->string('position_y',64)->nullable();
+            $table->integer('position_x',64)->nullable();
+            $table->integer('position_y',64)->nullable();
             $table->string('font_size',64)->nullable();
             $table->string('text_color',64)->nullable();
             $table->dateTime('published_at')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

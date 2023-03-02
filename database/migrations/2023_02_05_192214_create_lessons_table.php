@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained();
             $table->foreignId('course_module_id')->nullable()->constrained();
+            $table->foreignId('language_id')->nullable()->constrained();
             $table->integer('order')->default(0);
             $table->string('name');
             $table->string('slug')->unique();

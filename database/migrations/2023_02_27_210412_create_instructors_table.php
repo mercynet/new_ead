@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('sex_meetings')->default('both')->comment('male / female');
             $table->string('meeting_type')->default('both')->comment('online / person');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

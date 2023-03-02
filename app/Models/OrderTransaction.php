@@ -3,31 +3,31 @@
 namespace App\Models;
 
 use App\Enums\OrderStatusEnum;
+use App\Traits\HasLog;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static create(array $array)
  */
 class OrderTransaction extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes, HasLog;
 
     protected $fillable = [
         'order_id',
         'user_id',
         'status',
         'comment',
-        'customer_notified',
-        'seller_notified',
+        'user_notified',
         'admin_notified',
     ];
 
     protected $casts = [
-        'customer_notified' => 'boolean',
-        'seller_notified' => 'boolean',
+        'user_notified' => 'boolean',
         'admin_notified' => 'boolean',
         'status' => OrderStatusEnum::class,
     ];
