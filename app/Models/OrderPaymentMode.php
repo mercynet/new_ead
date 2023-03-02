@@ -2,30 +2,36 @@
 
 namespace App\Models;
 
-use App\Models\Scopes\Searchable;
+
 use App\Traits\Price;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * @method static insert(array $lines)
  */
 class OrderPaymentMode extends Model
 {
-    use HasFactory, Searchable, Price;
+    use HasFactory, Price;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = ['order_id', 'payment_mode_id', 'price'];
 
-    protected $searchableFields = ['*'];
-
-    protected $table = 'order_payment_modes';
-
-    public function order()
+    /**
+     * @return BelongsTo
+     */
+    public function order(): BelongsTo
     {
         return $this->belongsTo(Order::class);
     }
 
-    public function paymentMode()
+    /**
+     * @return BelongsTo
+     */
+    public function paymentMode(): BelongsTo
     {
         return $this->belongsTo(PaymentMode::class);
     }
