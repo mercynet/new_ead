@@ -17,9 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->integer('position_x')->nullable();
+            $table->integer('position_y')->nullable();
             $table->string('image');
-            $table->integer('position_x',64)->nullable();
-            $table->integer('position_y',64)->nullable();
             $table->string('font_size',64)->nullable();
             $table->string('text_color',64)->nullable();
             $table->dateTime('published_at')->nullable();
