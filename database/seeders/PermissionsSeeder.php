@@ -24,7 +24,7 @@ class PermissionsSeeder extends Seeder
 
         // Create default permissions
         foreach ($guardNames as $guard) {
-            Permission::insert([
+            Permission::upsert([
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list students', 'description' => 'Listar Alunos'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view students', 'description' => 'Visualizar Alunos'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create students', 'description' => 'Criar Alunos'],
@@ -83,7 +83,7 @@ class PermissionsSeeder extends Seeder
                 ['guard_name' => $guard, 'group' => 'Quizzes', 'name' => 'update quizzes', 'description' => 'Editar Questionários'],
                 ['guard_name' => $guard, 'group' => 'Quizzes', 'name' => 'delete quizzes', 'description' => 'Remover Questionários'],
                 ['guard_name' => $guard, 'group' => 'Quizzes', 'name' => 'list quizzes results', 'description' => 'Listar Resultados de Questionários'],
-            ]);
+            ], ['group_name', 'name']);
             // Create user role and assign existing permissions
             $currentPermissions = Permission::where(['guard_name' => $guard])->get();
             $userRole = Role::create(['name' => 'user', 'guard_name' => $guard]);
@@ -92,7 +92,7 @@ class PermissionsSeeder extends Seeder
 
         // Create admin exclusive permissions
         foreach ($guardNames as $guard) {
-            Permission::insert([
+            Permission::upsert([
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list roles', 'description' => 'Listar Perfis de Usuário'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view roles', 'description' => 'Visualizar Perfis de Usuário'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create roles', 'description' => 'Criar Perfis de Usuário'],
@@ -105,7 +105,7 @@ class PermissionsSeeder extends Seeder
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create users', 'description' => 'Criar Usuários'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'update users', 'description' => 'Editar Usuários'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'delete users', 'description' => 'Remover Usuários'],
-            ]);
+            ], ['group_name', 'name']);
             // Create admin role and assign all permissions
             $allPermissions = Permission::where(['guard_name' => $guard])->get();
             $adminRole = Role::create(['name' => 'super-admin', 'guard_name' => $guard]);
