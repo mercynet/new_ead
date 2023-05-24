@@ -66,6 +66,6 @@ class UserService
      */
     public static function create(array $userData): User
     {
-        $user = User::create($userData);
+        return User::create($userData);
     }
 }

@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\File;
  */
 function translations(string $locale): array
 {
-    $translationFiles = File::files(base_path("resources/lang/${locale}"));
+    $translationFiles = File::files(base_path("resources/lang/{$locale}"));
 
     return collect($translationFiles)
         ->map(fn($file) => [$file->getFilenameWithoutExtension() => require($file)])
