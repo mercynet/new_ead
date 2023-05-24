@@ -19,6 +19,7 @@ class UserResource extends JsonResource
             'active' => $this->active,
             'group_id' => $this->group_id,
             'roles' => $this->whenLoaded('roles'),
+            'user_info' => UserInfoResource::make($this->whenLoaded('userInfo')),
         ];
     }
 

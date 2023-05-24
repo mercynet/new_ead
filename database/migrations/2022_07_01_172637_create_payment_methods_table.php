@@ -13,14 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payment_modes', function (Blueprint $table) {
+        Schema::create('payment_methods', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('path')->unique()->comment('The path differences each payment mode');
+            $table->string('alias')->unique();
             $table->string('image')->nullable();
             $table->boolean('active')->default(0);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment_modes');
+        Schema::dropIfExists('payment_methods');
     }
 };

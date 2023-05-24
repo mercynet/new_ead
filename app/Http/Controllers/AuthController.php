@@ -29,7 +29,7 @@ class AuthController
             ]);
         }
         $request->session()->regenerate();
-        return LoginResource::make(auth()->user()->loadMissing(['roles.permissions']));
+        return LoginResource::make(auth()->user()->loadMissing(['roles.permissions:id,name']));
     }
 
     /**
@@ -40,7 +40,7 @@ class AuthController
     {
         $user = UserService::register($request->validated());
         Auth::login($user);
-        return LoginResource::make($user->loadMissing('roles.permissions'));
+        return LoginResource::make($user->loadMissing('roles.permissions:id,name'));
     }
 
     /**
@@ -54,7 +54,7 @@ class AuthController
             return ['success' => false];
         }
 
-        return LoginResource::make(User::with(['userInstallations', 'roles.permissions'])->find(auth()->id()));
+        return LoginResource::make(User::with(['roles.permissions:id,name'])->find(auth()->id()));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Users\Role as RoleEnum;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
@@ -24,6 +25,9 @@ class PermissionsSeeder extends Seeder
 
         // Create default permissions
         foreach ($guardNames as $guard) {
+            Role::upsert([['id' => 1, 'name' => RoleEnum::student->name, 'guard_name' => $guard]], ['id']);
+            $studentRole = Role::where(['name' => RoleEnum::student->name])->first();
+
             Permission::upsert([
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list students', 'description' => 'Listar Alunos'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view students', 'description' => 'Visualizar Alunos'],
@@ -86,8 +90,7 @@ class PermissionsSeeder extends Seeder
             ], ['group_name', 'name']);
             // Create user role and assign existing permissions
             $currentPermissions = Permission::where(['guard_name' => $guard])->get();
-            $userRole = Role::create(['name' => 'user', 'guard_name' => $guard]);
-            $userRole->syncPermissions($currentPermissions);
+            $studentRole->syncPermissions($currentPermissions);
         }
 
         // Create admin exclusive permissions
@@ -100,18 +103,26 @@ class PermissionsSeeder extends Seeder
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'delete roles', 'description' => 'Remover Perfis de Usuário'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list permissions', 'description' => 'Listar Permissões'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view permissions', 'description' => 'Visualizar Permissões'],
-                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list users', 'description' => 'Listar Usuários'],
-                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view users', 'description' => 'Visualizar Usuários'],
-                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create users', 'description' => 'Criar Usuários'],
-                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'update users', 'description' => 'Editar Usuários'],
-                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'delete users', 'description' => 'Remover Usuários'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list administrators', 'description' => 'Listar Administradores'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view administrators', 'description' => 'Visualizar Administradores'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create administrators', 'description' => 'Criar Administradores'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'update administrators', 'description' => 'Editar Administradores'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'delete administrators', 'description' => 'Remover Administradores'],
             ], ['group_name', 'name']);
             // Create admin role and assign all permissions
             $allPermissions = Permission::where(['guard_name' => $guard])->get();
-            $adminRole = Role::create(['name' => 'super-admin', 'guard_name' => $guard]);
+
+            Role::upsert([['name' => RoleEnum::superuser->name, 'guard_name' => $guard]], ['id']);
+            Role::upsert([['name' => RoleEnum::development->name, 'guard_name' => $guard]], ['id']);
+            $adminRole = Role::where(['name' => RoleEnum::superuser->name])->first();
+            $developmentRole = Role::where(['name' => RoleEnum::development->name])->first();
+
             $adminRole->syncPermissions($allPermissions);
+            $developmentRole->syncPermissions($allPermissions);
         }
         $user = User::whereEmail('admin@example.com')->first();
-        $user?->assignRole(Role::where(['name' => 'super-admin'])->get());
+        $user?->assignRole(Role::where(['name' => RoleEnum::superuser->name])->get());
+        $userDevelopment = User::whereEmail('development@craftsys.com.br')->first();
+        $userDevelopment?->assignRole(Role::where(['name' => RoleEnum::development->name])->get());
     }
 }

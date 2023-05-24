@@ -24,6 +24,9 @@ class RedirectIfAuthenticated
     {
         $guards = empty($guards) ? [null] : $guards;
 
+        if($guards[0] === null) {
+            return $next($request);
+        }
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
                 if($request->expectsJson()) {

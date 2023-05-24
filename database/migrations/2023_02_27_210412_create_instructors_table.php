@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('identify_image')->nullable();
             $table->boolean('financial_approved')->default(0);
             $table->boolean('available_meetings')->default(1);
-            $table->string('sex_meetings')->default('both')->comment('male / female');
-            $table->string('meeting_type')->default('both')->comment('online / person');
+            $table->string('sex_meetings')->default('both')->comment('male / female / both');
+            $table->string('meeting_type')->default('both')->comment('online / personal / both');
             $table->timestamps();
             $table->softDeletes();
         });

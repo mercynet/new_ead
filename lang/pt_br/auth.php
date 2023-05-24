@@ -13,10 +13,11 @@ return [
     |
     */
 
-    'failed' => 'These credentials do not match our records.',
-    'password' => 'The provided password is incorrect.',
-    'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'failed' => 'Suas credenciais não foram encontradas em nossos registros.',
+    'password' => 'A senha está errada.',
+    'throttle' => 'Muitas tentativas de login. Por favor, tente novamente em :seconds segundos.',
     'roles' => [
-        'not-found' => 'Your user could not be registered. COD RL001',
+        'not-found' => 'Seu usuário não pôde ser cadastrado. COD RL001',
     ]
+
 ];

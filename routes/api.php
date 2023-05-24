@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Mzrt\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,16 +18,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')
     ->controller(AuthController::class)
-    ->group(function() {
+    ->group(function () {
         Route::post('login', 'login')->name('login');
         Route::post('register', 'register')->name('register');
     });
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-    Route::name('mzrt.')->prefix('mzrt')->group(function(){
+    Route::name('mzrt.')->prefix('mzrt')->group(function () {
         Route::apiResources([
-            'users' => \App\Http\Controllers\Mzrt\UserController::class,
+            'users' => UserController::class,
         ]);
+
+        Route::name('users.')->prefix('users')->controller(UserController::class)->group(function () {
+            Route::patch('enable/{user}', 'enable')->name('enable');
+            Route::patch('disable/{user}', 'disable')->name('disable');
+        });
     });
 });

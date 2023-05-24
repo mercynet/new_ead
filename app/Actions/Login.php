@@ -25,6 +25,6 @@ class Login
                 'email' => trans('auth.failed'),
             ]);
         }
-        return User::with(['roles.permissions'])->find(auth()->id());
+        return User::with(['roles.permissions:id,name'])->find(auth()->id());
     }
 }

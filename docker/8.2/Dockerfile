@@ -5,6 +5,8 @@ LABEL maintainer="Taylor Otwell"
 ARG WWWGROUP
 ARG NODE_VERSION=18
 ARG POSTGRES_VERSION=14
+ARG XDEBUG
+ARG XDEBUG_PORT
 
 WORKDIR /var/www/html
 
@@ -26,8 +28,14 @@ RUN apt-get update \
        php8.2-intl php8.2-readline \
        php8.2-ldap \
        php8.2-msgpack php8.2-igbinary php8.2-redis php8.2-swoole \
-       php8.2-memcached php8.2-pcov php8.2-xdebug \
-    && php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
+       php8.2-memcached php8.2-pcov php8.2-xdebug
+RUN echo "xdebug.client_port = ${XDEBUG_PORT}" >> /etc/php/8.2/mods-available/xdebug.ini \
+    && echo "xdebug.mode = debug" >> /etc/php/8.2/mods-available/xdebug.ini \
+    && echo "xdebug.discover_client_host = 1" >> /etc/php/8.2/mods-available/xdebug.ini \
+    && echo "xdebug.start_with_request = yes" >> /etc/php/8.2/mods-available/xdebug.ini \
+    && echo "xdebug.client_host = host.docker.internal" >> /etc/php/8.2/mods-available/xdebug.ini \
+    && echo "xdebug.log_level=0" >> /etc/php/8.2/mods-available/xdebug.ini
+RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer \
     && curl -sLS https://deb.nodesource.com/setup_$NODE_VERSION.x | bash - \
     && apt-get install -y nodejs \
     && npm install -g npm \

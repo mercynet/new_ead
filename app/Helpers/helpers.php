@@ -27,7 +27,7 @@ if (!function_exists('justNumbers')) {
     }
 }
 
-if (!function_exists('guarNames')) {
+if (!function_exists('guardNames')) {
     /**
      * @return array
      */
@@ -38,3 +38,14 @@ if (!function_exists('guarNames')) {
         return $guardNames;
     }
 }
+
+if (!function_exists('getGuardName')) {
+    /**
+     * @return string|null
+     */
+    function getGuardName(): string|null
+    {
+        return Auth::guard('web')->check() ? 'web' : 'sanctum';
+    }
+}
+

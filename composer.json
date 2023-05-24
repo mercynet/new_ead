@@ -9,30 +9,30 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "ext-http": "*",
         "canducci/cep": "^3.1",
         "doctrine/dbal": "^3.6",
-        "freshbitsweb/laravel-cart-manager": "^1.5",
         "guzzlehttp/guzzle": "^7.2",
-        "laravel/framework": "^9.19",
+        "laravel/framework": "^10.0",
         "laravel/horizon": "^5.14",
-        "laravel/sanctum": "^3.0",
+        "laravel/sanctum": "^3.2",
         "laravel/telescope": "^4.13",
         "laravel/tinker": "^2.7",
-        "laravellegends/pt-br-validator": "^9.1",
+        "laravellegends/pt-br-validator": "^10.0",
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-collection-macros": "^7.12",
         "spatie/laravel-permission": "^5.9",
-        "ext-http": "*"
+        "spatie/laravel-query-builder": "^5.2"
     },
     "require-dev": {
-        "pestphp/pest": "^1.21",
+        "pestphp/pest": "^2.0",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
         "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^6.1",
-        "phpunit/phpunit": "^9.5.10",
-        "spatie/laravel-ignition": "^1.0"
+        "nunomaduro/collision": "^7.0",
+        "phpunit/phpunit": "^10.0",
+        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "psr-4": {
