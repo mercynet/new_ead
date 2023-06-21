@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('language_id')->nullable()->constrained();
             $table->string('name');
             $table->timestamps();
         });

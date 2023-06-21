@@ -6,19 +6,20 @@ use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\Auth\LoginResource;
 use App\Models\User;
-use App\Services\UserService;
+use App\Services\Users\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
 
 /**
- *
+ * @Authenticated
  */
 class AuthController
 {
     /**
      * @param LoginRequest $request
      * @return LoginResource
+     * @unauthenticated
      */
     public function login(LoginRequest $request)
     {
@@ -35,6 +36,7 @@ class AuthController
     /**
      * @param RegisterRequest $request
      * @return LoginResource|null
+     * @unauthenticated
      */
     public function register(RegisterRequest $request): ?LoginResource
     {
@@ -49,12 +51,14 @@ class AuthController
      */
     public function checkToken(Request $request): array|LoginResource
     {
-        if(!$request->bearerToken()) {
+        if(!auth(getGuardName())->check()) {
             $this->logout($request);
             return ['success' => false];
         }
-
-        return LoginResource::make(User::with(['roles.permissions:id,name'])->find(auth()->id()));
+        return LoginResource::make(UserService::getById(
+            id: auth(getGuardName())->id(),
+            relations: ['roles.permissions:id,name']
+        )->find(auth()->id()));
     }
 
     /**

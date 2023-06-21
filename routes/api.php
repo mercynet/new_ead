@@ -24,7 +24,8 @@ Route::middleware('guest')
     });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::delete('logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('check-token', [AuthController::class, 'checkToken'])->name('check-token');
     Route::name('mzrt.')->prefix('mzrt')->group(function () {
         Route::apiResources([
             'users' => UserController::class,

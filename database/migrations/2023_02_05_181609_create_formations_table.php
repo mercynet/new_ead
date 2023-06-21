@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('formations', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->foreignId('language_id')->nullable()->constrained();
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();

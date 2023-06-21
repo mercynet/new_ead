@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Enums\Users\Role;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -16,6 +17,9 @@ class UserPolicy
 
     public function view(User $user, User $model): bool
     {
+        if(!$user->hasRole([Role::development->name, Role::superuser->name])) {
+            return $user->can('view administrators') && $user->id === $model->id;
+        }
         return $user->can('view administrators');
     }
 
@@ -26,6 +30,9 @@ class UserPolicy
 
     public function update(User $user, User $model): bool
     {
+        if(!$user->hasRole([Role::development->name, Role::superuser->name])) {
+            return $user->can('update administrators') && $user->id === $model->id;
+        }
         return $user->can('update administrators');
     }
 

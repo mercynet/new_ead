@@ -25,7 +25,13 @@ class PermissionsSeeder extends Seeder
 
         // Create default permissions
         foreach ($guardNames as $guard) {
-            Role::upsert([['id' => 1, 'name' => RoleEnum::student->name, 'guard_name' => $guard]], ['id']);
+            Role::upsert([
+                ['name' => RoleEnum::development->name, 'guard_name' => $guard],
+                ['name' => RoleEnum::superuser->name, 'guard_name' => $guard],
+                ['name' => RoleEnum::admin->name, 'guard_name' => $guard],
+                ['name' => RoleEnum::student->name, 'guard_name' => $guard],
+                ['name' => RoleEnum::instructor->name, 'guard_name' => $guard],
+            ], ['name']);
             $studentRole = Role::where(['name' => RoleEnum::student->name])->first();
 
             Permission::upsert([
@@ -111,9 +117,6 @@ class PermissionsSeeder extends Seeder
             ], ['group_name', 'name']);
             // Create admin role and assign all permissions
             $allPermissions = Permission::where(['guard_name' => $guard])->get();
-
-            Role::upsert([['name' => RoleEnum::superuser->name, 'guard_name' => $guard]], ['id']);
-            Role::upsert([['name' => RoleEnum::development->name, 'guard_name' => $guard]], ['id']);
             $adminRole = Role::where(['name' => RoleEnum::superuser->name])->first();
             $developmentRole = Role::where(['name' => RoleEnum::development->name])->first();
 

@@ -9,16 +9,18 @@ enum Role
     use ToArray;
     case development;
     case superuser;
+    case admin;
     case student;
     case instructor;
 
     public static function getLabel(self $value): string
     {
         return match ($value) {
-            self::development => trans('roles.name.development'),
-            self::superuser => trans('roles.name.superuser'),
-            self::student => trans('roles.name.student'),
-            default => trans('roles.name.instructor'),
+            self::development => 'Development',
+            self::superuser => 'Superuser',
+            self::admin => 'Admin',
+            self::student => 'Student',
+            default => 'Instructor',
         };
     }
 }

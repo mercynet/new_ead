@@ -1,0 +1,516 @@
+name: Mzrt
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/mzrt/users
+    metadata:
+      groupName: Mzrt
+      groupDescription: ''
+      subgroup: Users
+      subgroupDescription: 'List of generic users'
+      title: 'List all users'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=kX9uBc4NeKp6CWqTbBBrQmIW8Er1w49Y6KuPRAtl; expires=Wed, 21 Jun 2023 00:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Dg8fEkcvh436e51ZVaPad6b'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/mzrt/users
+    metadata:
+      groupName: Mzrt
+      groupDescription: ''
+      subgroup: Users
+      subgroupDescription: 'List of generic users'
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: deleniti
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: king.immanuel@example.com
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: illum
+        type: string
+        custom: []
+      role:
+        name: role
+        description: 'Must be one of <code>development</code>, <code>superuser</code>, <code>admin</code>, <code>student</code>, or <code>instructor</code>.'
+        required: true
+        example: instructor
+        type: string
+        custom: []
+      address_id:
+        name: address_id
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      timezone_id:
+        name: timezone_id
+        description: ''
+        required: true
+        example: adipisci
+        type: string
+        custom: []
+      group_id:
+        name: group_id
+        description: ''
+        required: true
+        example: at
+        type: string
+        custom: []
+      document:
+        name: document
+        description: ''
+        required: true
+        example: error
+        type: string
+        custom: []
+      identity_registry:
+        name: identity_registry
+        description: ''
+        required: true
+        example: est
+        type: string
+        custom: []
+      avatar:
+        name: avatar
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      birth_date:
+        name: birth_date
+        description: ''
+        required: true
+        example: consequatur
+        type: string
+        custom: []
+      gender:
+        name: gender
+        description: ''
+        required: true
+        example: veritatis
+        type: string
+        custom: []
+      where_know_us:
+        name: where_know_us
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      source:
+        name: source
+        description: ''
+        required: true
+        example: facilis
+        type: string
+        custom: []
+      nickname:
+        name: nickname
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      commission:
+        name: commission
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      bank_iban:
+        name: bank_iban
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      bank_name:
+        name: bank_name
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      identify_image:
+        name: identify_image
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      financial_approved:
+        name: financial_approved
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      available_meetings:
+        name: available_meetings
+        description: ''
+        required: false
+        example: null
+        type: string
+        custom: []
+      sex_meetings:
+        name: sex_meetings
+        description: 'Must be one of <code>male</code>, <code>female</code>, or <code>both</code>.'
+        required: false
+        example: both
+        type: string
+        custom: []
+      meeting_type:
+        name: meeting_type
+        description: 'Must be one of <code>male</code>, <code>female</code>, or <code>both</code>.'
+        required: false
+        example: female
+        type: string
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: true
+        example: ea
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: deleniti
+      email: king.immanuel@example.com
+      password: illum
+      role: instructor
+      timezone_id: adipisci
+      group_id: at
+      document: error
+      identity_registry: est
+      birth_date: consequatur
+      gender: veritatis
+      source: facilis
+      sex_meetings: both
+      meeting_type: female
+      active: ea
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer fZ3abe4da5D1VEkcvPh8g66'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/mzrt/users/{id}'
+    metadata:
+      groupName: Mzrt
+      groupDescription: ''
+      subgroup: Users
+      subgroupDescription: 'List of generic users'
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=6wRl7qwRANFo8xUX1V5uYyadoOUeuAet2KBEA1on; expires=Wed, 21 Jun 2023 00:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 5ckeVa4EP6v6Zad83hbf1Dg'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/mzrt/users/{id}'
+    metadata:
+      groupName: Mzrt
+      groupDescription: ''
+      subgroup: Users
+      subgroupDescription: 'List of generic users'
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: ''
+        required: true
+        example: nihil
+        type: string
+        custom: []
+      email:
+        name: email
+        description: 'Must be a valid email address.'
+        required: true
+        example: zulauf.emilio@example.org
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: mollitia
+        type: string
+        custom: []
+      roles:
+        name: roles
+        description: ''
+        required: true
+        example: sed
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: nihil
+      email: zulauf.emilio@example.org
+      password: mollitia
+      roles: sed
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4EdfkDac38Vh1Zab6gvPe56'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/mzrt/users/{id}'
+    metadata:
+      groupName: Mzrt
+      groupDescription: ''
+      subgroup: Users
+      subgroupDescription: 'List of generic users'
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Dv4Ek1a6P6heVfd5g3Z8acb'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/mzrt/users/enable/{user_id}'
+    metadata:
+      groupName: Mzrt
+      groupDescription: ''
+      subgroup: Users
+      subgroupDescription: 'List of generic users'
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer hd6gv1bPac8eEDa36f4kZ5V'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PATCH
+    uri: 'api/v1/mzrt/users/disable/{user_id}'
+    metadata:
+      groupName: Mzrt
+      groupDescription: ''
+      subgroup: Users
+      subgroupDescription: 'List of generic users'
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      user_id:
+        name: user_id
+        description: 'The ID of the user.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      user_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer Vd83EgcfkZhDb664a5ave1P'
+    controller: null
+    method: null
+    route: null
+    custom: []

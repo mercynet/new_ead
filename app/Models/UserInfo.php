@@ -22,7 +22,6 @@ class UserInfo extends Model
         'address_id',
         'language_id',
         'timezone_id',
-        'country_id',
         'document',
         'identity_registry',
         'avatar',

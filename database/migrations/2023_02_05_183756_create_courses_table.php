@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('language_id')->nullable()->constrained();
             $table->integer('order')->default(0);
             $table->string('name');
             $table->string('slug')->unique();

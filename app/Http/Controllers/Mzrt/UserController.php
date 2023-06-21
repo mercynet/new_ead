@@ -7,12 +7,14 @@ use App\Http\Requests\Mzrt\StoreUserRequest;
 use App\Http\Requests\Mzrt\UpdateUserRequest;
 use App\Http\Resources\Mzrt\UserResource;
 use App\Models\User;
-use App\Services\UserService;
-use Illuminate\Http\Request;
+use App\Services\Users\UserService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
+ * @group Mzrt
  *
+ * @subgroup Users
+ * @subgroupDescription List of generic users
  */
 class UserController extends Controller
 {
@@ -20,14 +22,16 @@ class UserController extends Controller
     {
         $this->authorizeResource(User::class, 'user');
     }
+
     /**
+     * List all users
      * @return AnonymousResourceCollection
      */
     public function index()
     {
         return UserResource::collection(UserService::getAll(relations: [
             'roles.permissions:id,name',
-            'userInfo' => ['timezone', 'language'],
+            'userInfo' => ['timezone'],
         ]))->additional(['success' => true]);
     }
 
@@ -37,8 +41,11 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request)
     {
-        dd($request->validated());
-        return UserResource::make(UserService::create($request->validated()));
+        $user = UserService::create($request->validated());
+        return UserResource::make(UserService::getById(id: $user->id, relations: [
+            'roles.permissions:id,name',
+            'userInfo' => ['timezone'],
+        ]));
     }
 
     /**
@@ -66,7 +73,6 @@ class UserController extends Controller
      */
     public function enable(User $user)
     {
-        $this->authorize('update', $user);
         return UserResource::make(UserService::update($user, ['active' => true]));
     }
 
@@ -76,7 +82,6 @@ class UserController extends Controller
      */
     public function disable(User $user)
     {
-        $this->authorize('update', $user);
         return UserResource::make(UserService::update($user, ['active' => false]));
     }
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Traits\HasLog;
+use App\Traits\HasRole;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -13,7 +14,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Instructor extends Model
 {
-    use HasFactory, SoftDeletes, HasLog;
+    use HasFactory, SoftDeletes, HasLog, HasRole;
 
     /**
      * @var string[]

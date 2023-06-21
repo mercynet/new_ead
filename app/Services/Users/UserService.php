@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services;
+namespace App\Services\Users;
 
 use App\Models\Role;
 use App\Models\User;
@@ -20,7 +20,7 @@ class UserService
      */
     public static function getAll(int $pages = 20, array $fields = [], array $relations = []): null|Collection|LengthAwarePaginator
     {
-        $users = User::query()->hasRole()->select(!empty($fields) ? $fields : ['*']);
+        $users = User::query()->hasAdminRole()->select(!empty($fields) ? $fields : ['*']);
         if(!empty($relations)) {
             $users->with($relations);
         }
@@ -28,6 +28,23 @@ class UserService
             return $users->paginate($pages);
         }
         return $users->get();
+    }
+
+    /**
+     * @param int|array $id
+     * @param array $fields
+     * @param array $relations
+     * @return User|null
+     */
+    public static function getById(int|array $id, array $fields = [], array $relations = []): ?User
+    {
+        $user = User::query()
+            ->hasAdminRole()
+            ->select(!empty($fields) ? $fields : ['*']);
+        if(!empty($relations)) {
+            $user->with($relations);
+        }
+        return $user->find($id);
     }
     /**
      * @param array $userData
@@ -66,6 +83,8 @@ class UserService
      */
     public static function create(array $userData): User
     {
-        return User::create($userData);
+        $user = User::create($userData);
+        (new UserInfoService($user))->create($userData);
+        return $user;
     }
 }
