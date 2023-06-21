@@ -32,4 +32,14 @@ class UpdateUserRequest extends FormRequest
             'roles' => ['required']
         ];
     }
+
+    public function bodyParameters(): array
+    {
+        return [
+            'password' => [
+                'description' => 'Must contain at least one uppercase and one lowercase letter; must contain at least one symbol; must contain at least one number',
+                'example' => 'H3u3h#H%#ywQEG.'
+            ]
+        ];
+    }
 }

@@ -19,4 +19,13 @@ class TimezoneResource extends JsonResource
             'updated_at' => $this->whenHas('updated_at'),
         ];
     }
+
+    /**
+     * @param $request
+     * @return true[]
+     */
+    public function with($request): array
+    {
+        return ['success' => true];
+    }
 }

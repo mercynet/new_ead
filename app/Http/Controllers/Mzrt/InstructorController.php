@@ -15,21 +15,20 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
  */
 class InstructorController extends Controller
 {
+    /**
+     *
+     */
     public function __construct()
     {
-        $this->authorizeResource(Instructor::class, 'user');
+        $this->authorizeResource(Instructor::class, 'instructor');
     }
-    /**
-     * @return AnonymousResourceCollection
-     */
-    public function index()
-    {
-        $this->authorize('viewAny', Instructor::class);
 
-        return InstructorResource::collection(InstructorService::getAll(relations: [
-            'roles.permissions:id,name',
-            'userInfo' => ['timezone'],
-        ]))->additional(['success' => true]);
+    /**
+     * @return void
+     */
+    public function index(): void
+    {
+        abort(404);
     }
 
     /**
@@ -38,64 +37,56 @@ class InstructorController extends Controller
      */
     public function store(StoreInstructorRequest $request)
     {
-        $this->authorize('create', Instructor::class);
-        $user = InstructorService::create($request->validated());
-        return InstructorResource::make(InstructorService::getById(id: $user->id, relations: [
-            'roles.permissions:id,name',
-            'userInfo' => ['timezone'],
-        ]));
+        $data = $request->validated();
+        InstructorService::create($data);
+        return InstructorResource::make(InstructorService::getByUserId(userId: $data['user_id']));
     }
 
     /**
-     * @param Instructor $user
+     * @param Instructor $instructor
      * @return InstructorResource|null
      */
-    public function show(Instructor $user): ?InstructorResource
+    public function show(Instructor $instructor): ?InstructorResource
     {
-        $this->authorize('view', $user);
-        return InstructorResource::make($user->loadMissing(['roles.permissions']));
+        return InstructorResource::make($instructor->loadMissing(['roles.permissions']));
     }
 
     /**
      * @param UpdateInstructorRequest $request
-     * @param Instructor $user
+     * @param Instructor $instructor
      * @return void
      */
-    public function update(UpdateInstructorRequest $request, Instructor $user)
+    public function update(UpdateInstructorRequest $request, Instructor $instructor)
     {
-        $this->authorize('update', $user);
-        return InstructorResource::make(InstructorService::update($user, $request->validated()));
+        return InstructorResource::make(InstructorService::update($instructor, $request->validated()));
     }
 
     /**
-     * @param Instructor $user
+     * @param Instructor $instructor
      * @return void
      */
-    public function enable(Instructor $user)
+    public function enable(Instructor $instructor)
     {
-        $this->authorize('update', $user);
-        return InstructorResource::make(InstructorService::update($user, ['active' => true]));
+        return InstructorResource::make(InstructorService::update($instructor, ['active' => true]));
     }
 
     /**
-     * @param Instructor $user
+     * @param Instructor $instructor
      * @return void
      */
-    public function disable(Instructor $user)
+    public function disable(Instructor $instructor)
     {
-        $this->authorize('update', $user);
-        return InstructorResource::make(InstructorService::update($user, ['active' => false]));
+        return InstructorResource::make(InstructorService::update($instructor, ['active' => false]));
     }
 
     /**
-     * @param Instructor $user
+     * @param Instructor $instructor
      * @return AnonymousResourceCollection
      */
-    public function destroy(Instructor $user)
+    public function destroy(Instructor $instructor)
     {
-        $this->authorize('delete', $user);
-        $user->roles()->detach();
-        $user->delete();
+        $instructor->roles()->detach();
+        $instructor->delete();
         return InstructorResource::collection(Instructor::paginate(20))->additional(['success' => true]);
     }
 }

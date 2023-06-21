@@ -8,6 +8,7 @@ use App\Http\Requests\Mzrt\UpdateUserRequest;
 use App\Http\Resources\Mzrt\UserResource;
 use App\Models\User;
 use App\Services\Users\UserService;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -27,12 +28,9 @@ class UserController extends Controller
      * List all users
      * @return AnonymousResourceCollection
      */
-    public function index()
+    public function index(Request $request)
     {
-        return UserResource::collection(UserService::getAll(relations: [
-            'roles.permissions:id,name',
-            'userInfo' => ['timezone'],
-        ]))->additional(['success' => true]);
+        return UserResource::collection(UserService::getAll(request: $request))->additional(['success' => true]);
     }
 
     /**

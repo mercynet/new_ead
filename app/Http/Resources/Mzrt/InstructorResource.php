@@ -27,4 +27,13 @@ class InstructorResource extends JsonResource
             'user' => new UserResource($this->whenLoaded('user')),
         ];
     }
+
+    /**
+     * @param $request
+     * @return true[]
+     */
+    public function with($request): array
+    {
+        return ['success' => true];
+    }
 }

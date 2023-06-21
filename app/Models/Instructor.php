@@ -31,6 +31,11 @@ class Instructor extends Model
         'meeting_type',
     ];
 
+    protected $casts = [
+        'financial_approved' => 'boolean',
+        'available_meetings' => 'boolean',
+    ];
+
     /**
      * @return BelongsTo
      */

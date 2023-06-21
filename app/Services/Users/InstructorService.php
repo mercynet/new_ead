@@ -66,8 +66,9 @@ class InstructorService
      */
     public static function create(array $instructorData): Instructor
     {
-        $instructor = Instructor::create($instructorData);
-        (new InstructorInfoService($instructor))->create($instructorData);
-        return $instructor;
+        /*
+         * @ToDo Criar notificação
+         */
+        return Instructor::create($instructorData);
     }
 }

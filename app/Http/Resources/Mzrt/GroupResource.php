@@ -2,24 +2,23 @@
 
 namespace App\Http\Resources\Mzrt;
 
-use App\Models\Language;
+use App\Models\Group;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-/** @mixin Language */
-class LanguageResource extends JsonResource
+/** @mixin Group */
+class GroupResource extends JsonResource
 {
     public function toArray(Request $request): array
     {
         return [
             'id' => $this->whenHas('id'),
-            'code' => $this->whenHas('code'),
             'name' => $this->whenHas('name'),
-            'active' => $this->whenHas('active'),
-            'locale' => $this->whenHas('locale'),
-            'icon' => $this->whenHas('icon'),
+            'discount' => $this->whenHas('discount'),
+            'commission' => $this->whenHas('commission'),
             'created_at' => $this->whenHas('created_at'),
             'updated_at' => $this->whenHas('updated_at'),
+            'users' => UserResource::collection($this->whenLoaded('users')),
         ];
     }
 

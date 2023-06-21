@@ -5,8 +5,14 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
+/**
+ *
+ */
 class LoginRequest extends FormRequest
 {
+    /**
+     * @return array
+     */
     public function rules(): array
     {
         return [
@@ -19,7 +25,10 @@ class LoginRequest extends FormRequest
         ];
     }
 
-    public function bodyParameters()
+    /**
+     * @return array[]
+     */
+    public function bodyParameters(): array
     {
         return [
             'password' => [
@@ -29,6 +38,9 @@ class LoginRequest extends FormRequest
         ];
     }
 
+    /**
+     * @return bool
+     */
     public function authorize(): bool
     {
         return true;

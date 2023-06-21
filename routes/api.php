@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Mzrt\InstructorController;
 use App\Http\Controllers\Mzrt\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -30,10 +31,15 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::apiResources([
             'users' => UserController::class,
         ]);
-
         Route::name('users.')->prefix('users')->controller(UserController::class)->group(function () {
             Route::patch('enable/{user}', 'enable')->name('enable');
             Route::patch('disable/{user}', 'disable')->name('disable');
+            Route::name('instructors.')
+                ->prefix('instructors')
+                ->controller(InstructorController::class)
+                ->group(function () {
+                    Route::post('', 'store')->name('store');
+                });
         });
     });
 });

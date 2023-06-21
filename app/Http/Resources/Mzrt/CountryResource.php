@@ -19,4 +19,13 @@ class CountryResource extends JsonResource
             'updated_at' => $this->updated_at,
         ];
     }
+
+    /**
+     * @param $request
+     * @return true[]
+     */
+    public function with($request): array
+    {
+        return ['success' => true];
+    }
 }
