@@ -106,7 +106,10 @@ class UserService
             Role::where(['name' => $userData['roles']])->get() :
             Role::where(['name' => 'student'])->first();
         abort_if(!$roles, 401, trans('auth.roles.not-found'));
+        $userData['document'] = justNumbers($userData['document']);
         $user = User::create($userData);
+        $user->assignRole($roles);
+        $user->group()->associate($userData['group_id']);
         (new UserInfoService($user))->create($userData);
         return $user;
     }

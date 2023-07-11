@@ -7,6 +7,7 @@ use App\Http\Requests\Mzrt\StoreInstructorRequest;
 use App\Http\Requests\Mzrt\UpdateInstructorRequest;
 use App\Http\Resources\Mzrt\InstructorResource;
 use App\Models\Instructor;
+use App\Models\User;
 use App\Services\Users\InstructorService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -43,31 +44,31 @@ class InstructorController extends Controller
     }
 
     /**
-     * @param Instructor $instructor
+     * @param User $user
      * @return InstructorResource|null
      */
-    public function show(Instructor $instructor): ?InstructorResource
+    public function show(User $user): ?InstructorResource
     {
-        return InstructorResource::make($instructor->loadMissing(['roles.permissions']));
+        return InstructorResource::make($user->loadMissing(['instructor', 'roles.permissions']));
     }
 
     /**
      * @param UpdateInstructorRequest $request
-     * @param Instructor $instructor
+     * @param User $user
      * @return void
      */
-    public function update(UpdateInstructorRequest $request, Instructor $instructor)
+    public function update(UpdateInstructorRequest $request, User $user)
     {
-        return InstructorResource::make(InstructorService::update($instructor, $request->validated()));
+        return InstructorResource::make(InstructorService::update($user, $request->validated()));
     }
 
     /**
-     * @param Instructor $instructor
+     * @param User $user
      * @return void
      */
-    public function enable(Instructor $instructor)
+    public function enable(User $user)
     {
-        return InstructorResource::make(InstructorService::update($instructor, ['active' => true]));
+        return InstructorResource::make(InstructorService::update($user, ['active' => true]));
     }
 
     /**

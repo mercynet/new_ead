@@ -4,6 +4,7 @@ namespace App\Enums;
 
 enum BannerLocal
 {
+    use ToArray;
     case categories;
     case lesson;
     case account;
@@ -21,10 +22,5 @@ enum BannerLocal
             self::home_middle => 'Centro da homepage',
             default => 'Rodapé da homepage'
         };
-    }
-
-    public static function toArray(): array
-    {
-        return collect(self::cases())->map(fn($case) => $case->name)->toArray();
     }
 }

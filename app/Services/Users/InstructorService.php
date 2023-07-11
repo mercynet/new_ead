@@ -4,6 +4,7 @@ namespace App\Services\Users;
 
 use App\Models\Role;
 use App\Models\Instructor;
+use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -29,35 +30,17 @@ class InstructorService
         }
         return $instructor->first();
     }
-    /**
-     * @param array $instructorData
-     * @return Instructor|null
-     */
-    public static function register(array $instructorData): ?Instructor
-    {
-        $instructorData['password'] = bcrypt($instructorData['password']);
-        $instructor = Instructor::create($instructorData);
-        $roles = !empty($instructorData['roles']) ? Role::where(['name' => $instructorData['roles']])->get() : Role::where(['name' => 'student'])->first();
-        abort_if(!$roles, 401, trans('auth.roles.not-found'));
-        $instructor->assignRole($roles);
-        return $instructor->loadMissing(['roles.permissions']);
-    }
 
     /**
-     * @param Instructor $instructor
+     * @param User $user
      * @param array $instructorData
      * @return Instructor|null
      */
-    public static function update(Instructor $instructor, array $instructorData): ?Instructor
+    public static function update(User $user, array $instructorData): ?Instructor
     {
+        $instructor = self::getByUserId($user->id);
         $instructor->update($instructorData);
-
-        if(!empty($instructorData['roles'])) {
-            $roles = Role::where(['name' => $instructorData['roles']])->get();
-            $instructor->assignRole($roles);
-        }
-
-        return $instructor->loadMissing(['roles.permissions']);
+        return $instructor;
     }
 
     /**

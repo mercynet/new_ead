@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Mzrt;
 
+use App\Enums\Users\Gender;
+use App\Enums\Users\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
@@ -26,10 +28,22 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => ['required'],
             'email' => ['required', 'email', 'string', Rule::unique('users')->ignore($this->user)],
             'password' => ['sometimes', 'required', Password::defaults(), 'confirmed'],
-            'roles' => ['required']
+            'roles' => ['required', Rule::in(Role::toArray())],
+            'address_id' => ['nullable', 'exists:addresses,id'],
+            'timezone_id' => ['required', 'exists:timezones,id'],
+            'group_id' => ['required', 'exists:groups,id'],
+            'document' => ['required', Rule::unique('user_infos')],
+            'identity_registry' => ['required', Rule::unique('user_infos')],
+            'avatar' => ['nullable'],
+            'birth_date' => ['required'],
+            'gender' => ['required'],
+            'where_know_us' => ['nullable'],
+            'source' => ['sometimes', 'required'],
+            'nickname' => ['nullable'],
+            'active' => ['sometimes', 'required'],
         ];
     }
 

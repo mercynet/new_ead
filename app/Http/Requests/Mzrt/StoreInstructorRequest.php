@@ -4,6 +4,7 @@ namespace App\Http\Requests\Mzrt;
 
 use App\Enums\Users\Gender;
 use App\Enums\Users\MeetingType;
+use App\Enums\Users\Role;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -13,14 +14,22 @@ class StoreInstructorRequest extends FormRequest
     {
         return [
             'user_id' => ['required', 'exists:users,id'],
-            'commission' => ['required', 'integer'],
+            'commission' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
             'bank_iban' => ['nullable'],
             'bank_name' => ['nullable'],
-            'identify_image' => ['nullable'],
-            'financial_approved' => ['nullable', 'boolean'],
-            'available_meetings' => ['nullable', 'boolean'],
-            'sex_meetings' => ['required', Rule::in(Gender::toArray())],
-            'meeting_type' => ['required', Rule::in(MeetingType::toArray())],
+            'identify_image' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
+            'financial_approved' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
+            'available_meetings' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
+            'sex_meetings' => [
+                'nullable',
+                Rule::requiredIf(request('role') === Role::instructor->name),
+                Rule::in(Gender::toArray()),
+            ],
+            'meeting_type' => [
+                'nullable',
+                Rule::requiredIf(request('role') === Role::instructor->name),
+                Rule::in(Gender::toArray()),
+            ],
         ];
     }
 

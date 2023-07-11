@@ -41,24 +41,9 @@ class StoreUserRequest extends FormRequest
             'birth_date' => ['required'],
             'gender' => ['required'],
             'where_know_us' => ['nullable'],
+            'roles' => ['required', Rule::in(Role::toArray())],
             'source' => ['sometimes', 'required'],
             'nickname' => ['nullable'],
-            'commission' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
-            'bank_iban' => ['nullable'],
-            'bank_name' => ['nullable'],
-            'identify_image' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
-            'financial_approved' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
-            'available_meetings' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
-            'sex_meetings' => [
-                'nullable',
-                Rule::requiredIf(request('role') === Role::instructor->name),
-                Rule::in(Gender::toArray()),
-            ],
-            'meeting_type' => [
-                'nullable',
-                Rule::requiredIf(request('role') === Role::instructor->name),
-                Rule::in(Gender::toArray()),
-            ],
             'active' => ['sometimes', 'required'],
         ];
     }
