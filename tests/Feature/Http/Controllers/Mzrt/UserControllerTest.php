@@ -23,14 +23,11 @@ beforeEach(function () {
     actingAs($this->user);
 });
 it('should be able to retrieve a list of all administrators users paginated by 20', function () {
-    //Arrange
     User::factory(21)->create();
-    User::limit(21)->latest()->get()->each(fn ($user) => $user->assignRole($this->superuser->name));
+    User::limit(21)->latest()->get()->each(fn($user) => $user->assignRole($this->superuser->name));
 
-    //Act
-    $response = actingAs($this->user)->getJson(route('mzrt.users.index', ['role' => [$this->superuser->name]]));
+    $response = $this->getJson(route('mzrt.users.index', ['role' => [$this->superuser->name]]));
 
-    //Assert
     expect($response)->assertOk()
         ->and($response->content())->toBeJson()->json()
         ->toHaveCount(4)->toHaveKeys([
@@ -42,7 +39,8 @@ it('should be able to retrieve a list of all administrators users paginated by 2
         ->success->toBeBool()->toBeTrue()
         ->data->not->toBeEmpty()
         ->toHaveCount(20)
-        ->each->toHaveCount(8)->toHaveKeys([
+        ->each->toHaveCount(11)
+        ->toHaveKeys([
             'id',
             'name',
             'email',
@@ -51,20 +49,19 @@ it('should be able to retrieve a list of all administrators users paginated by 2
             'active',
             'group_id',
             'roles',
+            'user_info',
+            'instructor',
+            'group',
         ])
         ->data->each(fn($data) => $data->roles->each(fn($role) => $role->name->toBeIn([$this->superuser->name])));
 });
 it('should be able to retrieve a list of all students users paginated by 20', function () {
-    //Arrange
-    actingAs();
     $role = Role::create(['name' => 'student']);
     User::factory(21)->create();
-    User::limit(21)->latest()->get()->each(fn ($user) => $user->syncRoles([$role->name]));
+    User::limit(21)->latest()->get()->each(fn($user) => $user->syncRoles([$role->name]));
 
-    //Act
     $response = $this->getJson(route('mzrt.users.index', ['role' => $role->name]));
 
-    //Assert
     expect($response)->assertOk()
         ->and($response->content())->toBeJson()->json()
         ->toHaveCount(4)->toHaveKeys([
@@ -89,13 +86,10 @@ it('should be able to retrieve a list of all students users paginated by 20', fu
         ->data->each(fn($data) => $data->roles->each(fn($item) => $item->name->toBeIn([$role->name])));
 });
 it('should be able to retrieve an user', function () {
-    //Arrange
     $user = User::factory()->create();
 
-    //Act
     $response = $this->getJson(route('mzrt.users.show', ['user' => $user->id]));
 
-    //Assert
     expect($response)->assertOk()
         ->and($response->content())->not->toBeEmpty()->toBeJson()->json()
         ->toHaveCount(2)
@@ -187,14 +181,11 @@ it('should be able to update an existing user', function () {
         ->roles->not->toBeEmpty();
 });
 it('should be able to remove an existing user', function () {
-    //Arrange
     User::factory(5)->create();
     $user = User::latest()->first();
 
-    //Act
     $response = $this->deleteJson(route('mzrt.users.destroy', ['user' => $user->id]));
 
-    //Assert
     expect($response)->assertOk()
         ->and($response->content())->toBeJson()->json()
         ->toHaveCount(4)->toHaveKeys([
