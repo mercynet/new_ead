@@ -39,9 +39,9 @@ class UserService
     /**
      * @param User $user
      * @param array $userData
-     * @return LengthAwarePaginator
+     * @return User
      */
-    public static function update(User $user, array $userData): LengthAwarePaginator
+    public static function update(User $user, array $userData): User
     {
         $user->update($userData);
         if (!empty($userData['roles'])) {
@@ -50,7 +50,7 @@ class UserService
         }
         if(!empty($userData['group_id'])) $user->group()->associate($userData['group_id']);
         (new UserInfoService($user))->update($userData);
-        return self::toPaginate();
+        return $user;
     }
 
     /**
@@ -69,9 +69,9 @@ class UserService
 
     /**
      * @param array $userData
-     * @return LengthAwarePaginator
+     * @return User
      */
-    public static function create(array $userData): LengthAwarePaginator
+    public static function create(array $userData): User
     {
         $roles = !empty($userData['roles']) ?
             Role::where(['name' => $userData['roles']])->get() :
@@ -82,7 +82,7 @@ class UserService
         $user->assignRole($roles);
         $user->group()->associate($userData['group_id']);
         (new UserInfoService($user))->create($userData);
-        return self::toPaginate();
+        return $user;
     }
 
     /**
@@ -115,15 +115,15 @@ class UserService
                 'instructor',
                 'student',
                 'group',
-                'addresses',
+                'addresses.country',
             ]);
-        if ($where) {
+        if (!empty($where)) {
             $users->where($where);
         }
         if ($request->roles) {
             $users->whereHas("roles", function ($q) use ($request) {
-                return is_array($request->roles) ?
-                    $q->where(["name", $request->roles]) :
+                return !is_array($request->roles) ?
+                    $q->where(["name" => $request->roles]) :
                     $q->whereIn("name", $request->roles);
             });
         }

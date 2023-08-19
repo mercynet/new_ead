@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Users\Gender;
 use App\Traits\HasLog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -29,6 +30,10 @@ class UserInfo extends Model
         'gender',
         'where_know_us',
         'source',
+    ];
+
+    protected $casts = [
+        'gender' => Gender::class,
     ];
 
     /**

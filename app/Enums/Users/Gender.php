@@ -19,4 +19,9 @@ enum Gender
             default => trans('general.both'),
         };
     }
+
+    public function label(): string
+    {
+        return self::getLabel($this);
+    }
 }

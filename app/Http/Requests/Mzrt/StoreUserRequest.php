@@ -33,18 +33,18 @@ class StoreUserRequest extends FormRequest
             'password' => ['required', Password::defaults(), 'confirmed'],
             'role' => ['required', Rule::in(Role::toArray())],
             'address_id' => ['nullable', 'exists:addresses,id'],
+            'address' => ['nullable', 'array'],
             'timezone_id' => ['required', 'exists:timezones,id'],
             'group_id' => ['required', 'exists:groups,id'],
-            'document' => ['required', Rule::unique('user_infos')],
+            'document' => ['required', 'cpf_ou_cnpj', Rule::unique('user_infos')],
             'identity_registry' => ['required', Rule::unique('user_infos')],
             'avatar' => ['nullable'],
             'birth_date' => ['required', 'date_format:d/m/Y'],
             'gender' => ['required'],
             'where_know_us' => ['nullable'],
-            'roles' => ['required', Rule::in(Role::toArray())],
             'source' => ['sometimes', 'required'],
             'nickname' => ['nullable'],
-            'active' => ['sometimes', 'required'],
+            'active' => ['sometimes', 'required', 'bool'],
         ];
     }
 }

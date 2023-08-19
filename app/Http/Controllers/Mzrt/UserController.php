@@ -19,6 +19,7 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
  */
 class UserController extends Controller
 {
+    private array $additionalReturn = ['success' => true];
     /**
      *
      */
@@ -29,21 +30,22 @@ class UserController extends Controller
 
     /**
      * List all users
+     * @param Request $request
      * @return AnonymousResourceCollection
      */
-    public function index(Request $request)
+    public function index(Request $request): AnonymousResourceCollection
     {
-        return UserResource::collection(UserService::getAll())->additional(['success' => true]);
+        return UserResource::collection(UserService::getAll())->additional($this->additionalReturn);
     }
 
     /**
      * @param StoreUserRequest $request
-     * @return void
+     * @return AnonymousResourceCollection
      */
-    public function store(StoreUserRequest $request)
+    public function store(StoreUserRequest $request): AnonymousResourceCollection
     {
-        $user = UserService::create($request->validated());
-        return UserResource::make(UserService::getById(id: $user->id));
+        UserService::create($request->validated());
+        return UserResource::collection(UserService::toPaginate())->additional($this->additionalReturn);
     }
 
     /**
@@ -58,11 +60,12 @@ class UserController extends Controller
     /**
      * @param UpdateUserRequest $request
      * @param User $user
-     * @return void
+     * @return AnonymousResourceCollection
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user): AnonymousResourceCollection
     {
-        return UserResource::make(UserService::update($user, $request->validated()));
+        UserService::update($user, $request->validated());
+        return UserResource::collection(UserService::toPaginate())->additional($this->additionalReturn);
     }
 
     /**
@@ -91,6 +94,6 @@ class UserController extends Controller
     {
         $user->roles()->detach();
         $user->delete();
-        return UserResource::collection(User::paginate(20))->additional(['success' => true]);
+        return UserResource::collection(UserService::toPaginate())->additional($this->additionalReturn);
     }
 }
