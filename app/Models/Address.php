@@ -20,6 +20,7 @@ class Address extends Model
      */
     protected $fillable = [
         'user_id',
+        'country_id',
         'name',
         'zip_code',
         'address',
@@ -28,7 +29,6 @@ class Address extends Model
         'district',
         'city',
         'state',
-        'country',
     ];
 
     /**
