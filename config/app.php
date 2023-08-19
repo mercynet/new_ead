@@ -186,6 +186,7 @@ return [
          * Package Service Providers...
          */
         Spatie\Permission\PermissionServiceProvider::class,
+        Axlon\PostalCodeValidation\ValidationServiceProvider::class,
 
         /*
          * Application Service Providers...

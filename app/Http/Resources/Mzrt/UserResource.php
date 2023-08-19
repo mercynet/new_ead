@@ -23,9 +23,11 @@ class UserResource extends JsonResource
             'active' => $this->whenHas('active'),
             'group_id' => $this->whenHas('group_id'),
             'roles' => $this->whenLoaded('roles'),
-            'user_info' => UserInfoResource::make($this->whenLoaded('userInfo')),
+            'user_info' => UserInfoResource::make($this->whenLoaded('user_info')),
             'instructor' => InstructorResource::make($this->whenLoaded('instructor')),
+            'student' => StudentResource::make($this->whenLoaded('student')),
             'group' => GroupResource::make($this->whenLoaded('group')),
+            'addresses' => AddressResource::collection($this->whenLoaded('addresses')),
         ];
     }
 

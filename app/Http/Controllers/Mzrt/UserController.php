@@ -19,6 +19,9 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
  */
 class UserController extends Controller
 {
+    /**
+     *
+     */
     public function __construct()
     {
         $this->authorizeResource(User::class, 'user');
@@ -30,7 +33,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {
-        return UserResource::collection(UserService::getAll(request: $request))->additional(['success' => true]);
+        return UserResource::collection(UserService::getAll())->additional(['success' => true]);
     }
 
     /**
@@ -40,10 +43,7 @@ class UserController extends Controller
     public function store(StoreUserRequest $request)
     {
         $user = UserService::create($request->validated());
-        return UserResource::make(UserService::getById(id: $user->id, relations: [
-            'roles.permissions:id,name',
-            'userInfo' => ['timezone'],
-        ]));
+        return UserResource::make(UserService::getById(id: $user->id));
     }
 
     /**
@@ -52,7 +52,7 @@ class UserController extends Controller
      */
     public function show(User $user): ?UserResource
     {
-        return UserResource::make($user->loadMissing(['roles.permissions']));
+        return UserResource::make(UserService::getById($user->id));
     }
 
     /**

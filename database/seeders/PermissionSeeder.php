@@ -12,7 +12,7 @@ use Spatie\Permission\PermissionRegistrar;
 /**
  *
  */
-class PermissionsSeeder extends Seeder
+class PermissionSeeder extends Seeder
 {
     /**
      * @return void
@@ -45,6 +45,16 @@ class PermissionsSeeder extends Seeder
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create instructors', 'description' => 'Criar Instrutores'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'update instructors', 'description' => 'Editar Instrutores'],
                 ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'delete instructors', 'description' => 'Remover Instrutores'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list user-groups', 'description' => 'Listar Grupos de Usuários'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view user-groups', 'description' => 'Listar Grupos de Usuários'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create user-groups', 'description' => 'Listar Grupos de Usuários'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'update user-groups', 'description' => 'Listar Grupos de Usuários'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'delete user-groups', 'description' => 'Listar Grupos de Usuários'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'list addresses', 'description' => 'Listar Endereços'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'view addresses', 'description' => 'Listar Endereços'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'create addresses', 'description' => 'Listar Endereços'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'update addresses', 'description' => 'Listar Endereços'],
+                ['guard_name' => $guard, 'group' => 'Usuários', 'name' => 'delete addresses', 'description' => 'Listar Endereços'],
                 ['guard_name' => $guard, 'group' => 'Compras', 'name' => 'list any orders', 'description' => 'Listar Todas as Compras'],
                 ['guard_name' => $guard, 'group' => 'Compras', 'name' => 'list orders', 'description' => 'Listar Suas Compras'],
                 ['guard_name' => $guard, 'group' => 'Compras', 'name' => 'view orders', 'description' => 'Visualizar Compras'],

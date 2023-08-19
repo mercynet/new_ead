@@ -19,6 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LanguageSeeder::class);
         $this->call(TimezoneSeeder::class);
         $this->call(UserSeeder::class);
-        $this->call(PermissionsSeeder::class);
+        $this->call(PermissionSeeder::class);
     }
 }

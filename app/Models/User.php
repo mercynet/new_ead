@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -86,9 +87,17 @@ class User extends Authenticatable
     /**
      * @return HasOne
      */
-    public function userInfo(): HasOne
+    public function user_info(): HasOne
     {
         return $this->hasOne(UserInfo::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function addresses(): HasMany
+    {
+        return $this->hasMany(Address::class);
     }
 
     /**

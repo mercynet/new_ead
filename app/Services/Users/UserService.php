@@ -5,8 +5,11 @@ namespace App\Services\Users;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use LaravelIdea\Helper\App\Models\_IH_User_QB;
 
 /**
  *
@@ -14,93 +17,61 @@ use Illuminate\Http\Request;
 class UserService
 {
     /**
-     * @param Request $request
-     * @param int $pages
      * @param array $fields
      * @param array $relations
-     * @return Collection|LengthAwarePaginator|null
+     * @param array $where
+     * @return Collection|null
      */
-    public static function getAll(Request $request, int $pages = 20, array $fields = [], array $relations = []): null|Collection|LengthAwarePaginator
+    public static function getAll(array $fields = [], array $relations = [], array $where = []): null|Collection
     {
-        $users = User::query()
-            ->hasAdminRole()
-            ->select(!empty($fields) ? $fields : ['*'])
-            ->with([
-                'roles.permissions:id,name',
-                'userInfo' => ['timezone'],
-                'instructor',
-                'student',
-                'group',
-            ]);
-        if (!empty($relations)) {
-            $users->load($relations);
-        }
-        if ($request->roles) {
-            $users->whereHas("roles", function ($q) use ($request) {
-                if (is_array($request->roles)) {
-                    return $q->whereIn("name", $request->roles);
-                }
-                return $q->where(["name", $request->roles]);
-            });
-        }
-        if ($pages > 0) {
-            return $users->paginate($pages);
-        }
-
-        return $users->get();
+        return self::getUsers(fields: $fields, where: $where)->get();
     }
 
     /**
      * @param int|array $id
-     * @param array $fields
-     * @param array $relations
-     * @return User|null
+     * @return Model
      */
-    public static function getById(int|array $id, array $fields = [], array $relations = []): ?User
+    public static function getById(int|array $id): Model
     {
-        $user = User::query()
-            ->hasAdminRole()
-            ->select(!empty($fields) ? $fields : ['*']);
-        if (!empty($relations)) {
-            $user->with($relations);
-        }
-        return $user->find($id);
-    }
-
-    /**
-     * @param array $userData
-     * @return User|null
-     */
-    public static function register(array $userData): ?User
-    {
-        $roles = !empty($userData['roles']) ? Role::where(['name' => $userData['roles']])->get() : Role::where(['name' => 'student'])->first();
-        abort_if(!$roles, 401, trans('auth.roles.not-found'));
-        $userData['password'] = bcrypt($userData['password']);
-        $user = User::create($userData);
-        $user->assignRole($roles);
-        return $user->loadMissing(['roles.permissions']);
+        return self::getUsers(where: ['id' => $id])->first();
     }
 
     /**
      * @param User $user
      * @param array $userData
-     * @return User|null
+     * @return LengthAwarePaginator
      */
-    public static function update(User $user, array $userData): ?User
+    public static function update(User $user, array $userData): LengthAwarePaginator
     {
         $user->update($userData);
         if (!empty($userData['roles'])) {
             $roles = Role::where(['name' => $userData['roles']])->get();
             $user->assignRole($roles);
         }
-        return $user->loadMissing(['roles.permissions']);
+        if(!empty($userData['group_id'])) $user->group()->associate($userData['group_id']);
+        (new UserInfoService($user))->update($userData);
+        return self::toPaginate();
     }
 
     /**
      * @param array $userData
-     * @return User
+     * @return Model
      */
-    public static function create(array $userData): User
+    public static function register(array $userData): Model
+    {
+        $roles = !empty($userData['roles']) ? Role::where(['name' => $userData['roles']])->get() : Role::where(['name' => 'student'])->first();
+        abort_if(!$roles, 401, trans('auth.roles.not-found'));
+        $userData['password'] = bcrypt($userData['password']);
+        $user = User::create($userData);
+        $user->assignRole($roles);
+        return self::getUsers(where: ['id' => $user->id])->first();
+    }
+
+    /**
+     * @param array $userData
+     * @return LengthAwarePaginator
+     */
+    public static function create(array $userData): LengthAwarePaginator
     {
         $roles = !empty($userData['roles']) ?
             Role::where(['name' => $userData['roles']])->get() :
@@ -111,6 +82,51 @@ class UserService
         $user->assignRole($roles);
         $user->group()->associate($userData['group_id']);
         (new UserInfoService($user))->create($userData);
-        return $user;
+        return self::toPaginate();
+    }
+
+    /**
+     * @param int $pages
+     * @param array $fields
+     * @param array $relations
+     * @param array $where
+     * @return LengthAwarePaginator
+     */
+    public static function toPaginate(int $pages = 20, array $fields = [], array $relations = [], array $where = []): LengthAwarePaginator
+    {
+        return self::getUsers($fields, $relations, $where)->paginate($pages);
+    }
+
+    /**
+     * @param array $fields
+     * @param array $relations
+     * @param array $where
+     * @return Builder
+     */
+    private static function getUsers(array $fields = [], array $relations = [], array $where = []): Builder
+    {
+        $request = request();
+        $users = User::query()
+            ->hasAdminRole()
+            ->select(!empty($fields) ? $fields : ['*'])
+            ->with([
+                'roles.permissions:id,name',
+                'user_info' => ['timezone'],
+                'instructor',
+                'student',
+                'group',
+                'addresses',
+            ]);
+        if ($where) {
+            $users->where($where);
+        }
+        if ($request->roles) {
+            $users->whereHas("roles", function ($q) use ($request) {
+                return is_array($request->roles) ?
+                    $q->where(["name", $request->roles]) :
+                    $q->whereIn("name", $request->roles);
+            });
+        }
+        return $users;
     }
 }

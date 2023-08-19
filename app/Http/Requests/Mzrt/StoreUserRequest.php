@@ -38,7 +38,7 @@ class StoreUserRequest extends FormRequest
             'document' => ['required', Rule::unique('user_infos')],
             'identity_registry' => ['required', Rule::unique('user_infos')],
             'avatar' => ['nullable'],
-            'birth_date' => ['required'],
+            'birth_date' => ['required', 'date_format:d/m/Y'],
             'gender' => ['required'],
             'where_know_us' => ['nullable'],
             'roles' => ['required', Rule::in(Role::toArray())],

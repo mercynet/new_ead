@@ -32,7 +32,7 @@ class UpdateUserRequest extends FormRequest
             'email' => ['required', 'email', 'string', Rule::unique('users')->ignore($this->user)],
             'password' => ['sometimes', 'required', Password::defaults(), 'confirmed'],
             'roles' => ['required', Rule::in(Role::toArray())],
-            'address_id' => ['nullable', 'exists:addresses,id'],
+            'address_id' => ['required', 'exists:addresses,id'],
             'timezone_id' => ['required', 'exists:timezones,id'],
             'group_id' => ['required', 'exists:groups,id'],
             'document' => ['required', Rule::unique('user_infos')],
