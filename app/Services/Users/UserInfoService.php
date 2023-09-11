@@ -31,7 +31,7 @@ readonly class UserInfoService
         $userInfo['birth_date'] = !empty($userInfo['birth_date']) ? Carbon::createFromFormat('d/m/Y', $userInfo['birth_date'])->format('Y-m-d') : null;
         return UserInfo::create([
             'user_id' => $this->user->id,
-            'address_id' => $userInfo['address_id'],
+            'address_id' => $userInfo['address_id'] ?? null,
             'timezone_id' => $userInfo['timezone_id'],
             'document' => justNumbers($userInfo['document']),
             'identity_registry' => justNumbers($userInfo['identity_registry']),
