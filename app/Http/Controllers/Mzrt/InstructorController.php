@@ -9,6 +9,7 @@ use App\Http\Resources\Mzrt\InstructorResource;
 use App\Models\Instructor;
 use App\Models\User;
 use App\Services\Users\InstructorService;
+use App\Services\Users\UserService;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
@@ -34,13 +35,14 @@ class InstructorController extends Controller
 
     /**
      * @param StoreInstructorRequest $request
+     * @param User $user
      * @return void
      */
-    public function store(StoreInstructorRequest $request)
+    public function store(StoreInstructorRequest $request, User $user)
     {
         $data = $request->validated();
-        InstructorService::create($data);
-        return InstructorResource::make(InstructorService::getByUserId(userId: $data['user_id']));
+        InstructorService::create($data, $user);
+        return InstructorResource::make(InstructorService::getByUser(user: $user));
     }
 
     /**
@@ -55,11 +57,12 @@ class InstructorController extends Controller
     /**
      * @param UpdateInstructorRequest $request
      * @param User $user
-     * @return void
+     * @return InstructorResource
      */
     public function update(UpdateInstructorRequest $request, User $user)
     {
-        return InstructorResource::make(InstructorService::update($user, $request->validated()));
+        $validated = $request->validated();
+        return InstructorResource::make(InstructorService::update($user, $validated));
     }
 
     /**

@@ -26,7 +26,7 @@ readonly class UserInfoService
     public function create(array $userInfo): UserInfo
     {
         if (!empty($userInfo['address'])) {
-            (new AddressService())->create($userInfo['address'], $this->user);
+            $userInfo['address_id'] = (new AddressService())->create($userInfo['address'], $this->user);
         }
         $userInfo['birth_date'] = !empty($userInfo['birth_date']) ? Carbon::createFromFormat('d/m/Y', $userInfo['birth_date'])->format('Y-m-d') : null;
         return UserInfo::create([

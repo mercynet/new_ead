@@ -22,7 +22,7 @@ class UserResource extends JsonResource
             'updated_at' => $this->whenHas('updated_at'),
             'active' => $this->whenHas('active'),
             'group_id' => $this->whenHas('group_id'),
-            'roles' => $this->whenLoaded('roles'),
+            'roles' => $this->whenLoaded('roles')->makeHidden('pivot'),
             'user_info' => UserInfoResource::make($this->whenLoaded('user_info')),
             'instructor' => InstructorResource::make($this->whenLoaded('instructor')),
             'student' => StudentResource::make($this->whenLoaded('student')),

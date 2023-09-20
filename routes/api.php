@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Mzrt\AddressController;
+use App\Http\Controllers\Mzrt\CountryController;
 use App\Http\Controllers\Mzrt\InstructorController;
+use App\Http\Controllers\Mzrt\StudentController;
 use App\Http\Controllers\Mzrt\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,7 +30,7 @@ Route::middleware('guest')
 Route::middleware('auth:sanctum')->group(function () {
     Route::delete('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('check-token', [AuthController::class, 'checkToken'])->name('check-token');
-    Route::get('countries', \App\Http\Controllers\Mzrt\CountryController::class)->name('countries');
+    Route::get('countries', CountryController::class)->name('countries');
     Route::name('mzrt.')->prefix('mzrt')->group(function () {
         Route::apiResources([
             'users' => UserController::class,
@@ -39,16 +41,24 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::name('addresses.')
                 ->prefix('addresses')
                 ->controller(AddressController::class)
-                ->group(function(){
+                ->group(function () {
                     Route::get('{user}', [AddressController::class, 'getByUser'])->name('by-user');
                     Route::post('{user}', [AddressController::class, 'store'])->name('store');
                     Route::put('{user}/{address}', [AddressController::class, 'update'])->name('update');
                 });
-            Route::name('instructors.')
-                ->prefix('instructors')
+            Route::name('instructor.')
+                ->prefix('instructor')
                 ->controller(InstructorController::class)
                 ->group(function () {
-                    Route::post('', 'store')->name('store');
+                    Route::post('/', 'store')->name('store');
+                    Route::put('/{user}', 'update')->name('update');
+                });
+            Route::name('student.')
+                ->prefix('student')
+                ->controller(StudentController::class)
+                ->group(function () {
+                    Route::post('/', 'store')->name('store');
+                    Route::put('/{user}', 'update')->name('update');
                 });
         });
     });

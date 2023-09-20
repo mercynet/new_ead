@@ -13,7 +13,6 @@ class StoreInstructorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => ['required', 'exists:users,id'],
             'commission' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
             'bank_iban' => ['nullable'],
             'bank_name' => ['nullable'],

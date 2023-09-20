@@ -14,16 +14,16 @@ use Illuminate\Database\Eloquent\Collection;
 class InstructorService
 {
     /**
-     * @param int $userId
+     * @param User $user
      * @param array $fields
      * @param array $relations
      * @return Instructor|null
      */
-    public static function getByUserId(int $userId, array $fields = [], array $relations = []): ?Instructor
+    public static function getByUser(User $user, array $fields = [], array $relations = []): ?Instructor
     {
         $instructor = Instructor::query()
             ->hasAdminRole()
-            ->where(['user_id' => $userId])
+            ->where(['user_id' => $user->id])
             ->select(!empty($fields) ? $fields : ['*']);
         if(!empty($relations)) {
             $instructor->with($relations);
@@ -38,20 +38,34 @@ class InstructorService
      */
     public static function update(User $user, array $instructorData): ?Instructor
     {
-        $instructor = self::getByUserId($user->id);
+        $instructor = self::getByUser($user);
         $instructor->update($instructorData);
         return $instructor;
     }
 
     /**
      * @param array $instructorData
+     * @param User $user
      * @return Instructor
      */
-    public static function create(array $instructorData): Instructor
+    public static function create(array $instructorData, User $user): Instructor
     {
         /*
          * @ToDo Criar notificação
          */
+        if(self::hasUser($user)) {
+            return self::update($user, $instructorData);
+        }
+        $instructorData['user_id'] = $user->id;
         return Instructor::create($instructorData);
+    }
+
+    /**
+     * @param User $user
+     * @return bool
+     */
+    public static function hasUser(User $user): bool
+    {
+        return Instructor::where(['user_id' => $user->id])->exists();
     }
 }

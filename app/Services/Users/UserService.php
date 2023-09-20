@@ -29,9 +29,9 @@ class UserService
 
     /**
      * @param int|array $id
-     * @return Model
+     * @return User
      */
-    public static function getById(int|array $id): Model
+    public static function getById(int|array $id): User
     {
         return self::getUsers(where: ['id' => $id])->first();
     }

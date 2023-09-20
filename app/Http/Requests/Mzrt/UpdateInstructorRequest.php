@@ -12,7 +12,6 @@ class UpdateInstructorRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'user_id' => ['reqiured', 'exists:users,id'],
             'commission' => ['sometimes', Rule::requiredIf(request('role') === Role::instructor->name)],
             'bank_iban' => ['nullable'],
             'bank_name' => ['nullable'],
