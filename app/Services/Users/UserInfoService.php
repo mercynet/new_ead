@@ -2,8 +2,8 @@
 
 namespace App\Services\Users;
 
-use App\Models\User;
-use App\Models\UserInfo;
+use App\Models\Users\User;
+use App\Models\Users\UserInfo;
 use Illuminate\Support\Carbon;
 
 /**
@@ -26,7 +26,7 @@ readonly class UserInfoService
     public function create(array $userInfo): UserInfo
     {
         if (!empty($userInfo['address'])) {
-            $userInfo['address_id'] = (new AddressService())->create($userInfo['address'], $this->user);
+            $userInfo['address_id'] = (new AddressService())->create($userInfo['address'], $this->user)->id;
         }
         $userInfo['birth_date'] = !empty($userInfo['birth_date']) ? Carbon::createFromFormat('d/m/Y', $userInfo['birth_date'])->format('Y-m-d') : null;
         return UserInfo::create([

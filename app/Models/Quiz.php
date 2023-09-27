@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Enums\Quizzes\ExibitionType;
 use App\Enums\Quizzes\FormatType;
 use App\Enums\Quizzes\QuestionType;
+use App\Models\Users\Group;
 use App\Traits\HasLog;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

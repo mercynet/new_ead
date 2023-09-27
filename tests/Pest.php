@@ -11,9 +11,8 @@
 |
 */
 
-use App\Models\User;
+use App\Models\Users\User;
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\LazilyRefreshDatabase;
 use Tests\TestCase;
 
 uses(Tests\TestCase::class)->in('Feature');

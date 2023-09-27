@@ -2,11 +2,10 @@
 
 namespace App\Actions;
 
-use App\Http\Resources\Auth\LoginResource;
-use App\Models\User;
-use Illuminate\Validation\ValidationException;
+use App\Models\Users\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\ValidationException;
 
 /**
  *

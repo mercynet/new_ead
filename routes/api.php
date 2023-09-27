@@ -1,12 +1,13 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\Mzrt\AddressController;
 use App\Http\Controllers\Mzrt\CountryController;
-use App\Http\Controllers\Mzrt\InstructorController;
-use App\Http\Controllers\Mzrt\StudentController;
-use App\Http\Controllers\Mzrt\UserController;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Mzrt\Courses\CourseController;
+use App\Http\Controllers\Mzrt\Users\AddressController;
+use App\Http\Controllers\Mzrt\Users\InstructorController;
+use App\Http\Controllers\Mzrt\Users\StudentController;
+use App\Http\Controllers\Mzrt\Users\UserController;
+use App\Http\Controllers\Mzrt\Users\UserGroupController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::name('mzrt.')->prefix('mzrt')->group(function () {
         Route::apiResources([
             'users' => UserController::class,
+            'user-groups' => UserGroupController::class,
+            'courses' => CourseController::class,
         ]);
         Route::name('users.')->prefix('users')->controller(UserController::class)->group(function () {
             Route::patch('enable/{user}', 'enable')->name('enable');
@@ -50,15 +53,17 @@ Route::middleware('auth:sanctum')->group(function () {
                 ->prefix('instructor')
                 ->controller(InstructorController::class)
                 ->group(function () {
-                    Route::post('/', 'store')->name('store');
+                    Route::post('/{user}', 'store')->name('store');
                     Route::put('/{user}', 'update')->name('update');
                 });
             Route::name('student.')
                 ->prefix('student')
                 ->controller(StudentController::class)
                 ->group(function () {
-                    Route::post('/', 'store')->name('store');
+                    Route::post('/{user}', 'store')->name('store');
                     Route::put('/{user}', 'update')->name('update');
+                    Route::patch('/increase-points/{user}', 'increasePoints')->name('increase-points');
+                    Route::patch('/decrease-points/{user}', 'decreasePoints')->name('decrease-points');
                 });
         });
     });

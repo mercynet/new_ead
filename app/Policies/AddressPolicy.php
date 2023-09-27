@@ -3,8 +3,8 @@
 namespace App\Policies;
 
 use App\Enums\Users\Role;
-use App\Models\Address;
-use App\Models\User;
+use App\Models\Users\Address;
+use App\Models\Users\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 /**

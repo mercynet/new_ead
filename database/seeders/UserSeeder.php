@@ -2,11 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Language;
-use App\Models\Timezone;
-use App\Models\User;
-use App\Models\UserInfo;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Users\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 

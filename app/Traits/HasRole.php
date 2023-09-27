@@ -18,5 +18,8 @@ trait HasRole
             });
         }
     }
-
+    public function scopeIsAdmin($query): bool
+    {
+        return !auth(getGuardName())->user()->hasRole([Role::development->name, Role::superuser->name]);
+    }
 }

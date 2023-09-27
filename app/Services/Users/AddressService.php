@@ -2,8 +2,9 @@
 
 namespace App\Services\Users;
 
-use App\Models\Address;
-use App\Models\User;
+use App\Models\Users\Address;
+use App\Models\Users\User;
+use Illuminate\Database\Eloquent\Collection as EloquentCollection;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -76,5 +77,14 @@ class AddressService
             'state' => $data['state'],
         ]);
         return $this->getById($oldAddress);
+    }
+
+    /**
+     * @param Request $request
+     * @return EloquentCollection|array
+     */
+    public function all(Request $request): EloquentCollection|array
+    {
+        return Address::with(['user'])->get();
     }
 }

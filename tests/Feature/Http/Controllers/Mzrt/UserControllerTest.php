@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Role;
-use App\Models\User;
+use App\Models\Users\User;
 use Spatie\Permission\Models\Permission;
 
 uses()->group('mzrt', 'users');

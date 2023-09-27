@@ -2,11 +2,8 @@
 
 namespace App\Services\Users;
 
-use App\Models\Role;
-use App\Models\Instructor;
-use App\Models\User;
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use Illuminate\Database\Eloquent\Collection;
+use App\Models\Users\Instructor;
+use App\Models\Users\User;
 
 /**
  *

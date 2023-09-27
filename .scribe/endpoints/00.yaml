@@ -26,8 +26,9 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 254 characters.'
         required: true
-        example: kjacobs@example.com
+        example: queenie.mante@example.org
         type: string
+        enumValues: []
         custom: []
       password:
         name: password
@@ -35,18 +36,20 @@ endpoints:
         required: true
         example: 'H3u3h#H%#ywQEG.'
         type: string
+        enumValues: []
         custom: []
       remember:
         name: remember
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
+        enumValues: []
         custom: []
     cleanBodyParameters:
-      email: kjacobs@example.com
+      email: queenie.mante@example.org
       password: 'H3u3h#H%#ywQEG.'
-      remember: true
+      remember: false
     fileParameters: []
     responses: []
     responseFields: []
@@ -80,35 +83,39 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: in
+        example: ab
         type: string
+        enumValues: []
         custom: []
       email:
         name: email
         description: 'Must be a valid email address. Must not be greater than 254 characters.'
         required: true
-        example: arunte@example.net
+        example: willis.schaden@example.com
         type: string
+        enumValues: []
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: deleniti
+        example: repudiandae
         type: string
+        enumValues: []
         custom: []
       password_confirmation:
         name: password_confirmation
         description: ''
         required: true
-        example: maiores
+        example: eos
         type: string
+        enumValues: []
         custom: []
     cleanBodyParameters:
-      name: in
-      email: arunte@example.net
-      password: deleniti
-      password_confirmation: maiores
+      name: ab
+      email: willis.schaden@example.com
+      password: repudiandae
+      password_confirmation: eos
     fileParameters: []
     responses: []
     responseFields: []
@@ -146,7 +153,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer daaEDebV8g6hcZk6P1543vf'
+      - 'Bearer c1VZP8abdfhva5ge63DkE46'
     controller: null
     method: null
     route: null
@@ -180,7 +187,51 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer vZchgVe16ka8fd6ED5bPa43'
+      - 'Bearer 5DVEe8vkacg6Z64ba3h1fPd'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/countries
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=PfZWhSgYD6KqenyArdk3xQY4OtgiG4Q62Mj7LqY2; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 85V6efkhZ3bdvaac16EPg4D'
     controller: null
     method: null
     route: null

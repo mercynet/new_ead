@@ -3,13 +3,11 @@
 namespace App\Services\Users;
 
 use App\Models\Role;
-use App\Models\User;
+use App\Models\Users\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Http\Request;
-use LaravelIdea\Helper\App\Models\_IH_User_QB;
 
 /**
  *
@@ -73,8 +71,8 @@ class UserService
      */
     public static function create(array $userData): User
     {
-        $roles = !empty($userData['roles']) ?
-            Role::where(['name' => $userData['roles']])->get() :
+        $roles = !empty($userData['role']) ?
+            Role::where(['name' => $userData['role']])->get() :
             Role::where(['name' => 'student'])->first();
         abort_if(!$roles, 401, trans('auth.roles.not-found'));
         $userData['document'] = justNumbers($userData['document']);

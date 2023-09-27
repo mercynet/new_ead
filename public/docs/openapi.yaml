@@ -26,7 +26,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: kjacobs@example.com
+                  example: queenie.mante@example.org
                 password:
                   type: string
                   description: 'Must contain at least one uppercase and one lowercase letter; must contain at least one symbol; must contain at least one number.'
@@ -34,7 +34,7 @@ paths:
                 remember:
                   type: boolean
                   description: ''
-                  example: true
+                  example: false
               required:
                 - email
                 - password
@@ -58,19 +58,19 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: in
+                  example: ab
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: arunte@example.net
+                  example: willis.schaden@example.com
                 password:
                   type: string
                   description: ''
-                  example: deleniti
+                  example: repudiandae
                 password_confirmation:
                   type: string
                   description: ''
-                  example: maiores
+                  example: eos
               required:
                 - name
                 - email
@@ -82,14 +82,7 @@ paths:
       summary: ''
       operationId: deleteApiV1Logout
       description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
+      parameters: []
       responses: {  }
       tags:
         - Endpoints
@@ -98,30 +91,16 @@ paths:
       summary: ''
       operationId: postApiV1CheckToken
       description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
+      parameters: []
       responses: {  }
       tags:
         - Endpoints
-  /api/v1/mzrt/users:
+  /api/v1/countries:
     get:
-      summary: 'List all users'
-      operationId: listAllUsers
+      summary: ''
+      operationId: getApiV1Countries
       description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
+      parameters: []
       responses:
         401:
           description: ''
@@ -136,22 +115,36 @@ paths:
                     type: string
                     example: Unauthenticated.
       tags:
-        - Mzrt
+        - Endpoints
+  /api/v1/mzrt/users:
+    get:
+      summary: 'List all users'
+      operationId: listAllUsers
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mozart
     post:
       summary: ''
       operationId: postApiV1MzrtUsers
       description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
+      parameters: []
       responses: {  }
       tags:
-        - Mzrt
+        - Mozart
       requestBody:
         required: true
         content:
@@ -162,51 +155,62 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: deleniti
+                  example: rem
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: king.immanuel@example.com
+                  example: bjerde@example.com
                 password:
                   type: string
                   description: ''
-                  example: illum
+                  example: asperiores
                 role:
                   type: string
-                  description: 'Must be one of <code>development</code>, <code>superuser</code>, <code>admin</code>, <code>student</code>, or <code>instructor</code>.'
-                  example: instructor
-                address_id:
-                  type: string
                   description: ''
-                  example: null
+                  example: instructor
+                  enum:
+                    - development
+                    - superuser
+                    - admin
+                    - student
+                    - instructor
+                address:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: {  }
                 timezone_id:
                   type: string
                   description: ''
-                  example: adipisci
+                  example: corporis
                 group_id:
                   type: string
                   description: ''
-                  example: at
+                  example: quae
                 document:
                   type: string
                   description: ''
-                  example: error
+                  example: quis
                 identity_registry:
                   type: string
                   description: ''
-                  example: est
+                  example: nemo
                 avatar:
                   type: string
                   description: ''
                   example: null
                 birth_date:
                   type: string
-                  description: ''
-                  example: consequatur
+                  description: 'Must be a valid date in the format <code>d/m/Y</code>.'
+                  example: 26/09/2023
                 gender:
                   type: string
                   description: ''
-                  example: veritatis
+                  example: male
+                  enum:
+                    - male
+                    - female
+                    - both
                 where_know_us:
                   type: string
                   description: ''
@@ -214,11 +218,507 @@ paths:
                 source:
                   type: string
                   description: ''
-                  example: facilis
+                  example: similique
                 nickname:
                   type: string
                   description: ''
                   example: null
+                active:
+                  type: boolean
+                  description: ''
+                  example: false
+              required:
+                - name
+                - email
+                - password
+                - role
+                - address
+                - timezone_id
+                - group_id
+                - document
+                - identity_registry
+                - birth_date
+                - gender
+                - source
+                - active
+  '/api/v1/mzrt/users/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1MzrtUsersId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mozart
+    put:
+      summary: ''
+      operationId: putApiV1MzrtUsersId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: praesentium
+                email:
+                  type: string
+                  description: 'Must be a valid email address.'
+                  example: wolff.alysha@example.org
+                password:
+                  type: string
+                  description: 'Must contain at least one uppercase and one lowercase letter; must contain at least one symbol; must contain at least one number.'
+                  example: 'H3u3h#H%#ywQEG.'
+                roles:
+                  type: string
+                  description: ''
+                  example: student
+                  enum:
+                    - development
+                    - superuser
+                    - admin
+                    - student
+                    - instructor
+                address_id:
+                  type: string
+                  description: ''
+                  example: eum
+                address:
+                  type: object
+                  description: ''
+                  example: []
+                  properties: {  }
+                timezone_id:
+                  type: string
+                  description: ''
+                  example: aperiam
+                group_id:
+                  type: string
+                  description: ''
+                  example: esse
+                document:
+                  type: string
+                  description: ''
+                  example: qui
+                identity_registry:
+                  type: string
+                  description: ''
+                  example: nihil
+                avatar:
+                  type: string
+                  description: ''
+                  example: null
+                birth_date:
+                  type: string
+                  description: 'Must be a valid date in the format <code>d/m/Y</code>.'
+                  example: 26/09/2023
+                gender:
+                  type: string
+                  description: ''
+                  example: female
+                  enum:
+                    - male
+                    - female
+                    - both
+                where_know_us:
+                  type: string
+                  description: ''
+                  example: iusto
+                source:
+                  type: string
+                  description: ''
+                  example: consequuntur
+                nickname:
+                  type: string
+                  description: ''
+                  example: null
+                active:
+                  type: string
+                  description: ''
+                  example: et
+              required:
+                - name
+                - email
+                - password
+                - roles
+                - address_id
+                - address
+                - timezone_id
+                - group_id
+                - document
+                - identity_registry
+                - birth_date
+                - gender
+                - source
+                - active
+    delete:
+      summary: ''
+      operationId: deleteApiV1MzrtUsersId
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/mzrt/user-groups:
+    get:
+      summary: "Displays a list of all groups of users. It accepts one parameter \"all\". Case has this parameter,\nit returns all groups of users with no paginate."
+      operationId: displaysAListOfAllGroupsOfUsersItAcceptsOneParameterallCaseHasThisParameteritReturnsAllGroupsOfUsersWithNoPaginate
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mozart
+    post:
+      summary: 'Store a new user group'
+      operationId: storeANewUserGroup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "Group's name."
+                  example: Vip
+                discount:
+                  type: number
+                  description: 'User groups can have discounts. Type: decimal.'
+                  example: 8.62
+                commission:
+                  type: number
+                  description: 'User groups can have commissions. Type: decimal.'
+                  example: 2076.38
+              required:
+                - name
+  '/api/v1/mzrt/user-groups/{id}':
+    get:
+      summary: ''
+      operationId: getApiV1MzrtUserGroupsId
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mozart
+    put:
+      summary: 'Update a specific user group'
+      operationId: updateASpecificUserGroup
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: "Group's name."
+                  example: Vip
+                discount:
+                  type: number
+                  description: 'User groups can have discounts. Type: decimal.'
+                  example: 108533398.87
+                commission:
+                  type: number
+                  description: 'User groups can have commissions. Type: decimal.'
+                  example: 1752476.77
+              required:
+                - name
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the user group.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/mzrt/users/enable/{user_id}':
+    patch:
+      summary: ''
+      operationId: patchApiV1MzrtUsersEnableUser_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/mzrt/users/disable/{user_id}':
+    patch:
+      summary: ''
+      operationId: patchApiV1MzrtUsersDisableUser_id
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/mzrt/users/addresses/{user_id}':
+    get:
+      summary: 'Get all addresses from a given user'
+      operationId: getAllAddressesFromAGivenUser
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mozart
+    post:
+      summary: 'Store a new address for the specified user'
+      operationId: storeANewAddressForTheSpecifiedUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                country_id:
+                  type: string
+                  description: ''
+                  example: omnis
+                name:
+                  type: string
+                  description: ''
+                  example: null
+                zip_code:
+                  type: string
+                  description: ''
+                  example: nulla
+                address:
+                  type: string
+                  description: ''
+                  example: necessitatibus
+                number:
+                  type: string
+                  description: ''
+                  example: reiciendis
+                complement:
+                  type: string
+                  description: ''
+                  example: null
+                district:
+                  type: string
+                  description: ''
+                  example: dolores
+                city:
+                  type: string
+                  description: ''
+                  example: fugit
+                state:
+                  type: string
+                  description: ''
+                  example: perspiciatis
+              required:
+                - country_id
+                - zip_code
+                - address
+                - number
+                - district
+                - city
+                - state
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/mzrt/users/addresses/{user_id}/{address_id}':
+    put:
+      summary: 'Updates an existing address'
+      operationId: updatesAnExistingAddress
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                country_id:
+                  type: string
+                  description: ''
+                  example: quis
+                name:
+                  type: string
+                  description: ''
+                  example: null
+                zip_code:
+                  type: string
+                  description: ''
+                  example: ratione
+                address:
+                  type: string
+                  description: ''
+                  example: cum
+                number:
+                  type: string
+                  description: ''
+                  example: cumque
+                complement:
+                  type: string
+                  description: ''
+                  example: null
+                district:
+                  type: string
+                  description: ''
+                  example: vero
+                city:
+                  type: string
+                  description: ''
+                  example: eaque
+                state:
+                  type: string
+                  description: ''
+                  example: a
+              required:
+                - country_id
+                - zip_code
+                - address
+                - number
+                - district
+                - city
+                - state
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+      -
+        in: path
+        name: address_id
+        description: 'The ID of the address.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/mzrt/users/instructor/{user_id}':
+    post:
+      summary: 'Stores the instructors data from a user'
+      operationId: storesTheInstructorsDataFromAUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: string
+                  description: ''
+                  example: nemo
                 commission:
                   type: string
                   description: ''
@@ -245,140 +745,77 @@ paths:
                   example: null
                 sex_meetings:
                   type: string
-                  description: 'Must be one of <code>male</code>, <code>female</code>, or <code>both</code>.'
-                  example: both
+                  description: ''
+                  example: female
+                  enum:
+                    - male
+                    - female
+                    - both
                 meeting_type:
                   type: string
-                  description: 'Must be one of <code>male</code>, <code>female</code>, or <code>both</code>.'
-                  example: female
-                active:
-                  type: string
                   description: ''
-                  example: ea
+                  example: female
+                  enum:
+                    - male
+                    - female
+                    - both
               required:
-                - name
-                - email
-                - password
-                - role
-                - timezone_id
-                - group_id
-                - document
-                - identity_registry
-                - birth_date
-                - gender
-                - source
-                - active
-  '/api/v1/mzrt/users/{id}':
-    get:
-      summary: ''
-      operationId: getApiV1MzrtUsersId
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-      responses:
-        401:
-          description: ''
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  message: Unauthenticated.
-                properties:
-                  message:
-                    type: string
-                    example: Unauthenticated.
-      tags:
-        - Mzrt
+                - user_id
     put:
-      summary: ''
-      operationId: putApiV1MzrtUsersId
+      summary: 'Updates the instructor information from a user'
+      operationId: updatesTheInstructorInformationFromAUser
       description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
+      parameters: []
       responses: {  }
       tags:
-        - Mzrt
+        - Mozart
       requestBody:
-        required: true
+        required: false
         content:
           application/json:
             schema:
               type: object
               properties:
-                name:
+                commission:
                   type: string
                   description: ''
-                  example: nihil
-                email:
-                  type: string
-                  description: 'Must be a valid email address.'
-                  example: zulauf.emilio@example.org
-                password:
+                  example: null
+                bank_iban:
                   type: string
                   description: ''
-                  example: mollitia
-                roles:
+                  example: null
+                bank_name:
                   type: string
                   description: ''
-                  example: sed
-              required:
-                - name
-                - email
-                - password
-                - roles
-    delete:
-      summary: ''
-      operationId: deleteApiV1MzrtUsersId
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Mzrt
-    parameters:
-      -
-        in: path
-        name: id
-        description: 'The ID of the user.'
-        example: 1
-        required: true
-        schema:
-          type: integer
-  '/api/v1/mzrt/users/enable/{user_id}':
-    patch:
-      summary: ''
-      operationId: patchApiV1MzrtUsersEnableUser_id
-      description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
-      responses: {  }
-      tags:
-        - Mzrt
+                  example: null
+                identify_image:
+                  type: string
+                  description: ''
+                  example: null
+                financial_approved:
+                  type: string
+                  description: ''
+                  example: null
+                available_meetings:
+                  type: string
+                  description: ''
+                  example: null
+                sex_meetings:
+                  type: string
+                  description: ''
+                  example: both
+                  enum:
+                    - male
+                    - female
+                    - both
+                meeting_type:
+                  type: string
+                  description: ''
+                  example: female
+                  enum:
+                    - male
+                    - female
+                    - both
     parameters:
       -
         in: path
@@ -388,22 +825,119 @@ paths:
         required: true
         schema:
           type: integer
-  '/api/v1/mzrt/users/disable/{user_id}':
-    patch:
-      summary: ''
-      operationId: patchApiV1MzrtUsersDisableUser_id
+  '/api/v1/mzrt/users/student/{user_id}':
+    post:
+      summary: 'Store a newly created student for an existent user.'
+      operationId: storeANewlyCreatedStudentForAnExistentUser
       description: ''
-      parameters:
-        -
-          in: header
-          name: Authorization
-          description: ''
-          example: 'Bearer {YOUR_AUTH_KEY}'
-          schema:
-            type: string
+      parameters: []
       responses: {  }
       tags:
-        - Mzrt
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickname:
+                  type: string
+                  description: ''
+                  example: null
+                points:
+                  type: integer
+                  description: ''
+                  example: 16
+              required:
+                - points
+    put:
+      summary: 'Update the specified student from an existent user.'
+      operationId: updateTheSpecifiedStudentFromAnExistentUser
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nickname:
+                  type: string
+                  description: ''
+                  example: null
+                points:
+                  type: integer
+                  description: ''
+                  example: 9
+              required:
+                - points
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/mzrt/users/student/increase-points/{user_id}':
+    patch:
+      summary: "Increase the student's point"
+      operationId: increaseTheStudentsPoint
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                points:
+                  type: number
+                  description: 'Must be at least 1.'
+                  example: 81
+              required:
+                - points
+    parameters:
+      -
+        in: path
+        name: user_id
+        description: 'The ID of the user.'
+        example: 1
+        required: true
+        schema:
+          type: integer
+  '/api/v1/mzrt/users/student/decrease-points/{user_id}':
+    patch:
+      summary: "Decrease the student's point"
+      operationId: decreaseTheStudentsPoint
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                points:
+                  type: number
+                  description: 'Must be at least 1.'
+                  example: 43
+              required:
+                - points
     parameters:
       -
         in: path
@@ -418,7 +952,7 @@ tags:
     name: Endpoints
     description: ''
   -
-    name: Mzrt
+    name: Mozart
     description: ''
 components:
   securitySchemes:

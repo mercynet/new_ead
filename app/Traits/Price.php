@@ -63,10 +63,22 @@ trait Price
             set: fn($value) => floatval($value) * 100,
         );
     }
+
     /**
      * @return Attribute
      */
     public function productDiscount(): Attribute
+    {
+        return new Attribute(
+            get: fn($value) => floatval($value) / 100,
+            set: fn($value) => floatval($value) * 100,
+        );
+    }
+
+    /**
+     * @return Attribute
+     */
+    public function commission(): Attribute
     {
         return new Attribute(
             get: fn($value) => floatval($value) / 100,

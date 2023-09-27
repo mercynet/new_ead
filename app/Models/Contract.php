@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\ContractNotifyPeriod;
+use App\Models\Users\User;
 use App\Traits\HasLog;
 use App\Traits\Price;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

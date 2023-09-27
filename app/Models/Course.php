@@ -88,7 +88,7 @@ class Course extends Model
     /**
      * @return Attribute
      */
-    public function levelDescription(): Attribute
+    public function level_description(): Attribute
     {
         return Attribute::get(CourseLevel::getLabel($this->level));
     }

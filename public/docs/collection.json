@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "EAD ABTP\u00e9",
-        "_postman_id": "97eeb4c2-41d4-4dbc-b439-3ba0e017d494",
+        "_postman_id": "ea22fce4-c842-4bd3-8a78-22457aae23c3",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"kjacobs@example.com\",\"password\":\"H3u3h#H%#ywQEG.\",\"remember\":true}"
+                            "raw": "{\"email\":\"queenie.mante@example.org\",\"password\":\"H3u3h#H%#ywQEG.\",\"remember\":false}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"in\",\"email\":\"arunte@example.net\",\"password\":\"deleniti\",\"password_confirmation\":\"maiores\"}"
+                            "raw": "{\"name\":\"ab\",\"email\":\"willis.schaden@example.com\",\"password\":\"repudiandae\",\"password_confirmation\":\"eos\"}"
                         },
                         "description": "",
                         "auth": {
@@ -130,11 +130,60 @@
                         "description": ""
                     },
                     "response": []
+                },
+                {
+                    "name": "GET api\/v1\/countries",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/countries",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/countries"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                },
+                                {
+                                    "key": "set-cookie",
+                                    "value": "ead_abtpe_session=PfZWhSgYD6KqenyArdk3xQY4OtgiG4Q62Mj7LqY2; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
                 }
             ]
         },
         {
-            "name": "Mzrt",
+            "name": "Mozart",
             "description": "",
             "item": [
                 {
@@ -181,7 +230,7 @@
                                         },
                                         {
                                             "key": "set-cookie",
-                                            "value": "ead_abtpe_session=kX9uBc4NeKp6CWqTbBBrQmIW8Er1w49Y6KuPRAtl; expires=Wed, 21 Jun 2023 00:58:56 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                            "value": "ead_abtpe_session=DvAZ96ORJvxQE2ZfNNNlWXeaPRIT0AgTyf4tnBWh; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                         }
                                     ],
                                     "code": 401,
@@ -212,7 +261,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"name\":\"deleniti\",\"email\":\"king.immanuel@example.com\",\"password\":\"illum\",\"role\":\"instructor\",\"timezone_id\":\"adipisci\",\"group_id\":\"at\",\"document\":\"error\",\"identity_registry\":\"est\",\"birth_date\":\"consequatur\",\"gender\":\"veritatis\",\"source\":\"facilis\",\"sex_meetings\":\"both\",\"meeting_type\":\"female\",\"active\":\"ea\"}"
+                                    "raw": "{\"name\":\"rem\",\"email\":\"bjerde@example.com\",\"password\":\"asperiores\",\"role\":\"instructor\",\"address\":[],\"timezone_id\":\"corporis\",\"group_id\":\"quae\",\"document\":\"quis\",\"identity_registry\":\"nemo\",\"birth_date\":\"26\\\/09\\\/2023\",\"gender\":\"male\",\"source\":\"similique\",\"active\":false}"
                                 },
                                 "description": ""
                             },
@@ -266,7 +315,7 @@
                                         },
                                         {
                                             "key": "set-cookie",
-                                            "value": "ead_abtpe_session=6wRl7qwRANFo8xUX1V5uYyadoOUeuAet2KBEA1on; expires=Wed, 21 Jun 2023 00:58:56 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                            "value": "ead_abtpe_session=zyFHpZlcMgElBLHWgdb9Xwz1myfc5FJFxl2TPDTO; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                         }
                                     ],
                                     "code": 401,
@@ -305,7 +354,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"name\":\"nihil\",\"email\":\"zulauf.emilio@example.org\",\"password\":\"mollitia\",\"roles\":\"sed\"}"
+                                    "raw": "{\"name\":\"praesentium\",\"email\":\"wolff.alysha@example.org\",\"password\":\"H3u3h#H%#ywQEG.\",\"roles\":\"student\",\"address_id\":\"eum\",\"address\":[],\"timezone_id\":\"aperiam\",\"group_id\":\"esse\",\"document\":\"qui\",\"identity_registry\":\"nihil\",\"birth_date\":\"26\\\/09\\\/2023\",\"gender\":\"female\",\"where_know_us\":\"iusto\",\"source\":\"consequuntur\",\"active\":\"et\"}"
                                 },
                                 "description": ""
                             },
@@ -409,6 +458,545 @@
                                 "description": ""
                             },
                             "response": []
+                        },
+                        {
+                            "name": "Store a newly created student for an existent user.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/student\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/student\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"points\":16}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Update the specified student from an existent user.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/student\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/student\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"points\":9}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Increase the student's point",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/student\/increase-points\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/student\/increase-points\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"points\":81}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Decrease the student's point",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/student\/decrease-points\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/student\/decrease-points\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "PATCH",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"points\":43}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "User Groups",
+                    "description": "List of groups of users",
+                    "item": [
+                        {
+                            "name": "Displays a list of all groups of users. It accepts one parameter \"all\". Case has this parameter,\nit returns all groups of users with no paginate.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/user-groups",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/user-groups"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        },
+                                        {
+                                            "key": "set-cookie",
+                                            "value": "ead_abtpe_session=VYuzHu3845C822OCNkKL5ZC7kNbxRwNMRIlxJGuC; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Store a new user group",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/user-groups",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/user-groups"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"Vip\",\"discount\":8.62,\"commission\":2076.38}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "GET api\/v1\/mzrt\/user-groups\/{id}",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/user-groups\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/user-groups\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the user group."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        },
+                                        {
+                                            "key": "set-cookie",
+                                            "value": "ead_abtpe_session=9kfyYzXKKAL0ShPTn4skQyG66cQGaFBiszfp9Qee; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update a specific user group",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/user-groups\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/user-groups\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "1",
+                                            "description": "The ID of the user group."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"name\":\"Vip\",\"discount\":108533398.87,\"commission\":1752476.77}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "User Addresses",
+                    "description": "Methods from users addresses",
+                    "item": [
+                        {
+                            "name": "Get all addresses from a given user",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/addresses\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/addresses\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        },
+                                        {
+                                            "key": "set-cookie",
+                                            "value": "ead_abtpe_session=dBFiMcd7IcQPyKaHDER0fWZ3xz3gE00MSRt2kUfu; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Store a new address for the specified user",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/addresses\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/addresses\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"country_id\":\"omnis\",\"zip_code\":\"nulla\",\"address\":\"necessitatibus\",\"number\":\"reiciendis\",\"district\":\"dolores\",\"city\":\"fugit\",\"state\":\"perspiciatis\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Updates an existing address",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/addresses\/:user_id\/:address_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/addresses\/:user_id\/:address_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        },
+                                        {
+                                            "id": "address_id",
+                                            "key": "address_id",
+                                            "value": "1",
+                                            "description": "The ID of the address."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"country_id\":\"quis\",\"zip_code\":\"ratione\",\"address\":\"cum\",\"number\":\"cumque\",\"district\":\"vero\",\"city\":\"eaque\",\"state\":\"a\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Instructors",
+                    "description": "Methods for Instructors",
+                    "item": [
+                        {
+                            "name": "Stores the instructors data from a user",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/instructor\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/instructor\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"user_id\":\"nemo\",\"sex_meetings\":\"female\",\"meeting_type\":\"female\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Updates the instructor information from a user",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/users\/instructor\/:user_id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/users\/instructor\/:user_id",
+                                    "variable": [
+                                        {
+                                            "id": "user_id",
+                                            "key": "user_id",
+                                            "value": "1",
+                                            "description": "The ID of the user."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"sex_meetings\":\"both\",\"meeting_type\":\"female\"}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
                         }
                     ]
                 }
@@ -420,7 +1008,6 @@
         "bearer": [
             {
                 "key": "Authorization",
-                "value": null,
                 "type": "string"
             }
         ]
