@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Formation;
+use App\Models\Courses\Formation;
 use Illuminate\Database\Seeder;
 
 class FormationSeeder extends Seeder

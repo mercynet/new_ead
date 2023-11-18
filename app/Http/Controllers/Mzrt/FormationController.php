@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Mzrt;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mzrt\StoreFormationRequest;
 use App\Http\Requests\Mzrt\UpdateFormationRequest;
-use App\Models\Formation;
+use App\Models\Courses\Formation;
 
 class FormationController extends Controller
 {
@@ -43,7 +43,7 @@ class FormationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Formation  $formation
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
     public function show(Formation $formation)
@@ -54,7 +54,7 @@ class FormationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Formation  $formation
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
     public function edit(Formation $formation)
@@ -66,7 +66,7 @@ class FormationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\Mzrt\UpdateFormationRequest  $request
-     * @param  \App\Models\Formation  $formation
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
     public function update(UpdateFormationRequest $request, Formation $formation)
@@ -77,7 +77,7 @@ class FormationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Formation  $formation
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
     public function destroy(Formation $formation)

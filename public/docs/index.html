@@ -149,6 +149,26 @@ it returns all groups of users with no paginate.</a>
                                             <a href="#mozart-PUTapi-v1-mzrt-user-groups--id-">Update a specific user group</a>
                                         </li>
                                                                     </ul>
+                                                                                <li class="tocify-item level-2" data-unique="mozart-courses">
+                                <a href="#mozart-courses">Courses</a>
+                            </li>
+                                                            <ul id="tocify-subheader-mozart-courses" class="tocify-subheader">
+                                                                            <li class="tocify-item level-3" data-unique="mozart-GETapi-v1-mzrt-courses">
+                                            <a href="#mozart-GETapi-v1-mzrt-courses">Display a listing of the courses.</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="mozart-POSTapi-v1-mzrt-courses">
+                                            <a href="#mozart-POSTapi-v1-mzrt-courses">Store a newly created resource in storage.</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="mozart-GETapi-v1-mzrt-courses--id-">
+                                            <a href="#mozart-GETapi-v1-mzrt-courses--id-">Display the specified resource.</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="mozart-PUTapi-v1-mzrt-courses--id-">
+                                            <a href="#mozart-PUTapi-v1-mzrt-courses--id-">Update the specified resource in storage.</a>
+                                        </li>
+                                                                            <li class="tocify-item level-3" data-unique="mozart-DELETEapi-v1-mzrt-courses--id-">
+                                            <a href="#mozart-DELETEapi-v1-mzrt-courses--id-">Remove the specified resource from storage.</a>
+                                        </li>
+                                                                    </ul>
                                                                                 <li class="tocify-item level-2" data-unique="mozart-user-addresses">
                                 <a href="#mozart-user-addresses">User Addresses</a>
                             </li>
@@ -185,7 +205,7 @@ it returns all groups of users with no paginate.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 26, 2023</li>
+        <li>Last updated: September 30, 2023</li>
     </ul>
 </div>
 
@@ -226,9 +246,9 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"queenie.mante@example.org\",
+    \"email\": \"lhoppe@example.net\",
     \"password\": \"H3u3h#H%#ywQEG.\",
-    \"remember\": false
+    \"remember\": true
 }"
 </code></pre></div>
 
@@ -244,9 +264,9 @@ const headers = {
 };
 
 let body = {
-    "email": "queenie.mante@example.org",
+    "email": "lhoppe@example.net",
     "password": "H3u3h#H%#ywQEG.",
-    "remember": false
+    "remember": true
 };
 
 fetch(url, {
@@ -335,10 +355,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="queenie.mante@example.org"
+               value="lhoppe@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>queenie.mante@example.org</code></p>
+<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>lhoppe@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -370,7 +390,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -391,10 +411,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"ab\",
-    \"email\": \"willis.schaden@example.com\",
-    \"password\": \"repudiandae\",
-    \"password_confirmation\": \"eos\"
+    \"name\": \"quibusdam\",
+    \"email\": \"joesph28@example.com\",
+    \"password\": \"cum\",
+    \"password_confirmation\": \"natus\"
 }"
 </code></pre></div>
 
@@ -410,10 +430,10 @@ const headers = {
 };
 
 let body = {
-    "name": "ab",
-    "email": "willis.schaden@example.com",
-    "password": "repudiandae",
-    "password_confirmation": "eos"
+    "name": "quibusdam",
+    "email": "joesph28@example.com",
+    "password": "cum",
+    "password_confirmation": "natus"
 };
 
 fetch(url, {
@@ -502,10 +522,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-register"
-               value="ab"
+               value="quibusdam"
                data-component="body">
     <br>
-<p>Example: <code>ab</code></p>
+<p>Example: <code>quibusdam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -513,10 +533,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-register"
-               value="willis.schaden@example.com"
+               value="joesph28@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>willis.schaden@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>joesph28@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -524,10 +544,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-register"
-               value="repudiandae"
+               value="cum"
                data-component="body">
     <br>
-<p>Example: <code>repudiandae</code></p>
+<p>Example: <code>cum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -535,10 +555,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-v1-register"
-               value="eos"
+               value="natus"
                data-component="body">
     <br>
-<p>Example: <code>eos</code></p>
+<p>Example: <code>natus</code></p>
         </div>
         </form>
 
@@ -835,7 +855,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=PfZWhSgYD6KqenyArdk3xQY4OtgiG4Q62Mj7LqY2; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=UFo5p4BbfyS8QEasqXyjQMdPFGZ9zJsmnr3WsTiQ; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -982,7 +1002,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=DvAZ96ORJvxQE2ZfNNNlWXeaPRIT0AgTyf4tnBWh; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=FvG39hnoiVmwSyKnwumwBo2BV58VD4mBBkQZA9mk; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1091,18 +1111,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"rem\",
-    \"email\": \"bjerde@example.com\",
-    \"password\": \"asperiores\",
-    \"role\": \"instructor\",
+    \"name\": \"occaecati\",
+    \"email\": \"pmoen@example.net\",
+    \"password\": \"natus\",
+    \"role\": \"superuser\",
     \"address\": [],
-    \"timezone_id\": \"corporis\",
-    \"group_id\": \"quae\",
-    \"document\": \"quis\",
-    \"identity_registry\": \"nemo\",
-    \"birth_date\": \"26\\/09\\/2023\",
-    \"gender\": \"male\",
-    \"source\": \"similique\",
+    \"timezone_id\": \"consectetur\",
+    \"group_id\": \"voluptas\",
+    \"document\": \"ut\",
+    \"identity_registry\": \"dolorum\",
+    \"birth_date\": \"30\\/09\\/2023\",
+    \"gender\": \"both\",
+    \"source\": \"rerum\",
     \"active\": false
 }"
 </code></pre></div>
@@ -1120,18 +1140,18 @@ const headers = {
 };
 
 let body = {
-    "name": "rem",
-    "email": "bjerde@example.com",
-    "password": "asperiores",
-    "role": "instructor",
+    "name": "occaecati",
+    "email": "pmoen@example.net",
+    "password": "natus",
+    "role": "superuser",
     "address": [],
-    "timezone_id": "corporis",
-    "group_id": "quae",
-    "document": "quis",
-    "identity_registry": "nemo",
-    "birth_date": "26\/09\/2023",
-    "gender": "male",
-    "source": "similique",
+    "timezone_id": "consectetur",
+    "group_id": "voluptas",
+    "document": "ut",
+    "identity_registry": "dolorum",
+    "birth_date": "30\/09\/2023",
+    "gender": "both",
+    "source": "rerum",
     "active": false
 };
 
@@ -1232,10 +1252,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="rem"
+               value="occaecati"
                data-component="body">
     <br>
-<p>Example: <code>rem</code></p>
+<p>Example: <code>occaecati</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1243,10 +1263,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="bjerde@example.com"
+               value="pmoen@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>bjerde@example.com</code></p>
+<p>Must be a valid email address. Example: <code>pmoen@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1254,10 +1274,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="asperiores"
+               value="natus"
                data-component="body">
     <br>
-<p>Example: <code>asperiores</code></p>
+<p>Example: <code>natus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
@@ -1265,10 +1285,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="role"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="instructor"
+               value="superuser"
                data-component="body">
     <br>
-<p>Example: <code>instructor</code></p>
+<p>Example: <code>superuser</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>development</code></li> <li><code>superuser</code></li> <li><code>admin</code></li> <li><code>student</code></li> <li><code>instructor</code></li></ul>
         </div>
@@ -1289,10 +1309,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="timezone_id"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="corporis"
+               value="consectetur"
                data-component="body">
     <br>
-<p>Example: <code>corporis</code></p>
+<p>Example: <code>consectetur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>group_id</code></b>&nbsp;&nbsp;
@@ -1300,10 +1320,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="group_id"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="quae"
+               value="voluptas"
                data-component="body">
     <br>
-<p>Example: <code>quae</code></p>
+<p>Example: <code>voluptas</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>document</code></b>&nbsp;&nbsp;
@@ -1311,10 +1331,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="document"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="quis"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>quis</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>identity_registry</code></b>&nbsp;&nbsp;
@@ -1322,10 +1342,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="identity_registry"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="nemo"
+               value="dolorum"
                data-component="body">
     <br>
-<p>Example: <code>nemo</code></p>
+<p>Example: <code>dolorum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
@@ -1344,10 +1364,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="26/09/2023"
+               value="30/09/2023"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>26/09/2023</code></p>
+<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>30/09/2023</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -1355,10 +1375,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="male"
+               value="both"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>both</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li> <li><code>both</code></li></ul>
         </div>
@@ -1379,10 +1399,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="source"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="similique"
+               value="rerum"
                data-component="body">
     <br>
-<p>Example: <code>similique</code></p>
+<p>Example: <code>rerum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nickname</code></b>&nbsp;&nbsp;
@@ -1467,7 +1487,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=zyFHpZlcMgElBLHWgdb9Xwz1myfc5FJFxl2TPDTO; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=je33Bg7jDhplPfYUti2o1FUddvaQu3FpeKTuCnu0; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1588,21 +1608,21 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"praesentium\",
-    \"email\": \"wolff.alysha@example.org\",
+    \"name\": \"quia\",
+    \"email\": \"veum.leslie@example.net\",
     \"password\": \"H3u3h#H%#ywQEG.\",
-    \"roles\": \"student\",
-    \"address_id\": \"eum\",
+    \"roles\": \"admin\",
+    \"address_id\": \"voluptatem\",
     \"address\": [],
-    \"timezone_id\": \"aperiam\",
-    \"group_id\": \"esse\",
-    \"document\": \"qui\",
-    \"identity_registry\": \"nihil\",
-    \"birth_date\": \"26\\/09\\/2023\",
+    \"timezone_id\": \"illum\",
+    \"group_id\": \"architecto\",
+    \"document\": \"asperiores\",
+    \"identity_registry\": \"molestias\",
+    \"birth_date\": \"30\\/09\\/2023\",
     \"gender\": \"female\",
-    \"where_know_us\": \"iusto\",
-    \"source\": \"consequuntur\",
-    \"active\": \"et\"
+    \"where_know_us\": \"eos\",
+    \"source\": \"voluptatem\",
+    \"active\": \"voluptatem\"
 }"
 </code></pre></div>
 
@@ -1619,21 +1639,21 @@ const headers = {
 };
 
 let body = {
-    "name": "praesentium",
-    "email": "wolff.alysha@example.org",
+    "name": "quia",
+    "email": "veum.leslie@example.net",
     "password": "H3u3h#H%#ywQEG.",
-    "roles": "student",
-    "address_id": "eum",
+    "roles": "admin",
+    "address_id": "voluptatem",
     "address": [],
-    "timezone_id": "aperiam",
-    "group_id": "esse",
-    "document": "qui",
-    "identity_registry": "nihil",
-    "birth_date": "26\/09\/2023",
+    "timezone_id": "illum",
+    "group_id": "architecto",
+    "document": "asperiores",
+    "identity_registry": "molestias",
+    "birth_date": "30\/09\/2023",
     "gender": "female",
-    "where_know_us": "iusto",
-    "source": "consequuntur",
-    "active": "et"
+    "where_know_us": "eos",
+    "source": "voluptatem",
+    "active": "voluptatem"
 };
 
 fetch(url, {
@@ -1749,10 +1769,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="praesentium"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>praesentium</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1760,10 +1780,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="wolff.alysha@example.org"
+               value="veum.leslie@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>wolff.alysha@example.org</code></p>
+<p>Must be a valid email address. Example: <code>veum.leslie@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1782,10 +1802,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="roles"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="student"
+               value="admin"
                data-component="body">
     <br>
-<p>Example: <code>student</code></p>
+<p>Example: <code>admin</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>development</code></li> <li><code>superuser</code></li> <li><code>admin</code></li> <li><code>student</code></li> <li><code>instructor</code></li></ul>
         </div>
@@ -1795,10 +1815,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="address_id"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="eum"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>eum</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -1817,10 +1837,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="timezone_id"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="aperiam"
+               value="illum"
                data-component="body">
     <br>
-<p>Example: <code>aperiam</code></p>
+<p>Example: <code>illum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>group_id</code></b>&nbsp;&nbsp;
@@ -1828,10 +1848,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="group_id"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="esse"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>esse</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>document</code></b>&nbsp;&nbsp;
@@ -1839,10 +1859,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="document"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="qui"
+               value="asperiores"
                data-component="body">
     <br>
-<p>Example: <code>qui</code></p>
+<p>Example: <code>asperiores</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>identity_registry</code></b>&nbsp;&nbsp;
@@ -1850,10 +1870,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="identity_registry"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="nihil"
+               value="molestias"
                data-component="body">
     <br>
-<p>Example: <code>nihil</code></p>
+<p>Example: <code>molestias</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
@@ -1872,10 +1892,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="26/09/2023"
+               value="30/09/2023"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>26/09/2023</code></p>
+<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>30/09/2023</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -1896,10 +1916,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="where_know_us"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="iusto"
+               value="eos"
                data-component="body">
     <br>
-<p>Example: <code>iusto</code></p>
+<p>Example: <code>eos</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>source</code></b>&nbsp;&nbsp;
@@ -1907,10 +1927,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="source"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="consequuntur"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>consequuntur</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nickname</code></b>&nbsp;&nbsp;
@@ -1929,10 +1949,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="active"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="et"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
         </form>
 
@@ -2523,7 +2543,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"points\": 9
+    \"points\": 12
 }"
 </code></pre></div>
 
@@ -2540,7 +2560,7 @@ const headers = {
 };
 
 let body = {
-    "points": 9
+    "points": 12
 };
 
 fetch(url, {
@@ -2663,10 +2683,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="PUTapi-v1-mzrt-users-student--user_id-"
-               value="9"
+               value="12"
                data-component="body">
     <br>
-<p>Example: <code>9</code></p>
+<p>Example: <code>12</code></p>
         </div>
         </form>
 
@@ -2689,7 +2709,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"points\": 81
+    \"points\": 90
 }"
 </code></pre></div>
 
@@ -2706,7 +2726,7 @@ const headers = {
 };
 
 let body = {
-    "points": 81
+    "points": 90
 };
 
 fetch(url, {
@@ -2818,10 +2838,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="PATCHapi-v1-mzrt-users-student-increase-points--user_id-"
-               value="81"
+               value="90"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>81</code></p>
+<p>Must be at least 1. Example: <code>90</code></p>
         </div>
         </form>
 
@@ -2844,7 +2864,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"points\": 43
+    \"points\": 28
 }"
 </code></pre></div>
 
@@ -2861,7 +2881,7 @@ const headers = {
 };
 
 let body = {
-    "points": 43
+    "points": 28
 };
 
 fetch(url, {
@@ -2973,10 +2993,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="PATCHapi-v1-mzrt-users-student-decrease-points--user_id-"
-               value="43"
+               value="28"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>43</code></p>
+<p>Must be at least 1. Example: <code>28</code></p>
         </div>
         </form>
 
@@ -3034,7 +3054,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=VYuzHu3845C822OCNkKL5ZC7kNbxRwNMRIlxJGuC; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=bfP39RdEwAIVZdjLyfkXji5HuRqfNfbE2MVbpBhD; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3144,8 +3164,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"name\": \"Vip\",
-    \"discount\": 8.62,
-    \"commission\": 2076.38
+    \"discount\": 33144495.41,
+    \"commission\": 279.88
 }"
 </code></pre></div>
 
@@ -3163,8 +3183,8 @@ const headers = {
 
 let body = {
     "name": "Vip",
-    "discount": 8.62,
-    "commission": 2076.38
+    "discount": 33144495.41,
+    "commission": 279.88
 };
 
 fetch(url, {
@@ -3275,10 +3295,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="discount"                data-endpoint="POSTapi-v1-mzrt-user-groups"
-               value="8.62"
+               value="33144495.41"
                data-component="body">
     <br>
-<p>User groups can have discounts. Type: decimal. Example: <code>8.62</code></p>
+<p>User groups can have discounts. Type: decimal. Example: <code>33144495.41</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>commission</code></b>&nbsp;&nbsp;
@@ -3286,10 +3306,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="commission"                data-endpoint="POSTapi-v1-mzrt-user-groups"
-               value="2076.38"
+               value="279.88"
                data-component="body">
     <br>
-<p>User groups can have commissions. Type: decimal. Example: <code>2076.38</code></p>
+<p>User groups can have commissions. Type: decimal. Example: <code>279.88</code></p>
         </div>
         </form>
 
@@ -3342,7 +3362,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=9kfyYzXKKAL0ShPTn4skQyG66cQGaFBiszfp9Qee; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=UcT2kLd7R5Za0FpbQ8FsHOGmyFN32bZ4WhznVVfn; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3464,8 +3484,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"name\": \"Vip\",
-    \"discount\": 108533398.87,
-    \"commission\": 1752476.77
+    \"discount\": 6810470.11,
+    \"commission\": 4.58
 }"
 </code></pre></div>
 
@@ -3483,8 +3503,8 @@ const headers = {
 
 let body = {
     "name": "Vip",
-    "discount": 108533398.87,
-    "commission": 1752476.77
+    "discount": 6810470.11,
+    "commission": 4.58
 };
 
 fetch(url, {
@@ -3611,10 +3631,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="discount"                data-endpoint="PUTapi-v1-mzrt-user-groups--id-"
-               value="108533398.87"
+               value="6810470.11"
                data-component="body">
     <br>
-<p>User groups can have discounts. Type: decimal. Example: <code>108533398.87</code></p>
+<p>User groups can have discounts. Type: decimal. Example: <code>6810470.11</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>commission</code></b>&nbsp;&nbsp;
@@ -3622,12 +3642,982 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="commission"                data-endpoint="PUTapi-v1-mzrt-user-groups--id-"
-               value="1752476.77"
+               value="4.58"
                data-component="body">
     <br>
-<p>User groups can have commissions. Type: decimal. Example: <code>1752476.77</code></p>
+<p>User groups can have commissions. Type: decimal. Example: <code>4.58</code></p>
         </div>
         </form>
+
+                                <h2 id="mozart-courses">Courses</h2>
+                                        <p>
+                    <p>Courses general management</p>
+                </p>
+                                        <h2 id="mozart-GETapi-v1-mzrt-courses">Display a listing of the courses.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-mzrt-courses">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://new-abtpe.test/api/v1/mzrt/courses" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://new-abtpe.test/api/v1/mzrt/courses"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-mzrt-courses">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=ydO6m2V0VRArTOCeNBMo5ePvoL0h7IRXlb7Uz6na; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-mzrt-courses" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-mzrt-courses"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-mzrt-courses"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-mzrt-courses" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-mzrt-courses">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-mzrt-courses" data-method="GET"
+      data-path="api/v1/mzrt/courses"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-mzrt-courses', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-mzrt-courses"
+                    onclick="tryItOut('GETapi-v1-mzrt-courses');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-mzrt-courses"
+                    onclick="cancelTryOut('GETapi-v1-mzrt-courses');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-mzrt-courses"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/mzrt/courses</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-mzrt-courses"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-mzrt-courses"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-mzrt-courses"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
+                    <h2 id="mozart-POSTapi-v1-mzrt-courses">Store a newly created resource in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-mzrt-courses">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://new-abtpe.test/api/v1/mzrt/courses" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"order\": 18,
+    \"name\": \"quas\",
+    \"slug\": \"et\",
+    \"level\": \"advanced\",
+    \"description\": \"Et id totam explicabo quis maiores.\",
+    \"target\": \"voluptatum\",
+    \"is_fifo\": false,
+    \"active\": false,
+    \"meta_description\": \"quo\",
+    \"meta_keywords\": \"tenetur\",
+    \"price\": 11.5828631,
+    \"access_months\": 15,
+    \"started_at\": \"2023-09-30T10:30:01\",
+    \"ended_at\": \"2023-09-30T10:30:01\",
+    \"amount\": 6172.42103,
+    \"discount\": 640006253.441067
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://new-abtpe.test/api/v1/mzrt/courses"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "order": 18,
+    "name": "quas",
+    "slug": "et",
+    "level": "advanced",
+    "description": "Et id totam explicabo quis maiores.",
+    "target": "voluptatum",
+    "is_fifo": false,
+    "active": false,
+    "meta_description": "quo",
+    "meta_keywords": "tenetur",
+    "price": 11.5828631,
+    "access_months": 15,
+    "started_at": "2023-09-30T10:30:01",
+    "ended_at": "2023-09-30T10:30:01",
+    "amount": 6172.42103,
+    "discount": 640006253.441067
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-mzrt-courses">
+</span>
+<span id="execution-results-POSTapi-v1-mzrt-courses" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-mzrt-courses"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-mzrt-courses"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-mzrt-courses" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-mzrt-courses">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-v1-mzrt-courses" data-method="POST"
+      data-path="api/v1/mzrt/courses"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-mzrt-courses', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-mzrt-courses"
+                    onclick="tryItOut('POSTapi-v1-mzrt-courses');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-mzrt-courses"
+                    onclick="cancelTryOut('POSTapi-v1-mzrt-courses');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-mzrt-courses"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/mzrt/courses</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="POSTapi-v1-mzrt-courses"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>order</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="order"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="18"
+               data-component="body">
+    <br>
+<p>Example: <code>18</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="name"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="quas"
+               data-component="body">
+    <br>
+<p>Example: <code>quas</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="slug"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="et"
+               data-component="body">
+    <br>
+<p>Example: <code>et</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>level</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="level"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="advanced"
+               data-component="body">
+    <br>
+<p>Example: <code>advanced</code></p>
+Must be one of:
+<ul style="list-style-type: square;"><li><code>begginner</code></li> <li><code>intermediate</code></li> <li><code>advanced</code></li></ul>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="description"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="Et id totam explicabo quis maiores."
+               data-component="body">
+    <br>
+<p>Example: <code>Et id totam explicabo quis maiores.</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>pre_requisites</code></b>&nbsp;&nbsp;
+<small>object</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="pre_requisites"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>target</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="target"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="voluptatum"
+               data-component="body">
+    <br>
+<p>Example: <code>voluptatum</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image_featured</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="image_featured"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image_cover</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="image_cover"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_fifo</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-v1-mzrt-courses" style="display: none">
+            <input type="radio" name="is_fifo"
+                   value="true"
+                   data-endpoint="POSTapi-v1-mzrt-courses"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v1-mzrt-courses" style="display: none">
+            <input type="radio" name="is_fifo"
+                   value="false"
+                   data-endpoint="POSTapi-v1-mzrt-courses"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-v1-mzrt-courses" style="display: none">
+            <input type="radio" name="active"
+                   value="true"
+                   data-endpoint="POSTapi-v1-mzrt-courses"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-v1-mzrt-courses" style="display: none">
+            <input type="radio" name="active"
+                   value="false"
+                   data-endpoint="POSTapi-v1-mzrt-courses"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>false</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="meta_description"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="quo"
+               data-component="body">
+    <br>
+<p>Example: <code>quo</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="meta_keywords"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="tenetur"
+               data-component="body">
+    <br>
+<p>Example: <code>tenetur</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="price"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="11.5828631"
+               data-component="body">
+    <br>
+<p>Example: <code>11.5828631</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>access_months</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="access_months"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="15"
+               data-component="body">
+    <br>
+<p>Example: <code>15</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>started_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="started_at"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="2023-09-30T10:30:01"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2023-09-30T10:30:01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>ended_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="ended_at"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="2023-09-30T10:30:01"
+               data-component="body">
+    <br>
+<p>Must be a valid date. Example: <code>2023-09-30T10:30:01</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="amount"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="6172.42103"
+               data-component="body">
+    <br>
+<p>Example: <code>6172.42103</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>discount</code></b>&nbsp;&nbsp;
+<small>number</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="discount"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="640006253.44107"
+               data-component="body">
+    <br>
+<p>Example: <code>640006253.44107</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>level_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+                              name="level_description"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value=""
+               data-component="body">
+    <br>
+
+        </div>
+        </form>
+
+                    <h2 id="mozart-GETapi-v1-mzrt-courses--id-">Display the specified resource.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-mzrt-courses--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://new-abtpe.test/api/v1/mzrt/courses/2" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://new-abtpe.test/api/v1/mzrt/courses/2"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-mzrt-courses--id-">
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=jgSym4iJCuW6U2t3ljzQ8FYPKOu4udo8pbtowmaO; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-mzrt-courses--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-mzrt-courses--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-mzrt-courses--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-mzrt-courses--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-mzrt-courses--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-v1-mzrt-courses--id-" data-method="GET"
+      data-path="api/v1/mzrt/courses/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-mzrt-courses--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-mzrt-courses--id-"
+                    onclick="tryItOut('GETapi-v1-mzrt-courses--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-mzrt-courses--id-"
+                    onclick="cancelTryOut('GETapi-v1-mzrt-courses--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-mzrt-courses--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/mzrt/courses/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="GETapi-v1-mzrt-courses--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-v1-mzrt-courses--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-v1-mzrt-courses--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="GETapi-v1-mzrt-courses--id-"
+               value="2"
+               data-component="url">
+    <br>
+<p>The ID of the course. Example: <code>2</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="mozart-PUTapi-v1-mzrt-courses--id-">Update the specified resource in storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-PUTapi-v1-mzrt-courses--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PUT \
+    "http://new-abtpe.test/api/v1/mzrt/courses/5" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://new-abtpe.test/api/v1/mzrt/courses/5"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PUTapi-v1-mzrt-courses--id-">
+</span>
+<span id="execution-results-PUTapi-v1-mzrt-courses--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PUTapi-v1-mzrt-courses--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PUTapi-v1-mzrt-courses--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PUTapi-v1-mzrt-courses--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PUTapi-v1-mzrt-courses--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PUTapi-v1-mzrt-courses--id-" data-method="PUT"
+      data-path="api/v1/mzrt/courses/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PUTapi-v1-mzrt-courses--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PUTapi-v1-mzrt-courses--id-"
+                    onclick="tryItOut('PUTapi-v1-mzrt-courses--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PUTapi-v1-mzrt-courses--id-"
+                    onclick="cancelTryOut('PUTapi-v1-mzrt-courses--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PUTapi-v1-mzrt-courses--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-darkblue">PUT</small>
+            <b><code>api/v1/mzrt/courses/{id}</code></b>
+        </p>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/mzrt/courses/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="PUTapi-v1-mzrt-courses--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PUTapi-v1-mzrt-courses--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PUTapi-v1-mzrt-courses--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="PUTapi-v1-mzrt-courses--id-"
+               value="5"
+               data-component="url">
+    <br>
+<p>The ID of the course. Example: <code>5</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="mozart-DELETEapi-v1-mzrt-courses--id-">Remove the specified resource from storage.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-mzrt-courses--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://new-abtpe.test/api/v1/mzrt/courses/13" \
+    --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://new-abtpe.test/api/v1/mzrt/courses/13"
+);
+
+const headers = {
+    "Authorization": "Bearer {YOUR_AUTH_KEY}",
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-mzrt-courses--id-">
+</span>
+<span id="execution-results-DELETEapi-v1-mzrt-courses--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-mzrt-courses--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-mzrt-courses--id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-mzrt-courses--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-mzrt-courses--id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-v1-mzrt-courses--id-" data-method="DELETE"
+      data-path="api/v1/mzrt/courses/{id}"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-mzrt-courses--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-mzrt-courses--id-"
+                    onclick="tryItOut('DELETEapi-v1-mzrt-courses--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-mzrt-courses--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-mzrt-courses--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-mzrt-courses--id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/mzrt/courses/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Authorization</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Authorization" class="auth-value"               data-endpoint="DELETEapi-v1-mzrt-courses--id-"
+               value="Bearer {YOUR_AUTH_KEY}"
+               data-component="header">
+    <br>
+<p>Example: <code>Bearer {YOUR_AUTH_KEY}</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-v1-mzrt-courses--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-v1-mzrt-courses--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="id"                data-endpoint="DELETEapi-v1-mzrt-courses--id-"
+               value="13"
+               data-component="url">
+    <br>
+<p>The ID of the course. Example: <code>13</code></p>
+            </div>
+                    </form>
 
                                 <h2 id="mozart-user-addresses">User Addresses</h2>
                                         <p>
@@ -3682,7 +4672,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=dBFiMcd7IcQPyKaHDER0fWZ3xz3gE00MSRt2kUfu; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=Z5CRkiJ0RbbV0DSX9SANcfuLMGcx6LyDDC2je36i; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3803,13 +4793,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"country_id\": \"omnis\",
-    \"zip_code\": \"nulla\",
-    \"address\": \"necessitatibus\",
-    \"number\": \"reiciendis\",
-    \"district\": \"dolores\",
-    \"city\": \"fugit\",
-    \"state\": \"perspiciatis\"
+    \"country_id\": \"natus\",
+    \"zip_code\": \"distinctio\",
+    \"address\": \"error\",
+    \"number\": \"aut\",
+    \"district\": \"quibusdam\",
+    \"city\": \"commodi\",
+    \"state\": \"veniam\"
 }"
 </code></pre></div>
 
@@ -3826,13 +4816,13 @@ const headers = {
 };
 
 let body = {
-    "country_id": "omnis",
-    "zip_code": "nulla",
-    "address": "necessitatibus",
-    "number": "reiciendis",
-    "district": "dolores",
-    "city": "fugit",
-    "state": "perspiciatis"
+    "country_id": "natus",
+    "zip_code": "distinctio",
+    "address": "error",
+    "number": "aut",
+    "district": "quibusdam",
+    "city": "commodi",
+    "state": "veniam"
 };
 
 fetch(url, {
@@ -3944,10 +4934,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country_id"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="omnis"
+               value="natus"
                data-component="body">
     <br>
-<p>Example: <code>omnis</code></p>
+<p>Example: <code>natus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -3966,10 +4956,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="zip_code"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="nulla"
+               value="distinctio"
                data-component="body">
     <br>
-<p>Example: <code>nulla</code></p>
+<p>Example: <code>distinctio</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -3977,10 +4967,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="necessitatibus"
+               value="error"
                data-component="body">
     <br>
-<p>Example: <code>necessitatibus</code></p>
+<p>Example: <code>error</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
@@ -3988,10 +4978,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="number"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="reiciendis"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>reiciendis</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>complement</code></b>&nbsp;&nbsp;
@@ -4010,10 +5000,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="district"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="dolores"
+               value="quibusdam"
                data-component="body">
     <br>
-<p>Example: <code>dolores</code></p>
+<p>Example: <code>quibusdam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -4021,10 +5011,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="fugit"
+               value="commodi"
                data-component="body">
     <br>
-<p>Example: <code>fugit</code></p>
+<p>Example: <code>commodi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -4032,10 +5022,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="perspiciatis"
+               value="veniam"
                data-component="body">
     <br>
-<p>Example: <code>perspiciatis</code></p>
+<p>Example: <code>veniam</code></p>
         </div>
         </form>
 
@@ -4058,13 +5048,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"country_id\": \"quis\",
-    \"zip_code\": \"ratione\",
-    \"address\": \"cum\",
-    \"number\": \"cumque\",
-    \"district\": \"vero\",
-    \"city\": \"eaque\",
-    \"state\": \"a\"
+    \"country_id\": \"ipsam\",
+    \"zip_code\": \"minus\",
+    \"address\": \"minus\",
+    \"number\": \"molestiae\",
+    \"district\": \"voluptas\",
+    \"city\": \"aut\",
+    \"state\": \"voluptate\"
 }"
 </code></pre></div>
 
@@ -4081,13 +5071,13 @@ const headers = {
 };
 
 let body = {
-    "country_id": "quis",
-    "zip_code": "ratione",
-    "address": "cum",
-    "number": "cumque",
-    "district": "vero",
-    "city": "eaque",
-    "state": "a"
+    "country_id": "ipsam",
+    "zip_code": "minus",
+    "address": "minus",
+    "number": "molestiae",
+    "district": "voluptas",
+    "city": "aut",
+    "state": "voluptate"
 };
 
 fetch(url, {
@@ -4210,10 +5200,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country_id"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="quis"
+               value="ipsam"
                data-component="body">
     <br>
-<p>Example: <code>quis</code></p>
+<p>Example: <code>ipsam</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -4232,10 +5222,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="zip_code"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="ratione"
+               value="minus"
                data-component="body">
     <br>
-<p>Example: <code>ratione</code></p>
+<p>Example: <code>minus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -4243,10 +5233,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="cum"
+               value="minus"
                data-component="body">
     <br>
-<p>Example: <code>cum</code></p>
+<p>Example: <code>minus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
@@ -4254,10 +5244,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="number"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="cumque"
+               value="molestiae"
                data-component="body">
     <br>
-<p>Example: <code>cumque</code></p>
+<p>Example: <code>molestiae</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>complement</code></b>&nbsp;&nbsp;
@@ -4276,10 +5266,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="district"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="vero"
+               value="voluptas"
                data-component="body">
     <br>
-<p>Example: <code>vero</code></p>
+<p>Example: <code>voluptas</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -4287,10 +5277,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="eaque"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>eaque</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -4298,10 +5288,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="a"
+               value="voluptate"
                data-component="body">
     <br>
-<p>Example: <code>a</code></p>
+<p>Example: <code>voluptate</code></p>
         </div>
         </form>
 
@@ -4328,8 +5318,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user_id\": \"nemo\",
-    \"sex_meetings\": \"female\",
+    \"user_id\": \"et\",
+    \"sex_meetings\": \"male\",
     \"meeting_type\": \"female\"
 }"
 </code></pre></div>
@@ -4347,8 +5337,8 @@ const headers = {
 };
 
 let body = {
-    "user_id": "nemo",
-    "sex_meetings": "female",
+    "user_id": "et",
+    "sex_meetings": "male",
     "meeting_type": "female"
 };
 
@@ -4461,10 +5451,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="POSTapi-v1-mzrt-users-instructor--user_id-"
-               value="nemo"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>nemo</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>commission</code></b>&nbsp;&nbsp;
@@ -4538,10 +5528,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="sex_meetings"                data-endpoint="POSTapi-v1-mzrt-users-instructor--user_id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li> <li><code>both</code></li></ul>
         </div>
@@ -4579,7 +5569,7 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sex_meetings\": \"both\",
+    \"sex_meetings\": \"female\",
     \"meeting_type\": \"female\"
 }"
 </code></pre></div>
@@ -4597,7 +5587,7 @@ const headers = {
 };
 
 let body = {
-    "sex_meetings": "both",
+    "sex_meetings": "female",
     "meeting_type": "female"
 };
 
@@ -4776,10 +5766,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="sex_meetings"                data-endpoint="PUTapi-v1-mzrt-users-instructor--user_id-"
-               value="both"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>both</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li> <li><code>both</code></li></ul>
         </div>

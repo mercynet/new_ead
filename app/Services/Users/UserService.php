@@ -53,9 +53,9 @@ class UserService
 
     /**
      * @param array $userData
-     * @return Model
+     * @return User
      */
-    public static function register(array $userData): Model
+    public static function register(array $userData): User
     {
         $roles = !empty($userData['roles']) ? Role::where(['name' => $userData['roles']])->get() : Role::where(['name' => 'student'])->first();
         abort_if(!$roles, 401, trans('auth.roles.not-found'));

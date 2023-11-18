@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\CourseLevel;
-use App\Models\Course;
+use App\Models\Courses\Course;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

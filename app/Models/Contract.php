@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\Enums\ContractNotifyPeriod;
+use App\Models\Courses\Course;
+use App\Models\Courses\Formation;
 use App\Models\Users\User;
 use App\Traits\HasLog;
 use App\Traits\Price;

@@ -54,10 +54,7 @@ class AuthController
             $this->logout($request);
             return ['success' => false];
         }
-        return LoginResource::make(UserService::getById(
-            id: auth(getGuardName())->id(),
-            relations: ['roles.permissions:id,name']
-        )->find(auth()->id()));
+        return LoginResource::make(UserService::getById(auth(getGuardName())->id()));
     }
 
     /**

@@ -26,7 +26,7 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: queenie.mante@example.org
+                  example: lhoppe@example.net
                 password:
                   type: string
                   description: 'Must contain at least one uppercase and one lowercase letter; must contain at least one symbol; must contain at least one number.'
@@ -34,7 +34,7 @@ paths:
                 remember:
                   type: boolean
                   description: ''
-                  example: false
+                  example: true
               required:
                 - email
                 - password
@@ -58,19 +58,19 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: ab
+                  example: quibusdam
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 254 characters.'
-                  example: willis.schaden@example.com
+                  example: joesph28@example.com
                 password:
                   type: string
                   description: ''
-                  example: repudiandae
+                  example: cum
                 password_confirmation:
                   type: string
                   description: ''
-                  example: eos
+                  example: natus
               required:
                 - name
                 - email
@@ -155,19 +155,19 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: rem
+                  example: occaecati
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: bjerde@example.com
+                  example: pmoen@example.net
                 password:
                   type: string
                   description: ''
-                  example: asperiores
+                  example: natus
                 role:
                   type: string
                   description: ''
-                  example: instructor
+                  example: superuser
                   enum:
                     - development
                     - superuser
@@ -182,19 +182,19 @@ paths:
                 timezone_id:
                   type: string
                   description: ''
-                  example: corporis
+                  example: consectetur
                 group_id:
                   type: string
                   description: ''
-                  example: quae
+                  example: voluptas
                 document:
                   type: string
                   description: ''
-                  example: quis
+                  example: ut
                 identity_registry:
                   type: string
                   description: ''
-                  example: nemo
+                  example: dolorum
                 avatar:
                   type: string
                   description: ''
@@ -202,11 +202,11 @@ paths:
                 birth_date:
                   type: string
                   description: 'Must be a valid date in the format <code>d/m/Y</code>.'
-                  example: 26/09/2023
+                  example: 30/09/2023
                 gender:
                   type: string
                   description: ''
-                  example: male
+                  example: both
                   enum:
                     - male
                     - female
@@ -218,7 +218,7 @@ paths:
                 source:
                   type: string
                   description: ''
-                  example: similique
+                  example: rerum
                 nickname:
                   type: string
                   description: ''
@@ -280,11 +280,11 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: praesentium
+                  example: quia
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: wolff.alysha@example.org
+                  example: veum.leslie@example.net
                 password:
                   type: string
                   description: 'Must contain at least one uppercase and one lowercase letter; must contain at least one symbol; must contain at least one number.'
@@ -292,7 +292,7 @@ paths:
                 roles:
                   type: string
                   description: ''
-                  example: student
+                  example: admin
                   enum:
                     - development
                     - superuser
@@ -302,7 +302,7 @@ paths:
                 address_id:
                   type: string
                   description: ''
-                  example: eum
+                  example: voluptatem
                 address:
                   type: object
                   description: ''
@@ -311,19 +311,19 @@ paths:
                 timezone_id:
                   type: string
                   description: ''
-                  example: aperiam
+                  example: illum
                 group_id:
                   type: string
                   description: ''
-                  example: esse
+                  example: architecto
                 document:
                   type: string
                   description: ''
-                  example: qui
+                  example: asperiores
                 identity_registry:
                   type: string
                   description: ''
-                  example: nihil
+                  example: molestias
                 avatar:
                   type: string
                   description: ''
@@ -331,7 +331,7 @@ paths:
                 birth_date:
                   type: string
                   description: 'Must be a valid date in the format <code>d/m/Y</code>.'
-                  example: 26/09/2023
+                  example: 30/09/2023
                 gender:
                   type: string
                   description: ''
@@ -343,11 +343,11 @@ paths:
                 where_know_us:
                   type: string
                   description: ''
-                  example: iusto
+                  example: eos
                 source:
                   type: string
                   description: ''
-                  example: consequuntur
+                  example: voluptatem
                 nickname:
                   type: string
                   description: ''
@@ -355,7 +355,7 @@ paths:
                 active:
                   type: string
                   description: ''
-                  example: et
+                  example: voluptatem
               required:
                 - name
                 - email
@@ -431,11 +431,11 @@ paths:
                 discount:
                   type: number
                   description: 'User groups can have discounts. Type: decimal.'
-                  example: 8.62
+                  example: 33144495.41
                 commission:
                   type: number
                   description: 'User groups can have commissions. Type: decimal.'
-                  example: 2076.38
+                  example: 279.88
               required:
                 - name
   '/api/v1/mzrt/user-groups/{id}':
@@ -481,11 +481,11 @@ paths:
                 discount:
                   type: number
                   description: 'User groups can have discounts. Type: decimal.'
-                  example: 108533398.87
+                  example: 6810470.11
                 commission:
                   type: number
                   description: 'User groups can have commissions. Type: decimal.'
-                  example: 1752476.77
+                  example: 4.58
               required:
                 - name
     parameters:
@@ -494,6 +494,182 @@ paths:
         name: id
         description: 'The ID of the user group.'
         example: 1
+        required: true
+        schema:
+          type: integer
+  /api/v1/mzrt/courses:
+    get:
+      summary: 'Display a listing of the courses.'
+      operationId: displayAListingOfTheCourses
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mozart
+    post:
+      summary: 'Store a newly created resource in storage.'
+      operationId: storeANewlyCreatedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                order:
+                  type: integer
+                  description: ''
+                  example: 18
+                name:
+                  type: string
+                  description: ''
+                  example: quas
+                slug:
+                  type: string
+                  description: ''
+                  example: et
+                level:
+                  type: string
+                  description: ''
+                  example: advanced
+                  enum:
+                    - begginner
+                    - intermediate
+                    - advanced
+                description:
+                  type: string
+                  description: ''
+                  example: 'Et id totam explicabo quis maiores.'
+                pre_requisites:
+                  type: object
+                  description: ''
+                  example: null
+                  properties: {  }
+                target:
+                  type: string
+                  description: ''
+                  example: voluptatum
+                image_featured:
+                  type: string
+                  description: ''
+                  example: null
+                image_cover:
+                  type: string
+                  description: ''
+                  example: null
+                is_fifo:
+                  type: boolean
+                  description: ''
+                  example: false
+                active:
+                  type: boolean
+                  description: ''
+                  example: false
+                meta_description:
+                  type: string
+                  description: ''
+                  example: quo
+                meta_keywords:
+                  type: string
+                  description: ''
+                  example: tenetur
+                price:
+                  type: number
+                  description: ''
+                  example: 11.5828631
+                access_months:
+                  type: integer
+                  description: ''
+                  example: 15
+                started_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-09-30T10:30:01'
+                ended_at:
+                  type: string
+                  description: 'Must be a valid date.'
+                  example: '2023-09-30T10:30:01'
+                amount:
+                  type: number
+                  description: ''
+                  example: 6172.42103
+                discount:
+                  type: number
+                  description: ''
+                  example: 640006253.44107
+                level_description:
+                  type: string
+                  description: ''
+                  example: null
+              required:
+                - name
+                - slug
+                - level
+                - is_fifo
+                - active
+                - price
+                - amount
+                - discount
+  '/api/v1/mzrt/courses/{id}':
+    get:
+      summary: 'Display the specified resource.'
+      operationId: displayTheSpecifiedResource
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Mozart
+    put:
+      summary: 'Update the specified resource in storage.'
+      operationId: updateTheSpecifiedResourceInStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+    delete:
+      summary: 'Remove the specified resource from storage.'
+      operationId: removeTheSpecifiedResourceFromStorage
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Mozart
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the course.'
+        example: 2
         required: true
         schema:
           type: integer
@@ -572,7 +748,7 @@ paths:
                 country_id:
                   type: string
                   description: ''
-                  example: omnis
+                  example: natus
                 name:
                   type: string
                   description: ''
@@ -580,15 +756,15 @@ paths:
                 zip_code:
                   type: string
                   description: ''
-                  example: nulla
+                  example: distinctio
                 address:
                   type: string
                   description: ''
-                  example: necessitatibus
+                  example: error
                 number:
                   type: string
                   description: ''
-                  example: reiciendis
+                  example: aut
                 complement:
                   type: string
                   description: ''
@@ -596,15 +772,15 @@ paths:
                 district:
                   type: string
                   description: ''
-                  example: dolores
+                  example: quibusdam
                 city:
                   type: string
                   description: ''
-                  example: fugit
+                  example: commodi
                 state:
                   type: string
                   description: ''
-                  example: perspiciatis
+                  example: veniam
               required:
                 - country_id
                 - zip_code
@@ -641,7 +817,7 @@ paths:
                 country_id:
                   type: string
                   description: ''
-                  example: quis
+                  example: ipsam
                 name:
                   type: string
                   description: ''
@@ -649,15 +825,15 @@ paths:
                 zip_code:
                   type: string
                   description: ''
-                  example: ratione
+                  example: minus
                 address:
                   type: string
                   description: ''
-                  example: cum
+                  example: minus
                 number:
                   type: string
                   description: ''
-                  example: cumque
+                  example: molestiae
                 complement:
                   type: string
                   description: ''
@@ -665,15 +841,15 @@ paths:
                 district:
                   type: string
                   description: ''
-                  example: vero
+                  example: voluptas
                 city:
                   type: string
                   description: ''
-                  example: eaque
+                  example: aut
                 state:
                   type: string
                   description: ''
-                  example: a
+                  example: voluptate
               required:
                 - country_id
                 - zip_code
@@ -718,7 +894,7 @@ paths:
                 user_id:
                   type: string
                   description: ''
-                  example: nemo
+                  example: et
                 commission:
                   type: string
                   description: ''
@@ -746,7 +922,7 @@ paths:
                 sex_meetings:
                   type: string
                   description: ''
-                  example: female
+                  example: male
                   enum:
                     - male
                     - female
@@ -803,7 +979,7 @@ paths:
                 sex_meetings:
                   type: string
                   description: ''
-                  example: both
+                  example: female
                   enum:
                     - male
                     - female
@@ -873,7 +1049,7 @@ paths:
                 points:
                   type: integer
                   description: ''
-                  example: 9
+                  example: 12
               required:
                 - points
     parameters:
@@ -904,7 +1080,7 @@ paths:
                 points:
                   type: number
                   description: 'Must be at least 1.'
-                  example: 81
+                  example: 90
               required:
                 - points
     parameters:
@@ -935,7 +1111,7 @@ paths:
                 points:
                   type: number
                   description: 'Must be at least 1.'
-                  example: 43
+                  example: 28
               required:
                 - points
     parameters:

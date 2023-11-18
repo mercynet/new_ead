@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Comment;
-use App\Models\Lesson;
+use App\Models\Courses\Lesson;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

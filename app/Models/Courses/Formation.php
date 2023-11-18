@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Courses;
 
+use App\Models\Language;
 use App\Traits\HasLog;
 use App\Traits\Price;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

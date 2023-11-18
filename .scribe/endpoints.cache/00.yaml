@@ -28,7 +28,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 254 characters.'
         required: true
-        example: queenie.mante@example.org
+        example: lhoppe@example.net
         type: string
         enumValues: []
         custom: []
@@ -44,14 +44,14 @@ endpoints:
         name: remember
         description: ''
         required: false
-        example: false
+        example: true
         type: boolean
         enumValues: []
         custom: []
     cleanBodyParameters:
-      email: queenie.mante@example.org
+      email: lhoppe@example.net
       password: 'H3u3h#H%#ywQEG.'
-      remember: false
+      remember: true
     fileParameters: []
     responses: []
     responseFields: []
@@ -85,7 +85,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: ab
+        example: quibusdam
         type: string
         enumValues: []
         custom: []
@@ -93,7 +93,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 254 characters.'
         required: true
-        example: willis.schaden@example.com
+        example: joesph28@example.com
         type: string
         enumValues: []
         custom: []
@@ -101,7 +101,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: repudiandae
+        example: cum
         type: string
         enumValues: []
         custom: []
@@ -109,15 +109,15 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: eos
+        example: natus
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: ab
-      email: willis.schaden@example.com
-      password: repudiandae
-      password_confirmation: eos
+      name: quibusdam
+      email: joesph28@example.com
+      password: cum
+      password_confirmation: natus
     fileParameters: []
     responses: []
     responseFields: []
@@ -155,7 +155,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer c1VZP8abdfhva5ge63DkE46'
+      - 'Bearer aE1V3D48ke5f6h6aZPdgbvc'
     controller: null
     method: null
     route: null
@@ -189,7 +189,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 5DVEe8vkacg6Z64ba3h1fPd'
+      - 'Bearer 5kE6Pg86baavDZc41hfd3eV'
     controller: null
     method: null
     route: null
@@ -226,14 +226,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=PfZWhSgYD6KqenyArdk3xQY4OtgiG4Q62Mj7LqY2; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=UFo5p4BbfyS8QEasqXyjQMdPFGZ9zJsmnr3WsTiQ; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 85V6efkhZ3bdvaac16EPg4D'
+      - 'Bearer e5vZ4Vab3akdE68hPDf1g6c'
     controller: null
     method: null
     route: null

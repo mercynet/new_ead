@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Lesson;
+use App\Models\Courses\Lesson;
 use App\Models\Users\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,7 +25,7 @@ class LessonPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Lesson  $lesson
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(User $user, Lesson $lesson)
@@ -48,7 +48,7 @@ class LessonPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Lesson  $lesson
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(User $user, Lesson $lesson)
@@ -60,7 +60,7 @@ class LessonPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Lesson  $lesson
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(User $user, Lesson $lesson)
@@ -72,7 +72,7 @@ class LessonPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Lesson  $lesson
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(User $user, Lesson $lesson)
@@ -84,7 +84,7 @@ class LessonPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Lesson  $lesson
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(User $user, Lesson $lesson)

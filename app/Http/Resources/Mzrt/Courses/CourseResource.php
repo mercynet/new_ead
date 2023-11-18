@@ -3,13 +3,17 @@
 namespace App\Http\Resources\Mzrt\Courses;
 
 use App\Http\Resources\Mzrt\LanguageResource;
-use App\Models\Course;
+use App\Models\Courses\Course;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 /** @mixin Course */
 class CourseResource extends JsonResource
 {
+    /**
+     * @param Request $request
+     * @return array
+     */
     public function toArray(Request $request): array
     {
         return [

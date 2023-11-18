@@ -2,8 +2,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Course;
-use App\Models\CourseModule;
+use App\Models\Courses\Course;
+use App\Models\Courses\CourseModule;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 

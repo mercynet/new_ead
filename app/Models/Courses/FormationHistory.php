@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Courses;
 
 use App\Traits\HasLog;
 use App\Traits\Price;

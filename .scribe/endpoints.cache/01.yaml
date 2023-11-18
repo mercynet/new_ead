@@ -35,14 +35,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=DvAZ96ORJvxQE2ZfNNNlWXeaPRIT0AgTyf4tnBWh; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=FvG39hnoiVmwSyKnwumwBo2BV58VD4mBBkQZA9mk; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6ah1gbacP683ZEkV5vd4feD'
+      - 'Bearer 64kgb6Pfc8haDd1VaEv5Z3e'
     controller: null
     method: null
     route: null
@@ -73,7 +73,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: rem
+        example: occaecati
         type: string
         enumValues: []
         custom: []
@@ -81,7 +81,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: bjerde@example.com
+        example: pmoen@example.net
         type: string
         enumValues: []
         custom: []
@@ -89,7 +89,7 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: asperiores
+        example: natus
         type: string
         enumValues: []
         custom: []
@@ -97,7 +97,7 @@ endpoints:
         name: role
         description: ''
         required: true
-        example: instructor
+        example: superuser
         type: string
         enumValues:
           - development
@@ -118,7 +118,7 @@ endpoints:
         name: timezone_id
         description: ''
         required: true
-        example: corporis
+        example: consectetur
         type: string
         enumValues: []
         custom: []
@@ -126,7 +126,7 @@ endpoints:
         name: group_id
         description: ''
         required: true
-        example: quae
+        example: voluptas
         type: string
         enumValues: []
         custom: []
@@ -134,7 +134,7 @@ endpoints:
         name: document
         description: ''
         required: true
-        example: quis
+        example: ut
         type: string
         enumValues: []
         custom: []
@@ -142,7 +142,7 @@ endpoints:
         name: identity_registry
         description: ''
         required: true
-        example: nemo
+        example: dolorum
         type: string
         enumValues: []
         custom: []
@@ -158,7 +158,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date in the format <code>d/m/Y</code>.'
         required: true
-        example: 26/09/2023
+        example: 30/09/2023
         type: string
         enumValues: []
         custom: []
@@ -166,7 +166,7 @@ endpoints:
         name: gender
         description: ''
         required: true
-        example: male
+        example: both
         type: string
         enumValues:
           - male
@@ -185,7 +185,7 @@ endpoints:
         name: source
         description: ''
         required: true
-        example: similique
+        example: rerum
         type: string
         enumValues: []
         custom: []
@@ -206,18 +206,18 @@ endpoints:
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: rem
-      email: bjerde@example.com
-      password: asperiores
-      role: instructor
+      name: occaecati
+      email: pmoen@example.net
+      password: natus
+      role: superuser
       address: []
-      timezone_id: corporis
-      group_id: quae
-      document: quis
-      identity_registry: nemo
-      birth_date: 26/09/2023
-      gender: male
-      source: similique
+      timezone_id: consectetur
+      group_id: voluptas
+      document: ut
+      identity_registry: dolorum
+      birth_date: 30/09/2023
+      gender: both
+      source: rerum
       active: false
     fileParameters: []
     responses: []
@@ -225,7 +225,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer d1bvZfVk5EDc4e8h3Pga6a6'
+      - 'Bearer 1a8cbv4VEa3ek6hfdZDg56P'
     controller: null
     method: null
     route: null
@@ -271,14 +271,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=zyFHpZlcMgElBLHWgdb9Xwz1myfc5FJFxl2TPDTO; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=je33Bg7jDhplPfYUti2o1FUddvaQu3FpeKTuCnu0; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer Ef8g36hZPcek415abDVa6vd'
+      - 'Bearer fZb6Dgv1ca3dh8eVE6Pka54'
     controller: null
     method: null
     route: null
@@ -319,7 +319,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: praesentium
+        example: quia
         type: string
         enumValues: []
         custom: []
@@ -327,7 +327,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: wolff.alysha@example.org
+        example: veum.leslie@example.net
         type: string
         enumValues: []
         custom: []
@@ -343,7 +343,7 @@ endpoints:
         name: roles
         description: ''
         required: true
-        example: student
+        example: admin
         type: string
         enumValues:
           - development
@@ -356,7 +356,7 @@ endpoints:
         name: address_id
         description: ''
         required: true
-        example: eum
+        example: voluptatem
         type: string
         enumValues: []
         custom: []
@@ -372,7 +372,7 @@ endpoints:
         name: timezone_id
         description: ''
         required: true
-        example: aperiam
+        example: illum
         type: string
         enumValues: []
         custom: []
@@ -380,7 +380,7 @@ endpoints:
         name: group_id
         description: ''
         required: true
-        example: esse
+        example: architecto
         type: string
         enumValues: []
         custom: []
@@ -388,7 +388,7 @@ endpoints:
         name: document
         description: ''
         required: true
-        example: qui
+        example: asperiores
         type: string
         enumValues: []
         custom: []
@@ -396,7 +396,7 @@ endpoints:
         name: identity_registry
         description: ''
         required: true
-        example: nihil
+        example: molestias
         type: string
         enumValues: []
         custom: []
@@ -412,7 +412,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date in the format <code>d/m/Y</code>.'
         required: true
-        example: 26/09/2023
+        example: 30/09/2023
         type: string
         enumValues: []
         custom: []
@@ -431,7 +431,7 @@ endpoints:
         name: where_know_us
         description: ''
         required: false
-        example: iusto
+        example: eos
         type: string
         enumValues: []
         custom: []
@@ -439,7 +439,7 @@ endpoints:
         name: source
         description: ''
         required: true
-        example: consequuntur
+        example: voluptatem
         type: string
         enumValues: []
         custom: []
@@ -455,33 +455,33 @@ endpoints:
         name: active
         description: ''
         required: true
-        example: et
+        example: voluptatem
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      name: praesentium
-      email: wolff.alysha@example.org
+      name: quia
+      email: veum.leslie@example.net
       password: 'H3u3h#H%#ywQEG.'
-      roles: student
-      address_id: eum
+      roles: admin
+      address_id: voluptatem
       address: []
-      timezone_id: aperiam
-      group_id: esse
-      document: qui
-      identity_registry: nihil
-      birth_date: 26/09/2023
+      timezone_id: illum
+      group_id: architecto
+      document: asperiores
+      identity_registry: molestias
+      birth_date: 30/09/2023
       gender: female
-      where_know_us: iusto
-      source: consequuntur
-      active: et
+      where_know_us: eos
+      source: voluptatem
+      active: voluptatem
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6daf8bkDeZ14Vc3gPav6h5E'
+      - 'Bearer fZVgkeEvaa415b63c8dDPh6'
     controller: null
     method: null
     route: null
@@ -524,7 +524,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6kf1EPaDabd3Ze4g65cV8vh'
+      - 'Bearer d6D6bcV51eaEv3kh8PZg4af'
     controller: null
     method: null
     route: null
@@ -563,14 +563,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=VYuzHu3845C822OCNkKL5ZC7kNbxRwNMRIlxJGuC; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=bfP39RdEwAIVZdjLyfkXji5HuRqfNfbE2MVbpBhD; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer bvEg5aV8PZ6f13ec6d4kDah'
+      - 'Bearer 8cZ6dvE31akPge4b5VaD6hf'
     controller: null
     method: null
     route: null
@@ -609,7 +609,7 @@ endpoints:
         name: discount
         description: 'User groups can have discounts. Type: decimal.'
         required: false
-        example: 8.62
+        example: 33144495.41
         type: number
         enumValues: []
         custom: []
@@ -617,21 +617,21 @@ endpoints:
         name: commission
         description: 'User groups can have commissions. Type: decimal.'
         required: false
-        example: 2076.38
+        example: 279.88
         type: number
         enumValues: []
         custom: []
     cleanBodyParameters:
       name: Vip
-      discount: 8.62
-      commission: 2076.38
+      discount: 33144495.41
+      commission: 279.88
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer ch6kE8g513D4vfZbae6daVP'
+      - 'Bearer aVE3c4DdZg68k1heaPf6v5b'
     controller: null
     method: null
     route: null
@@ -677,14 +677,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=9kfyYzXKKAL0ShPTn4skQyG66cQGaFBiszfp9Qee; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=UcT2kLd7R5Za0FpbQ8FsHOGmyFN32bZ4WhznVVfn; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 15a4Pf6eZVbEv8D63hkgadc'
+      - 'Bearer e6cdZbVa5g48af1Dhk63PEv'
     controller: null
     method: null
     route: null
@@ -733,7 +733,7 @@ endpoints:
         name: discount
         description: 'User groups can have discounts. Type: decimal.'
         required: false
-        example: 108533398.87
+        example: 6810470.11
         type: number
         enumValues: []
         custom: []
@@ -741,21 +741,418 @@ endpoints:
         name: commission
         description: 'User groups can have commissions. Type: decimal.'
         required: false
-        example: 1752476.77
+        example: 4.58
         type: number
         enumValues: []
         custom: []
     cleanBodyParameters:
       name: Vip
-      discount: 108533398.87
-      commission: 1752476.77
+      discount: 6810470.11
+      commission: 4.58
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 665hgfcak81PV4D3aebvEdZ'
+      - 'Bearer bdE361a4P5egf8hcVk6ZDva'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/mzrt/courses
+    metadata:
+      groupName: Mozart
+      groupDescription: ''
+      subgroup: Courses
+      subgroupDescription: 'Courses general management'
+      title: 'Display a listing of the courses.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=ydO6m2V0VRArTOCeNBMo5ePvoL0h7IRXlb7Uz6na; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 4bPaEDg65ac8vfdke6Z1hV3'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/mzrt/courses
+    metadata:
+      groupName: Mozart
+      groupDescription: ''
+      subgroup: Courses
+      subgroupDescription: 'Courses general management'
+      title: 'Store a newly created resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      order:
+        name: order
+        description: ''
+        required: false
+        example: 18
+        type: integer
+        enumValues: []
+        custom: []
+      name:
+        name: name
+        description: ''
+        required: true
+        example: quas
+        type: string
+        enumValues: []
+        custom: []
+      slug:
+        name: slug
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        custom: []
+      level:
+        name: level
+        description: ''
+        required: true
+        example: advanced
+        type: string
+        enumValues:
+          - begginner
+          - intermediate
+          - advanced
+        custom: []
+      description:
+        name: description
+        description: ''
+        required: false
+        example: 'Et id totam explicabo quis maiores.'
+        type: string
+        enumValues: []
+        custom: []
+      pre_requisites:
+        name: pre_requisites
+        description: ''
+        required: false
+        example: null
+        type: object
+        enumValues: []
+        custom: []
+      target:
+        name: target
+        description: ''
+        required: false
+        example: voluptatum
+        type: string
+        enumValues: []
+        custom: []
+      image_featured:
+        name: image_featured
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        custom: []
+      image_cover:
+        name: image_cover
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        custom: []
+      is_fifo:
+        name: is_fifo
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        custom: []
+      active:
+        name: active
+        description: ''
+        required: true
+        example: false
+        type: boolean
+        enumValues: []
+        custom: []
+      meta_description:
+        name: meta_description
+        description: ''
+        required: false
+        example: quo
+        type: string
+        enumValues: []
+        custom: []
+      meta_keywords:
+        name: meta_keywords
+        description: ''
+        required: false
+        example: tenetur
+        type: string
+        enumValues: []
+        custom: []
+      price:
+        name: price
+        description: ''
+        required: true
+        example: 11.5828631
+        type: number
+        enumValues: []
+        custom: []
+      access_months:
+        name: access_months
+        description: ''
+        required: false
+        example: 15
+        type: integer
+        enumValues: []
+        custom: []
+      started_at:
+        name: started_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2023-09-30T10:30:01'
+        type: string
+        enumValues: []
+        custom: []
+      ended_at:
+        name: ended_at
+        description: 'Must be a valid date.'
+        required: false
+        example: '2023-09-30T10:30:01'
+        type: string
+        enumValues: []
+        custom: []
+      amount:
+        name: amount
+        description: ''
+        required: true
+        example: 6172.42103
+        type: number
+        enumValues: []
+        custom: []
+      discount:
+        name: discount
+        description: ''
+        required: true
+        example: 640006253.44107
+        type: number
+        enumValues: []
+        custom: []
+      level_description:
+        name: level_description
+        description: ''
+        required: false
+        example: null
+        type: string
+        enumValues: []
+        custom: []
+    cleanBodyParameters:
+      order: 18
+      name: quas
+      slug: et
+      level: advanced
+      description: 'Et id totam explicabo quis maiores.'
+      target: voluptatum
+      is_fifo: false
+      active: false
+      meta_description: quo
+      meta_keywords: tenetur
+      price: 11.5828631
+      access_months: 15
+      started_at: '2023-09-30T10:30:01'
+      ended_at: '2023-09-30T10:30:01'
+      amount: 6172.42103
+      discount: 640006253.44107
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer dcE8gvV4keb51PZa6D6ah3f'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/mzrt/courses/{id}'
+    metadata:
+      groupName: Mozart
+      groupDescription: ''
+      subgroup: Courses
+      subgroupDescription: 'Courses general management'
+      title: 'Display the specified resource.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the course.'
+        required: true
+        example: 2
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 2
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=jgSym4iJCuW6U2t3ljzQ8FYPKOu4udo8pbtowmaO; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer va68d4153aZefE6DgVPhbck'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+      - PATCH
+    uri: 'api/v1/mzrt/courses/{id}'
+    metadata:
+      groupName: Mozart
+      groupDescription: ''
+      subgroup: Courses
+      subgroupDescription: 'Courses general management'
+      title: 'Update the specified resource in storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the course.'
+        required: true
+        example: 5
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 5
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 1dE8Dha6Vk6bf5gPvce4Z3a'
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/mzrt/courses/{id}'
+    metadata:
+      groupName: Mozart
+      groupDescription: ''
+      subgroup: Courses
+      subgroupDescription: 'Courses general management'
+      title: 'Remove the specified resource from storage.'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Authorization: 'Bearer {YOUR_AUTH_KEY}'
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the course.'
+        required: true
+        example: 13
+        type: integer
+        enumValues: []
+        custom: []
+    cleanUrlParameters:
+      id: 13
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth:
+      - headers
+      - Authorization
+      - 'Bearer 6hD5agVPEdZ316eb48acvfk'
     controller: null
     method: null
     route: null
@@ -798,7 +1195,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer ach463dDEfPek6bZvg51aV8'
+      - 'Bearer ck3fVPaaev65E8hDZ6bd1g4'
     controller: null
     method: null
     route: null
@@ -841,7 +1238,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer f4vV6cD8k6g5bh3a1EadePZ'
+      - 'Bearer E8kaZD6bcefg1V4a3Pvhd65'
     controller: null
     method: null
     route: null
@@ -887,14 +1284,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=dBFiMcd7IcQPyKaHDER0fWZ3xz3gE00MSRt2kUfu; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=Z5CRkiJ0RbbV0DSX9SANcfuLMGcx6LyDDC2je36i; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer d5ZEha4D6bPvVaf3kecg861'
+      - 'Bearer V86P463kfe5abhEdavZ1Dcg'
     controller: null
     method: null
     route: null
@@ -934,7 +1331,7 @@ endpoints:
         name: country_id
         description: ''
         required: true
-        example: omnis
+        example: natus
         type: string
         enumValues: []
         custom: []
@@ -950,7 +1347,7 @@ endpoints:
         name: zip_code
         description: ''
         required: true
-        example: nulla
+        example: distinctio
         type: string
         enumValues: []
         custom: []
@@ -958,7 +1355,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: necessitatibus
+        example: error
         type: string
         enumValues: []
         custom: []
@@ -966,7 +1363,7 @@ endpoints:
         name: number
         description: ''
         required: true
-        example: reiciendis
+        example: aut
         type: string
         enumValues: []
         custom: []
@@ -982,7 +1379,7 @@ endpoints:
         name: district
         description: ''
         required: true
-        example: dolores
+        example: quibusdam
         type: string
         enumValues: []
         custom: []
@@ -990,7 +1387,7 @@ endpoints:
         name: city
         description: ''
         required: true
-        example: fugit
+        example: commodi
         type: string
         enumValues: []
         custom: []
@@ -998,25 +1395,25 @@ endpoints:
         name: state
         description: ''
         required: true
-        example: perspiciatis
+        example: veniam
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      country_id: omnis
-      zip_code: nulla
-      address: necessitatibus
-      number: reiciendis
-      district: dolores
-      city: fugit
-      state: perspiciatis
+      country_id: natus
+      zip_code: distinctio
+      address: error
+      number: aut
+      district: quibusdam
+      city: commodi
+      state: veniam
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer hgba8dc6k3avE16PDfZ45eV'
+      - 'Bearer 6PDa58Eaf4ckZe316hdbvVg'
     controller: null
     method: null
     route: null
@@ -1065,7 +1462,7 @@ endpoints:
         name: country_id
         description: ''
         required: true
-        example: quis
+        example: ipsam
         type: string
         enumValues: []
         custom: []
@@ -1081,7 +1478,7 @@ endpoints:
         name: zip_code
         description: ''
         required: true
-        example: ratione
+        example: minus
         type: string
         enumValues: []
         custom: []
@@ -1089,7 +1486,7 @@ endpoints:
         name: address
         description: ''
         required: true
-        example: cum
+        example: minus
         type: string
         enumValues: []
         custom: []
@@ -1097,7 +1494,7 @@ endpoints:
         name: number
         description: ''
         required: true
-        example: cumque
+        example: molestiae
         type: string
         enumValues: []
         custom: []
@@ -1113,7 +1510,7 @@ endpoints:
         name: district
         description: ''
         required: true
-        example: vero
+        example: voluptas
         type: string
         enumValues: []
         custom: []
@@ -1121,7 +1518,7 @@ endpoints:
         name: city
         description: ''
         required: true
-        example: eaque
+        example: aut
         type: string
         enumValues: []
         custom: []
@@ -1129,25 +1526,25 @@ endpoints:
         name: state
         description: ''
         required: true
-        example: a
+        example: voluptate
         type: string
         enumValues: []
         custom: []
     cleanBodyParameters:
-      country_id: quis
-      zip_code: ratione
-      address: cum
-      number: cumque
-      district: vero
-      city: eaque
-      state: a
+      country_id: ipsam
+      zip_code: minus
+      address: minus
+      number: molestiae
+      district: voluptas
+      city: aut
+      state: voluptate
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer Df64kcvPa1Va6bhEe8gd3Z5'
+      - 'Bearer h4akegfZa6D6d1v5Pb3V8cE'
     controller: null
     method: null
     route: null
@@ -1187,7 +1584,7 @@ endpoints:
         name: user_id
         description: ''
         required: true
-        example: nemo
+        example: et
         type: string
         enumValues: []
         custom: []
@@ -1243,7 +1640,7 @@ endpoints:
         name: sex_meetings
         description: ''
         required: false
-        example: female
+        example: male
         type: string
         enumValues:
           - male
@@ -1262,8 +1659,8 @@ endpoints:
           - both
         custom: []
     cleanBodyParameters:
-      user_id: nemo
-      sex_meetings: female
+      user_id: et
+      sex_meetings: male
       meeting_type: female
     fileParameters: []
     responses: []
@@ -1271,7 +1668,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer f3kdEeZ6cV51ab8aDv6hgP4'
+      - 'Bearer Pa6ebhD54gEZVva8d63fkc1'
     controller: null
     method: null
     route: null
@@ -1359,7 +1756,7 @@ endpoints:
         name: sex_meetings
         description: ''
         required: false
-        example: both
+        example: female
         type: string
         enumValues:
           - male
@@ -1378,7 +1775,7 @@ endpoints:
           - both
         custom: []
     cleanBodyParameters:
-      sex_meetings: both
+      sex_meetings: female
       meeting_type: female
     fileParameters: []
     responses: []
@@ -1386,7 +1783,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer 6EafvD5gPbck48aV6e31Zhd'
+      - 'Bearer P14gaVeEadZ8cbk53vDfh66'
     controller: null
     method: null
     route: null
@@ -1446,7 +1843,7 @@ endpoints:
     auth:
       - headers
       - Authorization
-      - 'Bearer c3b1a6kDEV8hPgfe5v6aZ4d'
+      - 'Bearer 4ZvagfVPE1eD85c6dkab3h6'
     controller: null
     method: null
     route: null
@@ -1494,19 +1891,19 @@ endpoints:
         name: points
         description: ''
         required: true
-        example: 9
+        example: 12
         type: integer
         enumValues: []
         custom: []
     cleanBodyParameters:
-      points: 9
+      points: 12
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer vDPhg18kEeV3Z66fbcd54aa'
+      - 'Bearer 4hac6dbk6DVEP5a13Zgev8f'
     controller: null
     method: null
     route: null
@@ -1546,19 +1943,19 @@ endpoints:
         name: points
         description: 'Must be at least 1.'
         required: true
-        example: 81
+        example: 90
         type: number
         enumValues: []
         custom: []
     cleanBodyParameters:
-      points: 81
+      points: 90
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer dEZ6PvbcgV6D481ha5faek3'
+      - 'Bearer eZ41kag6ahdPv36EfcDVb85'
     controller: null
     method: null
     route: null
@@ -1598,19 +1995,19 @@ endpoints:
         name: points
         description: 'Must be at least 1.'
         required: true
-        example: 43
+        example: 28
         type: number
         enumValues: []
         custom: []
     cleanBodyParameters:
-      points: 43
+      points: 28
     fileParameters: []
     responses: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer Eek48Dd3Vbha1caf6Pg65Zv'
+      - 'Bearer 51VbEPcDe6ak43va6Zdhf8g'
     controller: null
     method: null
     route: null

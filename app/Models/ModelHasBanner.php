@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Courses\Course;
+use App\Models\Courses\Formation;
 use App\Traits\HasLog;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;

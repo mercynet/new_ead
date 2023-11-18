@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Courses;
 
 use App\Traits\HasLog;
-use App\Traits\Price;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -12,24 +11,33 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  *
  */
-class CourseHistory extends Model
+class CourseModule extends Model
 {
-    use HasFactory, HasLog, SoftDeletes, Price;
+    use HasFactory, HasLog, SoftDeletes;
 
     /**
      * @var string[]
      */
     protected $fillable = [
         'course_id',
-        'course_name',
-        'course_price',
+        'language_id',
+        'name',
+        'slug',
     ];
 
     /**
      * @return BelongsTo
      */
-    public function courses(): BelongsTo
+    public function course(): BelongsTo
     {
         return $this->belongsTo(Course::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function lessons(): BelongsTo
+    {
+        return $this->belongsTo(Lesson::class);
     }
 }

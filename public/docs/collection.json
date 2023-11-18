@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "EAD ABTP\u00e9",
-        "_postman_id": "ea22fce4-c842-4bd3-8a78-22457aae23c3",
+        "_postman_id": "572d50d4-482b-4471-b3e2-7f3bfd40eb85",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"queenie.mante@example.org\",\"password\":\"H3u3h#H%#ywQEG.\",\"remember\":false}"
+                            "raw": "{\"email\":\"lhoppe@example.net\",\"password\":\"H3u3h#H%#ywQEG.\",\"remember\":true}"
                         },
                         "description": "",
                         "auth": {
@@ -72,7 +72,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"ab\",\"email\":\"willis.schaden@example.com\",\"password\":\"repudiandae\",\"password_confirmation\":\"eos\"}"
+                            "raw": "{\"name\":\"quibusdam\",\"email\":\"joesph28@example.com\",\"password\":\"cum\",\"password_confirmation\":\"natus\"}"
                         },
                         "description": "",
                         "auth": {
@@ -171,7 +171,7 @@
                                 },
                                 {
                                     "key": "set-cookie",
-                                    "value": "ead_abtpe_session=PfZWhSgYD6KqenyArdk3xQY4OtgiG4Q62Mj7LqY2; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                    "value": "ead_abtpe_session=UFo5p4BbfyS8QEasqXyjQMdPFGZ9zJsmnr3WsTiQ; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                 }
                             ],
                             "code": 401,
@@ -230,7 +230,7 @@
                                         },
                                         {
                                             "key": "set-cookie",
-                                            "value": "ead_abtpe_session=DvAZ96ORJvxQE2ZfNNNlWXeaPRIT0AgTyf4tnBWh; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                            "value": "ead_abtpe_session=FvG39hnoiVmwSyKnwumwBo2BV58VD4mBBkQZA9mk; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                         }
                                     ],
                                     "code": 401,
@@ -261,7 +261,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"name\":\"rem\",\"email\":\"bjerde@example.com\",\"password\":\"asperiores\",\"role\":\"instructor\",\"address\":[],\"timezone_id\":\"corporis\",\"group_id\":\"quae\",\"document\":\"quis\",\"identity_registry\":\"nemo\",\"birth_date\":\"26\\\/09\\\/2023\",\"gender\":\"male\",\"source\":\"similique\",\"active\":false}"
+                                    "raw": "{\"name\":\"occaecati\",\"email\":\"pmoen@example.net\",\"password\":\"natus\",\"role\":\"superuser\",\"address\":[],\"timezone_id\":\"consectetur\",\"group_id\":\"voluptas\",\"document\":\"ut\",\"identity_registry\":\"dolorum\",\"birth_date\":\"30\\\/09\\\/2023\",\"gender\":\"both\",\"source\":\"rerum\",\"active\":false}"
                                 },
                                 "description": ""
                             },
@@ -315,7 +315,7 @@
                                         },
                                         {
                                             "key": "set-cookie",
-                                            "value": "ead_abtpe_session=zyFHpZlcMgElBLHWgdb9Xwz1myfc5FJFxl2TPDTO; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                            "value": "ead_abtpe_session=je33Bg7jDhplPfYUti2o1FUddvaQu3FpeKTuCnu0; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                         }
                                     ],
                                     "code": 401,
@@ -354,7 +354,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"name\":\"praesentium\",\"email\":\"wolff.alysha@example.org\",\"password\":\"H3u3h#H%#ywQEG.\",\"roles\":\"student\",\"address_id\":\"eum\",\"address\":[],\"timezone_id\":\"aperiam\",\"group_id\":\"esse\",\"document\":\"qui\",\"identity_registry\":\"nihil\",\"birth_date\":\"26\\\/09\\\/2023\",\"gender\":\"female\",\"where_know_us\":\"iusto\",\"source\":\"consequuntur\",\"active\":\"et\"}"
+                                    "raw": "{\"name\":\"quia\",\"email\":\"veum.leslie@example.net\",\"password\":\"H3u3h#H%#ywQEG.\",\"roles\":\"admin\",\"address_id\":\"voluptatem\",\"address\":[],\"timezone_id\":\"illum\",\"group_id\":\"architecto\",\"document\":\"asperiores\",\"identity_registry\":\"molestias\",\"birth_date\":\"30\\\/09\\\/2023\",\"gender\":\"female\",\"where_know_us\":\"eos\",\"source\":\"voluptatem\",\"active\":\"voluptatem\"}"
                                 },
                                 "description": ""
                             },
@@ -525,7 +525,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"points\":9}"
+                                    "raw": "{\"points\":12}"
                                 },
                                 "description": ""
                             },
@@ -561,7 +561,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"points\":81}"
+                                    "raw": "{\"points\":90}"
                                 },
                                 "description": ""
                             },
@@ -597,7 +597,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"points\":43}"
+                                    "raw": "{\"points\":28}"
                                 },
                                 "description": ""
                             },
@@ -649,7 +649,7 @@
                                         },
                                         {
                                             "key": "set-cookie",
-                                            "value": "ead_abtpe_session=VYuzHu3845C822OCNkKL5ZC7kNbxRwNMRIlxJGuC; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                            "value": "ead_abtpe_session=bfP39RdEwAIVZdjLyfkXji5HuRqfNfbE2MVbpBhD; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                         }
                                     ],
                                     "code": 401,
@@ -680,7 +680,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"name\":\"Vip\",\"discount\":8.62,\"commission\":2076.38}"
+                                    "raw": "{\"name\":\"Vip\",\"discount\":33144495.41,\"commission\":279.88}"
                                 },
                                 "description": ""
                             },
@@ -734,7 +734,7 @@
                                         },
                                         {
                                             "key": "set-cookie",
-                                            "value": "ead_abtpe_session=9kfyYzXKKAL0ShPTn4skQyG66cQGaFBiszfp9Qee; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                            "value": "ead_abtpe_session=UcT2kLd7R5Za0FpbQ8FsHOGmyFN32bZ4WhznVVfn; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                         }
                                     ],
                                     "code": 401,
@@ -773,8 +773,214 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"name\":\"Vip\",\"discount\":108533398.87,\"commission\":1752476.77}"
+                                    "raw": "{\"name\":\"Vip\",\"discount\":6810470.11,\"commission\":4.58}"
                                 },
+                                "description": ""
+                            },
+                            "response": []
+                        }
+                    ]
+                },
+                {
+                    "name": "Courses",
+                    "description": "Courses general management",
+                    "item": [
+                        {
+                            "name": "Display a listing of the courses.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/courses",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/courses"
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        },
+                                        {
+                                            "key": "set-cookie",
+                                            "value": "ead_abtpe_session=ydO6m2V0VRArTOCeNBMo5ePvoL0h7IRXlb7Uz6na; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Store a newly created resource in storage.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/courses",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/courses"
+                                },
+                                "method": "POST",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": {
+                                    "mode": "raw",
+                                    "raw": "{\"order\":18,\"name\":\"quas\",\"slug\":\"et\",\"level\":\"advanced\",\"description\":\"Et id totam explicabo quis maiores.\",\"target\":\"voluptatum\",\"is_fifo\":false,\"active\":false,\"meta_description\":\"quo\",\"meta_keywords\":\"tenetur\",\"price\":11.5828631,\"access_months\":15,\"started_at\":\"2023-09-30T10:30:01\",\"ended_at\":\"2023-09-30T10:30:01\",\"amount\":6172.42103,\"discount\":640006253.441067}"
+                                },
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Display the specified resource.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/courses\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/courses\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "2",
+                                            "description": "The ID of the course."
+                                        }
+                                    ]
+                                },
+                                "method": "GET",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": [
+                                {
+                                    "header": [
+                                        {
+                                            "key": "cache-control",
+                                            "value": "no-cache, private"
+                                        },
+                                        {
+                                            "key": "content-type",
+                                            "value": "application\/json"
+                                        },
+                                        {
+                                            "key": "access-control-allow-origin",
+                                            "value": "*"
+                                        },
+                                        {
+                                            "key": "set-cookie",
+                                            "value": "ead_abtpe_session=jgSym4iJCuW6U2t3ljzQ8FYPKOu4udo8pbtowmaO; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                        }
+                                    ],
+                                    "code": 401,
+                                    "body": "{\"message\":\"Unauthenticated.\"}",
+                                    "name": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Update the specified resource in storage.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/courses\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/courses\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "5",
+                                            "description": "The ID of the course."
+                                        }
+                                    ]
+                                },
+                                "method": "PUT",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
+                                "description": ""
+                            },
+                            "response": []
+                        },
+                        {
+                            "name": "Remove the specified resource from storage.",
+                            "request": {
+                                "url": {
+                                    "host": "{{baseUrl}}",
+                                    "path": "api\/v1\/mzrt\/courses\/:id",
+                                    "query": [],
+                                    "raw": "{{baseUrl}}\/api\/v1\/mzrt\/courses\/:id",
+                                    "variable": [
+                                        {
+                                            "id": "id",
+                                            "key": "id",
+                                            "value": "13",
+                                            "description": "The ID of the course."
+                                        }
+                                    ]
+                                },
+                                "method": "DELETE",
+                                "header": [
+                                    {
+                                        "key": "Content-Type",
+                                        "value": "application\/json"
+                                    },
+                                    {
+                                        "key": "Accept",
+                                        "value": "application\/json"
+                                    }
+                                ],
+                                "body": null,
                                 "description": ""
                             },
                             "response": []
@@ -833,7 +1039,7 @@
                                         },
                                         {
                                             "key": "set-cookie",
-                                            "value": "ead_abtpe_session=dBFiMcd7IcQPyKaHDER0fWZ3xz3gE00MSRt2kUfu; expires=Tue, 26 Sep 2023 22:30:27 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
+                                            "value": "ead_abtpe_session=Z5CRkiJ0RbbV0DSX9SANcfuLMGcx6LyDDC2je36i; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=\/; httponly; samesite=lax"
                                         }
                                     ],
                                     "code": 401,
@@ -872,7 +1078,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"country_id\":\"omnis\",\"zip_code\":\"nulla\",\"address\":\"necessitatibus\",\"number\":\"reiciendis\",\"district\":\"dolores\",\"city\":\"fugit\",\"state\":\"perspiciatis\"}"
+                                    "raw": "{\"country_id\":\"natus\",\"zip_code\":\"distinctio\",\"address\":\"error\",\"number\":\"aut\",\"district\":\"quibusdam\",\"city\":\"commodi\",\"state\":\"veniam\"}"
                                 },
                                 "description": ""
                             },
@@ -914,7 +1120,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"country_id\":\"quis\",\"zip_code\":\"ratione\",\"address\":\"cum\",\"number\":\"cumque\",\"district\":\"vero\",\"city\":\"eaque\",\"state\":\"a\"}"
+                                    "raw": "{\"country_id\":\"ipsam\",\"zip_code\":\"minus\",\"address\":\"minus\",\"number\":\"molestiae\",\"district\":\"voluptas\",\"city\":\"aut\",\"state\":\"voluptate\"}"
                                 },
                                 "description": ""
                             },
@@ -956,7 +1162,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"user_id\":\"nemo\",\"sex_meetings\":\"female\",\"meeting_type\":\"female\"}"
+                                    "raw": "{\"user_id\":\"et\",\"sex_meetings\":\"male\",\"meeting_type\":\"female\"}"
                                 },
                                 "description": ""
                             },
@@ -992,7 +1198,7 @@
                                 ],
                                 "body": {
                                     "mode": "raw",
-                                    "raw": "{\"sex_meetings\":\"both\",\"meeting_type\":\"female\"}"
+                                    "raw": "{\"sex_meetings\":\"female\",\"meeting_type\":\"female\"}"
                                 },
                                 "description": ""
                             },

@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\Models\Course;
+use App\Models\Courses\Course;
 use App\Models\Users\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -25,7 +25,7 @@ class CoursePolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Courses\Course  $course
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(User $user, Course $course)
@@ -48,7 +48,7 @@ class CoursePolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Courses\Course  $course
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(User $user, Course $course)
@@ -60,7 +60,7 @@ class CoursePolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Courses\Course  $course
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(User $user, Course $course)
@@ -72,7 +72,7 @@ class CoursePolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Courses\Course  $course
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(User $user, Course $course)
@@ -84,7 +84,7 @@ class CoursePolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\Users\User  $user
-     * @param  \App\Models\Course  $course
+     * @param  \App\Models\Courses\Course  $course
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(User $user, Course $course)

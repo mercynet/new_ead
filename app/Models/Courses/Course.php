@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Courses;
 
 use App\Enums\CourseLevel;
+use App\Models\Language;
 use App\Traits\HasLog;
 use App\Traits\Price;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  *
+ * @method static select(string[] $array)
+ * @method static create(array $data)
  */
 class Course extends Model
 {
@@ -64,7 +67,7 @@ class Course extends Model
     /**
      * @return HasMany
      */
-    public function modules(): HasMany
+    public function courses_modules(): HasMany
     {
         return $this->hasMany(CourseModule::class);
     }
