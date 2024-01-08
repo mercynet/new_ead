@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
- * @group MZRT
+ * @group Mozart
  *
  * @subgroup Users
  * Resources for users roles

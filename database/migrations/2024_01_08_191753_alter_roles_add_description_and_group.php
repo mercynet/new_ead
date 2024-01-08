@@ -8,12 +8,10 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
-    public function up()
+    public function up(): void
     {
-        Schema::table('permissions', function (Blueprint $table) {
+        Schema::table('roles', function (Blueprint $table) {
             $table->after('id', fn($table) => $table->string('group_name')->default('Sistema'));
             $table->after('name', fn($table) => $table->string('description')->nullable());
         });

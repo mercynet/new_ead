@@ -2,7 +2,7 @@
 
 namespace App\Services\Users;
 
-use App\Models\Users\GroupUser;
+use App\Models\Users\Group;
 use App\Services\Service;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Database\Eloquent\Builder;
@@ -12,11 +12,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Collection as SupportCollection;
 
 /**
- * Class GroupUserService
+ * Class GroupService
  *
- * The GroupUserService class extends the Service class and provides methods for working with GroupUser models.
+ * The GroupService class extends the Service class and provides methods for working with Group models.
  */
-class GroupUserService extends Service
+class GroupService extends Service
 {
     protected readonly Model $model;
 
@@ -29,7 +29,7 @@ class GroupUserService extends Service
 
     public function __construct()
     {
-        $this->model = new GroupUser();
+        $this->model = new Group();
     }
 
     /**
@@ -69,12 +69,12 @@ class GroupUserService extends Service
     }
 
     /**
-     * Retrieve a GroupUser with its related users and count of users
+     * Retrieve a Group with its related users and count of users
      *
-     * @param  GroupUser  $groupUser The GroupUser object to fetch
-     * @return GroupUser|null The retrieved GroupUser object with related users and count of users, or null if not found
+     * @param  Group  $groupUser The Group object to fetch
+     * @return Group|null The retrieved Group object with related users and count of users, or null if not found
      */
-    public function group(GroupUser $groupUser): ?GroupUser
+    public function group(Group $groupUser): ?Group
     {
         return $this->model->with(['users'])->withCount('users')->find($groupUser->id);
     }

@@ -51,11 +51,11 @@ class AuthController
      */
     public function checkToken(Request $request): array|LoginResource
     {
-        if(!auth(getGuardName())->check()) {
+        if(!auth(currentGuardName())->check()) {
             $this->logout($request);
             return ['success' => false];
         }
-        return LoginResource::make((new UserService)->find(auth(getGuardName())->id()));
+        return LoginResource::make((new UserService)->find(auth(currentGuardName())->id()));
     }
 
     /**

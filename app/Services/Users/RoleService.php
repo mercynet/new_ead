@@ -23,17 +23,17 @@ class RoleService
     public function all(Request $request, int $pages = 20): Collection|LengthAwarePaginator|null
     {
         if ($pages === 0 || $request->get('all')) {
-            return $this->data($request)->get();
+            return $this->builder($request)->get();
         }
 
-        return $this->data($request)->paginate($pages);
+        return $this->builder($request)->paginate($pages);
     }
 
-    private function data(Request $request): Builder
+    private function builder(Request $request): Builder
     {
         return $this->model
             ->query()
-            ->where(['guard_name' => 'api'])
+            ->where(['guard_name' => currentGuardName()])
             ->where(function ($query) {
                 if (! auth()->user()->hasRole(\App\Enums\Users\Role::development->name)) {
                     $query->where('name', '!=', \App\Enums\Users\Role::development->name);

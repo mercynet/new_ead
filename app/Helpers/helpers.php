@@ -39,13 +39,13 @@ if (!function_exists('guardNames')) {
     }
 }
 
-if (!function_exists('getGuardName')) {
+if (!function_exists('currentGuardName')) {
     /**
      * @return string|null
      */
-    function getGuardName(): string|null
+    function currentGuardName(): string|null
     {
-        return Auth::guard('web')->check() ? 'web' : 'sanctum';
+        return Auth::guard('web')->check() ? 'web' : 'api';
     }
 }
 

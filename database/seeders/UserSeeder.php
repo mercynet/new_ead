@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Enums\Users\Role;
 use App\Models\Users\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -33,5 +34,7 @@ class UserSeeder extends Seeder
                 'updated_at' => now(),
             ],
         ], ['id']);
+        (User::find(1))->assignRole(Role::development->name);
+        (User::find(2))->assignRole(Role::superuser->name);
     }
 }
