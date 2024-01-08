@@ -24,7 +24,7 @@ class InstructorResource extends JsonResource
             'created_at' => $this->whenHas('created_at'),
             'updated_at' => $this->whenHas('updated_at'),
             'user_id' => $this->whenHas('user_id'),
-            'user' => new UserResource($this->whenLoaded('user')),
+            'user' => UserResource::make($this->whenLoaded('user')),
         ];
     }
 

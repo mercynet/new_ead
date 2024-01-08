@@ -3,6 +3,7 @@
 namespace App\Http\Resources\Mzrt\Courses;
 
 use App\Http\Resources\Mzrt\LanguageResource;
+use App\Http\Resources\Mzrt\Users\UserResource;
 use App\Models\Courses\Course;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -46,7 +47,7 @@ class CourseResource extends JsonResource
             'formations_count' => $this->whenHas('formations_count'),
             'lessons_count' => $this->whenHas('lessons_count'),
             'modules_count' => $this->whenHas('modules_count'),
-            'language' => LanguageResource::make($this->whenLoaded('language')),
+            'users' => UserResource::make($this->whenLoaded('users')),
         ];
     }
 }

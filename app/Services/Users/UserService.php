@@ -20,18 +20,18 @@ class UserService
      * @param array $where
      * @return Collection|null
      */
-    public static function getAll(array $fields = [], array $relations = [], array $where = []): null|Collection
+    public function all(array $fields = [], array $relations = [], array $where = []): null|Collection
     {
-        return self::getUsers(fields: $fields, where: $where)->get();
+        return $this->builder(fields: $fields, where: $where)->get();
     }
 
     /**
      * @param int|array $id
      * @return User
      */
-    public static function getById(int|array $id): User
+    public function find(int|array $id): User
     {
-        return self::getUsers(where: ['id' => $id])->first();
+        return $this->builder(where: ['id' => $id])->first();
     }
 
     /**
@@ -39,7 +39,7 @@ class UserService
      * @param array $userData
      * @return User
      */
-    public static function update(User $user, array $userData): User
+    public function update(User $user, array $userData): User
     {
         $user->update($userData);
         if (!empty($userData['roles'])) {
@@ -52,24 +52,44 @@ class UserService
     }
 
     /**
-     * @param array $userData
+     * @param User $user
      * @return User
      */
-    public static function register(array $userData): User
+    public function enable(User $user): User
     {
-        $roles = !empty($userData['roles']) ? Role::where(['name' => $userData['roles']])->get() : Role::where(['name' => 'student'])->first();
-        abort_if(!$roles, 401, trans('auth.roles.not-found'));
-        $userData['password'] = bcrypt($userData['password']);
-        $user = User::create($userData);
-        $user->assignRole($roles);
-        return self::getUsers(where: ['id' => $user->id])->first();
+        $user->update(['active' => true]);
+        return $user;
+    }
+
+    /**
+     * @param User $user
+     * @return User
+     */
+    public function disable(User $user): User
+    {
+        $user->update(['active' => false]);
+        return $user;
     }
 
     /**
      * @param array $userData
      * @return User
      */
-    public static function create(array $userData): User
+    public function register(array $userData): User
+    {
+        $roles = !empty($userData['roles']) ? Role::where(['name' => $userData['roles']])->get() : Role::where(['name' => 'student'])->first();
+        abort_if(!$roles, 401, trans('auth.roles.not-found'));
+        $userData['password'] = bcrypt($userData['password']);
+        $user = User::create($userData);
+        $user->assignRole($roles);
+        return $this->builder(where: ['id' => $user->id])->first();
+    }
+
+    /**
+     * @param array $userData
+     * @return User
+     */
+    public function create(array $userData): User
     {
         $roles = !empty($userData['role']) ?
             Role::where(['name' => $userData['role']])->get() :
@@ -90,9 +110,9 @@ class UserService
      * @param array $where
      * @return LengthAwarePaginator
      */
-    public static function toPaginate(int $pages = 20, array $fields = [], array $relations = [], array $where = []): LengthAwarePaginator
+    public function toPaginate(int $pages = 20, array $fields = [], array $relations = [], array $where = []): LengthAwarePaginator
     {
-        return self::getUsers($fields, $relations, $where)->paginate($pages);
+        return $this->builder($fields, $relations, $where)->paginate($pages);
     }
 
     /**
@@ -101,7 +121,7 @@ class UserService
      * @param array $where
      * @return Builder
      */
-    private static function getUsers(array $fields = [], array $relations = [], array $where = []): Builder
+    private function builder(array $fields = [], array $relations = [], array $where = []): Builder
     {
         $request = request();
         $users = User::query()

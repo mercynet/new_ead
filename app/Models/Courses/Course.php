@@ -4,6 +4,7 @@ namespace App\Models\Courses;
 
 use App\Enums\CourseLevel;
 use App\Models\Language;
+use App\Models\Users\User;
 use App\Traits\HasLog;
 use App\Traits\Price;
 use Illuminate\Database\Eloquent\Casts\Attribute;
@@ -86,6 +87,14 @@ class Course extends Model
     public function lessons(): HasMany
     {
         return $this->hasMany(Lesson::class);
+    }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class)->using(CourseUser::class);
     }
 
     /**

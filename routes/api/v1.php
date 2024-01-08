@@ -11,7 +11,7 @@ Route::middleware('guest')
     });
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/me', [AuthController::class, 'me'])->name('me');
+    Route::get('me', [AuthController::class, 'me'])->name('me');
     Route::delete('logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('check-token', [AuthController::class, 'checkToken'])->name('check-token');
 });

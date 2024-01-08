@@ -19,8 +19,6 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
  */
 class UserController extends Controller
 {
-    private array $additionalReturn = ['success' => true];
-
     /**
      *
      */
@@ -36,7 +34,7 @@ class UserController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        return UserResource::collection(UserService::getAll())->additional($this->additionalReturn);
+        return UserResource::collection((new UserService)->toPaginate());
     }
 
     /**
@@ -46,8 +44,8 @@ class UserController extends Controller
      */
     public function store(StoreUserRequest $request): AnonymousResourceCollection
     {
-        UserService::create($request->validated());
-        return UserResource::collection(UserService::toPaginate())->additional($this->additionalReturn);
+        (new UserService)->create($request->validated());
+        return UserResource::collection((new UserService)->toPaginate());
     }
 
     /**
@@ -57,7 +55,7 @@ class UserController extends Controller
      */
     public function show(User $user): ?UserResource
     {
-        return UserResource::make(UserService::getById($user->id));
+        return UserResource::make((new UserService)->find($user->id));
     }
 
     /**
@@ -68,8 +66,8 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): AnonymousResourceCollection
     {
-        UserService::update($user, $request->validated());
-        return UserResource::collection(UserService::toPaginate())->additional($this->additionalReturn);
+        (new UserService)->update($user, $request->validated());
+        return UserResource::collection((new UserService)->toPaginate());
     }
 
     /**
@@ -78,7 +76,7 @@ class UserController extends Controller
      */
     public function enable(User $user)
     {
-        return UserResource::make(UserService::update($user, ['active' => true]));
+        return UserResource::make((new UserService)->disable($user));
     }
 
     /**
@@ -87,7 +85,7 @@ class UserController extends Controller
      */
     public function disable(User $user)
     {
-        return UserResource::make(UserService::update($user, ['active' => false]));
+        return UserResource::make((new UserService)->disable($user));
     }
 
     /**
@@ -98,6 +96,6 @@ class UserController extends Controller
     {
         $user->roles()->detach();
         $user->delete();
-        return UserResource::collection(UserService::toPaginate())->additional($this->additionalReturn);
+        return UserResource::collection((new UserService)->toPaginate());
     }
 }

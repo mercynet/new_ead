@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API\V1\Auth;
 use App\Http\Requests\LoginRequest;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Resources\Auth\LoginResource;
+use App\Http\Resources\Mzrt\Users\UserResource;
 use App\Services\Users\UserService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,7 +40,7 @@ class AuthController
      */
     public function register(RegisterRequest $request): ?LoginResource
     {
-        $user = UserService::register($request->validated());
+        $user = (new UserService)->register($request->validated());
         Auth::login($user);
         return LoginResource::make($user->loadMissing('roles.permissions:id,name'));
     }
@@ -54,7 +55,7 @@ class AuthController
             $this->logout($request);
             return ['success' => false];
         }
-        return LoginResource::make(UserService::getById(auth(getGuardName())->id()));
+        return LoginResource::make((new UserService)->find(auth(getGuardName())->id()));
     }
 
     /**
@@ -66,5 +67,14 @@ class AuthController
         $request->session()->flush();
         auth()->user()->tokens()->delete();
         return ['success' => true];
+    }
+    /**
+     * Get the authenticated user resource.
+     *
+     * @return UserResource The user resource of the authenticated user.
+     */
+    public function me()
+    {
+        return LoginResource::make(auth()->user()->load(['roles.permissions']));
     }
 }
