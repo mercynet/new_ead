@@ -32,7 +32,6 @@ readonly class UserInfoService
         return UserInfo::create([
             'user_id' => $this->user->id,
             'address_id' => $userInfo['address_id'] ?? null,
-            'timezone_id' => $userInfo['timezone_id'],
             'document' => justNumbers($userInfo['document']),
             'identity_registry' => justNumbers($userInfo['identity_registry']),
             'avatar' => $userInfo['avatar'] ?? null,
@@ -56,7 +55,6 @@ readonly class UserInfoService
         $userInfo->update([
             'user_id' => $this->user->id,
             'address_id' => $info['address_id'],
-            'timezone_id' => $info['timezone_id'],
             'document' => justNumbers($info['document']),
             'identity_registry' => justNumbers($info['identity_registry']),
             'avatar' => $info['avatar'] ?? null,

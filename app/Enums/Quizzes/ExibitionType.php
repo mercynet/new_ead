@@ -13,8 +13,8 @@ enum ExibitionType
     public static function getLabel(self $value): string
     {
         return match ($value) {
-            self::single_question => trans('quizzes.enums.exibition_types.single_question'),
-            default => trans('quizzes.enums.exibition_types.single_page')
+            self::single_question => trans('quizzes.enums.exhibition_types.single_question'),
+            default => trans('quizzes.enums.exhibition_types.single_page')
         };
     }
 }

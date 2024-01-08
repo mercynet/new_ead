@@ -24,8 +24,6 @@ class UserInfo extends Model
     protected $fillable = [
         'user_id',
         'address_id',
-        'language_id',
-        'timezone_id',
         'document',
         'identity_registry',
         'avatar',
@@ -45,21 +43,5 @@ class UserInfo extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function language(): BelongsTo
-    {
-        return $this->belongsTo(Language::class);
-    }
-
-    /**
-     * @return BelongsTo
-     */
-    public function timezone(): BelongsTo
-    {
-        return $this->belongsTo(Timezone::class);
     }
 }

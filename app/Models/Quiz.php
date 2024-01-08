@@ -29,11 +29,11 @@ class Quiz extends Model
         'order',
         'question',
         'video',
-        'exibition_type',
+        'exhibition_type',
         'format_type',
         'question_type',
         'level',
-        'is_randomic',
+        'is_random',
         'is_free',
         'allow_remake',
         'active',
@@ -46,11 +46,11 @@ class Quiz extends Model
      * @var string[]
      */
     protected $casts = [
-        'exibition_type' => ExibitionType::class,
+        'exhibition_type' => ExibitionType::class,
         'format_type' => FormatType::class,
         'question_type' => QuestionType::class,
         'level' => QuestionType::class,
-        'is_randomic' => 'boolean',
+        'is_random' => 'boolean',
         'is_free' => 'boolean',
         'allow_remake' => 'boolean',
         'active' => 'boolean',

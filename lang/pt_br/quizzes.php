@@ -12,7 +12,7 @@ return [
                 'description' => 'Não exibe os resultados e é pre-requisito para a emissão do o certificado',
             ],
         ],
-        'exibition_types' => [
+        'exhibition_types' => [
             'single_question' => 'Uma questão de cada vez',
             'single_page' => 'Todas as perguntas numa mesma página',
         ],

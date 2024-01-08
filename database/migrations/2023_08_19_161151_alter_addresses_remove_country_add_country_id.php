@@ -12,8 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('addresses', function (Blueprint $table) {
-            $table->after('user_id', fn($table) => $table->foreignId('country_id')->constrained());
-            $table->dropColumn(['country']);
             $table->index('zip_code');
             $table->index('address');
             $table->index(['city', 'state']);
@@ -26,12 +24,9 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table('addresses', function (Blueprint $table) {
-            $table->string('country')->nullable();
-            $table->dropForeign(['country_id']);
             $table->dropIndex(['zip_code']);
             $table->dropIndex(['address']);
             $table->dropIndex(['city', 'state']);
-            $table->dropColumn(['country_id']);
         });
     }
 };

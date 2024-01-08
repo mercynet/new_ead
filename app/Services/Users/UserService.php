@@ -109,7 +109,7 @@ class UserService
             ->select(!empty($fields) ? $fields : ['*'])
             ->with([
                 'roles.permissions:id,name',
-                'user_info' => ['timezone'],
+                'user_info',
                 'instructor',
                 'student',
                 'group',

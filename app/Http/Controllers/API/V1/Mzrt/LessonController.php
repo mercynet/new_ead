@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt;
+namespace App\Http\Controllers\API\V1\Mzrt;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Mzrt\StoreFormationRequest;
-use App\Http\Requests\Mzrt\UpdateFormationRequest;
-use App\Models\Courses\Formation;
+use App\Http\Requests\Mzrt\StoreLessonRequest;
+use App\Http\Requests\Mzrt\UpdateLessonRequest;
+use App\Models\Courses\Lesson;
 
-class FormationController extends Controller
+class LessonController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class FormationController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\StoreFormationRequest  $request
+     * @param  \App\Http\Requests\Mzrt\StoreLessonRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreFormationRequest $request)
+    public function store(StoreLessonRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class FormationController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Courses\Formation  $formation
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function show(Formation $formation)
+    public function show(Lesson $lesson)
     {
         //
     }
@@ -54,10 +54,10 @@ class FormationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Courses\Formation  $formation
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function edit(Formation $formation)
+    public function edit(Lesson $lesson)
     {
         //
     }
@@ -65,11 +65,11 @@ class FormationController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\UpdateFormationRequest  $request
-     * @param  \App\Models\Courses\Formation  $formation
+     * @param  \App\Http\Requests\Mzrt\UpdateLessonRequest  $request
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateFormationRequest $request, Formation $formation)
+    public function update(UpdateLessonRequest $request, Lesson $lesson)
     {
         //
     }
@@ -77,10 +77,10 @@ class FormationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Courses\Formation  $formation
+     * @param  \App\Models\Courses\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Formation $formation)
+    public function destroy(Lesson $lesson)
     {
         //
     }

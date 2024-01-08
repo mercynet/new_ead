@@ -6,8 +6,10 @@ namespace App\Models\Users;
 use App\Traits\HasLog;
 use App\Traits\HasRole;
 use App\Traits\QueryModel;
+use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -22,6 +24,7 @@ use Spatie\Permission\Traits\HasRoles;
  *
  * @method isAdmin()
  * @method static create(array $userData)
+ * @property mixed $id
  */
 class User extends Authenticatable
 {
@@ -61,6 +64,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'active' => 'boolean',
     ];
+
+    public static function newFactory(): Factory
+    {
+        return UserFactory::new();
+    }
 
     /**
      * @return HasOne

@@ -33,7 +33,6 @@ class StoreUserRequest extends FormRequest
             'password' => ['required', Password::defaults(), 'confirmed'],
             'role' => ['required', Rule::in(Role::toArray())],
             'address' => ['required', 'array'],
-            'timezone_id' => ['required', 'exists:timezones,id'],
             'group_id' => ['required', 'exists:groups,id'],
             'document' => ['required', 'cpf_ou_cnpj', Rule::unique('user_infos')],
             'identity_registry' => ['required', Rule::unique('user_infos')],

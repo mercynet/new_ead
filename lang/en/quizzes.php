@@ -12,7 +12,7 @@ return [
                 'description' => 'It does not shows the result summary and it is pre requisite for certificate generation.',
             ],
         ],
-        'exibition_types' => [
+        'exhibition_types' => [
             'single_question' => 'Single question',
             'single_page' => 'All questions on same page',
         ],

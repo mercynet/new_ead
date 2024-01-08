@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt\Users;
+namespace App\Http\Controllers\API\V1\Mzrt\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mzrt\Users\Groups\StoreUserGroupRequest;

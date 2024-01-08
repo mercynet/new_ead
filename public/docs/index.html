@@ -30,9 +30,9 @@
         var useCsrf = Boolean(1);
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
-    <script src="../docs/js/tryitout-4.23.1.js"></script>
+    <script src="../docs/js/tryitout-4.29.0.js"></script>
 
-    <script src="../docs/js/theme-default-4.23.1.js"></script>
+    <script src="../docs/js/theme-default-4.29.0.js"></script>
 
 </head>
 
@@ -205,7 +205,7 @@ it returns all groups of users with no paginate.</a>
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: September 30, 2023</li>
+        <li>Last updated: January 8, 2024</li>
     </ul>
 </div>
 
@@ -246,7 +246,7 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"email\": \"lhoppe@example.net\",
+    \"email\": \"clint94@example.com\",
     \"password\": \"H3u3h#H%#ywQEG.\",
     \"remember\": true
 }"
@@ -264,7 +264,7 @@ const headers = {
 };
 
 let body = {
-    "email": "lhoppe@example.net",
+    "email": "clint94@example.com",
     "password": "H3u3h#H%#ywQEG.",
     "remember": true
 };
@@ -278,7 +278,619 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-login">
-</span>
+            <blockquote>
+            <p>Example response (500):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=w7kKKy8WKMZG73qLKZYPhdM1BoyMf2PIsXcYiI5c; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;SQLSTATE[42S22]: Column not found: 1054 Unknown column &#039;remember&#039; in &#039;where clause&#039; (Connection: mysql, SQL: select * from `users` where `email` = clint94@example.com and `remember` = 1 and `active` = 1 and `users`.`deleted_at` is null limit 1)&quot;,
+    &quot;exception&quot;: &quot;Illuminate\\Database\\QueryException&quot;,
+    &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
+    &quot;line&quot;: 822,
+    &quot;trace&quot;: [
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
+            &quot;line&quot;: 776,
+            &quot;function&quot;: &quot;runQueryCallback&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Connection.php&quot;,
+            &quot;line&quot;: 407,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
+            &quot;line&quot;: 2751,
+            &quot;function&quot;: &quot;select&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Connection&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
+            &quot;line&quot;: 2740,
+            &quot;function&quot;: &quot;runSelect&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
+            &quot;line&quot;: 3294,
+            &quot;function&quot;: &quot;Illuminate\\Database\\Query\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php&quot;,
+            &quot;line&quot;: 2739,
+            &quot;function&quot;: &quot;onceWithColumns&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php&quot;,
+            &quot;line&quot;: 737,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Query\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Eloquent/Builder.php&quot;,
+            &quot;line&quot;: 721,
+            &quot;function&quot;: &quot;getModels&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Database/Concerns/BuildsQueries.php&quot;,
+            &quot;line&quot;: 333,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Auth/EloquentUserProvider.php&quot;,
+            &quot;line&quot;: 139,
+            &quot;function&quot;: &quot;first&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Database\\Eloquent\\Builder&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Auth/SessionGuard.php&quot;,
+            &quot;line&quot;: 381,
+            &quot;function&quot;: &quot;retrieveByCredentials&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Auth\\EloquentUserProvider&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Auth/AuthManager.php&quot;,
+            &quot;line&quot;: 340,
+            &quot;function&quot;: &quot;attempt&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Auth\\SessionGuard&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Support/Facades/Facade.php&quot;,
+            &quot;line&quot;: 355,
+            &quot;function&quot;: &quot;__call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Auth\\AuthManager&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/app/Http/Controllers/AuthController.php&quot;,
+            &quot;line&quot;: 26,
+            &quot;function&quot;: &quot;__callStatic&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Support\\Facades\\Facade&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/ControllerDispatcher.php&quot;,
+            &quot;line&quot;: 46,
+            &quot;function&quot;: &quot;login&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Controllers\\AuthController&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;line&quot;: 259,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\ControllerDispatcher&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Route.php&quot;,
+            &quot;line&quot;: 205,
+            &quot;function&quot;: &quot;runController&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 806,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Route&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;Illuminate\\Routing\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/app/Http/Middleware/RedirectIfAuthenticated.php&quot;,
+            &quot;line&quot;: 28,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;App\\Http\\Middleware\\RedirectIfAuthenticated&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Middleware/SubstituteBindings.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\SubstituteBindings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 159,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 125,
+            &quot;function&quot;: &quot;handleRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Middleware/ThrottleRequests.php&quot;,
+            &quot;line&quot;: 87,
+            &quot;function&quot;: &quot;handleRequestUsingNamedLimiter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Middleware\\ThrottleRequests&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php&quot;,
+            &quot;line&quot;: 121,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Session/Middleware/StartSession.php&quot;,
+            &quot;line&quot;: 64,
+            &quot;function&quot;: &quot;handleStatefulRequest&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Session\\Middleware\\StartSession&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Session\\Middleware\\StartSession&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php&quot;,
+            &quot;line&quot;: 25,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\{closure}&quot;,
+            &quot;class&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 119,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php&quot;,
+            &quot;line&quot;: 24,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 119,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 805,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 784,
+            &quot;function&quot;: &quot;runRouteWithinStack&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 748,
+            &quot;function&quot;: &quot;runRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Routing/Router.php&quot;,
+            &quot;line&quot;: 737,
+            &quot;function&quot;: &quot;dispatchToRoute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 200,
+            &quot;function&quot;: &quot;dispatch&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Routing\\Router&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;Illuminate\\Foundation\\Http\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ConvertEmptyStringsToNull.php&quot;,
+            &quot;line&quot;: 31,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TransformsRequest.php&quot;,
+            &quot;line&quot;: 21,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/TrimStrings.php&quot;,
+            &quot;line&quot;: 40,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\TrimStrings&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/ValidatePostSize.php&quot;,
+            &quot;line&quot;: 27,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\ValidatePostSize&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Middleware/PreventRequestsDuringMaintenance.php&quot;,
+            &quot;line&quot;: 99,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Http/Middleware/HandleCors.php&quot;,
+            &quot;line&quot;: 62,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\HandleCors&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Http/Middleware/TrustProxies.php&quot;,
+            &quot;line&quot;: 39,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 183,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Http\\Middleware\\TrustProxies&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Pipeline/Pipeline.php&quot;,
+            &quot;line&quot;: 119,
+            &quot;function&quot;: &quot;Illuminate\\Pipeline\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 175,
+            &quot;function&quot;: &quot;then&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Pipeline\\Pipeline&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php&quot;,
+            &quot;line&quot;: 144,
+            &quot;function&quot;: &quot;sendRequestThroughRouter&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 300,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Http\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 288,
+            &quot;function&quot;: &quot;callLaravelOrLumenRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 91,
+            &quot;function&quot;: &quot;makeApiCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 44,
+            &quot;function&quot;: &quot;makeResponseCall&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Strategies/Responses/ResponseCalls.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;makeResponseCallIfConditionsPass&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 236,
+            &quot;function&quot;: &quot;__invoke&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Strategies\\Responses\\ResponseCalls&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 163,
+            &quot;function&quot;: &quot;iterateThroughStrategies&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Extracting/Extractor.php&quot;,
+            &quot;line&quot;: 95,
+            &quot;function&quot;: &quot;fetchResponses&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 125,
+            &quot;function&quot;: &quot;processRoute&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Extracting\\Extractor&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 72,
+            &quot;function&quot;: &quot;extractEndpointsInfoFromLaravelApp&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/GroupedEndpoints/GroupedEndpointsFromApp.php&quot;,
+            &quot;line&quot;: 50,
+            &quot;function&quot;: &quot;extractEndpointsInfoAndWriteToDisk&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/knuckleswtf/scribe/src/Commands/GenerateDocumentation.php&quot;,
+            &quot;line&quot;: 53,
+            &quot;function&quot;: &quot;get&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\GroupedEndpoints\\GroupedEndpointsFromApp&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 36,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Knuckles\\Scribe\\Commands\\GenerateDocumentation&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Container/Util.php&quot;,
+            &quot;line&quot;: 41,
+            &quot;function&quot;: &quot;Illuminate\\Container\\{closure}&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 93,
+            &quot;function&quot;: &quot;unwrapIfClosure&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Util&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Container/BoundMethod.php&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;callBoundMethod&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Container/Container.php&quot;,
+            &quot;line&quot;: 662,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\BoundMethod&quot;,
+            &quot;type&quot;: &quot;::&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 211,
+            &quot;function&quot;: &quot;call&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Container\\Container&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/symfony/console/Command/Command.php&quot;,
+            &quot;line&quot;: 326,
+            &quot;function&quot;: &quot;execute&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Console/Command.php&quot;,
+            &quot;line&quot;: 180,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Command\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 1096,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Console\\Command&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 324,
+            &quot;function&quot;: &quot;doRunCommand&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/symfony/console/Application.php&quot;,
+            &quot;line&quot;: 175,
+            &quot;function&quot;: &quot;doRun&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php&quot;,
+            &quot;line&quot;: 201,
+            &quot;function&quot;: &quot;run&quot;,
+            &quot;class&quot;: &quot;Symfony\\Component\\Console\\Application&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        },
+        {
+            &quot;file&quot;: &quot;/var/www/html/artisan&quot;,
+            &quot;line&quot;: 35,
+            &quot;function&quot;: &quot;handle&quot;,
+            &quot;class&quot;: &quot;Illuminate\\Foundation\\Console\\Kernel&quot;,
+            &quot;type&quot;: &quot;-&gt;&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-login" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-login"></span>:
@@ -355,10 +967,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-login"
-               value="lhoppe@example.net"
+               value="clint94@example.com"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>lhoppe@example.net</code></p>
+<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>clint94@example.com</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -411,10 +1023,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"quibusdam\",
-    \"email\": \"joesph28@example.com\",
-    \"password\": \"cum\",
-    \"password_confirmation\": \"natus\"
+    \"name\": \"rem\",
+    \"email\": \"camron.barton@example.org\",
+    \"password\": \"dolorem\",
+    \"password_confirmation\": \"autem\"
 }"
 </code></pre></div>
 
@@ -430,10 +1042,10 @@ const headers = {
 };
 
 let body = {
-    "name": "quibusdam",
-    "email": "joesph28@example.com",
-    "password": "cum",
-    "password_confirmation": "natus"
+    "name": "rem",
+    "email": "camron.barton@example.org",
+    "password": "dolorem",
+    "password_confirmation": "autem"
 };
 
 fetch(url, {
@@ -445,7 +1057,35 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-register">
-</span>
+            <blockquote>
+            <p>Example response (422):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 58
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=giVRqBhWD1812Frk72SQ9htBclAdvYWCyIoRYCNu; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;The password must be at least 8 characters. (and 4 more errors)&quot;,
+    &quot;errors&quot;: {
+        &quot;password&quot;: [
+            &quot;The password must be at least 8 characters.&quot;,
+            &quot;The password must contain at least one uppercase and one lowercase letter.&quot;,
+            &quot;The password must contain at least one symbol.&quot;,
+            &quot;The password must contain at least one number.&quot;,
+            &quot;The password confirmation does not match.&quot;
+        ]
+    }
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-register" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-register"></span>:
@@ -522,10 +1162,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-register"
-               value="quibusdam"
+               value="rem"
                data-component="body">
     <br>
-<p>Example: <code>quibusdam</code></p>
+<p>Example: <code>rem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -533,10 +1173,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-register"
-               value="joesph28@example.com"
+               value="camron.barton@example.org"
                data-component="body">
     <br>
-<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>joesph28@example.com</code></p>
+<p>Must be a valid email address. Must not be greater than 254 characters. Example: <code>camron.barton@example.org</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -544,10 +1184,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-register"
-               value="cum"
+               value="dolorem"
                data-component="body">
     <br>
-<p>Example: <code>cum</code></p>
+<p>Example: <code>dolorem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password_confirmation</code></b>&nbsp;&nbsp;
@@ -555,10 +1195,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password_confirmation"                data-endpoint="POSTapi-v1-register"
-               value="natus"
+               value="autem"
                data-component="body">
     <br>
-<p>Example: <code>natus</code></p>
+<p>Example: <code>autem</code></p>
         </div>
         </form>
 
@@ -601,7 +1241,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-v1-logout">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=nNtEc60irPW7Gy4K3SD884Di2DiSpwDz7C0Fl3eo; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-logout" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-logout"></span>:
@@ -723,7 +1380,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-check-token">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=rB9gXbw2WHCy8bwcQWiCDJMyAJ4XhjFCa9MyFkHO; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-check-token" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-check-token"></span>:
@@ -855,7 +1529,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=UFo5p4BbfyS8QEasqXyjQMdPFGZ9zJsmnr3WsTiQ; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=N6swTNJ5yCi62RP9tfA7FpTe739pqj8ticOgFPtl; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1002,7 +1676,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=FvG39hnoiVmwSyKnwumwBo2BV58VD4mBBkQZA9mk; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=byt1dF57ECJLYkuEJTm7nrKneB5y9HlGTjFaw2dj; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1111,19 +1785,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"occaecati\",
-    \"email\": \"pmoen@example.net\",
-    \"password\": \"natus\",
+    \"name\": \"deserunt\",
+    \"email\": \"jerde.george@example.net\",
+    \"password\": \"id\",
     \"role\": \"superuser\",
     \"address\": [],
-    \"timezone_id\": \"consectetur\",
-    \"group_id\": \"voluptas\",
-    \"document\": \"ut\",
-    \"identity_registry\": \"dolorum\",
-    \"birth_date\": \"30\\/09\\/2023\",
-    \"gender\": \"both\",
-    \"source\": \"rerum\",
-    \"active\": false
+    \"group_id\": \"itaque\",
+    \"document\": \"est\",
+    \"identity_registry\": \"voluptas\",
+    \"birth_date\": \"08\\/01\\/2024\",
+    \"gender\": \"male\",
+    \"source\": \"in\",
+    \"active\": true
 }"
 </code></pre></div>
 
@@ -1140,19 +1813,18 @@ const headers = {
 };
 
 let body = {
-    "name": "occaecati",
-    "email": "pmoen@example.net",
-    "password": "natus",
+    "name": "deserunt",
+    "email": "jerde.george@example.net",
+    "password": "id",
     "role": "superuser",
     "address": [],
-    "timezone_id": "consectetur",
-    "group_id": "voluptas",
-    "document": "ut",
-    "identity_registry": "dolorum",
-    "birth_date": "30\/09\/2023",
-    "gender": "both",
-    "source": "rerum",
-    "active": false
+    "group_id": "itaque",
+    "document": "est",
+    "identity_registry": "voluptas",
+    "birth_date": "08\/01\/2024",
+    "gender": "male",
+    "source": "in",
+    "active": true
 };
 
 fetch(url, {
@@ -1164,7 +1836,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-mzrt-users">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=nfgiT0BlTs5vUFYpkrBZ5fnGGD6ZsaRaonssNmmJ; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-mzrt-users" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-mzrt-users"></span>:
@@ -1252,10 +1941,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="occaecati"
+               value="deserunt"
                data-component="body">
     <br>
-<p>Example: <code>occaecati</code></p>
+<p>Example: <code>deserunt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1263,10 +1952,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="pmoen@example.net"
+               value="jerde.george@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>pmoen@example.net</code></p>
+<p>Must be a valid email address. Example: <code>jerde.george@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1274,10 +1963,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="password"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="natus"
+               value="id"
                data-component="body">
     <br>
-<p>Example: <code>natus</code></p>
+<p>Example: <code>id</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>role</code></b>&nbsp;&nbsp;
@@ -1304,26 +1993,15 @@ Must be one of:
 
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>timezone_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="timezone_id"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="consectetur"
-               data-component="body">
-    <br>
-<p>Example: <code>consectetur</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>group_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="group_id"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="voluptas"
+               value="itaque"
                data-component="body">
     <br>
-<p>Example: <code>voluptas</code></p>
+<p>Example: <code>itaque</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>document</code></b>&nbsp;&nbsp;
@@ -1331,10 +2009,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="document"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="ut"
+               value="est"
                data-component="body">
     <br>
-<p>Example: <code>ut</code></p>
+<p>Example: <code>est</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>identity_registry</code></b>&nbsp;&nbsp;
@@ -1342,10 +2020,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="identity_registry"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="dolorum"
+               value="voluptas"
                data-component="body">
     <br>
-<p>Example: <code>dolorum</code></p>
+<p>Example: <code>voluptas</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
@@ -1364,10 +2042,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="30/09/2023"
+               value="08/01/2024"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>30/09/2023</code></p>
+<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>08/01/2024</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -1375,10 +2053,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="both"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>both</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li> <li><code>both</code></li></ul>
         </div>
@@ -1399,10 +2077,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="source"                data-endpoint="POSTapi-v1-mzrt-users"
-               value="rerum"
+               value="in"
                data-component="body">
     <br>
-<p>Example: <code>rerum</code></p>
+<p>Example: <code>in</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nickname</code></b>&nbsp;&nbsp;
@@ -1434,7 +2112,7 @@ Must be one of:
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>false</code></p>
+<p>Example: <code>true</code></p>
         </div>
         </form>
 
@@ -1487,7 +2165,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=je33Bg7jDhplPfYUti2o1FUddvaQu3FpeKTuCnu0; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=6ZfMylND0T3kcUzIXEUEJ628bRfErUfeD1LynJqc; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -1608,21 +2286,20 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"quia\",
-    \"email\": \"veum.leslie@example.net\",
+    \"name\": \"nulla\",
+    \"email\": \"elissa01@example.net\",
     \"password\": \"H3u3h#H%#ywQEG.\",
     \"roles\": \"admin\",
-    \"address_id\": \"voluptatem\",
+    \"address_id\": \"natus\",
     \"address\": [],
-    \"timezone_id\": \"illum\",
-    \"group_id\": \"architecto\",
-    \"document\": \"asperiores\",
-    \"identity_registry\": \"molestias\",
-    \"birth_date\": \"30\\/09\\/2023\",
+    \"group_id\": \"odit\",
+    \"document\": \"ut\",
+    \"identity_registry\": \"nihil\",
+    \"birth_date\": \"08\\/01\\/2024\",
     \"gender\": \"female\",
-    \"where_know_us\": \"eos\",
-    \"source\": \"voluptatem\",
-    \"active\": \"voluptatem\"
+    \"where_know_us\": \"aut\",
+    \"source\": \"rem\",
+    \"active\": \"magnam\"
 }"
 </code></pre></div>
 
@@ -1639,21 +2316,20 @@ const headers = {
 };
 
 let body = {
-    "name": "quia",
-    "email": "veum.leslie@example.net",
+    "name": "nulla",
+    "email": "elissa01@example.net",
     "password": "H3u3h#H%#ywQEG.",
     "roles": "admin",
-    "address_id": "voluptatem",
+    "address_id": "natus",
     "address": [],
-    "timezone_id": "illum",
-    "group_id": "architecto",
-    "document": "asperiores",
-    "identity_registry": "molestias",
-    "birth_date": "30\/09\/2023",
+    "group_id": "odit",
+    "document": "ut",
+    "identity_registry": "nihil",
+    "birth_date": "08\/01\/2024",
     "gender": "female",
-    "where_know_us": "eos",
-    "source": "voluptatem",
-    "active": "voluptatem"
+    "where_know_us": "aut",
+    "source": "rem",
+    "active": "magnam"
 };
 
 fetch(url, {
@@ -1665,7 +2341,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-mzrt-users--id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=sQYGMLUeVqz7zVHOwv7RDkk92fuQ8qXZtkR5F3Zi; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-mzrt-users--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-mzrt-users--id-"></span>:
@@ -1769,10 +2462,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="quia"
+               value="nulla"
                data-component="body">
     <br>
-<p>Example: <code>quia</code></p>
+<p>Example: <code>nulla</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>email</code></b>&nbsp;&nbsp;
@@ -1780,10 +2473,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="email"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="veum.leslie@example.net"
+               value="elissa01@example.net"
                data-component="body">
     <br>
-<p>Must be a valid email address. Example: <code>veum.leslie@example.net</code></p>
+<p>Must be a valid email address. Example: <code>elissa01@example.net</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>password</code></b>&nbsp;&nbsp;
@@ -1815,10 +2508,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="address_id"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="voluptatem"
+               value="natus"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>natus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -1832,26 +2525,15 @@ Must be one of:
 
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>timezone_id</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-                              name="timezone_id"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="illum"
-               data-component="body">
-    <br>
-<p>Example: <code>illum</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>group_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
                 <input type="text" style="display: none"
                               name="group_id"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="architecto"
+               value="odit"
                data-component="body">
     <br>
-<p>Example: <code>architecto</code></p>
+<p>Example: <code>odit</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>document</code></b>&nbsp;&nbsp;
@@ -1859,10 +2541,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="document"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="asperiores"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>asperiores</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>identity_registry</code></b>&nbsp;&nbsp;
@@ -1870,10 +2552,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="identity_registry"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="molestias"
+               value="nihil"
                data-component="body">
     <br>
-<p>Example: <code>molestias</code></p>
+<p>Example: <code>nihil</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>avatar</code></b>&nbsp;&nbsp;
@@ -1892,10 +2574,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="30/09/2023"
+               value="08/01/2024"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>30/09/2023</code></p>
+<p>Must be a valid date in the format <code>d/m/Y</code>. Example: <code>08/01/2024</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -1916,10 +2598,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="where_know_us"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="eos"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>eos</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>source</code></b>&nbsp;&nbsp;
@@ -1927,10 +2609,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="source"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="voluptatem"
+               value="rem"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>rem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>nickname</code></b>&nbsp;&nbsp;
@@ -1949,10 +2631,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="active"                data-endpoint="PUTapi-v1-mzrt-users--id-"
-               value="voluptatem"
+               value="magnam"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>magnam</code></p>
         </div>
         </form>
 
@@ -1995,7 +2677,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-v1-mzrt-users--id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=ll8o2L05Rbwwn5AbwRVWu3GCdwJA6oOnT7hJ8yLz; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-mzrt-users--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-mzrt-users--id-"></span>:
@@ -2129,7 +2828,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PATCHapi-v1-mzrt-users-enable--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=m3Nsl6TVQ7m2NadYgzNw8ss46QfCkLPtPzMcd35M; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PATCHapi-v1-mzrt-users-enable--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PATCHapi-v1-mzrt-users-enable--user_id-"></span>:
@@ -2263,7 +2979,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PATCHapi-v1-mzrt-users-disable--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=LbzqqthdcpcNINcZy1byJxYRHKMckoldzdb7GLSS; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PATCHapi-v1-mzrt-users-disable--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PATCHapi-v1-mzrt-users-disable--user_id-"></span>:
@@ -2377,7 +3110,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"points\": 16
+    \"points\": 10
 }"
 </code></pre></div>
 
@@ -2394,7 +3127,7 @@ const headers = {
 };
 
 let body = {
-    "points": 16
+    "points": 10
 };
 
 fetch(url, {
@@ -2406,7 +3139,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-mzrt-users-student--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=MQiGbUh08FcPIUfhJqRG9O0jqGWUGJj5Fig9O7qI; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-mzrt-users-student--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-mzrt-users-student--user_id-"></span>:
@@ -2517,10 +3267,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="POSTapi-v1-mzrt-users-student--user_id-"
-               value="16"
+               value="10"
                data-component="body">
     <br>
-<p>Example: <code>16</code></p>
+<p>Example: <code>10</code></p>
         </div>
         </form>
 
@@ -2543,7 +3293,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"points\": 12
+    \"points\": 17
 }"
 </code></pre></div>
 
@@ -2560,7 +3310,7 @@ const headers = {
 };
 
 let body = {
-    "points": 12
+    "points": 17
 };
 
 fetch(url, {
@@ -2572,7 +3322,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-mzrt-users-student--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=60DosVZYSUYbsSWB6jcWKWOFNOQIyVX8VAlcr9YL; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-mzrt-users-student--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-mzrt-users-student--user_id-"></span>:
@@ -2683,10 +3450,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="PUTapi-v1-mzrt-users-student--user_id-"
-               value="12"
+               value="17"
                data-component="body">
     <br>
-<p>Example: <code>12</code></p>
+<p>Example: <code>17</code></p>
         </div>
         </form>
 
@@ -2709,7 +3476,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"points\": 90
+    \"points\": 15
 }"
 </code></pre></div>
 
@@ -2726,7 +3493,7 @@ const headers = {
 };
 
 let body = {
-    "points": 90
+    "points": 15
 };
 
 fetch(url, {
@@ -2738,7 +3505,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PATCHapi-v1-mzrt-users-student-increase-points--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=o2u360IJEQCW6P2MAg4dlby2UF5o1IyrTfsgP7CW; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PATCHapi-v1-mzrt-users-student-increase-points--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PATCHapi-v1-mzrt-users-student-increase-points--user_id-"></span>:
@@ -2838,10 +3622,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="PATCHapi-v1-mzrt-users-student-increase-points--user_id-"
-               value="90"
+               value="15"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>90</code></p>
+<p>Must be at least 1. Example: <code>15</code></p>
         </div>
         </form>
 
@@ -2864,7 +3648,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"points\": 28
+    \"points\": 13
 }"
 </code></pre></div>
 
@@ -2881,7 +3665,7 @@ const headers = {
 };
 
 let body = {
-    "points": 28
+    "points": 13
 };
 
 fetch(url, {
@@ -2893,7 +3677,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PATCHapi-v1-mzrt-users-student-decrease-points--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=VQ6OtNgAcIa52b4yGoUnfxB8651eGpGh088sVqUX; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PATCHapi-v1-mzrt-users-student-decrease-points--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PATCHapi-v1-mzrt-users-student-decrease-points--user_id-"></span>:
@@ -2993,10 +3794,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="points"                data-endpoint="PATCHapi-v1-mzrt-users-student-decrease-points--user_id-"
-               value="28"
+               value="13"
                data-component="body">
     <br>
-<p>Must be at least 1. Example: <code>28</code></p>
+<p>Must be at least 1. Example: <code>13</code></p>
         </div>
         </form>
 
@@ -3054,7 +3855,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=bfP39RdEwAIVZdjLyfkXji5HuRqfNfbE2MVbpBhD; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=uUrj4IkiU9K6XTIBLR6REPTAevxyEl7dgyp9EEJB; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3164,8 +3965,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"name\": \"Vip\",
-    \"discount\": 33144495.41,
-    \"commission\": 279.88
+    \"discount\": 41179911.71,
+    \"commission\": 10463.29
 }"
 </code></pre></div>
 
@@ -3183,8 +3984,8 @@ const headers = {
 
 let body = {
     "name": "Vip",
-    "discount": 33144495.41,
-    "commission": 279.88
+    "discount": 41179911.71,
+    "commission": 10463.29
 };
 
 fetch(url, {
@@ -3196,7 +3997,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-mzrt-user-groups">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=IvRAhYZkcg1uHe3BTP4SJrqPCeD9UP0kQOcswGND; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-mzrt-user-groups" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-mzrt-user-groups"></span>:
@@ -3295,10 +4113,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="discount"                data-endpoint="POSTapi-v1-mzrt-user-groups"
-               value="33144495.41"
+               value="41179911.71"
                data-component="body">
     <br>
-<p>User groups can have discounts. Type: decimal. Example: <code>33144495.41</code></p>
+<p>User groups can have discounts. Type: decimal. Example: <code>41179911.71</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>commission</code></b>&nbsp;&nbsp;
@@ -3306,10 +4124,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="commission"                data-endpoint="POSTapi-v1-mzrt-user-groups"
-               value="279.88"
+               value="10463.29"
                data-component="body">
     <br>
-<p>User groups can have commissions. Type: decimal. Example: <code>279.88</code></p>
+<p>User groups can have commissions. Type: decimal. Example: <code>10463.29</code></p>
         </div>
         </form>
 
@@ -3362,7 +4180,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=UcT2kLd7R5Za0FpbQ8FsHOGmyFN32bZ4WhznVVfn; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=qVJBYfTDh36owpMJXOrCp07bjAr8aDMn4LEvw7px; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3484,8 +4302,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"name\": \"Vip\",
-    \"discount\": 6810470.11,
-    \"commission\": 4.58
+    \"discount\": 68479436.46,
+    \"commission\": 596.38
 }"
 </code></pre></div>
 
@@ -3503,8 +4321,8 @@ const headers = {
 
 let body = {
     "name": "Vip",
-    "discount": 6810470.11,
-    "commission": 4.58
+    "discount": 68479436.46,
+    "commission": 596.38
 };
 
 fetch(url, {
@@ -3516,7 +4334,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-mzrt-user-groups--id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=RsJLH2ydfWSLQVcXWEgWhEciOP8oRFpBrz1GzzYs; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-mzrt-user-groups--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-mzrt-user-groups--id-"></span>:
@@ -3631,10 +4466,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="discount"                data-endpoint="PUTapi-v1-mzrt-user-groups--id-"
-               value="6810470.11"
+               value="68479436.46"
                data-component="body">
     <br>
-<p>User groups can have discounts. Type: decimal. Example: <code>6810470.11</code></p>
+<p>User groups can have discounts. Type: decimal. Example: <code>68479436.46</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>commission</code></b>&nbsp;&nbsp;
@@ -3642,10 +4477,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="commission"                data-endpoint="PUTapi-v1-mzrt-user-groups--id-"
-               value="4.58"
+               value="596.38"
                data-component="body">
     <br>
-<p>User groups can have commissions. Type: decimal. Example: <code>4.58</code></p>
+<p>User groups can have commissions. Type: decimal. Example: <code>596.38</code></p>
         </div>
         </form>
 
@@ -3702,7 +4537,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=ydO6m2V0VRArTOCeNBMo5ePvoL0h7IRXlb7Uz6na; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=pNx2HdUtBSp8FzSF2PQhLjKk8tB0MgqIKmkgqXEp; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -3811,22 +4646,50 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"order\": 18,
-    \"name\": \"quas\",
-    \"slug\": \"et\",
-    \"level\": \"advanced\",
-    \"description\": \"Et id totam explicabo quis maiores.\",
-    \"target\": \"voluptatum\",
+    \"order\": 10,
+    \"name\": \"nesciunt\",
+    \"slug\": \"eveniet\",
+    \"level\": \"begginner\",
+    \"description\": \"Provident a illo reprehenderit soluta.\",
+    \"target\": \"aut\",
     \"is_fifo\": false,
     \"active\": false,
-    \"meta_description\": \"quo\",
-    \"meta_keywords\": \"tenetur\",
-    \"price\": 11.5828631,
-    \"access_months\": 15,
-    \"started_at\": \"2023-09-30T10:30:01\",
-    \"ended_at\": \"2023-09-30T10:30:01\",
-    \"amount\": 6172.42103,
-    \"discount\": 640006253.441067
+    \"meta_description\": \"modi\",
+    \"meta_keywords\": \"molestias\",
+    \"price\": 428134,
+    \"access_months\": 16,
+    \"started_at\": \"2024-01-08T16:58:56\",
+    \"ended_at\": \"2024-01-08T16:58:56\",
+    \"amount\": 0.255,
+    \"discount\": 4994596.413375,
+    \"course_module\": [
+        {
+            \"language_id\": \"sunt\",
+            \"name\": \"voluptatibus\",
+            \"slug\": \"assumenda\"
+        }
+    ],
+    \"lesson\": [
+        {
+            \"order\": \"et\",
+            \"name\": \"possimus\",
+            \"slug\": \"ea\",
+            \"video_type\": \"rerum\",
+            \"video_path\": \"vel\",
+            \"video_duration\": \"vel\",
+            \"video_downloadable\": \"velit\",
+            \"summary\": \"repudiandae\",
+            \"description\": \"necessitatibus\",
+            \"image_featured\": \"modi\",
+            \"meta_description\": \"ad\",
+            \"meta_keywords\": \"in\",
+            \"is_free\": \"perspiciatis\",
+            \"is_commentable\": \"sed\",
+            \"active\": \"reprehenderit\",
+            \"started_at\": \"nemo\",
+            \"ended_at\": \"eos\"
+        }
+    ]
 }"
 </code></pre></div>
 
@@ -3843,22 +4706,50 @@ const headers = {
 };
 
 let body = {
-    "order": 18,
-    "name": "quas",
-    "slug": "et",
-    "level": "advanced",
-    "description": "Et id totam explicabo quis maiores.",
-    "target": "voluptatum",
+    "order": 10,
+    "name": "nesciunt",
+    "slug": "eveniet",
+    "level": "begginner",
+    "description": "Provident a illo reprehenderit soluta.",
+    "target": "aut",
     "is_fifo": false,
     "active": false,
-    "meta_description": "quo",
-    "meta_keywords": "tenetur",
-    "price": 11.5828631,
-    "access_months": 15,
-    "started_at": "2023-09-30T10:30:01",
-    "ended_at": "2023-09-30T10:30:01",
-    "amount": 6172.42103,
-    "discount": 640006253.441067
+    "meta_description": "modi",
+    "meta_keywords": "molestias",
+    "price": 428134,
+    "access_months": 16,
+    "started_at": "2024-01-08T16:58:56",
+    "ended_at": "2024-01-08T16:58:56",
+    "amount": 0.255,
+    "discount": 4994596.413375,
+    "course_module": [
+        {
+            "language_id": "sunt",
+            "name": "voluptatibus",
+            "slug": "assumenda"
+        }
+    ],
+    "lesson": [
+        {
+            "order": "et",
+            "name": "possimus",
+            "slug": "ea",
+            "video_type": "rerum",
+            "video_path": "vel",
+            "video_duration": "vel",
+            "video_downloadable": "velit",
+            "summary": "repudiandae",
+            "description": "necessitatibus",
+            "image_featured": "modi",
+            "meta_description": "ad",
+            "meta_keywords": "in",
+            "is_free": "perspiciatis",
+            "is_commentable": "sed",
+            "active": "reprehenderit",
+            "started_at": "nemo",
+            "ended_at": "eos"
+        }
+    ]
 };
 
 fetch(url, {
@@ -3870,7 +4761,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-mzrt-courses">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=madWtpXeENkW6pPqWYisowOFpoS4dmpkeCFrOHEU; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-mzrt-courses" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-mzrt-courses"></span>:
@@ -3958,10 +4866,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="order"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="18"
+               value="10"
                data-component="body">
     <br>
-<p>Example: <code>18</code></p>
+<p>Example: <code>10</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -3969,10 +4877,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="name"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="quas"
+               value="nesciunt"
                data-component="body">
     <br>
-<p>Example: <code>quas</code></p>
+<p>Example: <code>nesciunt</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
@@ -3980,10 +4888,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="slug"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="et"
+               value="eveniet"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>eveniet</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>level</code></b>&nbsp;&nbsp;
@@ -3991,10 +4899,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="level"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="advanced"
+               value="begginner"
                data-component="body">
     <br>
-<p>Example: <code>advanced</code></p>
+<p>Example: <code>begginner</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>begginner</code></li> <li><code>intermediate</code></li> <li><code>advanced</code></li></ul>
         </div>
@@ -4004,10 +4912,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="description"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="Et id totam explicabo quis maiores."
+               value="Provident a illo reprehenderit soluta."
                data-component="body">
     <br>
-<p>Example: <code>Et id totam explicabo quis maiores.</code></p>
+<p>Example: <code>Provident a illo reprehenderit soluta.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>pre_requisites</code></b>&nbsp;&nbsp;
@@ -4026,10 +4934,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="target"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="voluptatum"
+               value="aut"
                data-component="body">
     <br>
-<p>Example: <code>voluptatum</code></p>
+<p>Example: <code>aut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>image_featured</code></b>&nbsp;&nbsp;
@@ -4101,10 +5009,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta_description"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="quo"
+               value="modi"
                data-component="body">
     <br>
-<p>Example: <code>quo</code></p>
+<p>Example: <code>modi</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
@@ -4112,10 +5020,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meta_keywords"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="tenetur"
+               value="molestias"
                data-component="body">
     <br>
-<p>Example: <code>tenetur</code></p>
+<p>Example: <code>molestias</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>price</code></b>&nbsp;&nbsp;
@@ -4123,10 +5031,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="price"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="11.5828631"
+               value="428134"
                data-component="body">
     <br>
-<p>Example: <code>11.5828631</code></p>
+<p>Example: <code>428134</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>access_months</code></b>&nbsp;&nbsp;
@@ -4134,10 +5042,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="access_months"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="15"
+               value="16"
                data-component="body">
     <br>
-<p>Example: <code>15</code></p>
+<p>Example: <code>16</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>started_at</code></b>&nbsp;&nbsp;
@@ -4145,10 +5053,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="started_at"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="2023-09-30T10:30:01"
+               value="2024-01-08T16:58:56"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-09-30T10:30:01</code></p>
+<p>Must be a valid date. Example: <code>2024-01-08T16:58:56</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>ended_at</code></b>&nbsp;&nbsp;
@@ -4156,10 +5064,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="ended_at"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="2023-09-30T10:30:01"
+               value="2024-01-08T16:58:56"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-09-30T10:30:01</code></p>
+<p>Must be a valid date. Example: <code>2024-01-08T16:58:56</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>amount</code></b>&nbsp;&nbsp;
@@ -4167,10 +5075,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="amount"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="6172.42103"
+               value="0.255"
                data-component="body">
     <br>
-<p>Example: <code>6172.42103</code></p>
+<p>Example: <code>0.255</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>discount</code></b>&nbsp;&nbsp;
@@ -4178,10 +5086,10 @@ Must be one of:
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="discount"                data-endpoint="POSTapi-v1-mzrt-courses"
-               value="640006253.44107"
+               value="4994596.413375"
                data-component="body">
     <br>
-<p>Example: <code>640006253.44107</code></p>
+<p>Example: <code>4994596.413375</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>level_description</code></b>&nbsp;&nbsp;
@@ -4193,6 +5101,248 @@ Must be one of:
                data-component="body">
     <br>
 
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>course_module</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>language_id</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="course_module.0.language_id"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="sunt"
+               data-component="body">
+    <br>
+<p>Example: <code>sunt</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="course_module.0.name"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="voluptatibus"
+               data-component="body">
+    <br>
+<p>Example: <code>voluptatibus</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="course_module.0.slug"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="assumenda"
+               data-component="body">
+    <br>
+<p>Example: <code>assumenda</code></p>
+                    </div>
+                                    </details>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+        <details>
+            <summary style="padding-bottom: 10px;">
+                <b style="line-height: 2;"><code>lesson</code></b>&nbsp;&nbsp;
+<small>object[]</small>&nbsp;
+<i>optional</i> &nbsp;
+<br>
+
+            </summary>
+                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>order</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.order"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="et"
+               data-component="body">
+    <br>
+<p>Example: <code>et</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.name"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="possimus"
+               data-component="body">
+    <br>
+<p>Example: <code>possimus</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>slug</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.slug"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="ea"
+               data-component="body">
+    <br>
+<p>Example: <code>ea</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>video_type</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.video_type"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="rerum"
+               data-component="body">
+    <br>
+<p>Example: <code>rerum</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>video_path</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.video_path"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="vel"
+               data-component="body">
+    <br>
+<p>Example: <code>vel</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>video_duration</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.video_duration"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="vel"
+               data-component="body">
+    <br>
+<p>Example: <code>vel</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>video_downloadable</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.video_downloadable"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="velit"
+               data-component="body">
+    <br>
+<p>Example: <code>velit</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>summary</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.summary"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="repudiandae"
+               data-component="body">
+    <br>
+<p>Example: <code>repudiandae</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.description"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="necessitatibus"
+               data-component="body">
+    <br>
+<p>Example: <code>necessitatibus</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>image_featured</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.image_featured"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="modi"
+               data-component="body">
+    <br>
+<p>Example: <code>modi</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_description</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.meta_description"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="ad"
+               data-component="body">
+    <br>
+<p>Example: <code>ad</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>meta_keywords</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.meta_keywords"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="in"
+               data-component="body">
+    <br>
+<p>Example: <code>in</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>is_free</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.is_free"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="perspiciatis"
+               data-component="body">
+    <br>
+<p>Example: <code>perspiciatis</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>is_commentable</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.is_commentable"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="sed"
+               data-component="body">
+    <br>
+<p>Example: <code>sed</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>active</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.active"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="reprehenderit"
+               data-component="body">
+    <br>
+<p>Example: <code>reprehenderit</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>started_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.started_at"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="nemo"
+               data-component="body">
+    <br>
+<p>Example: <code>nemo</code></p>
+                    </div>
+                                                                <div style="margin-left: 14px; clear: unset;">
+                        <b style="line-height: 2;"><code>ended_at</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="lesson.0.ended_at"                data-endpoint="POSTapi-v1-mzrt-courses"
+               value="eos"
+               data-component="body">
+    <br>
+<p>Example: <code>eos</code></p>
+                    </div>
+                                    </details>
         </div>
         </form>
 
@@ -4210,7 +5360,7 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://new-abtpe.test/api/v1/mzrt/courses/2" \
+    --get "http://new-abtpe.test/api/v1/mzrt/courses/6" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4218,7 +5368,7 @@ Must be one of:
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://new-abtpe.test/api/v1/mzrt/courses/2"
+    "http://new-abtpe.test/api/v1/mzrt/courses/6"
 );
 
 const headers = {
@@ -4245,7 +5395,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=jgSym4iJCuW6U2t3ljzQ8FYPKOu4udo8pbtowmaO; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=DDiqTxe5Q2HB0iTxC6u529c7ufUGVyE7FDTLisD3; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4340,10 +5490,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="GETapi-v1-mzrt-courses--id-"
-               value="2"
+               value="6"
                data-component="url">
     <br>
-<p>The ID of the course. Example: <code>2</code></p>
+<p>The ID of the course. Example: <code>6</code></p>
             </div>
                     </form>
 
@@ -4361,7 +5511,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://new-abtpe.test/api/v1/mzrt/courses/5" \
+    "http://new-abtpe.test/api/v1/mzrt/courses/6" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4369,7 +5519,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://new-abtpe.test/api/v1/mzrt/courses/5"
+    "http://new-abtpe.test/api/v1/mzrt/courses/6"
 );
 
 const headers = {
@@ -4386,7 +5536,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-mzrt-courses--id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=ezPisOV01Lv17Bfw4u8ILIEY3PJQWQD5RFvbB7Eq; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-mzrt-courses--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-mzrt-courses--id-"></span>:
@@ -4478,10 +5645,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="PUTapi-v1-mzrt-courses--id-"
-               value="5"
+               value="6"
                data-component="url">
     <br>
-<p>The ID of the course. Example: <code>5</code></p>
+<p>The ID of the course. Example: <code>6</code></p>
             </div>
                     </form>
 
@@ -4499,7 +5666,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://new-abtpe.test/api/v1/mzrt/courses/13" \
+    "http://new-abtpe.test/api/v1/mzrt/courses/6" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
@@ -4507,7 +5674,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://new-abtpe.test/api/v1/mzrt/courses/13"
+    "http://new-abtpe.test/api/v1/mzrt/courses/6"
 );
 
 const headers = {
@@ -4524,7 +5691,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-DELETEapi-v1-mzrt-courses--id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=o4etdN51gI3Pk4ZGWSZvbSDJjgdomeA4VJgUIlNO; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-DELETEapi-v1-mzrt-courses--id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-DELETEapi-v1-mzrt-courses--id-"></span>:
@@ -4612,10 +5796,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="id"                data-endpoint="DELETEapi-v1-mzrt-courses--id-"
-               value="13"
+               value="6"
                data-component="url">
     <br>
-<p>The ID of the course. Example: <code>13</code></p>
+<p>The ID of the course. Example: <code>6</code></p>
             </div>
                     </form>
 
@@ -4672,7 +5856,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 access-control-allow-origin: *
-set-cookie: ead_abtpe_session=Z5CRkiJ0RbbV0DSX9SANcfuLMGcx6LyDDC2je36i; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+set-cookie: ead_abtpe_session=9SFWJK6nNCVzJQpeUyt7okjf6v2TW2R4iftvbheN; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
@@ -4793,13 +5977,13 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"country_id\": \"natus\",
-    \"zip_code\": \"distinctio\",
-    \"address\": \"error\",
-    \"number\": \"aut\",
-    \"district\": \"quibusdam\",
-    \"city\": \"commodi\",
-    \"state\": \"veniam\"
+    \"country_id\": \"et\",
+    \"zip_code\": \"nihil\",
+    \"address\": \"eum\",
+    \"number\": \"voluptatem\",
+    \"district\": \"voluptas\",
+    \"city\": \"ut\",
+    \"state\": \"illo\"
 }"
 </code></pre></div>
 
@@ -4816,13 +6000,13 @@ const headers = {
 };
 
 let body = {
-    "country_id": "natus",
-    "zip_code": "distinctio",
-    "address": "error",
-    "number": "aut",
-    "district": "quibusdam",
-    "city": "commodi",
-    "state": "veniam"
+    "country_id": "et",
+    "zip_code": "nihil",
+    "address": "eum",
+    "number": "voluptatem",
+    "district": "voluptas",
+    "city": "ut",
+    "state": "illo"
 };
 
 fetch(url, {
@@ -4834,7 +6018,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-mzrt-users-addresses--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=zUqrPuL4DkB818MwiC68bM60kEizDaSTC8MvACxN; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-mzrt-users-addresses--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-mzrt-users-addresses--user_id-"></span>:
@@ -4934,10 +6135,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country_id"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="natus"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>natus</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -4956,10 +6157,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="zip_code"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="distinctio"
+               value="nihil"
                data-component="body">
     <br>
-<p>Example: <code>distinctio</code></p>
+<p>Example: <code>nihil</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -4967,10 +6168,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="error"
+               value="eum"
                data-component="body">
     <br>
-<p>Example: <code>error</code></p>
+<p>Example: <code>eum</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
@@ -4978,10 +6179,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="number"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="aut"
+               value="voluptatem"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>voluptatem</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>complement</code></b>&nbsp;&nbsp;
@@ -5000,10 +6201,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="district"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="quibusdam"
+               value="voluptas"
                data-component="body">
     <br>
-<p>Example: <code>quibusdam</code></p>
+<p>Example: <code>voluptas</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -5011,10 +6212,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="commodi"
+               value="ut"
                data-component="body">
     <br>
-<p>Example: <code>commodi</code></p>
+<p>Example: <code>ut</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -5022,10 +6223,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="POSTapi-v1-mzrt-users-addresses--user_id-"
-               value="veniam"
+               value="illo"
                data-component="body">
     <br>
-<p>Example: <code>veniam</code></p>
+<p>Example: <code>illo</code></p>
         </div>
         </form>
 
@@ -5043,25 +6244,25 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://new-abtpe.test/api/v1/mzrt/users/addresses/1/1" \
+    "http://new-abtpe.test/api/v1/mzrt/users/addresses/1/3" \
     --header "Authorization: Bearer {YOUR_AUTH_KEY}" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"country_id\": \"ipsam\",
-    \"zip_code\": \"minus\",
-    \"address\": \"minus\",
-    \"number\": \"molestiae\",
-    \"district\": \"voluptas\",
-    \"city\": \"aut\",
-    \"state\": \"voluptate\"
+    \"country_id\": \"architecto\",
+    \"zip_code\": \"quia\",
+    \"address\": \"et\",
+    \"number\": \"ex\",
+    \"district\": \"quia\",
+    \"city\": \"consequatur\",
+    \"state\": \"placeat\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://new-abtpe.test/api/v1/mzrt/users/addresses/1/1"
+    "http://new-abtpe.test/api/v1/mzrt/users/addresses/1/3"
 );
 
 const headers = {
@@ -5071,13 +6272,13 @@ const headers = {
 };
 
 let body = {
-    "country_id": "ipsam",
-    "zip_code": "minus",
-    "address": "minus",
-    "number": "molestiae",
-    "district": "voluptas",
-    "city": "aut",
-    "state": "voluptate"
+    "country_id": "architecto",
+    "zip_code": "quia",
+    "address": "et",
+    "number": "ex",
+    "district": "quia",
+    "city": "consequatur",
+    "state": "placeat"
 };
 
 fetch(url, {
@@ -5089,7 +6290,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-mzrt-users-addresses--user_id---address_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=WgYZogkkJcZTyO8xzkItGFiUSrajONfIbB90vWZ3; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-mzrt-users-addresses--user_id---address_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-mzrt-users-addresses--user_id---address_id-"></span>:
@@ -5188,10 +6406,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="address_id"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="1"
+               value="3"
                data-component="url">
     <br>
-<p>The ID of the address. Example: <code>1</code></p>
+<p>The ID of the address. Example: <code>3</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -5200,10 +6418,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="country_id"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="ipsam"
+               value="architecto"
                data-component="body">
     <br>
-<p>Example: <code>ipsam</code></p>
+<p>Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>name</code></b>&nbsp;&nbsp;
@@ -5222,10 +6440,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="zip_code"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="minus"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>minus</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>address</code></b>&nbsp;&nbsp;
@@ -5233,10 +6451,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="address"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="minus"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>minus</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>number</code></b>&nbsp;&nbsp;
@@ -5244,10 +6462,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="number"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="molestiae"
+               value="ex"
                data-component="body">
     <br>
-<p>Example: <code>molestiae</code></p>
+<p>Example: <code>ex</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>complement</code></b>&nbsp;&nbsp;
@@ -5266,10 +6484,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="district"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="voluptas"
+               value="quia"
                data-component="body">
     <br>
-<p>Example: <code>voluptas</code></p>
+<p>Example: <code>quia</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>city</code></b>&nbsp;&nbsp;
@@ -5277,10 +6495,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="city"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="aut"
+               value="consequatur"
                data-component="body">
     <br>
-<p>Example: <code>aut</code></p>
+<p>Example: <code>consequatur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>state</code></b>&nbsp;&nbsp;
@@ -5288,10 +6506,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="state"                data-endpoint="PUTapi-v1-mzrt-users-addresses--user_id---address_id-"
-               value="voluptate"
+               value="placeat"
                data-component="body">
     <br>
-<p>Example: <code>voluptate</code></p>
+<p>Example: <code>placeat</code></p>
         </div>
         </form>
 
@@ -5318,7 +6536,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user_id\": \"et\",
+    \"user_id\": \"quaerat\",
     \"sex_meetings\": \"male\",
     \"meeting_type\": \"female\"
 }"
@@ -5337,7 +6555,7 @@ const headers = {
 };
 
 let body = {
-    "user_id": "et",
+    "user_id": "quaerat",
     "sex_meetings": "male",
     "meeting_type": "female"
 };
@@ -5351,7 +6569,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-POSTapi-v1-mzrt-users-instructor--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=wj6Z93oZI8W9ixj5ck3KaAsoshUmULP72c595VZf; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-POSTapi-v1-mzrt-users-instructor--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-POSTapi-v1-mzrt-users-instructor--user_id-"></span>:
@@ -5451,10 +6686,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="user_id"                data-endpoint="POSTapi-v1-mzrt-users-instructor--user_id-"
-               value="et"
+               value="quaerat"
                data-component="body">
     <br>
-<p>Example: <code>et</code></p>
+<p>Example: <code>quaerat</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>commission</code></b>&nbsp;&nbsp;
@@ -5569,8 +6804,8 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"sex_meetings\": \"female\",
-    \"meeting_type\": \"female\"
+    \"sex_meetings\": \"male\",
+    \"meeting_type\": \"both\"
 }"
 </code></pre></div>
 
@@ -5587,8 +6822,8 @@ const headers = {
 };
 
 let body = {
-    "sex_meetings": "female",
-    "meeting_type": "female"
+    "sex_meetings": "male",
+    "meeting_type": "both"
 };
 
 fetch(url, {
@@ -5600,7 +6835,24 @@ fetch(url, {
 </span>
 
 <span id="example-responses-PUTapi-v1-mzrt-users-instructor--user_id-">
-</span>
+            <blockquote>
+            <p>Example response (401):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+access-control-allow-origin: *
+set-cookie: ead_abtpe_session=vrgmiXoJ4oJ65okt3gxjdKo0bbTqeAZJyCg7YtUA; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Unauthenticated.&quot;
+}</code>
+ </pre>
+    </span>
 <span id="execution-results-PUTapi-v1-mzrt-users-instructor--user_id-" hidden>
     <blockquote>Received response<span
                 id="execution-response-status-PUTapi-v1-mzrt-users-instructor--user_id-"></span>:
@@ -5766,10 +7018,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="sex_meetings"                data-endpoint="PUTapi-v1-mzrt-users-instructor--user_id-"
-               value="female"
+               value="male"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>male</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li> <li><code>both</code></li></ul>
         </div>
@@ -5779,10 +7031,10 @@ Must be one of:
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="meeting_type"                data-endpoint="PUTapi-v1-mzrt-users-instructor--user_id-"
-               value="female"
+               value="both"
                data-component="body">
     <br>
-<p>Example: <code>female</code></p>
+<p>Example: <code>both</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li> <li><code>both</code></li></ul>
         </div>

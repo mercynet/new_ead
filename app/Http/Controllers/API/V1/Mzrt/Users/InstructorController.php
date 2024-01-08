@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt\Users;
+namespace App\Http\Controllers\API\V1\Mzrt\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mzrt\Users\Instructors\StoreInstructorRequest;
@@ -9,7 +9,6 @@ use App\Http\Resources\Mzrt\Users\InstructorResource;
 use App\Models\Users\Instructor;
 use App\Models\Users\User;
 use App\Services\Users\InstructorService;
-use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 /**
  * @group Mozart

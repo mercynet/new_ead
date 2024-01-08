@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt;
+namespace App\Http\Controllers\API\V1\Mzrt;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\Mzrt\CountryResource;

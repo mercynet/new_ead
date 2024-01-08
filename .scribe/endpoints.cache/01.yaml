@@ -35,14 +35,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=FvG39hnoiVmwSyKnwumwBo2BV58VD4mBBkQZA9mk; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=byt1dF57ECJLYkuEJTm7nrKneB5y9HlGTjFaw2dj; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 64kgb6Pfc8haDd1VaEv5Z3e'
+      - 'Bearer gf3ek1E6568bhc4avDPZVad'
     controller: null
     method: null
     route: null
@@ -73,25 +73,28 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: occaecati
+        example: deserunt
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: pmoen@example.net
+        example: jerde.george@example.net
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: natus
+        example: id
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       role:
         name: role
@@ -105,6 +108,7 @@ endpoints:
           - admin
           - student
           - instructor
+        exampleWasSpecified: false
         custom: []
       address:
         name: address
@@ -113,38 +117,34 @@ endpoints:
         example: []
         type: object
         enumValues: []
-        custom: []
-      timezone_id:
-        name: timezone_id
-        description: ''
-        required: true
-        example: consectetur
-        type: string
-        enumValues: []
+        exampleWasSpecified: false
         custom: []
       group_id:
         name: group_id
         description: ''
         required: true
-        example: voluptas
+        example: itaque
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       document:
         name: document
         description: ''
         required: true
-        example: ut
+        example: est
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       identity_registry:
         name: identity_registry
         description: ''
         required: true
-        example: dolorum
+        example: voluptas
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       avatar:
         name: avatar
@@ -153,25 +153,28 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       birth_date:
         name: birth_date
         description: 'Must be a valid date in the format <code>d/m/Y</code>.'
         required: true
-        example: 30/09/2023
+        example: 08/01/2024
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       gender:
         name: gender
         description: ''
         required: true
-        example: both
+        example: male
         type: string
         enumValues:
           - male
           - female
           - both
+        exampleWasSpecified: false
         custom: []
       where_know_us:
         name: where_know_us
@@ -180,14 +183,16 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       source:
         name: source
         description: ''
         required: true
-        example: rerum
+        example: in
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       nickname:
         name: nickname
@@ -196,36 +201,47 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       active:
         name: active
         description: ''
         required: true
-        example: false
+        example: true
         type: boolean
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: occaecati
-      email: pmoen@example.net
-      password: natus
+      name: deserunt
+      email: jerde.george@example.net
+      password: id
       role: superuser
       address: []
-      timezone_id: consectetur
-      group_id: voluptas
-      document: ut
-      identity_registry: dolorum
-      birth_date: 30/09/2023
-      gender: both
-      source: rerum
-      active: false
+      group_id: itaque
+      document: est
+      identity_registry: voluptas
+      birth_date: 08/01/2024
+      gender: male
+      source: in
+      active: true
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=nfgiT0BlTs5vUFYpkrBZ5fnGGD6ZsaRaonssNmmJ; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1a8cbv4VEa3ek6hfdZDg56P'
+      - 'Bearer 1b5acEeh3D6PV4fZdvgak68'
     controller: null
     method: null
     route: null
@@ -255,6 +271,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       id: 1
@@ -271,14 +288,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=je33Bg7jDhplPfYUti2o1FUddvaQu3FpeKTuCnu0; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=6ZfMylND0T3kcUzIXEUEJ628bRfErUfeD1LynJqc; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer fZb6Dgv1ca3dh8eVE6Pka54'
+      - 'Bearer PdhZEDvV166k4358gaafbec'
     controller: null
     method: null
     route: null
@@ -309,6 +326,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       id: 1
@@ -319,17 +337,19 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: quia
+        example: nulla
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       email:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: veum.leslie@example.net
+        example: elissa01@example.net
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       password:
         name: password
@@ -338,6 +358,7 @@ endpoints:
         example: 'H3u3h#H%#ywQEG.'
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       roles:
         name: roles
@@ -351,14 +372,16 @@ endpoints:
           - admin
           - student
           - instructor
+        exampleWasSpecified: false
         custom: []
       address_id:
         name: address_id
         description: ''
         required: true
-        example: voluptatem
+        example: natus
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       address:
         name: address
@@ -367,38 +390,34 @@ endpoints:
         example: []
         type: object
         enumValues: []
-        custom: []
-      timezone_id:
-        name: timezone_id
-        description: ''
-        required: true
-        example: illum
-        type: string
-        enumValues: []
+        exampleWasSpecified: false
         custom: []
       group_id:
         name: group_id
         description: ''
         required: true
-        example: architecto
+        example: odit
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       document:
         name: document
         description: ''
         required: true
-        example: asperiores
+        example: ut
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       identity_registry:
         name: identity_registry
         description: ''
         required: true
-        example: molestias
+        example: nihil
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       avatar:
         name: avatar
@@ -407,14 +426,16 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       birth_date:
         name: birth_date
         description: 'Must be a valid date in the format <code>d/m/Y</code>.'
         required: true
-        example: 30/09/2023
+        example: 08/01/2024
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       gender:
         name: gender
@@ -426,22 +447,25 @@ endpoints:
           - male
           - female
           - both
+        exampleWasSpecified: false
         custom: []
       where_know_us:
         name: where_know_us
         description: ''
         required: false
-        example: eos
+        example: aut
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       source:
         name: source
         description: ''
         required: true
-        example: voluptatem
+        example: rem
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       nickname:
         name: nickname
@@ -450,38 +474,49 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       active:
         name: active
         description: ''
         required: true
-        example: voluptatem
+        example: magnam
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      name: quia
-      email: veum.leslie@example.net
+      name: nulla
+      email: elissa01@example.net
       password: 'H3u3h#H%#ywQEG.'
       roles: admin
-      address_id: voluptatem
+      address_id: natus
       address: []
-      timezone_id: illum
-      group_id: architecto
-      document: asperiores
-      identity_registry: molestias
-      birth_date: 30/09/2023
+      group_id: odit
+      document: ut
+      identity_registry: nihil
+      birth_date: 08/01/2024
       gender: female
-      where_know_us: eos
-      source: voluptatem
-      active: voluptatem
+      where_know_us: aut
+      source: rem
+      active: magnam
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=sQYGMLUeVqz7zVHOwv7RDkk92fuQ8qXZtkR5F3Zi; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer fZVgkeEvaa415b63c8dDPh6'
+      - 'Bearer VD8b6ahZPe3dfva1c46kEg5'
     controller: null
     method: null
     route: null
@@ -511,6 +546,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       id: 1
@@ -519,12 +555,22 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=ll8o2L05Rbwwn5AbwRVWu3GCdwJA6oOnT7hJ8yLz; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer d6D6bcV51eaEv3kh8PZg4af'
+      - 'Bearer 6g83aEPv15ehaZ6Vb4kfdcD'
     controller: null
     method: null
     route: null
@@ -563,14 +609,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=bfP39RdEwAIVZdjLyfkXji5HuRqfNfbE2MVbpBhD; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=uUrj4IkiU9K6XTIBLR6REPTAevxyEl7dgyp9EEJB; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 8cZ6dvE31akPge4b5VaD6hf'
+      - 'Bearer hgadVkab8e6PZ1c53f4DvE6'
     controller: null
     method: null
     route: null
@@ -604,34 +650,47 @@ endpoints:
         example: Vip
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       discount:
         name: discount
         description: 'User groups can have discounts. Type: decimal.'
         required: false
-        example: 33144495.41
+        example: 41179911.71
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       commission:
         name: commission
         description: 'User groups can have commissions. Type: decimal.'
         required: false
-        example: 279.88
+        example: 10463.29
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       name: Vip
-      discount: 33144495.41
-      commission: 279.88
+      discount: 41179911.71
+      commission: 10463.29
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=IvRAhYZkcg1uHe3BTP4SJrqPCeD9UP0kQOcswGND; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer aVE3c4DdZg68k1heaPf6v5b'
+      - 'Bearer 5ZVaE4vD6c3fbh8daP6ek1g'
     controller: null
     method: null
     route: null
@@ -661,6 +720,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       id: 1
@@ -677,14 +737,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=UcT2kLd7R5Za0FpbQ8FsHOGmyFN32bZ4WhznVVfn; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=qVJBYfTDh36owpMJXOrCp07bjAr8aDMn4LEvw7px; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer e6cdZbVa5g48af1Dhk63PEv'
+      - 'Bearer b6P8Z41vVgkaa3c5Dhf6dEe'
     controller: null
     method: null
     route: null
@@ -715,6 +775,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       id: 1
@@ -728,34 +789,47 @@ endpoints:
         example: Vip
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       discount:
         name: discount
         description: 'User groups can have discounts. Type: decimal.'
         required: false
-        example: 6810470.11
+        example: 68479436.46
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       commission:
         name: commission
         description: 'User groups can have commissions. Type: decimal.'
         required: false
-        example: 4.58
+        example: 596.38
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
       name: Vip
-      discount: 6810470.11
-      commission: 4.58
+      discount: 68479436.46
+      commission: 596.38
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=RsJLH2ydfWSLQVcXWEgWhEciOP8oRFpBrz1GzzYs; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer bdE361a4P5egf8hcVk6ZDva'
+      - 'Bearer V1akef3dZEa6PgDc6v8b54h'
     controller: null
     method: null
     route: null
@@ -792,14 +866,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=ydO6m2V0VRArTOCeNBMo5ePvoL0h7IRXlb7Uz6na; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=pNx2HdUtBSp8FzSF2PQhLjKk8tB0MgqIKmkgqXEp; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 4bPaEDg65ac8vfdke6Z1hV3'
+      - 'Bearer b6hfkV34g8dD16ceZva5EaP'
     controller: null
     method: null
     route: null
@@ -830,44 +904,49 @@ endpoints:
         name: order
         description: ''
         required: false
-        example: 18
+        example: 10
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       name:
         name: name
         description: ''
         required: true
-        example: quas
+        example: nesciunt
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       slug:
         name: slug
         description: ''
         required: true
-        example: et
+        example: eveniet
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       level:
         name: level
         description: ''
         required: true
-        example: advanced
+        example: begginner
         type: string
         enumValues:
           - begginner
           - intermediate
           - advanced
+        exampleWasSpecified: false
         custom: []
       description:
         name: description
         description: ''
         required: false
-        example: 'Et id totam explicabo quis maiores.'
+        example: 'Provident a illo reprehenderit soluta.'
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       pre_requisites:
         name: pre_requisites
@@ -876,14 +955,16 @@ endpoints:
         example: null
         type: object
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       target:
         name: target
         description: ''
         required: false
-        example: voluptatum
+        example: aut
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       image_featured:
         name: image_featured
@@ -892,6 +973,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       image_cover:
         name: image_cover
@@ -900,6 +982,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       is_fifo:
         name: is_fifo
@@ -908,6 +991,7 @@ endpoints:
         example: false
         type: boolean
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       active:
         name: active
@@ -916,70 +1000,79 @@ endpoints:
         example: false
         type: boolean
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       meta_description:
         name: meta_description
         description: ''
         required: false
-        example: quo
+        example: modi
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       meta_keywords:
         name: meta_keywords
         description: ''
         required: false
-        example: tenetur
+        example: molestias
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       price:
         name: price
         description: ''
         required: true
-        example: 11.5828631
+        example: 428134.0
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       access_months:
         name: access_months
         description: ''
         required: false
-        example: 15
+        example: 16
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       started_at:
         name: started_at
         description: 'Must be a valid date.'
         required: false
-        example: '2023-09-30T10:30:01'
+        example: '2024-01-08T16:58:56'
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       ended_at:
         name: ended_at
         description: 'Must be a valid date.'
         required: false
-        example: '2023-09-30T10:30:01'
+        example: '2024-01-08T16:58:56'
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       amount:
         name: amount
         description: ''
         required: true
-        example: 6172.42103
+        example: 0.255
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       discount:
         name: discount
         description: ''
         required: true
-        example: 640006253.44107
+        example: 4994596.413375
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       level_description:
         name: level_description
@@ -988,31 +1081,266 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      course_module:
+        name: course_module
+        description: ''
+        required: false
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'course_module[].language_id':
+        name: 'course_module[].language_id'
+        description: ''
+        required: true
+        example: sunt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'course_module[].name':
+        name: 'course_module[].name'
+        description: ''
+        required: true
+        example: voluptatibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'course_module[].slug':
+        name: 'course_module[].slug'
+        description: ''
+        required: true
+        example: assumenda
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      lesson:
+        name: lesson
+        description: ''
+        required: false
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].order':
+        name: 'lesson[].order'
+        description: ''
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].name':
+        name: 'lesson[].name'
+        description: ''
+        required: true
+        example: possimus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].slug':
+        name: 'lesson[].slug'
+        description: ''
+        required: true
+        example: ea
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].video_type':
+        name: 'lesson[].video_type'
+        description: ''
+        required: true
+        example: rerum
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].video_path':
+        name: 'lesson[].video_path'
+        description: ''
+        required: true
+        example: vel
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].video_duration':
+        name: 'lesson[].video_duration'
+        description: ''
+        required: true
+        example: vel
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].video_downloadable':
+        name: 'lesson[].video_downloadable'
+        description: ''
+        required: true
+        example: velit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].summary':
+        name: 'lesson[].summary'
+        description: ''
+        required: true
+        example: repudiandae
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].description':
+        name: 'lesson[].description'
+        description: ''
+        required: true
+        example: necessitatibus
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].image_featured':
+        name: 'lesson[].image_featured'
+        description: ''
+        required: true
+        example: modi
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].meta_description':
+        name: 'lesson[].meta_description'
+        description: ''
+        required: true
+        example: ad
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].meta_keywords':
+        name: 'lesson[].meta_keywords'
+        description: ''
+        required: true
+        example: in
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].is_free':
+        name: 'lesson[].is_free'
+        description: ''
+        required: true
+        example: perspiciatis
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].is_commentable':
+        name: 'lesson[].is_commentable'
+        description: ''
+        required: true
+        example: sed
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].active':
+        name: 'lesson[].active'
+        description: ''
+        required: true
+        example: reprehenderit
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].started_at':
+        name: 'lesson[].started_at'
+        description: ''
+        required: true
+        example: nemo
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        custom: []
+      'lesson[].ended_at':
+        name: 'lesson[].ended_at'
+        description: ''
+        required: true
+        example: eos
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      order: 18
-      name: quas
-      slug: et
-      level: advanced
-      description: 'Et id totam explicabo quis maiores.'
-      target: voluptatum
+      order: 10
+      name: nesciunt
+      slug: eveniet
+      level: begginner
+      description: 'Provident a illo reprehenderit soluta.'
+      target: aut
       is_fifo: false
       active: false
-      meta_description: quo
-      meta_keywords: tenetur
-      price: 11.5828631
-      access_months: 15
-      started_at: '2023-09-30T10:30:01'
-      ended_at: '2023-09-30T10:30:01'
-      amount: 6172.42103
-      discount: 640006253.44107
+      meta_description: modi
+      meta_keywords: molestias
+      price: 428134.0
+      access_months: 16
+      started_at: '2024-01-08T16:58:56'
+      ended_at: '2024-01-08T16:58:56'
+      amount: 0.255
+      discount: 4994596.413375
+      course_module:
+        -
+          language_id: sunt
+          name: voluptatibus
+          slug: assumenda
+      lesson:
+        -
+          order: et
+          name: possimus
+          slug: ea
+          video_type: rerum
+          video_path: vel
+          video_duration: vel
+          video_downloadable: velit
+          summary: repudiandae
+          description: necessitatibus
+          image_featured: modi
+          meta_description: ad
+          meta_keywords: in
+          is_free: perspiciatis
+          is_commentable: sed
+          active: reprehenderit
+          started_at: nemo
+          ended_at: eos
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=madWtpXeENkW6pPqWYisowOFpoS4dmpkeCFrOHEU; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer dcE8gvV4keb51PZa6D6ah3f'
+      - 'Bearer caEZgv15def6abD64Vkh83P'
     controller: null
     method: null
     route: null
@@ -1039,12 +1367,13 @@ endpoints:
         name: id
         description: 'The ID of the course.'
         required: true
-        example: 2
+        example: 6
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 2
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -1058,14 +1387,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=jgSym4iJCuW6U2t3ljzQ8FYPKOu4udo8pbtowmaO; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=DDiqTxe5Q2HB0iTxC6u529c7ufUGVyE7FDTLisD3; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer va68d4153aZefE6DgVPhbck'
+      - 'Bearer fac5e16h68dED3k4vbaPVZg'
     controller: null
     method: null
     route: null
@@ -1093,23 +1422,34 @@ endpoints:
         name: id
         description: 'The ID of the course.'
         required: true
-        example: 5
+        example: 6
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 5
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=ezPisOV01Lv17Bfw4u8ILIEY3PJQWQD5RFvbB7Eq; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 1dE8Dha6Vk6bf5gPvce4Z3a'
+      - 'Bearer 856Zaec1Pa6dhVE3kbvD4gf'
     controller: null
     method: null
     route: null
@@ -1136,23 +1476,34 @@ endpoints:
         name: id
         description: 'The ID of the course.'
         required: true
-        example: 13
+        example: 6
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
-      id: 13
+      id: 6
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=o4etdN51gI3Pk4ZGWSZvbSDJjgdomeA4VJgUIlNO; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6hD5agVPEdZ316eb48acvfk'
+      - 'Bearer 1hD4fvZda5k3e86aEPcVg6b'
     controller: null
     method: null
     route: null
@@ -1182,6 +1533,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1190,12 +1542,22 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=m3Nsl6TVQ7m2NadYgzNw8ss46QfCkLPtPzMcd35M; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer ck3fVPaaev65E8hDZ6bd1g4'
+      - 'Bearer 4geDa618bEakvh36PVdcZ5f'
     controller: null
     method: null
     route: null
@@ -1225,6 +1587,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1233,12 +1596,22 @@ endpoints:
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=LbzqqthdcpcNINcZy1byJxYRHKMckoldzdb7GLSS; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer E8kaZD6bcefg1V4a3Pvhd65'
+      - 'Bearer 6P63gvkhe8a1dZfc5DEb4Va'
     controller: null
     method: null
     route: null
@@ -1268,6 +1641,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1284,14 +1658,14 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'ead_abtpe_session=Z5CRkiJ0RbbV0DSX9SANcfuLMGcx6LyDDC2je36i; expires=Sat, 30 Sep 2023 15:30:01 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'ead_abtpe_session=9SFWJK6nNCVzJQpeUyt7okjf6v2TW2R4iftvbheN; expires=Mon, 08 Jan 2024 21:58:56 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer V86P463kfe5abhEdavZ1Dcg'
+      - 'Bearer abPD5ghZ68Eda14fekv6V3c'
     controller: null
     method: null
     route: null
@@ -1321,6 +1695,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1331,9 +1706,10 @@ endpoints:
         name: country_id
         description: ''
         required: true
-        example: natus
+        example: et
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       name:
         name: name
@@ -1342,30 +1718,34 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       zip_code:
         name: zip_code
         description: ''
         required: true
-        example: distinctio
+        example: nihil
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       address:
         name: address
         description: ''
         required: true
-        example: error
+        example: eum
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       number:
         name: number
         description: ''
         required: true
-        example: aut
+        example: voluptatem
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       complement:
         name: complement
@@ -1374,46 +1754,60 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       district:
         name: district
         description: ''
         required: true
-        example: quibusdam
+        example: voluptas
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       city:
         name: city
         description: ''
         required: true
-        example: commodi
+        example: ut
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       state:
         name: state
         description: ''
         required: true
-        example: veniam
+        example: illo
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      country_id: natus
-      zip_code: distinctio
-      address: error
-      number: aut
-      district: quibusdam
-      city: commodi
-      state: veniam
+      country_id: et
+      zip_code: nihil
+      address: eum
+      number: voluptatem
+      district: voluptas
+      city: ut
+      state: illo
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=zUqrPuL4DkB818MwiC68bM60kEizDaSTC8MvACxN; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 6PDa58Eaf4ckZe316hdbvVg'
+      - 'Bearer a45bVad8kcZ6e361PhDfgEv'
     controller: null
     method: null
     route: null
@@ -1443,18 +1837,20 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       address_id:
         name: address_id
         description: 'The ID of the address.'
         required: true
-        example: 1
+        example: 3
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
-      address_id: 1
+      address_id: 3
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -1462,9 +1858,10 @@ endpoints:
         name: country_id
         description: ''
         required: true
-        example: ipsam
+        example: architecto
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       name:
         name: name
@@ -1473,30 +1870,34 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       zip_code:
         name: zip_code
         description: ''
         required: true
-        example: minus
+        example: quia
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       address:
         name: address
         description: ''
         required: true
-        example: minus
+        example: et
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       number:
         name: number
         description: ''
         required: true
-        example: molestiae
+        example: ex
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       complement:
         name: complement
@@ -1505,46 +1906,60 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       district:
         name: district
         description: ''
         required: true
-        example: voluptas
+        example: quia
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       city:
         name: city
         description: ''
         required: true
-        example: aut
+        example: consequatur
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       state:
         name: state
         description: ''
         required: true
-        example: voluptate
+        example: placeat
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      country_id: ipsam
-      zip_code: minus
-      address: minus
-      number: molestiae
-      district: voluptas
-      city: aut
-      state: voluptate
+      country_id: architecto
+      zip_code: quia
+      address: et
+      number: ex
+      district: quia
+      city: consequatur
+      state: placeat
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=WgYZogkkJcZTyO8xzkItGFiUSrajONfIbB90vWZ3; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer h4akegfZa6D6d1v5Pb3V8cE'
+      - 'Bearer kVEbPgZ6e3vdaDc6ah185f4'
     controller: null
     method: null
     route: null
@@ -1574,6 +1989,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1584,9 +2000,10 @@ endpoints:
         name: user_id
         description: ''
         required: true
-        example: et
+        example: quaerat
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       commission:
         name: commission
@@ -1595,6 +2012,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       bank_iban:
         name: bank_iban
@@ -1603,6 +2021,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       bank_name:
         name: bank_name
@@ -1611,6 +2030,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       identify_image:
         name: identify_image
@@ -1619,6 +2039,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       financial_approved:
         name: financial_approved
@@ -1627,6 +2048,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       available_meetings:
         name: available_meetings
@@ -1635,6 +2057,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       sex_meetings:
         name: sex_meetings
@@ -1646,6 +2069,7 @@ endpoints:
           - male
           - female
           - both
+        exampleWasSpecified: false
         custom: []
       meeting_type:
         name: meeting_type
@@ -1657,18 +2081,29 @@ endpoints:
           - male
           - female
           - both
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      user_id: et
+      user_id: quaerat
       sex_meetings: male
       meeting_type: female
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=wj6Z93oZI8W9ixj5ck3KaAsoshUmULP72c595VZf; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer Pa6ebhD54gEZVva8d63fkc1'
+      - 'Bearer a4v5P1d3c6agZh8fekD6EVb'
     controller: null
     method: null
     route: null
@@ -1698,6 +2133,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1711,6 +2147,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       bank_iban:
         name: bank_iban
@@ -1719,6 +2156,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       bank_name:
         name: bank_name
@@ -1727,6 +2165,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       identify_image:
         name: identify_image
@@ -1735,6 +2174,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       financial_approved:
         name: financial_approved
@@ -1743,6 +2183,7 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       available_meetings:
         name: available_meetings
@@ -1751,39 +2192,52 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       sex_meetings:
         name: sex_meetings
         description: ''
         required: false
-        example: female
+        example: male
         type: string
         enumValues:
           - male
           - female
           - both
+        exampleWasSpecified: false
         custom: []
       meeting_type:
         name: meeting_type
         description: ''
         required: false
-        example: female
+        example: both
         type: string
         enumValues:
           - male
           - female
           - both
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      sex_meetings: female
-      meeting_type: female
+      sex_meetings: male
+      meeting_type: both
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=vrgmiXoJ4oJ65okt3gxjdKo0bbTqeAZJyCg7YtUA; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer P14gaVeEadZ8cbk53vDfh66'
+      - 'Bearer bV65a3v6EahDeg84dc1fPkZ'
     controller: null
     method: null
     route: null
@@ -1813,6 +2267,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1826,24 +2281,36 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       points:
         name: points
         description: ''
         required: true
-        example: 16
+        example: 10
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      points: 16
+      points: 10
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=MQiGbUh08FcPIUfhJqRG9O0jqGWUGJj5Fig9O7qI; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 4ZvagfVPE1eD85c6dkab3h6'
+      - 'Bearer 6EhvV41Pac8aZg3dD5fekb6'
     controller: null
     method: null
     route: null
@@ -1873,6 +2340,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1886,24 +2354,36 @@ endpoints:
         example: null
         type: string
         enumValues: []
+        exampleWasSpecified: false
         custom: []
       points:
         name: points
         description: ''
         required: true
-        example: 12
+        example: 17
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      points: 12
+      points: 17
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=60DosVZYSUYbsSWB6jcWKWOFNOQIyVX8VAlcr9YL; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 4hac6dbk6DVEP5a13Zgev8f'
+      - 'Bearer Dfab4ZV568avd3h6Pe1gckE'
     controller: null
     method: null
     route: null
@@ -1933,6 +2413,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1943,19 +2424,30 @@ endpoints:
         name: points
         description: 'Must be at least 1.'
         required: true
-        example: 90
+        example: 15
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      points: 90
+      points: 15
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=o2u360IJEQCW6P2MAg4dlby2UF5o1IyrTfsgP7CW; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer eZ41kag6ahdPv36EfcDVb85'
+      - 'Bearer Z68ceE3g5kDPahV46f1vbda'
     controller: null
     method: null
     route: null
@@ -1985,6 +2477,7 @@ endpoints:
         example: 1
         type: integer
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanUrlParameters:
       user_id: 1
@@ -1995,19 +2488,30 @@ endpoints:
         name: points
         description: 'Must be at least 1.'
         required: true
-        example: 28
+        example: 13
         type: number
         enumValues: []
+        exampleWasSpecified: false
         custom: []
     cleanBodyParameters:
-      points: 28
+      points: 13
     fileParameters: []
-    responses: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'ead_abtpe_session=VQ6OtNgAcIa52b4yGoUnfxB8651eGpGh088sVqUX; expires=Mon, 08 Jan 2024 21:58:57 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
     responseFields: []
     auth:
       - headers
       - Authorization
-      - 'Bearer 51VbEPcDe6ak43va6Zdhf8g'
+      - 'Bearer fa66EDZe3Phg54bV1kv8acd'
     controller: null
     method: null
     route: null

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt;
+namespace App\Http\Controllers\API\V1\Mzrt;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Mzrt\StoreCommentRequest;
-use App\Http\Requests\Mzrt\UpdateCommentRequest;
-use App\Models\Comment;
+use App\Http\Requests\Mzrt\StoreBannerRequest;
+use App\Http\Requests\Mzrt\UpdateBannerRequest;
+use App\Models\Banner;
 
-class CommentController extends Controller
+class BannerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\StoreCommentRequest  $request
+     * @param  \App\Http\Requests\Mzrt\StoreBannerRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentRequest $request)
+    public function store(StoreBannerRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class CommentController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function show(Comment $comment)
+    public function show(Banner $banner)
     {
         //
     }
@@ -54,10 +54,10 @@ class CommentController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function edit(Comment $comment)
+    public function edit(Banner $banner)
     {
         //
     }
@@ -65,11 +65,11 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\UpdateCommentRequest  $request
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Http\Requests\Mzrt\UpdateBannerRequest  $request
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCommentRequest $request, Comment $comment)
+    public function update(UpdateBannerRequest $request, Banner $banner)
     {
         //
     }
@@ -77,10 +77,10 @@ class CommentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Comment  $comment
+     * @param  \App\Models\Banner  $banner
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(Banner $banner)
     {
         //
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt\Courses;
+namespace App\Http\Controllers\API\V1\Mzrt\Courses;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mzrt\StoreCourseModuleRequest;

@@ -34,7 +34,6 @@ class UpdateUserRequest extends FormRequest
             'roles' => ['required', Rule::in(Role::toArray())],
             'address_id' => ['required', 'exists:addresses,id'],
             'address' => ['sometimes', 'required', 'array'],
-            'timezone_id' => ['required', 'exists:timezones,id'],
             'group_id' => ['required', 'exists:groups,id'],
             'document' => ['required', Rule::unique('user_infos')->ignore($this->user?->user_info)],
             'identity_registry' => ['required', Rule::unique('user_infos')->ignore($this->user?->user_info)],

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt;
+namespace App\Http\Controllers\API\V1\Mzrt\Users;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Mzrt\StoreLessonRequest;
-use App\Http\Requests\Mzrt\UpdateLessonRequest;
-use App\Models\Courses\Lesson;
+use App\Http\Requests\Mzrt\StorePhoneNumberRequest;
+use App\Http\Requests\Mzrt\UpdatePhoneNumberRequest;
+use App\Models\Users\PhoneNumber;
 
-class LessonController extends Controller
+class PhoneNumberController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class LessonController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\StoreLessonRequest  $request
+     * @param  \App\Http\Requests\Mzrt\StorePhoneNumberRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreLessonRequest $request)
+    public function store(StorePhoneNumberRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class LessonController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Courses\Lesson  $lesson
+     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
      * @return \Illuminate\Http\Response
      */
-    public function show(Lesson $lesson)
+    public function show(PhoneNumber $phoneNumber)
     {
         //
     }
@@ -54,10 +54,10 @@ class LessonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Courses\Lesson  $lesson
+     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lesson $lesson)
+    public function edit(PhoneNumber $phoneNumber)
     {
         //
     }
@@ -65,11 +65,11 @@ class LessonController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\UpdateLessonRequest  $request
-     * @param  \App\Models\Courses\Lesson  $lesson
+     * @param  \App\Http\Requests\Mzrt\UpdatePhoneNumberRequest  $request
+     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateLessonRequest $request, Lesson $lesson)
+    public function update(UpdatePhoneNumberRequest $request, PhoneNumber $phoneNumber)
     {
         //
     }
@@ -77,10 +77,10 @@ class LessonController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Courses\Lesson  $lesson
+     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lesson $lesson)
+    public function destroy(PhoneNumber $phoneNumber)
     {
         //
     }

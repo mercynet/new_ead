@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt\Users;
+namespace App\Http\Controllers\API\V1\Mzrt;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Mzrt\StorePhoneNumberRequest;
-use App\Http\Requests\Mzrt\UpdatePhoneNumberRequest;
-use App\Models\Users\PhoneNumber;
+use App\Http\Requests\Mzrt\StoreFormationRequest;
+use App\Http\Requests\Mzrt\UpdateFormationRequest;
+use App\Models\Courses\Formation;
 
-class PhoneNumberController extends Controller
+class FormationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -32,10 +32,10 @@ class PhoneNumberController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\StorePhoneNumberRequest  $request
+     * @param  \App\Http\Requests\Mzrt\StoreFormationRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePhoneNumberRequest $request)
+    public function store(StoreFormationRequest $request)
     {
         //
     }
@@ -43,10 +43,10 @@ class PhoneNumberController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
-    public function show(PhoneNumber $phoneNumber)
+    public function show(Formation $formation)
     {
         //
     }
@@ -54,10 +54,10 @@ class PhoneNumberController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
-    public function edit(PhoneNumber $phoneNumber)
+    public function edit(Formation $formation)
     {
         //
     }
@@ -65,11 +65,11 @@ class PhoneNumberController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\Mzrt\UpdatePhoneNumberRequest  $request
-     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
+     * @param  \App\Http\Requests\Mzrt\UpdateFormationRequest  $request
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePhoneNumberRequest $request, PhoneNumber $phoneNumber)
+    public function update(UpdateFormationRequest $request, Formation $formation)
     {
         //
     }
@@ -77,10 +77,10 @@ class PhoneNumberController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Users\PhoneNumber  $phoneNumber
+     * @param  \App\Models\Courses\Formation  $formation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(PhoneNumber $phoneNumber)
+    public function destroy(Formation $formation)
     {
         //
     }

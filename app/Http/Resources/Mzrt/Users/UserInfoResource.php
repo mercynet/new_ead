@@ -25,8 +25,6 @@ class UserInfoResource extends JsonResource
             'source' => $this->whenHas('source'),
             'created_at' => $this->whenHas('created_at'),
             'updated_at' => $this->whenHas('updated_at'),
-            'timezone' => TimezoneResource::make($this->whenLoaded('timezone')),
-            'language' => LanguageResource::make($this->whenLoaded('language')),
         ];
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Mzrt\Users;
+namespace App\Http\Controllers\API\V1\Mzrt\Users;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mzrt\Users\StoreUserRequest;
@@ -40,6 +40,7 @@ class UserController extends Controller
     }
 
     /**
+     * Store a new user
      * @param StoreUserRequest $request
      * @return AnonymousResourceCollection
      */
@@ -50,6 +51,7 @@ class UserController extends Controller
     }
 
     /**
+     * Returns a specific user
      * @param User $user
      * @return UserResource|null
      */
@@ -59,6 +61,7 @@ class UserController extends Controller
     }
 
     /**
+     * Updates a specific user
      * @param UpdateUserRequest $request
      * @param User $user
      * @return AnonymousResourceCollection

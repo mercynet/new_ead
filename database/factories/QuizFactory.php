@@ -15,7 +15,7 @@ class QuizFactory extends Factory
             'order' => $this->faker->randomNumber(),
             'question' => $this->faker->word(),
             'video' => $this->faker->word(),
-            'exibition_type' => $this->faker->word(),
+            'exhibition_type' => $this->faker->word(),
             'format_type' => $this->faker->word(),
             'question_type' => $this->faker->word(),
             'level' => $this->faker->word(),

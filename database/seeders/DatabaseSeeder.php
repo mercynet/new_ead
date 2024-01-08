@@ -14,10 +14,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(CountrySeeder::class);
         $this->call(GroupSeeder::class);
-        $this->call(LanguageSeeder::class);
-        $this->call(TimezoneSeeder::class);
         $this->call(UserSeeder::class);
         $this->call(PermissionSeeder::class);
     }
