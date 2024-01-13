@@ -24,7 +24,8 @@
         "spatie/laravel-activitylog": "^4.7",
         "spatie/laravel-collection-macros": "^7.12",
         "spatie/laravel-permission": "^5.9",
-        "spatie/laravel-query-builder": "^5.2"
+        "spatie/laravel-query-builder": "^5.2",
+        "ext-fileinfo": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

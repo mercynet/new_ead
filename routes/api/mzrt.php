@@ -3,7 +3,7 @@
 use App\Http\Controllers\API\V1\Mzrt\Courses\CourseController;
 use App\Http\Controllers\API\V1\Mzrt\SettingController;
 use App\Http\Controllers\API\V1\Mzrt\Users\AddressController;
-use App\Http\Controllers\API\V1\Mzrt\Users\GroupUserController;
+use App\Http\Controllers\API\V1\Mzrt\Users\GroupController;
 use App\Http\Controllers\API\V1\Mzrt\Users\InstructorController;
 use App\Http\Controllers\API\V1\Mzrt\Users\RoleController;
 use App\Http\Controllers\API\V1\Mzrt\Users\StudentController;
@@ -25,10 +25,10 @@ Route::middleware('auth:sanctum')->group(function () {
             ->prefix('addresses')
             ->controller(AddressController::class)
             ->group(function () {
-                Route::get('{user}', [AddressController::class, 'getByUser'])->name('by-user');
-                Route::post('{user}', [AddressController::class, 'store'])->name('store');
-                Route::put('{user}/{address}', [AddressController::class, 'update'])->name('update');
-                Route::get('address/{postalCode}', 'addressByPostalCode')->name('address');
+                Route::get('{postalCode}', 'addressByPostalCode')->name('address');
+                Route::get('{user}', 'getByUser')->name('by-user');
+                Route::post('{user}', 'store')->name('store');
+                Route::put('{user}/{address}', 'update')->name('update');
             });
         Route::name('instructor.')
             ->prefix('instructor')
@@ -53,7 +53,7 @@ Route::middleware('auth:sanctum')->group(function () {
         ->group(function () {
             Route::get('', 'index')->name('index');
         });
-    Route::controller(GroupUserController::class)
+    Route::controller(GroupController::class)
         ->prefix('groups')
         ->name('groups.')
         ->group(function () {

@@ -8,11 +8,14 @@ use App\Http\Resources\Mzrt\Users\AddressResource;
 use App\Models\Users\Address;
 use App\Models\Users\User;
 use App\Services\Users\AddressService;
+use App\Services\ViaCEPService;
 use Illuminate\Contracts\Routing\ResponseFactory;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response as ResponseServiceProvider;
 use Symfony\Component\HttpFoundation\Response;
+use Throwable;
 
 /**
  * @group Mozart
@@ -25,7 +28,7 @@ class AddressController extends Controller
     /**
      *
      */
-    public function __construct(private readonly AddressService $addressService)
+    public function __construct(private readonly AddressService $addressService, private readonly ViaCEPService $viaCEPService)
     {
         $this->authorizeResource(Address::class, 'address');
     }
@@ -48,6 +51,21 @@ class AddressController extends Controller
     public function getByUser(Request $request, User $user)
     {
         return AddressResource::collection($this->addressService->getByUser($request, $user))->additional(['success' => true]);
+    }
+
+    /**
+     * Get address by postal code.
+     *
+     * @param  string  $postalCode The postal code for which to retrieve the address.
+     * @return ResponseServiceProvider The response with the address retrieved.
+     *
+     * @throws Throwable
+     */
+    public function addressByPostalCode(string $postalCode)
+    {
+        $address = $this->viaCEPService->addressByPostalCode($postalCode);
+
+        return response()->ok($address);
     }
 
     /**

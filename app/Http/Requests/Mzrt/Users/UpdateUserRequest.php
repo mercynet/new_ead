@@ -4,6 +4,7 @@ namespace App\Http\Requests\Mzrt\Users;
 
 use App\Enums\Users\Gender;
 use App\Enums\Users\Role;
+use App\Rules\PostalCode;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
@@ -32,8 +33,14 @@ class UpdateUserRequest extends FormRequest
             'email' => ['required', 'email', 'string', Rule::unique('users')->ignore($this->user)],
             'password' => ['sometimes', 'required', Password::defaults(), 'confirmed'],
             'roles' => ['required', Rule::in(Role::toArray())],
-            'address_id' => ['required', 'exists:addresses,id'],
-            'address' => ['sometimes', 'required', 'array'],
+            'addresses.*.id' => ['sometimes', 'required', 'exists:addresses,id'],
+            'addresses.*.address' => ['sometimes', 'required', 'string'],
+            'addresses.*.number' => ['sometimes', 'required', 'number'],
+            'addresses.*.zip_code' => ['sometimes', 'required', 'number', new PostalCode],
+            'addresses.*.complement' => ['sometimes', 'nullable', 'string'],
+            'addresses.*.district' => ['sometimes', 'required', 'number'],
+            'addresses.*.city' => ['sometimes', 'required', 'number'],
+            'addresses.*.state' => ['sometimes', 'required', 'number'],
             'group_id' => ['required', 'exists:groups,id'],
             'document' => ['required', Rule::unique('user_infos')->ignore($this->user?->user_info)],
             'identity_registry' => ['required', Rule::unique('user_infos')->ignore($this->user?->user_info)],

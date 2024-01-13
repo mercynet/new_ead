@@ -12,7 +12,7 @@ trait HasRole
      */
     public function scopeHasAdminRole($query): void
     {
-        if (!auth(currentGuardName())->user()->hasRole([Role::development->name, Role::superuser->name])) {
+        if (auth(currentGuardName())->check() && !auth(currentGuardName())->user()->hasRole([Role::development->name, Role::superuser->name])) {
             $query->whereHas('roles', function ($q) {
                 $q->where('name', '!=', 'development');
             });

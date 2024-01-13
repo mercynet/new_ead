@@ -4,9 +4,12 @@ namespace App\Http\Requests\Mzrt\Users;
 
 use App\Enums\Users\Gender;
 use App\Enums\Users\Role;
+use App\Rules\Base64FileRule;
+use App\Rules\PostalCode;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\Password;
+use Nnjeim\World\WorldHelper;
 
 class StoreUserRequest extends FormRequest
 {
@@ -31,16 +34,18 @@ class StoreUserRequest extends FormRequest
             'name' => 'required',
             'email' => ['required', 'email', 'string', Rule::unique('users')],
             'password' => ['required', Password::defaults(), 'confirmed'],
-            'role' => ['required', Rule::in(Role::toArray())],
-            'address' => ['required', 'array'],
+            'role' => ['required'],
             'group_id' => ['required', 'exists:groups,id'],
             'document' => ['required', 'cpf_ou_cnpj', Rule::unique('user_infos')],
             'identity_registry' => ['required', Rule::unique('user_infos')],
-            'avatar' => ['nullable'],
+            'avatar' => [
+                'nullable',
+                new Base64FileRule,
+            ],
             'birth_date' => ['required', 'date_format:d/m/Y'],
             'gender' => ['required', Rule::in(Gender::toArray())],
             'where_know_us' => ['nullable'],
-            'source' => ['sometimes', 'required'],
+            'source' => ['required', 'string'],
             'nickname' => ['nullable'],
             'active' => ['sometimes', 'required', 'bool'],
         ];
