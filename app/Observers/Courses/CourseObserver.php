@@ -2,7 +2,7 @@
 
 namespace App\Observers\Courses;
 
-use App\Models\Course;
+use App\Models\Courses\Course;
 
 class CourseObserver
 {

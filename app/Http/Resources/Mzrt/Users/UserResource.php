@@ -30,6 +30,7 @@ class UserResource extends JsonResource
             'student' => StudentResource::make($this->whenLoaded('student')),
             'group' => GroupResource::make($this->whenLoaded('group')),
             'addresses' => AddressResource::collection($this->whenLoaded('addresses')),
+            'phone_numbers' => PhoneNumberResource::collection($this->whenLoaded('phone_numbers')),
             'courses' => CourseResource::collection($this->whenLoaded('courses')),
         ];
     }

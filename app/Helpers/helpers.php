@@ -147,6 +147,10 @@ if (!function_exists('sanitizeFileName')) {
 }
 if (!function_exists('getStorageImage')) {
 
+    /**
+     * @param $image
+     * @return string
+     */
     function getStorageImage($image): string
     {
         if (!empty($image) && !Str::contains($image, 'storage/blank.png')) {

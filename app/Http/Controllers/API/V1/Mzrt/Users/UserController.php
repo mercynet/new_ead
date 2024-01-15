@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\V1\Mzrt\Users;
 
+use App\Exceptions\InvalidUploadException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mzrt\Users\StoreUserRequest;
 use App\Http\Requests\Mzrt\Users\UpdateUserRequest;
@@ -41,11 +42,12 @@ class UserController extends Controller
      * Store a new user
      * @param StoreUserRequest $request
      * @return AnonymousResourceCollection
+     * @throws InvalidUploadException
      */
     public function store(StoreUserRequest $request): AnonymousResourceCollection
     {
-        (new UserService)->create($request->validated());
-        return UserResource::collection((new UserService)->toPaginate());
+        $user = (new UserService)->create($request->validated());
+        return UserResource::make($user);
     }
 
     /**
@@ -66,8 +68,8 @@ class UserController extends Controller
      */
     public function update(UpdateUserRequest $request, User $user): AnonymousResourceCollection
     {
-        (new UserService)->update($user, $request->validated());
-        return UserResource::collection((new UserService)->toPaginate());
+        $user = (new UserService)->update($user, $request->validated());
+        return UserResource::make($user);
     }
 
     /**

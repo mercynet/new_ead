@@ -20,26 +20,13 @@ readonly class UserInfoService
     }
 
     /**
-     * @param array $userInfo
+     * @param array $data
      * @return UserInfo
      */
-    public function create(array $userInfo): UserInfo
+    public function create(array $data): UserInfo
     {
-        if (!empty($userInfo['address'])) {
-            $userInfo['address_id'] = (new AddressService())->create($userInfo['address'], $this->user)->id;
-        }
-        $userInfo['birth_date'] = !empty($userInfo['birth_date']) ? Carbon::createFromFormat('d/m/Y', $userInfo['birth_date'])->format('Y-m-d') : null;
-        return UserInfo::create([
-            'user_id' => $this->user->id,
-            'address_id' => $userInfo['address_id'] ?? null,
-            'document' => justNumbers($userInfo['document']),
-            'identity_registry' => justNumbers($userInfo['identity_registry']),
-            'avatar' => $userInfo['avatar'] ?? null,
-            'birth_date' => $userInfo['birth_date'],
-            'gender' => $userInfo['gender'] ?? 'male',
-            'where_know_us' => $userInfo['where_know_us'] ?? null,
-            'source' => $userInfo['source'] ?? 'site',
-        ]);
+        $data['user_id'] = $this->user->id;
+        return UserInfo::create($data);
     }
 
     /**
@@ -51,6 +38,9 @@ readonly class UserInfoService
         $userInfo = UserInfo::where(['user_id' => $this->user->id])->first();
         if (!$userInfo) {
             return $this->create($info);
+        }
+        if (!empty($data['address'])) {
+            $data['address_id'] = (new AddressService())->create($data['addresses'], $this->user)->id;
         }
         $userInfo->update([
             'user_id' => $this->user->id,

@@ -2,6 +2,7 @@
 
 namespace App\Services\Users;
 
+use App\Exceptions\InvalidUploadException;
 use App\Models\Role;
 use App\Models\Users\User;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -46,7 +47,7 @@ class UserService
             $roles = Role::where(['name' => $userData['roles']])->get();
             $user->assignRole($roles);
         }
-        if(!empty($userData['group_id'])) $user->group()->associate($userData['group_id']);
+        if (!empty($userData['group_id'])) $user->group()->associate($userData['group_id']);
         (new UserInfoService($user))->update($userData);
         return $user;
     }
@@ -86,20 +87,27 @@ class UserService
     }
 
     /**
-     * @param array $userData
+     * @param array $data
      * @return User
+     * @throws InvalidUploadException
      */
-    public function create(array $userData): User
+    public function create(array $data): User
     {
-        $roles = !empty($userData['role']) ?
-            Role::where(['name' => $userData['role']])->get() :
-            Role::where(['name' => 'student'])->first();
+        $roles = !empty($data['role']) ? Role::where(['id' => $data['role']])->get() : Role::where(['name' => 'student'])->first();
         abort_if(!$roles, 401, trans('auth.roles.not-found'));
-        $userData['document'] = justNumbers($userData['document']);
-        $user = User::create($userData);
+        if (!empty($data['avatar']) && preg_match('/^data:image\/(\w+);base64,/', $data['avatar'])) {
+            $data['avatar'] = "users/" . prepareUpload($data['avatar'], 'users');
+        }
+        if ($data['group_id'] == 0) {
+            unset($data['group_id']);
+        }
+        $user = User::create($data);
         $user->assignRole($roles);
-        $user->group()->associate($userData['group_id']);
-        (new UserInfoService($user))->create($userData);
+
+        if (!empty($data['group_id'])) {
+            $user->group()->associate($data['group_id']);
+        }
+        (new UserInfoService($user))->create($data);
         return $user;
     }
 
@@ -133,6 +141,7 @@ class UserService
                 'instructor',
                 'student',
                 'group',
+                'phone_numbers',
                 'addresses.country',
             ]);
         if (!empty($where)) {

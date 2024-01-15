@@ -17,7 +17,7 @@ class UserInfoResource extends JsonResource
             'id' => $this->whenHas('id'),
             'document' => $this->whenHas('document'),
             'identity_registry' => $this->whenHas('identity_registry'),
-            'avatar' => $this->whenHas('avatar'),
+            'avatar' => $this->image ?? null,
             'birth_date' => $this->whenHas('birth_date'),
             'gender' => $this->gender->name,
             'gender_description' => $this->gender->label(),

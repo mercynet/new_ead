@@ -35,7 +35,7 @@ class StoreUserRequest extends FormRequest
             'email' => ['required', 'email', 'string', Rule::unique('users')],
             'password' => ['required', Password::defaults(), 'confirmed'],
             'role' => ['required'],
-            'group_id' => ['required', 'exists:groups,id'],
+            'group_id' => ['nullable'],
             'document' => ['required', 'cpf_ou_cnpj', Rule::unique('user_infos')],
             'identity_registry' => ['required', Rule::unique('user_infos')],
             'avatar' => [

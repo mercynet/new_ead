@@ -18,4 +18,8 @@ enum PhoneNumberType
             default => trans('phone_numbers.enums.types.phone'),
         };
     }
+    public function label(): string
+    {
+        return self::getLabel($this);
+    }
 }

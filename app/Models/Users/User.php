@@ -10,6 +10,7 @@ use App\Traits\HasRole;
 use App\Traits\QueryModel;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,6 +21,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
@@ -28,6 +30,8 @@ use Spatie\Permission\Traits\HasRoles;
  * @method isAdmin()
  * @method static create(array $userData)
  * @property mixed $id
+ * @property mixed $document
+ * @property mixed|string|null $avatar
  */
 class User extends Authenticatable
 {
@@ -111,6 +115,14 @@ class User extends Authenticatable
     public function addresses(): HasMany
     {
         return $this->hasMany(Address::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function phone_numbers(): HasMany
+    {
+        return $this->hasMany(PhoneNumber::class);
     }
 
     /**

@@ -35,10 +35,10 @@ class GroupService extends Service
     /**
      * Build a group of records based on given parameters.
      *
-     * @param  Request|null  $request The optional request object.
-     * @param  array|null  $fields The optional array of fields to select.
-     * @param  array|null  $relations The optional array of relations to eager load.
-     * @param  array  $where The array of conditions to apply to the query.
+     * @param Request|null $request The optional request object.
+     * @param array|null $fields The optional array of fields to select.
+     * @param array|null $relations The optional array of relations to eager load.
+     * @param array $where The array of conditions to apply to the query.
      * @return Builder The Laravel query builder instance.
      */
     public function groupBuilder(?Request $request = null, ?array $fields = null, ?array $relations = null, array $where = []): Builder
@@ -51,15 +51,16 @@ class GroupService extends Service
     /**
      * Retrieve groups.
      *
-     * @param  Request|null  $request Request object (optional)
-     * @param  array|null  $fields Fields to include (optional)
-     * @param  array|null  $relations Relations to include (optional)
-     * @param  array  $where Where conditions (optional)
-     * @param  int  $paginate Number of items per page (optional, default is 20)
+     * @param Request|null $request Request object (optional)
+     * @param array|null $fields Fields to include (optional)
+     * @param array|null $relations Relations to include (optional)
+     * @param array $where Where conditions (optional)
+     * @param int $paginate Number of items per page (optional, default is 20)
      * @return LengthAwarePaginator|SupportCollection|null
      */
     public function groups(?Request $request = null, ?array $fields = null, ?array $relations = null, array $where = [], int $paginate = 20): LengthAwarePaginator|Collection|null
     {
+        $fields = $fields ?: ['id', 'name', 'discount', 'commission', 'created_at', 'updated_at'];
         $builder = $this->groupBuilder($request, $fields, $relations, $where);
         if ($paginate > 0) {
             return $builder->paginate($paginate);
@@ -71,7 +72,7 @@ class GroupService extends Service
     /**
      * Retrieve a Group with its related users and count of users
      *
-     * @param  Group  $groupUser The Group object to fetch
+     * @param Group $groupUser The Group object to fetch
      * @return Group|null The retrieved Group object with related users and count of users, or null if not found
      */
     public function group(Group $groupUser): ?Group
