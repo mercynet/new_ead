@@ -25,16 +25,7 @@ class UserSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'id' => 2,
-                'name' => 'Admin user',
-                'email' => 'admin@example.com',
-                'password' => Hash::make('Admin132!@#'),
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
         ], ['id']);
         (User::find(1))->assignRole(Role::development->name);
-        (User::find(2))->assignRole(Role::superuser->name);
     }
 }

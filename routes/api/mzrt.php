@@ -5,6 +5,7 @@ use App\Http\Controllers\API\V1\Mzrt\SettingController;
 use App\Http\Controllers\API\V1\Mzrt\Users\AddressController;
 use App\Http\Controllers\API\V1\Mzrt\Users\GroupController;
 use App\Http\Controllers\API\V1\Mzrt\Users\InstructorController;
+use App\Http\Controllers\API\V1\Mzrt\Users\PhoneNumberController;
 use App\Http\Controllers\API\V1\Mzrt\Users\RoleController;
 use App\Http\Controllers\API\V1\Mzrt\Users\StudentController;
 use App\Http\Controllers\API\V1\Mzrt\Users\UserController;
@@ -29,6 +30,14 @@ Route::middleware('auth:sanctum')->group(function () {
                 Route::get('{user}', 'getByUser')->name('by-user');
                 Route::post('{user}', 'store')->name('store');
                 Route::put('{user}/{address}', 'update')->name('update');
+            });
+        Route::name('phone-numbers.')
+            ->prefix('phone-numbers')
+            ->controller(PhoneNumberController::class)
+            ->group(function () {
+                Route::get('{user}', 'index')->name('index');
+                Route::post('{user}', 'store')->name('store');
+                Route::put('{phoneNumber}', 'update')->name('update');
             });
         Route::name('instructor.')
             ->prefix('instructor')

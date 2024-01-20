@@ -31,80 +31,44 @@ class PermissionSeeder extends Seeder
                 'description' => 'Development',
                 'roles' => [
                     'users' => [
+                        'name' => 'Usuários',
+                        'group_name' => 'Usuários',
+                        'permissions' => ['c,r,v,u,d'],
+                    ],
+                    'group_users' => [
+                        'name' => 'Grupos de Usuários',
                         'group_name' => 'Usuários',
                         'permissions' => ['c,r,v,u,d'],
                     ],
                     'students' => [
+                        'name' => 'Estudantes',
                         'group_name' => 'Usuários',
                         'permissions' => ['c,r,v,u,d'],
                     ],
                     'instructors' => [
+                        'name' => 'Instrutores',
                         'group_name' => 'Usuários',
                         'permissions' => ['c,r,v,u,d'],
                     ],
-                ],
-            ],
-            [
-                'name' => RoleEnum::superuser->name,
-                'description' => 'Super Admin',
-                'roles' => [
-                    'users' => [
+                    'addresses' => [
+                        'name' => 'Endereços',
                         'group_name' => 'Usuários',
                         'permissions' => ['c,r,v,u,d'],
                     ],
-                    'students' => [
+                    'phone_numbers' => [
+                        'name' => 'Telefones',
                         'group_name' => 'Usuários',
                         'permissions' => ['c,r,v,u,d'],
                     ],
-                    'instructors' => [
+                    'roles' => [
+                        'name' => 'Funções',
                         'group_name' => 'Usuários',
                         'permissions' => ['c,r,v,u,d'],
                     ],
-                ],
-            ],
-            [
-                'name' => RoleEnum::admin->name,
-                'description' => 'Admin',
-                'roles' => [
-                    'users' => [
-                        'group_name' => 'Usuários',
+                    'settings' => [
+                        'name' => 'Configurações',
+                        'group_name' => 'Configurações',
                         'permissions' => ['c,r,v,u,d'],
-                    ],
-                    'students' => [
-                        'group_name' => 'Usuários',
-                        'permissions' => ['c,r,v,u,d'],
-                    ],
-                    'instructors' => [
-                        'group_name' => 'Usuários',
-                        'permissions' => ['c,r,v,u,d'],
-                    ],
-                ],
-            ],
-            [
-                'name' => RoleEnum::student->name,
-                'description' => 'Cliente',
-                'roles' => [
-                    'users' => [
-                        'group_name' => 'Usuários',
-                        'permissions' => ['c,r,v,u'],
-                    ],
-                    'students' => [
-                        'group_name' => 'Usuários',
-                        'permissions' => ['c,r,v,u'],
-                    ],
-                ],
-            ],
-            [
-                'name' => RoleEnum::instructor->name,
-                'description' => 'Produtor',
-                'roles' => [
-                    'users' => [
-                        'group_name' => 'Usuários',
-                        'permissions' => ['c,r,v,u'],
-                    ],
-                    'instructors' => [
-                        'group_name' => 'Usuários',
-                        'permissions' => ['c,r,v,u'],
                     ],
                 ],
             ],
@@ -114,6 +78,7 @@ class PermissionSeeder extends Seeder
                 $perms = [];
                 $groupName = null;
                 foreach ($role['roles'] as $k => $item) {
+                    $name = $item['name'];
                     $groupName = $item['group_name'];
                     $permissions = $item['permissions'];
                     $crudSign = explode(',', $permissions[0]);
@@ -129,7 +94,7 @@ class PermissionSeeder extends Seeder
                                     'name' => $namePattern,
                                     'group_name' => $groupName,
                                     'guard_name' => $guard,
-                                    'description' => "{$value} {$groupName}",
+                                    'description' => "{$value} {$name}",
                                 ],
                             ], ['name', 'guard_name']);
                         }

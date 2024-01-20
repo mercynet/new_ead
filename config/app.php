@@ -187,6 +187,7 @@ return [
          */
         Spatie\Permission\PermissionServiceProvider::class,
         Axlon\PostalCodeValidation\ValidationServiceProvider::class,
+        LaravelLegends\PtBrValidator\ValidatorProvider::class,
 
         /*
          * Application Service Providers...
