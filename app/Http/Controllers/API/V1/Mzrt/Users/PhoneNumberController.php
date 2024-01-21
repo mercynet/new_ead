@@ -30,7 +30,7 @@ class PhoneNumberController extends Controller
      */
     public function index(Request $request, User $user): AnonymousResourceCollection
     {
-        return PhoneNumberResource::collection($this->phoneNumberService->all($request, $user, 1));
+        return PhoneNumberResource::collection($this->phoneNumberService->all($request, $user));
     }
 
     /**
@@ -58,5 +58,11 @@ class PhoneNumberController extends Controller
     {
         $phoneNumber = $this->phoneNumberService->update($phoneNumber, $request->validated());
         return response()->ok(PhoneNumberResource::make($phoneNumber));
+    }
+
+    public function destroy(PhoneNumber $phoneNumber)
+    {
+        $this->phoneNumberService->delete($phoneNumber);
+        return response()->noContent();
     }
 }

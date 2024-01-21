@@ -32,10 +32,11 @@ class PhoneNumberService extends Service
      */
     public function all(Request $request, User $user, int $pages = 20): LengthAwarePaginator|Collection|null
     {
+        $builder = $this->dataBuilder(request: $request, where: ['user_id' => $user->id])->orderByDesc('id');
         if($pages > 0) {
-            return $this->dataBuilder(request: $request, where: ['user_id' => $user->id])->paginate($pages);
+            return $builder->paginate($pages);
         }
-        return $this->dataBuilder(request: $request, where: ['user_id' => $user->id])->get();
+        return $builder->get();
     }
 
     /**
@@ -63,6 +64,7 @@ class PhoneNumberService extends Service
      */
     public function update(PhoneNumber $phoneNumber, array $data): PhoneNumber
     {
+        $data['phone_number'] = justNumbers($data['phone_number']);
         $phoneNumber->update($data);
         return $phoneNumber;
     }
@@ -81,5 +83,14 @@ class PhoneNumberService extends Service
     {
         $this->with = $this->addToRelationsIfNeeded($this->with, $relations);
         return $this->builder($fields, $where);
+    }
+
+    /**
+     * @param PhoneNumber $phoneNumber
+     * @return void
+     */
+    public function delete(PhoneNumber $phoneNumber): void
+    {
+        $phoneNumber->delete();
     }
 }

@@ -38,6 +38,7 @@ Route::middleware('auth:sanctum')->group(function () {
                 Route::get('{user}', 'index')->name('index');
                 Route::post('{user}', 'store')->name('store');
                 Route::put('{phoneNumber}', 'update')->name('update');
+                Route::delete('{phoneNumber}', 'destroy')->name('destroy');
             });
         Route::name('instructor.')
             ->prefix('instructor')
