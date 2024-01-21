@@ -3,17 +3,14 @@
 namespace App\Http\Controllers\API\V1\Mzrt\Users;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Mzrt\UpdatePhoneNumberRequest;
 use App\Http\Requests\Mzrt\Users\PhoneNumberRequest;
 use App\Http\Resources\Mzrt\Users\PhoneNumberResource;
 use App\Models\Users\PhoneNumber;
 use App\Models\Users\User;
 use App\Services\Users\PhoneNumberService;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Response;
-use Illuminate\Pagination\LengthAwarePaginator;
 
 class PhoneNumberController extends Controller
 {

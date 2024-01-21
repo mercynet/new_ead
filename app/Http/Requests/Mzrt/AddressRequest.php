@@ -9,7 +9,6 @@ class AddressRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'country_id' => ['required', 'exists:countries,id'],
             'name' => ['nullable'],
             'zip_code' => ['required', 'postal_code:BR'],
             'address' => ['required'],

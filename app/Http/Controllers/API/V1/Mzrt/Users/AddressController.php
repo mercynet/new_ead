@@ -34,23 +34,13 @@ class AddressController extends Controller
     }
 
     /**
-     * Display a list of addresses, with their associated users
-     *
-     * @return AnonymousResourceCollection
-     */
-    public function index(Request $request)
-    {
-        return AddressResource::collection($this->addressService->all($request));
-    }
-
-    /**
      * Get all addresses from a given user
      *
      * @return AnonymousResourceCollection
      */
-    public function getByUser(Request $request, User $user)
+    public function index(Request $request, User $user)
     {
-        return AddressResource::collection($this->addressService->getByUser($request, $user))->additional(['success' => true]);
+        return AddressResource::collection($this->addressService->all($request, $user))->additional(['success' => true]);
     }
 
     /**
@@ -88,7 +78,7 @@ class AddressController extends Controller
      */
     public function show(Address $address)
     {
-        return AddressResource::make($this->addressService->getById($address->id));
+        return AddressResource::make($this->addressService->find($address->id));
     }
 
     /**

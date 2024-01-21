@@ -4,87 +4,95 @@ namespace App\Services\Users;
 
 use App\Models\Users\Address;
 use App\Models\Users\User;
+use App\Services\Service;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection as EloquentCollection;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Collection;
 
 /**
  *
  */
-class AddressService
+class AddressService extends Service
 {
-    /**
-     * @param Address $address
-     * @return Address|null
-     */
-    public function getById(Address $address): ?Address
+    protected readonly Model $model;
+    protected array $with = [
+        'user',
+    ];
+
+    public function __construct()
     {
-        return Address::find($address->id);
+        $this->model = new Address();
     }
 
     /**
-     * @param Request $request
+     * @param int|array $id
+     * @return Address|null
+     */
+    public function find(int|array $id): ?Address
+    {
+        return $this->builder(where: ['id' => $id])->first();
+    }
+
+    /**
      * @param User $user
      * @return Collection|null
      */
-    public function getByUser(Request $request, User $user): ?Collection
+    public function findByUser(User $user): ?Collection
     {
-        return Address::where(['user_id' => $user->id])->get();
+        return $this->model->where(['user_id' => $user->id])->get();
     }
 
     /**
      * @param array $data
-     * @param User $user
      * @return Address
      */
-    public function create(array $data, User $user): Address
+    public function create(array $data): Address
     {
-        $zipCode = justNumbers($data['zip_code']);
-        return Address::create([
-            'user_id' => $user->id,
-            'country_id' => $data['country_id'],
-            'name' => $data['name'] ?? null,
-            'zip_code' => $zipCode,
-            'address' => $data['address'],
-            'number' => $data['number'],
-            'complement' => $data['complement'] ?? null,
-            'district' => $data['district'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-        ]);
+        $data['zip_code'] = justNumbers($data['zip_code']);
+        return $this->model->create($data);
     }
 
     /**
      * @param array $data
      * @param Address $address
-     * @param User $user
      * @return Address
      */
-    public function update(array $data, Address $address, User $user): Address
+    public function update(array $data, Address $address): Address
     {
-        $oldAddress = $address;
-        $zipCode = justNumbers($data['zip_code']);
-        $address->update([
-            'user_id' => $user->id,
-            'country_id' => $data['country_id'],
-            'name' => $data['name'] ?? null,
-            'zip_code' => $zipCode,
-            'address' => $data['address'],
-            'number' => $data['number'],
-            'complement' => $data['complement'] ?? null,
-            'district' => $data['district'],
-            'city' => $data['city'],
-            'state' => $data['state'],
-        ]);
-        return $this->getById($oldAddress);
+        $data['zip_code'] = justNumbers($data['zip_code']);
+        $address->update($data);
+        return $address;
     }
 
     /**
      * @param Request $request
-     * @return EloquentCollection|array
+     * @param User $user
+     * @param int $pages
+     * @return LengthAwarePaginator|EloquentCollection|null
      */
-    public function all(Request $request): EloquentCollection|array
+    public function all(Request $request, User $user, int $pages = 20): LengthAwarePaginator|Collection|null
     {
-        return Address::with(['user'])->get();
+        $builder = $this->dataBuilder(request: $request, where: ['user_id' => $user->id])->orderByDesc('id');
+        if($pages > 0) {
+            return $builder->paginate($pages);
+        }
+        return $builder->get();
+    }
+    protected function dataBuilder(?Request $request = null, ?array $fields = null, ?array $relations = null, array $where = []): Builder
+    {
+        $this->with = $this->addToRelationsIfNeeded($this->with, $relations);
+        return $this->builder($fields, $where);
+    }
+
+    /**
+     * @param Address $address
+     * @return void
+     */
+    public function delete(Address $address): void
+    {
+        $address->delete();
     }
 }

@@ -26,10 +26,11 @@ Route::middleware('auth:sanctum')->group(function () {
             ->prefix('addresses')
             ->controller(AddressController::class)
             ->group(function () {
-                Route::get('{postalCode}', 'addressByPostalCode')->name('address');
-                Route::get('{user}', 'getByUser')->name('by-user');
+                Route::get('{user}', 'index')->name('index');
+                Route::get('postal-code/{postalCode}', 'addressByPostalCode')->name('address');
                 Route::post('{user}', 'store')->name('store');
-                Route::put('{user}/{address}', 'update')->name('update');
+                Route::put('{address}', 'update')->name('update');
+                Route::delete('{address}', 'destroy')->name('destroy');
             });
         Route::name('phone-numbers.')
             ->prefix('phone-numbers')
