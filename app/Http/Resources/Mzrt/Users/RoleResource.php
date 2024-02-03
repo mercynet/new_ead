@@ -19,6 +19,7 @@ class RoleResource extends JsonResource
             'description' => $this->whenHas('description'),
             'created_at' => $this->whenHas('created_at'),
             'updated_at' => $this->whenHas('updated_at'),
+            'users_count' => $this->whenHas('users_count'),
             'permissions' => $this->whenLoaded('permissions'),
         ];
     }

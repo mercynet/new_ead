@@ -39,6 +39,7 @@ class UserService
      * @param User $user
      * @param array $data
      * @return User
+     * @throws InvalidUploadException
      */
     public function update(User $user, array $data): User
     {

@@ -52,10 +52,10 @@ class UserInfo extends Model
     {
         return new Attribute(
             get: function () {
-                if ($this->avatar && !str_contains($this->avatar, 'storage/blank.jpg')) {
+                if ($this->avatar && !str_contains($this->avatar, 'storage/blank.png')) {
                     return asset("storage/" . str_replace(config('app.url') . "/storage/", '', $this->avatar));
                 }
-                return asset('storage/blank.jpg');
+                return asset('storage/blank.png');
             },
         );
     }

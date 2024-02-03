@@ -59,9 +59,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
-    protected $with = ['roles'];
-
+    
     /**
      * The attributes that should be cast.
      *

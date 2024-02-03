@@ -48,9 +48,9 @@ class PaymentMethod extends Model
      */
     public function getImageAttribute(): string
     {
-        if ($this->image_path && !Str::contains($this->image_path, 'storage/blank.jpg')) {
+        if ($this->image_path && !Str::contains($this->image_path, 'storage/blank.png')) {
             return asset("storage/payments/methods/{$this->image_path}");
         }
-        return asset('storage/blank.jpg');
+        return asset('storage/blank.png');
     }
 }
