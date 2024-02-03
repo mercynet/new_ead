@@ -37,18 +37,27 @@ class UserService
 
     /**
      * @param User $user
-     * @param array $userData
+     * @param array $data
      * @return User
      */
-    public function update(User $user, array $userData): User
+    public function update(User $user, array $data): User
     {
+        $userData = [
+            'group_id' => $data['group_id'],
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'active' => $data['active'],
+        ];
+        if(!empty($data['password'])) {
+            $userData['password'] = $data['password'];
+        }
         $user->update($userData);
-        if (!empty($userData['roles'])) {
-            $roles = Role::where(['name' => $userData['roles']])->get();
+        if (!empty($data['roles'])) {
+            $roles = Role::where(['name' => $data['roles']])->get();
             $user->assignRole($roles);
         }
-        if (!empty($userData['group_id'])) $user->group()->associate($userData['group_id']);
-        (new UserInfoService($user))->update($userData);
+        if (!empty($data['group_id'])) $user->group()->associate($data['group_id']);
+        (new UserInfoService($user))->update($data);
         return $user;
     }
 
@@ -95,13 +104,17 @@ class UserService
     {
         $roles = !empty($data['role']) ? Role::where(['id' => $data['role']])->get() : Role::where(['name' => 'student'])->first();
         abort_if(!$roles, 401, trans('auth.roles.not-found'));
-        if (!empty($data['avatar']) && preg_match('/^data:image\/(\w+);base64,/', $data['avatar'])) {
-            $data['avatar'] = "users/" . prepareUpload($data['avatar'], 'users');
-        }
         if ($data['group_id'] == 0) {
             unset($data['group_id']);
         }
-        $user = User::create($data);
+        $userData = [
+            'group_id' => !empty($data['group_id']) ? $data['group_id'] : null,
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => $data['password'],
+            'active' => $data['active'],
+        ];
+        $user = User::create($userData);
         $user->assignRole($roles);
 
         if (!empty($data['group_id'])) {
@@ -142,7 +155,6 @@ class UserService
                 'student',
                 'group',
                 'phone_numbers',
-                'addresses.country',
             ]);
         if (!empty($where)) {
             $users->where($where);

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('address_id')->nullable()->constrained();
             $table->string('document')->unique();
             $table->string('identity_registry')->nullable()->unique();
-            $table->string('avatar')->nullable();
+            $table->longText('avatar')->nullable();
             $table->date('birth_date')->nullable();
             $table->string('gender')->nullable();
             $table->string('where_know_us')->nullable();

@@ -85,25 +85,23 @@ class AddressController extends Controller
      * Updates an existing address
      *
      * @param AddressRequest $request
-     * @param User $user
      * @param Address $address
      * @return AddressResource
      */
-    public function update(AddressRequest $request, User $user, Address $address): AddressResource
+    public function update(AddressRequest $request, Address $address): AddressResource
     {
-        abort_if($address->user_id !== $user->id, Response::HTTP_FORBIDDEN);
-        return AddressResource::make($this->addressService->update($request->validated(), $address, $user));
+        return AddressResource::make($this->addressService->update($request->validated(), $address));
     }
 
     /**
      * Deletes an address
      *
      * @param Address $address
-     * @return \Illuminate\Contracts\Foundation\Application|ResponseFactory|Application|\Illuminate\Http\Response
+     * @return ResponseServiceProvider
      */
     public function destroy(Address $address)
     {
         $address->delete();
-        return response()->setStatusCode(Response::HTTP_NO_CONTENT);
+        return response()->noContent();
     }
 }

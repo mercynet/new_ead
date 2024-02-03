@@ -10,7 +10,7 @@ class AddressRequest extends FormRequest
     {
         return [
             'name' => ['nullable'],
-            'zip_code' => ['required', 'postal_code:BR'],
+            'zip_code' => ['required', 'int', 'postal_code:BR'],
             'address' => ['required'],
             'number' => ['required'],
             'complement' => ['nullable'],
@@ -18,6 +18,11 @@ class AddressRequest extends FormRequest
             'city' => ['required'],
             'state' => ['required'],
         ];
+    }
+
+    protected function prepareForValidation(): void
+    {
+        $this->merge(['zip_code' => justNumbers($this->zip_code)]);
     }
 
     public function authorize(): bool

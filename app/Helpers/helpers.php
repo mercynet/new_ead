@@ -9,6 +9,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection as SupportCollection;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\File as HttpFile;
+use Spatie\LaravelImageOptimizer\Facades\ImageOptimizer;
 
 // App\Helpers\helpers.php
 
@@ -64,11 +65,11 @@ if (!function_exists('saveImage')) {
             throw new Exception('Did not match data URI with image data');
         }
 
-        $relativePath = is_string($file) ? setFilename($file, '', true) : setFilename($file->getClientOriginalName(), $file->getClientOriginalExtension());
+        [$fileName, $realFile] = is_string($file) ? setFilename($file, '', true) : setFilename($file->getClientOriginalName(), $file->getClientOriginalExtension());
         $storage = Storage::disk(($disk ?? 'public'));
-        is_string($file) ? $storage->put($path . $relativePath[0], $relativePath[1]) : $storage->putFileAs($path, $file, $relativePath[0]);
-
-        return $relativePath[0];
+        is_string($file) ? $storage->put($path . $fileName, $realFile) : $storage->putFileAs($path, $file, $fileName);
+        ImageOptimizer::optimize(storage_path("app/public/{$disk}/{$fileName}"));
+        return $fileName;
     }
 }
 if (!function_exists('ddcors')) {
@@ -124,7 +125,6 @@ if (!function_exists('prepareUpload')) {
             Log::error($e->getMessage());
             throw InvalidUploadException::onSave();
         }
-
         $newFile = str_replace('public/', '', $relativePath);
         if (isset($model) && !empty($model->image_path)) {
             $absolutePath = public_path($model->image_path);

@@ -47,11 +47,12 @@ class AddressService extends Service
 
     /**
      * @param array $data
+     * @param User $user
      * @return Address
      */
-    public function create(array $data): Address
+    public function create(array $data, User $user): Address
     {
-        $data['zip_code'] = justNumbers($data['zip_code']);
+        $data['user_id'] = $user->id;
         return $this->model->create($data);
     }
 

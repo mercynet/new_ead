@@ -18,7 +18,10 @@ class UserObserver
     public function saving(User $user): void
     {
         $user->active = (int)$user->active;
-        $user->avatar = sanitizeFileName($user->avatar);
+        if(!empty($user->password)) {
+            $user->password = bcrypt($user->password);
+        }
+        $user->saveQuietly();
     }
 
     public function deleted(User $user): void

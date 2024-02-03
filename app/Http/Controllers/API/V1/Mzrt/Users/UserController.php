@@ -41,10 +41,10 @@ class UserController extends Controller
     /**
      * Store a new user
      * @param StoreUserRequest $request
-     * @return AnonymousResourceCollection
+     * @return UserResource
      * @throws InvalidUploadException
      */
-    public function store(StoreUserRequest $request): AnonymousResourceCollection
+    public function store(StoreUserRequest $request): UserResource
     {
         $user = (new UserService)->create($request->validated());
         return UserResource::make($user);
@@ -64,9 +64,9 @@ class UserController extends Controller
      * Updates a specific user
      * @param UpdateUserRequest $request
      * @param User $user
-     * @return AnonymousResourceCollection
+     * @return UserResource
      */
-    public function update(UpdateUserRequest $request, User $user): AnonymousResourceCollection
+    public function update(UpdateUserRequest $request, User $user)
     {
         $user = (new UserService)->update($user, $request->validated());
         return UserResource::make($user);

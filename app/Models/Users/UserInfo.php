@@ -24,7 +24,6 @@ class UserInfo extends Model
      */
     protected $fillable = [
         'user_id',
-        'address_id',
         'document',
         'identity_registry',
         'avatar',

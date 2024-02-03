@@ -11,7 +11,10 @@ trait HasLog
 
     public function getActivitylogOptions(): LogOptions
     {
-        return LogOptions::defaults()
-            ->logOnly(['name', 'text']);
+        $logOptions = new LogOptions();
+        $logOptions->logAll();
+        $logOptions->logOnlyDirty();
+
+        return $logOptions;
     }
 }

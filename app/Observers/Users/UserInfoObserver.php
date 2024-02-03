@@ -24,6 +24,8 @@ class UserInfoObserver
         $userInfo->identity_registry = justNumbers($userInfo->identity_registry);
         $userInfo->birth_date = $birthDate;
         $userInfo->source ??= Source::site->name;
+        $userInfo->avatar = sanitizeFileName($userInfo->avatar);
+        $userInfo->saveQuietly();
     }
 
     public function deleted(UserInfo $userInfo): void
