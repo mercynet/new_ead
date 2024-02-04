@@ -2,24 +2,40 @@
 
 namespace App\Models;
 
+use App\Models\Users\ModelHasRole;
 use App\Models\Users\User;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Query\JoinClause;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Spatie\Permission\Models\Role as SpatieRole;
+use Spatie\Permission\PermissionRegistrar;
 
+/**
+ *
+ */
 class Role extends SpatieRole
 {
+    /**
+     * @var string[]
+     */
     protected $hidden = ['pivot'];
 
+    public function users(): \Illuminate\Database\Eloquent\Relations\MorphToMany
+    {
+        return $this->morphedByMany(
+            User::class,
+            'model',
+            'model_has_roles',
+            'role_id',
+            'model_id'
+        );
+    }
+
+    /**
+     * @param Builder $query
+     * @return Builder
+     */
     public function scopeUsersCount(Builder $query): Builder
     {
-        /*
-         * select coalesce(count(mhr.model_id), 0)
-        from model_has_roles mhr
-        where `mhr`.`role_id` = `roles`.`id` and `model_type` = 'App\\Models\\Users\\User'
-        group by mhr.role_id) as users_count
-         */
         return $query->select(['roles.*'])
             ->addSelect(['users_count' => fn($query) =>
                 $query->selectRaw('COUNT(mhr.model_id)')

@@ -21,6 +21,7 @@ class RoleResource extends JsonResource
             'updated_at' => $this->whenHas('updated_at'),
             'users_count' => $this->whenHas('users_count'),
             'permissions' => $this->whenLoaded('permissions'),
+            'users' => $this->whenLoaded('users'),
         ];
     }
 }

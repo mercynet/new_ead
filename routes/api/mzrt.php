@@ -13,12 +13,6 @@ use App\Http\Controllers\API\V1\Mzrt\Users\UserGroupController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResources([
-        'users' => UserController::class,
-        'user-groups' => UserGroupController::class,
-        'courses' => CourseController::class,
-        'settings' => SettingController::class,
-    ]);
     Route::name('users.')->prefix('users')->controller(UserController::class)->group(function () {
         Route::patch('enable/{user}', 'enable')->name('enable');
         Route::patch('disable/{user}', 'disable')->name('disable');
@@ -60,9 +54,16 @@ Route::middleware('auth:sanctum')->group(function () {
     });
 
     Route::controller(RoleController::class)
-        ->name('roles.')->prefix('roles')
+        ->name('roles.')
+        ->prefix('roles')
         ->group(function () {
-            Route::get('', 'index')->name('index');
+            Route::get('/groups', 'groups')->name('groups');
+            Route::controller(RoleController::class)
+                ->name('permissions.')
+                ->prefix('permissions')
+                ->group(function () {
+                    Route::get('/', 'permissions')->name('index');
+                });
         });
     Route::controller(GroupController::class)
         ->prefix('groups')
@@ -81,4 +82,12 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::patch('activate/{user}', 'activate')->name('activate');
             Route::patch('inactivate/{user}', 'inactivate')->name('inactivate');
         });
+
+    Route::apiResources([
+        'users' => UserController::class,
+        'user-groups' => UserGroupController::class,
+        'courses' => CourseController::class,
+        'settings' => SettingController::class,
+        'roles' => RoleController::class,
+    ]);
 });

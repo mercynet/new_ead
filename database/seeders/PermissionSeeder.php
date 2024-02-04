@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Enums\Users\Role as RoleEnum;
+use App\Enums\Users\RoleGroup;
 use App\Models\Role;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -29,6 +30,7 @@ class PermissionSeeder extends Seeder
             [
                 'name' => RoleEnum::development->name,
                 'description' => 'Development',
+                'group_name' => RoleGroup::development->label(),
                 'roles' => [
                     'users' => [
                         'name' => 'Usuários',
@@ -65,6 +67,11 @@ class PermissionSeeder extends Seeder
                         'group_name' => 'Usuários',
                         'permissions' => ['c,r,v,u,d'],
                     ],
+                    'development' => [
+                        'name' => 'Funções de Desenvolvedores',
+                        'group_name' => RoleGroup::development->name,
+                        'permissions' => ['c,r,v,u,d'],
+                    ],
                     'settings' => [
                         'name' => 'Configurações',
                         'group_name' => 'Configurações',
@@ -76,14 +83,13 @@ class PermissionSeeder extends Seeder
         foreach ($guards as $guard) {
             foreach ($rolesStructure as $role) {
                 $perms = [];
-                $groupName = null;
                 foreach ($role['roles'] as $k => $item) {
                     $name = $item['name'];
                     $groupName = $item['group_name'];
                     $permissions = $item['permissions'];
                     $crudSign = explode(',', $permissions[0]);
                     foreach ($permissionMap as $perm => $permission) {
-                        if (! in_array($perm, $crudSign)) {
+                        if (!in_array($perm, $crudSign)) {
                             continue;
                         }
                         foreach ($permission as $p => $value) {
@@ -105,7 +111,7 @@ class PermissionSeeder extends Seeder
                         'name' => $role['name'],
                         'description' => $role['description'],
                         'guard_name' => $guard,
-                        'group_name' => $groupName,
+                        'group_name' => $role['group_name'],
                     ],
                 ], ['name', 'guard_name']);
                 $role = Role::where(['name' => $role['name'], 'guard_name' => $guard])->first();
