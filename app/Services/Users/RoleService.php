@@ -159,4 +159,13 @@ class RoleService
             })
             ->get();
     }
+
+    /**
+     * @param Role $role
+     * @return void
+     */
+    public function delete(Role $role): void
+    {
+        $role->delete();
+    }
 }

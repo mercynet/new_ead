@@ -72,6 +72,9 @@ Route::middleware('auth:sanctum')->group(function () {
         ->group(function () {
             Route::get('/', 'index')->name('index');
             Route::get('/all', 'all')->name('all');
+            Route::get('/{group}', 'show')->name('show');
+            Route::post('/', 'store')->name('store');
+            Route::put('/', 'update')->name('update');
         });
 
     /*

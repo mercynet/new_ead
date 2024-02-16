@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API\V1\Mzrt\Users;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Mzrt\Users\Groups\StoreUserGroupRequest;
 use App\Http\Resources\Mzrt\Users\GroupResource;
 use App\Models\Users\Group;
 use App\Services\Users\GroupService;
@@ -47,8 +48,10 @@ class GroupController extends Controller
         return GroupResource::collection($this->groupUserService->groups(request: $request, paginate: 0));
     }
 
-    public function store(Request $request)
+    public function store(StoreUserGroupRequest $request)
     {
+        $group = $this->groupUserService->create($request->validated());
+        return response()->created(GroupResource::make($group));
     }
 
     public function show(Group $groupUser)

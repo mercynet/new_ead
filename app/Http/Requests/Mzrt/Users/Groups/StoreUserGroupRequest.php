@@ -10,8 +10,8 @@ class StoreUserGroupRequest extends FormRequest
     {
         return [
             'name' => ['required', 'unique:groups,name', 'string'],
-            'discount' => ['nullable', 'numeric'],
-            'commission' => ['nullable', 'numeric'],
+            'discount' => ['nullable', 'decimal:2'],
+            'commission' => ['nullable', 'decimal:2'],
         ];
     }
 

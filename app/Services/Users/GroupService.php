@@ -61,11 +61,10 @@ class GroupService extends Service
     public function groups(?Request $request = null, ?array $fields = null, ?array $relations = null, array $where = [], int $paginate = 20): LengthAwarePaginator|Collection|null
     {
         $fields = $fields ?: ['id', 'name', 'discount', 'commission', 'created_at', 'updated_at'];
-        $builder = $this->groupBuilder($request, $fields, $relations, $where);
+        $builder = $this->groupBuilder($request, $fields, $relations, $where)->withCount('users');
         if ($paginate > 0) {
             return $builder->paginate($paginate);
         }
-
         return $builder->get();
     }
 
@@ -78,5 +77,14 @@ class GroupService extends Service
     public function group(Group $groupUser): ?Group
     {
         return $this->model->with(['users'])->withCount('users')->find($groupUser->id);
+    }
+
+    /**
+     * @param mixed $validated
+     * @return Group
+     */
+    public function create(mixed $validated): Group
+    {
+        return $this->model->create($validated);
     }
 }

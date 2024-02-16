@@ -8,9 +8,11 @@ use App\Http\Requests\Mzrt\Users\RoleRequest;
 use App\Http\Resources\Mzrt\Users\RoleResource;
 use App\Models\Role;
 use App\Services\Users\RoleService;
+use Exception;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 /**
  * @group Mozart
@@ -42,7 +44,7 @@ class RoleController extends Controller
     /**
      * @param Request $request
      * @return JsonResponse
-     * @throws \Exception
+     * @throws Exception
      */
     public function groups(Request $request)
     {
@@ -104,10 +106,13 @@ class RoleController extends Controller
     }
 
     /**
+     * Remove a role from the database
      * @param Role $role
-     * @return void
+     * @return Response
      */
     public function destroy(Role $role)
     {
+        $this->roleService->delete($role);
+        return response()->noContent();
     }
 }

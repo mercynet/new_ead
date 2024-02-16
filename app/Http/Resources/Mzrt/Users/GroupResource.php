@@ -19,6 +19,7 @@ class GroupResource extends JsonResource
             'created_at' => $this->whenHas('created_at'),
             'updated_at' => $this->whenHas('updated_at'),
             'users' => UserResource::collection($this->whenLoaded('users')),
+            'users_count' => $this->users_count,
         ];
     }
 
