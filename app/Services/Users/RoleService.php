@@ -114,6 +114,20 @@ class RoleService
 
     /**
      * @param array $data
+     * @return Role
+     */
+    public function createSimple(array $data): Role
+    {
+        return $this->model->create([
+            'name' => $data['name'],
+            'guard_name' => $data['guard_name'],
+            'group_name' => $data['group_name'],
+            'description' => $data['description'],
+        ]);
+    }
+
+    /**
+     * @param array $data
      * @param Role $role
      * @return Role
      */

@@ -58,6 +58,7 @@ Route::middleware('auth:sanctum')->group(function () {
         ->prefix('roles')
         ->group(function () {
             Route::get('/groups', 'groups')->name('groups');
+            Route::post('/create-simple', 'storeSimple')->name('create-simple');
             Route::controller(RoleController::class)
                 ->name('permissions.')
                 ->prefix('permissions')

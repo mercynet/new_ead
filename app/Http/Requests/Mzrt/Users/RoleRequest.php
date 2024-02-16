@@ -20,12 +20,13 @@ class RoleRequest extends FormRequest
                     foreach ($guards as $guard) {
                         return $query->where('guard_name', $guard);
                     }
+                    return true;
                 })->ignore($this->role)
             ],
             'guard_name' => ['required', Rule::when(request()->isMethod('POST'), 'array')],
             'group_name' => ['required'],
             'description' => ['nullable'],
-            'permissions.*.id' => [Rule::requiredIf(request()->isMethod('PUT')), 'exists:permissions,id']
+            'permissions.*' => [Rule::requiredIf(request()->isMethod('PUT')), 'exists:permissions,id']
         ];
     }
 

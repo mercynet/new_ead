@@ -44,12 +44,12 @@ class PermissionSeeder extends Seeder
                     ],
                     'students' => [
                         'name' => 'Estudantes',
-                        'group_name' => 'Usuários',
+                        'group_name' => 'Estudantes',
                         'permissions' => ['c,r,v,u,d'],
                     ],
                     'instructors' => [
                         'name' => 'Instrutores',
-                        'group_name' => 'Usuários',
+                        'group_name' => 'Instrutores',
                         'permissions' => ['c,r,v,u,d'],
                     ],
                     'addresses' => [
@@ -63,8 +63,8 @@ class PermissionSeeder extends Seeder
                         'permissions' => ['c,r,v,u,d'],
                     ],
                     'roles' => [
-                        'name' => 'Funções',
-                        'group_name' => 'Usuários',
+                        'name' => 'Funções Administrativas',
+                        'group_name' => 'Configurações',
                         'permissions' => ['c,r,v,u,d'],
                     ],
                     'development' => [

@@ -58,6 +58,7 @@ class RoleController extends Controller
     }
 
     /**
+     * Method to store a new role in the storage
      * @param RoleRequest $request
      * @return void
      */
@@ -66,6 +67,18 @@ class RoleController extends Controller
         $this->roleService->create($request->validated());
         $request->merge(['all' => false, 'guard_name' => 'web']);
         return response()->created(RoleResource::collection($this->roleService->all($request)));
+    }
+
+    /**
+     * Method to store a new role in the storage but not from bulk
+     * @param RoleRequest $request
+     * @return mixed
+     */
+    public function storeSimple(RoleRequest $request)
+    {
+        $role = $this->roleService->createSimple($request->validated());
+        $request->merge(['all' => false, 'guard_name' => 'web']);
+        return response()->created(RoleResource::make($this->roleService->show($request, $role)));
     }
 
     /**
@@ -79,12 +92,15 @@ class RoleController extends Controller
     }
 
     /**
-     * @param Request $request
+     * @param RoleRequest $request
      * @param Role $role
      * @return void
      */
-    public function update(Request $request, Role $role)
+    public function update(RoleRequest $request, Role $role)
     {
+        $this->roleService->update($request->validated(), $role);
+        $request->merge(['all' => false, 'guard_name' => 'web']);
+        return response()->ok(RoleResource::make($this->roleService->show($request, $role)));
     }
 
     /**
