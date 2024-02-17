@@ -106,4 +106,13 @@ class GroupService extends Service
     {
         $group->update($validated);
     }
+
+    /**
+     * @param Group $group
+     * @return void
+     */
+    public function delete(Group $group): void
+    {
+        $group->delete();
+    }
 }

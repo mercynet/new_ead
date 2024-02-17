@@ -10,6 +10,7 @@ use App\Models\Users\Group;
 use App\Services\Users\GroupService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 
 /**
  * @group Mozart
@@ -70,13 +71,26 @@ class GroupController extends Controller
         return GroupResource::make($this->groupUserService->show($group));
     }
 
+    /**
+     * Update a group
+     * @param UpdateUserGroupRequest $request
+     * @param Group $group
+     * @return GroupResource
+     */
     public function update(UpdateUserGroupRequest $request, Group $group)
     {
         $this->groupUserService->update($request->validated(), $group);
         return GroupResource::make($group);
     }
 
-    public function destroy(Group $groupUser)
+    /**
+     * Remove a group from the database
+     * @param Group $group
+     * @return Response
+     */
+    public function destroy(Group $group)
     {
+        $this->groupUserService->delete($group);
+        return response()->noContent();
     }
 }
