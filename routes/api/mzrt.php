@@ -74,7 +74,7 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::get('/all', 'all')->name('all');
             Route::get('/{group}', 'show')->name('show');
             Route::post('/', 'store')->name('store');
-            Route::put('/', 'update')->name('update');
+            Route::put('/{group}', 'update')->name('update');
         });
 
     /*

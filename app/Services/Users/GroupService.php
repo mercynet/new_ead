@@ -87,4 +87,23 @@ class GroupService extends Service
     {
         return $this->model->create($validated);
     }
+
+    /**
+     * @param Group $group
+     * @return Group
+     */
+    public function show(Group $group): Group
+    {
+        return $group;
+    }
+
+    /**
+     * @param $validated
+     * @param Group $group
+     * @return void
+     */
+    public function update($validated, Group $group): void
+    {
+        $group->update($validated);
+    }
 }

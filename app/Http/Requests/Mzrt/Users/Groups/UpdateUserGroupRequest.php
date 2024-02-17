@@ -10,9 +10,9 @@ class UpdateUserGroupRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'string', Rule::unique('groups', 'name')->ignore($this->user_group)],
-            'discount' => ['nullable', 'numeric'],
-            'commission' => ['nullable', 'numeric'],
+            'name' => ['required', 'string', Rule::unique('groups', 'name')->ignore($this->group)],
+            'discount' => ['nullable', 'decimal:2'],
+            'commission' => ['nullable', 'decimal:2'],
         ];
     }
 
