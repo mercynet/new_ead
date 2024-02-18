@@ -48,6 +48,7 @@ class UserService
             'name' => $data['name'],
             'email' => $data['email'],
             'active' => $data['active'],
+            'type' => $data['type'],
         ];
         if(!empty($data['password'])) {
             $userData['password'] = $data['password'];
@@ -102,10 +103,7 @@ class UserService
      * @throws InvalidUploadException
      */
     public function create(array $data): User
-    {
-        $roles = !empty($data['role']) ? Role::where(['id' => $data['role']])->get() : Role::where(['name' => 'student'])->first();
-        abort_if(!$roles, 401, trans('auth.roles.not-found'));
-        if ($data['group_id'] == 0) {
+    {   if ($data['group_id'] == 0) {
             unset($data['group_id']);
         }
         $userData = [
@@ -114,9 +112,13 @@ class UserService
             'email' => $data['email'],
             'password' => $data['password'],
             'active' => $data['active'],
+            'type' => $data['type'],
         ];
         $user = User::create($userData);
-        $user->assignRole($roles);
+        $roles = !empty($data['role']) ? Role::where(['id' => $data['role']])->get() : Role::where(['name' => 'student'])->first();
+        if(!empty($roles)) {
+            $user->assignRole($roles);
+        }
 
         if (!empty($data['group_id'])) {
             $user->group()->associate($data['group_id']);

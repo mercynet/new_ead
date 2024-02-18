@@ -37,7 +37,7 @@ class CourseController extends Controller
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        return CourseResource::collection($this->courseService->all($request));
+        return CourseResource::collection($this->courseService->courses($request));
     }
 
     /**

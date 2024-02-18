@@ -3,10 +3,12 @@
 namespace App\Models\Users;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Enums\Users\Role;
 use App\Models\Courses\Course;
 use App\Models\Courses\CourseUser;
 use App\Traits\HasLog;
 use App\Traits\HasRole;
+use App\Traits\Image;
 use App\Traits\QueryModel;
 use Database\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Builder;
@@ -35,7 +37,7 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasLog, HasRoles, SoftDeletes, QueryModel, HasRole;
+    use HasApiTokens, HasFactory, Notifiable, HasLog, HasRoles, SoftDeletes, QueryModel, HasRole, Image;
 
     /**
      * The attributes that are mass assignable.
@@ -48,6 +50,8 @@ class User extends Authenticatable
         'email',
         'password',
         'active',
+        'type',
+        'type' => Role::class,
     ];
 
     /**
@@ -59,7 +63,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-    
+
     /**
      * The attributes that should be cast.
      *

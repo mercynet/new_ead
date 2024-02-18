@@ -7,10 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service
 {
+    /**
+     * @var array
+     */
     protected array $with = [];
 
+    /**
+     * @var Model
+     */
     protected readonly Model $model;
 
+    /**
+     * @param array|null $fields
+     * @param array $where
+     * @return Builder
+     */
     protected function builder(?array $fields = null, array $where = []): Builder
     {
         $fields = $fields ?? ['*'];

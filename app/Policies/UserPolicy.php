@@ -12,32 +12,32 @@ class UserPolicy
 
     public function viewAny(User $user): bool
     {
-        return $user->can('list administrators');
+        return $user->can('list_users');
     }
 
     public function view(User $user, User $model): bool
     {
         if(!$user->hasRole([Role::development->name, Role::superuser->name])) {
-            return $user->can('view administrators') && $user->id === $model->id;
+            return $user->can('view_users') && $user->id === $model->id;
         }
-        return $user->can('view administrators');
+        return $user->can('view_users');
     }
 
     public function create(User $user): bool
     {
-        return $user->can('create administrators');
+        return $user->can('create_users');
     }
 
     public function update(User $user, User $model): bool
     {
         if(!$user->hasRole([Role::development->name, Role::superuser->name])) {
-            return $user->can('update administrators') && $user->id === $model->id;
+            return $user->can('update_users') && $user->id === $model->id;
         }
-        return $user->can('update administrators');
+        return $user->can('update_users');
     }
 
     public function delete(User $user, User $model): bool
     {
-        return $user->can('delete administrators');
+        return $user->can('delete_users');
     }
 }

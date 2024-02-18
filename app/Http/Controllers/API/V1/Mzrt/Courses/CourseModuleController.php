@@ -27,7 +27,7 @@ class CourseModuleController extends Controller
      */
     public function index(Request $request)
     {
-        return CourseResource::collection($this->courseService->all($request));
+        return CourseResource::collection($this->courseService->courses($request));
     }
 
    /**
