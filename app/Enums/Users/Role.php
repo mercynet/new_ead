@@ -13,6 +13,19 @@ enum Role
     case student;
     case instructor;
 
+
+    /**
+     * @return string
+     */
+    public function label(): string
+    {
+        return self::getLabel($this);
+    }
+
+    /**
+     * @param Role $value
+     * @return string
+     */
     public static function getLabel(self $value): string
     {
         return match ($value) {

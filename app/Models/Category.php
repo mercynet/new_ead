@@ -2,7 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Courses\Course;
 use App\Traits\HasLog;
+use App\Traits\Image;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -22,10 +25,27 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Category extends Model
 {
-    use HasFactory, HasLog, SoftDeletes;
+    use HasFactory, HasLog, SoftDeletes, Image;
 
-    protected $fillable = ['category_id', 'name', 'slug'];
+    /**
+     * @var string[]
+     */
+    protected $fillable = [
+        'category_id',
+        'order',
+        'is_showcase',
+        'name',
+        'slug',
+        'description',
+        'image',
+    ];
 
+    protected $casts = [
+        'is_showcase' => 'boolean'
+    ];
+    /**
+     * @return BelongsTo
+     */
     public function parent(): BelongsTo
     {
         return $this->belongsTo(self::class);
@@ -36,7 +56,7 @@ class Category extends Model
      */
     public function categories(): HasMany
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(self::class)->orderBy('order')->orderBy('id');
     }
 
     /**
@@ -44,10 +64,22 @@ class Category extends Model
      */
     public function children(): HasMany
     {
-        return $this->hasMany(Category::class)->with('categories');
+        return $this->hasMany(self::class)->orderBy('order')->orderBy('id')->with('children');
     }
 
-    public function scopeNoParent($query)
+    /**
+     * @return BelongsToMany
+     */
+    public function courses(): BelongsToMany
+    {
+        return $this->belongsToMany(Course::class)->using(CategoryCourse::class);
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeNoParent($query): Builder
     {
         return $query->whereNull('category_id');
     }

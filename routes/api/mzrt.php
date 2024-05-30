@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\V1\Mzrt\Categories\CategoryController;
 use App\Http\Controllers\API\V1\Mzrt\Courses\CourseController;
 use App\Http\Controllers\API\V1\Mzrt\SettingController;
 use App\Http\Controllers\API\V1\Mzrt\Users\AddressController;
@@ -88,11 +89,23 @@ Route::middleware('auth:sanctum')->group(function () {
             Route::patch('inactivate/{user}', 'inactivate')->name('inactivate');
         });
 
+    /*
+     * Categories Routes
+     */
+    Route::controller(CategoryController::class)
+        ->prefix('categories')->name('categories.')
+        ->group(function () {
+            Route::get('all', 'all')->name('all');
+            Route::patch('activate/{category}', 'activate')->name('activate');
+            Route::patch('inactivate/{category}', 'inactivate')->name('inactivate');
+        });
+
     Route::apiResources([
         'users' => UserController::class,
         'user-groups' => UserGroupController::class,
         'courses' => CourseController::class,
         'settings' => SettingController::class,
         'roles' => RoleController::class,
+        'categories' => CategoryController::class,
     ]);
 });

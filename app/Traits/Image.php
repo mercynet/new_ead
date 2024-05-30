@@ -35,6 +35,22 @@ trait Image
         );
     }
 
+
+    /**
+     * @return Attribute
+     */
+    public function image(): Attribute
+    {
+        return new Attribute(
+            get: function () {
+                if ($this->avatar && !str_contains($this->avatar, 'storage/blank.png')) {
+                    return asset("storage/" . str_replace(config('app.url') . "/storage/", '', $this->avatar));
+                }
+                return asset('storage/blank.png');
+            },
+        );
+    }
+
     public function avatar(): Attribute
     {
         return new Attribute(

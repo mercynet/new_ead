@@ -51,7 +51,6 @@ class User extends Authenticatable
         'password',
         'active',
         'type',
-        'type' => Role::class,
     ];
 
     /**
@@ -72,6 +71,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
         'active' => 'boolean',
+        'type' => Role::class,
     ];
 
     public static function newFactory(): Factory

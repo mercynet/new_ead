@@ -107,7 +107,7 @@ class SettingService extends Service
      */
     public function update(Setting $setting, array $validated): ?Setting
     {
-        abort_if(empty($validated), Response::HTTP_UNPROCESSABLE_ENTITY, trans('settings.validation.empty_entity'));
+        abort_if(empty($validated), Response::HTTP_UNPROCESSABLE_ENTITY, trans('general.empty_entity'));
         try {
             DB::transaction(fn () => $setting->update($validated));
         } catch (Throwable $e) {

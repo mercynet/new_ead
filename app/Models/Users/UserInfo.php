@@ -6,6 +6,7 @@ use App\Enums\Users\Gender;
 use App\Models\Language;
 use App\Models\Timezone;
 use App\Traits\HasLog;
+use App\Traits\Image;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -17,7 +18,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  */
 class UserInfo extends Model
 {
-    use HasFactory, HasLog;
+    use HasFactory, HasLog, Image;
 
     /**
      * @var string[]
@@ -43,20 +44,5 @@ class UserInfo extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
-    }
-
-    /**
-     * @return Attribute
-     */
-    public function image(): Attribute
-    {
-        return new Attribute(
-            get: function () {
-                if ($this->avatar && !str_contains($this->avatar, 'storage/blank.png')) {
-                    return asset("storage/" . str_replace(config('app.url') . "/storage/", '', $this->avatar));
-                }
-                return asset('storage/blank.png');
-            },
-        );
     }
 }

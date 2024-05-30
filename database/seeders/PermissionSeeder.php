@@ -82,6 +82,11 @@ class PermissionSeeder extends Seeder
                         'group_name' => 'Cursos',
                         'permissions' => ['c,r,v,u,d'],
                     ],
+                    'categories' => [
+                        'name' => 'Categorias',
+                        'group_name' => 'Categorias',
+                        'permissions' => ['c,r,v,u,d'],
+                    ],
                 ],
             ],
         ];
