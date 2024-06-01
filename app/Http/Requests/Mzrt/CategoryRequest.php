@@ -14,7 +14,8 @@ class CategoryRequest extends FormRequest
             'name' => ['required'],
             'slug' => ['required'],
             'order' => ['nullable', 'integer'],
-            'is_showcase' => ['nullable', 'boolean'],
+            'is_showcase' => ['boolean'],
+            'active' => ['boolean'],
             'description' => ['nullable', 'string'],
             'image' => ['nullable', new Base64FileRule],
         ];

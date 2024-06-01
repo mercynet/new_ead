@@ -16,6 +16,7 @@ class CategoryResource extends JsonResource
             'category_id' => $this->whenHas('category_id'),
             'order' => $this->whenHas('order'),
             'is_showcase' => $this->whenHas('is_showcase'),
+            'active' => $this->whenHas('active'),
             'name' => $this->whenHas('name'),
             'slug' => $this->whenHas('slug'),
             'description' => $this->whenHas('description'),

@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use App\Models\Courses\Course;
+use App\Traits\Boolean;
 use App\Traits\HasLog;
 use App\Traits\Image;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,7 +27,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Category extends Model
 {
-    use HasFactory, HasLog, SoftDeletes, Image;
+    use HasFactory, HasLog, SoftDeletes, Image, Boolean;
 
     /**
      * @var string[]
@@ -34,6 +36,7 @@ class Category extends Model
         'category_id',
         'order',
         'is_showcase',
+        'active',
         'name',
         'slug',
         'description',
@@ -41,7 +44,8 @@ class Category extends Model
     ];
 
     protected $casts = [
-        'is_showcase' => 'boolean'
+        'is_showcase' => 'boolean',
+        'active' => 'boolean',
     ];
     /**
      * @return BelongsTo
@@ -75,6 +79,10 @@ class Category extends Model
         return $this->belongsToMany(Course::class)->using(CategoryCourse::class);
     }
 
+    /*
+     * Scopes
+     */
+
     /**
      * @param $query
      * @return mixed
@@ -82,5 +90,23 @@ class Category extends Model
     public function scopeNoParent($query): Builder
     {
         return $query->whereNull('category_id');
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeActive($query): Builder
+    {
+        return $query->where(['active' => true]);
+    }
+
+    /**
+     * @param $query
+     * @return mixed
+     */
+    public function scopeShowcase($query): Builder
+    {
+        return $query->where(['is_showcase' => true]);
     }
 }
