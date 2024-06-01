@@ -82,8 +82,7 @@ class Base64FileRule implements DataAwareRule, ValidationRule
      */
     public function fileIndex(array $data): string
     {
-        $fileTypes = ['file' => 'file', 'avatar' => 'avatar', 'image' => 'avatar'];
-
+        $fileTypes = ['file' => 'file', 'avatar' => 'avatar', 'image' => 'image'];
         foreach ($fileTypes as $key => $value) {
             if (! empty($data[$key])) {
                 return $value;

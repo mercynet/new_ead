@@ -40,6 +40,11 @@ return [
             'root' => storage_path('app/public/users'),
             'throw' => false,
         ],
+        'categories' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/categories'),
+            'throw' => false,
+        ],
 
         'public' => [
             'driver' => 'local',

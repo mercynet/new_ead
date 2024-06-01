@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API\V1\Mzrt\Categories;
 
+use App\Exceptions\InvalidUploadException;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Mzrt\CategoryRequest;
 use App\Http\Resources\Mzrt\CategoryResource;
@@ -20,6 +21,9 @@ use Illuminate\Http\Response;
  */
 class CategoryController extends Controller
 {
+    /**
+     * @param CategoryService $categoryService
+     */
     public function __construct(public CategoryService $categoryService)
     {
         $this->authorizeResource($this->categoryService->model);
@@ -59,11 +63,21 @@ class CategoryController extends Controller
         return response()->ok(CategoryResource::make($this->categoryService->category($category)));
     }
 
+    /**
+     * @param CategoryRequest $request
+     * @return mixed
+     * @throws InvalidUploadException
+     */
     public function store(CategoryRequest $request)
     {
         return response()->created($this->categoryService->create($request->validated()));
     }
 
+    /**
+     * @param CategoryRequest $request
+     * @param Category $category
+     * @return mixed
+     */
     public function update(CategoryRequest $request, Category $category)
     {
         return response()->ok(CategoryResource::make($this->categoryService->update($category, $request->validated())));
