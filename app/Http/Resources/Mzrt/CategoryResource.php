@@ -20,7 +20,7 @@ class CategoryResource extends JsonResource
             'name' => $this->whenHas('name'),
             'slug' => $this->whenHas('slug'),
             'description' => $this->whenHas('description'),
-            'image  ' => $this->whenHas('image'),
+            'image' => $this->whenHas('image'),
             'created_at' => $this->whenHas('created_at'),
             'updated_at' => $this->whenHas('updated_at'),
             'subcategories_count' => $this->whenHas('categories_count'),

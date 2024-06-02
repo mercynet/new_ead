@@ -119,9 +119,11 @@ class CategoryService extends Service
             if (!empty($data['image']) && preg_match('/^data:image\/(\w+);base64,/', $data['image'])) {
                 $data['image'] = "categories/" . prepareUpload($data['image'], 'categories');
             }
+            if($data['category_id'] === 'null') $data['category_id'] = null;
             DB::transaction(fn() => $category->update($data));
         } catch (Throwable $e) {
-            abort($e->getMessage());
+            info($e->getMessage());
+            abort(Response::HTTP_BAD_REQUEST, $e->getMessage());
         }
 
         return $category->fresh();

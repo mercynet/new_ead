@@ -3,18 +3,16 @@
 namespace App\Models;
 
 use App\Models\Courses\Course;
+use App\Models\Scopes\Searchable;
 use App\Traits\Boolean;
 use App\Traits\HasLog;
 use App\Traits\Image;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -27,7 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Category extends Model
 {
-    use HasFactory, HasLog, SoftDeletes, Image, Boolean;
+    use HasFactory, HasLog, SoftDeletes, Image, Boolean, Searchable;
 
     /**
      * @var string[]
@@ -42,11 +40,16 @@ class Category extends Model
         'description',
         'image',
     ];
-
+    protected array $searchableFields = [
+        'name',
+        'slug',
+        'description',
+    ];
     protected $casts = [
         'is_showcase' => 'boolean',
         'active' => 'boolean',
     ];
+
     /**
      * @return BelongsTo
      */

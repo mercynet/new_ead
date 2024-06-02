@@ -29,7 +29,10 @@ class Service
         if ($this->with) {
             $resource->with($this->with);
         }
-
+        $search = request()->get('search', '');
+        if(!empty($search)) {
+            $resource->search($search);
+        }
         if ($where) {
             $resource->where($where);
         }

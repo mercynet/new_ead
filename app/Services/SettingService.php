@@ -111,7 +111,7 @@ class SettingService extends Service
         try {
             DB::transaction(fn () => $setting->update($validated));
         } catch (Throwable $e) {
-            abort($e->getMessage());
+            abort(Response::HTTP_BAD_REQUEST, $e->getMessage());
         }
 
         return $setting->fresh();

@@ -13,26 +13,12 @@ trait Image
      */
     public function imageFeatured(): Attribute
     {
-        return new Attribute(
-            get: function ($value) {
-                if ($value && str_contains($value, $this->placeholder)) {
-                    return asset("storage/" . str_replace(config('app.url') . "/storage/", '', $value));
-                }
-                return asset($this->placeholder);
-            },
-        );
+        return $this->imagePlaceholder();
     }
 
     public function imageCover(): Attribute
     {
-        return new Attribute(
-            get: function ($value) {
-                if ($value && str_contains($value, $this->placeholder)) {
-                    return asset("storage/" . str_replace(config('app.url') . "/storage/", '', $value));
-                }
-                return asset($this->placeholder);
-            },
-        );
+        return $this->imagePlaceholder();
     }
 
 
@@ -41,21 +27,22 @@ trait Image
      */
     public function image(): Attribute
     {
-        return new Attribute(
-            get: function () {
-                if ($this->avatar && !str_contains($this->avatar, 'storage/blank.png')) {
-                    return asset("storage/" . str_replace(config('app.url') . "/storage/", '', $this->avatar));
-                }
-                return asset('storage/blank.png');
-            },
-        );
+        return $this->imagePlaceholder();
     }
 
     public function avatar(): Attribute
     {
+        return $this->imagePlaceholder();
+    }
+
+    /**
+     * @return Attribute
+     */
+    private function imagePlaceholder(): Attribute
+    {
         return new Attribute(
             get: function ($value) {
-                if ($value && str_contains($value, $this->placeholder)) {
+                if ($value && !str_contains($value, $this->placeholder)) {
                     return asset("storage/" . str_replace(config('app.url') . "/storage/", '', $value));
                 }
                 return asset($this->placeholder);
