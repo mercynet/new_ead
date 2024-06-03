@@ -5,7 +5,9 @@ namespace App\Models\Courses;
 use App\Enums\CourseLevel;
 use App\Enums\Users\Role;
 use App\Models\Language;
+use App\Models\Scopes\Searchable;
 use App\Models\Users\User;
+use App\Traits\Boolean;
 use App\Traits\HasLog;
 use App\Traits\Image;
 use App\Traits\Price;
@@ -25,7 +27,7 @@ use Illuminate\Support\Str;
  */
 class Course extends Model
 {
-    use HasFactory, HasLog, SoftDeletes, Price, Image;
+    use HasFactory, HasLog, SoftDeletes, Price, Image, Boolean, Searchable;
 
     /**
      * @var string[]
@@ -62,11 +64,31 @@ class Course extends Model
     ];
 
     /**
+     * @var array|string[]
+     */
+    protected array $searchableFields = [
+        'name',
+        'slug',
+        'summary',
+        'description',
+        'pre_requisites',
+        'target',
+    ];
+
+    /**
      * @return BelongsToMany
      */
     public function formations(): BelongsToMany
     {
         return $this->belongsToMany(Formation::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function items(): HasMany
+    {
+        return $this->hasMany(CourseItem::class);
     }
 
     /**

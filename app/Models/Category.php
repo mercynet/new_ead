@@ -40,11 +40,19 @@ class Category extends Model
         'description',
         'image',
     ];
+
+    /**
+     * @var array|string[]
+     */
     protected array $searchableFields = [
         'name',
         'slug',
         'description',
     ];
+
+    /**
+     * @var string[]
+     */
     protected $casts = [
         'is_showcase' => 'boolean',
         'active' => 'boolean',
