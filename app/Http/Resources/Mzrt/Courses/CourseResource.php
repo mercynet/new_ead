@@ -49,6 +49,7 @@ class CourseResource extends JsonResource
             'modules_count' => $this->whenHas('modules_count'),
             'students' => UserResource::collection($this->whenLoaded('students')),
             'instructors' => UserResource::collection($this->whenLoaded('instructors')),
+            'items' => CourseItemResource::collection($this->whenLoaded('items')),
         ];
     }
 }
