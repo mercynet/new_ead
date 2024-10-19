@@ -6,11 +6,6 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('lessons', function (Blueprint $table) {
@@ -20,10 +15,10 @@ return new class extends Migration
             $table->integer('order')->default(0);
             $table->string('name');
             $table->string('slug')->unique();
-            $table->string('video_type')->default('vimeo')->comment('youtube; vimeo; internal player');
-            $table->string('video_path');
-            $table->time('video_duration')->nullable();
-            $table->boolean('video_downloadable')->default(0);
+            $table->string('type')->default('text'); // Use string instead of enum
+            $table->string('content_path')->nullable();
+            $table->time('duration')->nullable();
+            $table->boolean('downloadable')->default(0);
             $table->tinyText('summary')->nullable();
             $table->text('description')->nullable();
             $table->string('image_featured')->nullable();
@@ -39,11 +34,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('lessons');

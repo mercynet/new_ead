@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\Mzrt\Courses\Courses;
+namespace App\Http\Requests\Mzrt\Courses;
 
 use App\Enums\CourseLevel;
 use Illuminate\Foundation\Http\FormRequest;

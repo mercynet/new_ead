@@ -28,10 +28,6 @@ class Lesson extends Model
         'order',
         'name',
         'slug',
-        'video_type',
-        'video_path',
-        'video_duration',
-        'video_downloadable',
         'summary',
         'description',
         'image_featured',
@@ -77,6 +73,9 @@ class Lesson extends Model
         return $this->morphMany(Comment::class, 'commentable');
     }
 
+    /**
+     * @return BelongsTo
+     */
     public function language(): BelongsTo
     {
         return $this->belongsTo(Language::class);

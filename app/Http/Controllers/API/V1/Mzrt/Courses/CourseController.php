@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\API\V1\Mzrt\Courses;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Mzrt\Courses\Courses\CourseRequest;
+use App\Http\Requests\Mzrt\Courses\CourseRequest;
 use App\Http\Resources\Mzrt\Courses\CourseResource;
 use App\Models\Courses\Course;
 use App\Services\Courses\CourseService;
