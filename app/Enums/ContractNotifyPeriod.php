@@ -2,11 +2,11 @@
 
 namespace App\Enums;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum ContractNotifyPeriod
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case days;
     case weeks;

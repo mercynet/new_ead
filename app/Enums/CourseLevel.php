@@ -2,9 +2,11 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumCaseToArray;
+
 enum CourseLevel
 {
-    use ToArray;
+    use EnumCaseToArray;
     case beginner;
     case intermediate;
     case advanced;

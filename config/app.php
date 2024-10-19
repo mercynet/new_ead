@@ -200,6 +200,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\ResponseServiceProvider::class,
+        App\Providers\Mzrt\MzrtServiceProvider::class,
     ],
 
     /*

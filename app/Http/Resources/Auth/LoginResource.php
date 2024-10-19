@@ -18,7 +18,7 @@ class LoginResource extends JsonResource
     public function toArray($request): array|JsonSerializable|Arrayable
     {
         if($this->roles) {
-            $roles = $this->roles->pluck('name');
+            $roles = $this->roles->pluck('name')->unique();
             $permissions = $this->roles->map(function ($role) {
                 return $role->permissions->pluck('name');
             })->flatten();

@@ -2,11 +2,11 @@
 
 namespace App\Enums\Quizzes;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum FormatType
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case quiz;
     case test;

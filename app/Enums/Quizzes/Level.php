@@ -2,14 +2,14 @@
 
 namespace App\Enums\Quizzes;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 /**
  *
  */
 enum Level
 {
-    use ToArray;
+    use EnumCaseToArray;
     case begginner;
     case intermediate;
     case advanced;

@@ -2,11 +2,11 @@
 
 namespace App\Enums\Users;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum MeetingType
 {
-    use ToArray;
+    use EnumCaseToArray;
     case online;
     case personal;
     case both;

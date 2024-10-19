@@ -14,7 +14,7 @@ trait HasRole
     private readonly User|Authenticatable|null $user;
     public function __construct()
     {
-        $this->user = auth(currentGuardName())->user();
+        //
     }
 
     /**
@@ -23,7 +23,7 @@ trait HasRole
      */
     public function scopeHasAdminRole($query): void
     {
-        if (auth(currentGuardName())->check() && $this->user->hasRole([Role::development->name, Role::superuser->name])) {
+        if (auth()->check() && $this->hasRole([Role::development->name, Role::superuser->name])) {
             $query->whereHas('roles', function ($q) {
                 $q->where('name', '!=', 'development');
             });
@@ -31,14 +31,14 @@ trait HasRole
     }
     public function scopeIsAdmin($query): bool
     {
-        return $this->user->hasRole([Role::development->name, Role::superuser->name]) || in_array($this->user->type->name, [Role::development->name, Role::superuser->name]);
+        return $this->hasRole([Role::development->name, Role::superuser->name]) || in_array($this->type->name, [Role::development->name, Role::superuser->name]);
     }
     public function scopeIsStudent($query): bool
     {
-        return $this->user->hasRole([Role::student->name]) || $this->user->type->name == Role::student->name;
+        return $this->hasRole([Role::student->name]) || $this->type->name == Role::student->name;
     }
     public function scopeIsInstructor($query): bool
     {
-        return $this->user->hasRole([Role::instructor->name]) || $this->user->type->name == Role::instructor->name;
+        return $this->hasRole([Role::instructor->name]) || $this->type->name == Role::instructor->name;
     }
 }

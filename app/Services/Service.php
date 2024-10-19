@@ -4,6 +4,8 @@ namespace App\Services;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class Service
 {
@@ -21,6 +23,8 @@ class Service
      * @param array|null $fields
      * @param array $where
      * @return Builder
+     * @throws ContainerExceptionInterface
+     * @throws NotFoundExceptionInterface
      */
     protected function builder(?array $fields = null, array $where = []): Builder
     {

@@ -2,11 +2,11 @@
 
 namespace App\Enums\Plans;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum ServiceType
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case relationship;
     case count;

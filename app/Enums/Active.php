@@ -2,9 +2,11 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumCaseToArray;
+
 enum Active
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case active;
     case inactive;

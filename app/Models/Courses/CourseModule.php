@@ -2,7 +2,10 @@
 
 namespace App\Models\Courses;
 
+use App\Models\Language;
 use App\Traits\HasLog;
+use Database\Factories\CourseModuleFactory;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -25,6 +28,11 @@ class CourseModule extends Model
         'slug',
     ];
 
+    public static function newFactory(): Factory
+    {
+        return CourseModuleFactory::new();
+    }
+
     /**
      * @return BelongsTo
      */
@@ -39,5 +47,13 @@ class CourseModule extends Model
     public function lessons(): BelongsTo
     {
         return $this->belongsTo(Lesson::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function language(): BelongsTo
+    {
+        return $this->belongsTo(Language::class);
     }
 }

@@ -4,7 +4,7 @@ use Knuckles\Scribe\Extracting\Strategies;
 
 return [
 
-    'theme' => 'default',
+    'theme' => 'elements',
 
     /*
      * The HTML <title> for the generated documentation. If this is empty, Scribe will infer it from config('app.name').
@@ -285,7 +285,81 @@ INTRO
          * Manually override some generated content in the spec. Dot notation is supported.
          */
         'overrides' => [
-            // 'info.version' => '2.0.0',
+            'event.0' => [
+                'listen' => 'prerequest',
+                'script' => [
+                    'type' => 'text/javascript',
+                    'exec' => [
+                        // adds the CSRF token to each request
+                        "var moment = require('moment');",
+                        'var now = moment();',
+                        "var aux_last = pm.environment.get('refresh_after');",
+                        'if (now >= moment(aux_last) || !aux_last) {',
+                        'pm.sendRequest({',
+                        "url: pm.variables.get('baseUrl') + '/api/v1/login',",
+                        "method: 'POST',",
+                        'header: {',
+                        "'content-type': 'application/json',",
+                        '},',
+                        'body: {',
+                        "mode: 'raw',",
+                        'raw: JSON.stringify({',
+                        "email: pm.variables.get('email'),",
+                        "password: pm.variables.get('password'),",
+                        '})',
+                        '}',
+                        '}, function(err, res) {',
+                        "var valid_until = now.add(2, 'minutes')",
+                        "pm.environment.set('token', res.json().data.api_token)",
+                        "pm.environment.set('refresh_after', valid_until)",
+                        "console.log('Save token until: ' + valid_until)",
+                        '})',
+                        '}',
+                        '',
+                    ],
+                ],
+            ],
+            'variable.0' => [
+                'id' => 'baseUrl',
+                'key' => 'baseUrl',
+                'type' => 'string',
+                'name' => 'string',
+                'value' => config('app.url'),
+            ],
+            'variable.1' => [
+                'id' => 'email',
+                'key' => 'email',
+                'type' => 'string',
+                'name' => 'string',
+                'value' => 'development@craftsys.com.br',
+            ],
+            'variable.2' => [
+                'id' => 'password',
+                'key' => 'password',
+                'type' => 'string',
+                'name' => 'string',
+                'value' => 'define your password',
+            ],
+            'variable.3' => [
+                'id' => 'token',
+                'key' => 'token',
+                'type' => 'string',
+                'name' => 'string',
+                'value' => '',
+            ],
+            'variable.4' => [
+                'id' => 'refresh_after',
+                'key' => 'refresh_after',
+                'type' => 'string',
+                'name' => 'string',
+                'value' => '',
+            ],
+            // add token in requests
+            'item.*.item.*.request.header.2' => [
+                'key' => 'Authorization',
+                'value' => 'Bearer {{token}}',
+                'type' => 'text',
+            ],
         ],
     ],
 

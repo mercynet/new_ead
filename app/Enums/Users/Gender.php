@@ -2,11 +2,11 @@
 
 namespace App\Enums\Users;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum Gender
 {
-    use ToArray;
+    use EnumCaseToArray;
     case male;
     case female;
     case both;

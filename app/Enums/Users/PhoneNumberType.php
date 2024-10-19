@@ -2,11 +2,11 @@
 
 namespace App\Enums\Users;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum PhoneNumberType
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case mobile;
     case phone;

@@ -2,11 +2,11 @@
 
 namespace App\Enums\Plans;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum CyclePeriod
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case hours;
     case days;

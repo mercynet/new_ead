@@ -2,14 +2,14 @@
 
 namespace App\Enums\Users;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 /**
  *
  */
 enum RoleGroup
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case development;
     case admin;

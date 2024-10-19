@@ -16,88 +16,101 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
  * @group Mozart
  *
  * @subgroup Users
- * @subgroupDescription List of generic users
+ * @subgroupDescription This controller handles all operations related to user management, including listing users, creating new users, updating existing users, enabling/disabling users, and deleting users.
  */
 class UserController extends Controller
 {
     /**
+     * UserController constructor.
      *
+     * @param UserService $userService Service for user operations
      */
-    public function __construct()
+    public function __construct(private readonly UserService $userService)
     {
         $this->authorizeResource(User::class, 'user');
     }
 
     /**
      * List all users
-     * @param Request $request
-     * @return AnonymousResourceCollection
+     *
+     * @param Request $request HTTP request object
+     * @return AnonymousResourceCollection Collection of user resources
      */
     public function index(Request $request): AnonymousResourceCollection
     {
-        return UserResource::collection((new UserService)->toPaginate());
+        return UserResource::collection($this->userService->toPaginate());
     }
 
     /**
      * Store a new user
-     * @param StoreUserRequest $request
-     * @return UserResource
-     * @throws InvalidUploadException
+     *
+     * @param StoreUserRequest $request HTTP request with user data
+     * @return UserResource Resource of the created user
+     * @throws InvalidUploadException If the upload is invalid
      */
     public function store(StoreUserRequest $request): UserResource
     {
-        $user = (new UserService)->create($request->validated());
+        $user = $this->userService->create($request->validated());
         return UserResource::make($user);
     }
 
     /**
      * Returns a specific user
-     * @param User $user
-     * @return UserResource|null
+     *
+     * @param User $user User model instance
+     * @return UserResource|null Resource of the specified user or null
      */
     public function show(User $user): ?UserResource
     {
-        return UserResource::make((new UserService)->find($user->id));
+        return UserResource::make($this->userService->find($user->id));
     }
 
     /**
      * Updates a specific user
-     * @param UpdateUserRequest $request
-     * @param User $user
-     * @return UserResource
+     *
+     * @param UpdateUserRequest $request HTTP request with updated user data
+     * @param User $user User model instance
+     * @return UserResource Resource of the updated user
+     * @throws InvalidUploadException
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user): UserResource
     {
-        $user = (new UserService)->update($user, $request->validated());
+        $user = $this->userService->update($user, $request->validated());
         return UserResource::make($user);
     }
 
     /**
-     * @param User $user
-     * @return void
+     * Enable a user
+     *
+     * @param User $user User model instance
+     * @return UserResource Resource of the enabled user
      */
-    public function enable(User $user)
+    public function enable(User $user): UserResource
     {
-        return UserResource::make((new UserService)->disable($user));
+        return UserResource::make($this->userService->enable($user));
     }
 
     /**
-     * @param User $user
-     * @return void
+     * Disable a user
+     *
+     * @param User $user User model instance
+     * @return UserResource Resource of the disabled user
      */
-    public function disable(User $user)
+    public function disable(User $user): UserResource
     {
-        return UserResource::make((new UserService)->disable($user));
+        return UserResource::make($this->userService->disable($user));
     }
 
     /**
-     * @param User $user
-     * @return AnonymousResourceCollection
+     * Delete a user
+     *
+     * @param User $user User model instance
+     * @return AnonymousResourceCollection Collection of remaining user resources
      */
-    public function destroy(User $user)
+    public function destroy(User $user): AnonymousResourceCollection
     {
         $user->roles()->detach();
         $user->delete();
-        return UserResource::collection((new UserService)->toPaginate());
+        return UserResource::collection($this->userService->toPaginate());
     }
 }

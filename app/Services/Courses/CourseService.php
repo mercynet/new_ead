@@ -23,11 +23,12 @@ class CourseService extends Service
      */
     protected array $with = [
         'formations',
-        'courses_modules',
+        'course_modules',
         'lessons',
         'students',
         'instructors',
     ];
+
     public function __construct()
     {
         $this->model = new Course();
@@ -36,15 +37,20 @@ class CourseService extends Service
     /**
      * Retrieves the courses based on the given parameters.
      *
-     * @param  Request|null  $request The request object to be used for additional conditions in the query. Defaults to null.
-     * @param  array|null  $fields An array of fields to be selected in the query. Defaults to null.
-     * @param  array|null  $relations An array of relations to eager load in the query. Defaults to null.
-     * @param  array  $where An array of additional where conditions to be applied in the query. Defaults to an empty array.
-     * @param  int  $paginate The number of items to be displayed per page. Defaults to 20.
+     * @param Request|null $request The request object to be used for additional conditions in the query. Defaults to null.
+     * @param array|null $fields An array of fields to be selected in the query. Defaults to null.
+     * @param array|null $relations An array of relations to eager load in the query. Defaults to null.
+     * @param array $where An array of additional where conditions to be applied in the query. Defaults to an empty array.
+     * @param int $paginate The number of items to be displayed per page. Defaults to 20.
      * @return LengthAwarePaginator|Collection|null The paginated items or a collection of settings or null if pagination is omitted.
      */
-    public function courses(?Request $request = null, ?array $fields = null, ?array $relations = null, array $where = [], int $paginate = 20): LengthAwarePaginator|Collection|null
-    {
+    public function courses(
+        ?Request $request = null,
+        ?array $fields = null,
+        ?array $relations = null,
+        array $where = [],
+        int $paginate = 20
+    ): LengthAwarePaginator|Collection|null {
         $builder = $this->courseBuilder($request, $fields, $relations, $where);
         if ($paginate > 0) {
             return $builder->paginate($paginate);
@@ -56,10 +62,10 @@ class CourseService extends Service
     /**
      * Builds and returns a query builder instance based on the given parameters.
      *
-     * @param  Request|null  $request The request object to be used for additional conditions in the query. Defaults to null.
-     * @param  array|null  $fields An array of fields to be selected in the query. Defaults to null.
-     * @param  array|null  $relations An array of relations to eager load in the query. Defaults to null.
-     * @param  array  $where An array of additional where conditions to be applied in the query. Defaults to an empty array.
+     * @param Request|null $request The request object to be used for additional conditions in the query. Defaults to null.
+     * @param array|null $fields An array of fields to be selected in the query. Defaults to null.
+     * @param array|null $relations An array of relations to eager load in the query. Defaults to null.
+     * @param array $where An array of additional where conditions to be applied in the query. Defaults to an empty array.
      * @return Builder The query builder instance.
      */
     public function courseBuilder(?Request $request = null, ?array $fields = null, ?array $relations = null, array $where = []): Builder
@@ -91,6 +97,19 @@ class CourseService extends Service
     }
 
     /**
+     * Updates the specified Course instance with the provided data.
+     *
+     * @param array $data The data to update the Course instance with.
+     * @param Course $course The Course instance to be updated.
+     * @return Course The updated Course instance.
+     */
+    public function update(array $data, Course $course): Course
+    {
+        $course->update($data);
+        return $course;
+    }
+
+    /**
      * @param Course $course
      * @return Course
      */
@@ -108,5 +127,16 @@ class CourseService extends Service
     {
         $course->update(['active' => false]);
         return $course;
+    }
+
+    /**
+     * Deletes the specified Course instance.
+     *
+     * @param Course $course The Course instance to be deleted.
+     * @return void
+     */
+    public function delete(Course $course): void
+    {
+        $course->delete();
     }
 }

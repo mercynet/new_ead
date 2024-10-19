@@ -2,9 +2,11 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumCaseToArray;
+
 enum BannerLocal
 {
-    use ToArray;
+    use EnumCaseToArray;
     case categories;
     case lesson;
     case account;

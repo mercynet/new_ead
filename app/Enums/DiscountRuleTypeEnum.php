@@ -2,12 +2,14 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumCaseToArray;
+
 /**
  *
  */
 enum DiscountRuleTypeEnum
 {
-    use ToArray;
+    use EnumCaseToArray;
     case percentage;
     case absolute;
 

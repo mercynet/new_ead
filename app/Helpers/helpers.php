@@ -224,7 +224,7 @@ if (!function_exists('verifyDateDigits')) {
 if (!function_exists('authUser')) {
     function authUser(): ?User
     {
-        return auth(currentGuardName())->check() ? auth(currentGuardName())->user() : null;
+        return auth()->user() ?? null;
     }
 }
 if (!function_exists('isValidDate')) {

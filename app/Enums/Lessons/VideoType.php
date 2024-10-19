@@ -2,11 +2,11 @@
 
 namespace App\Enums\Lessons;
 
-use App\Enums\ToArray;
+use App\Traits\EnumCaseToArray;
 
 enum VideoType
 {
-    use ToArray;
+    use EnumCaseToArray;
 
     case youtube;
     case vimeo;

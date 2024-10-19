@@ -2,10 +2,11 @@
 
 namespace Database\Factories\Courses;
 
+use App\Models\Courses\CourseItem;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Courses\CourseItem>
+ * @extends Factory<CourseItem>
  */
 class CourseItemFactory extends Factory
 {

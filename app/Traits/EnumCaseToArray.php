@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Enums;
+namespace App\Traits;
 
 use Exception;
 
-trait ToArray
+trait EnumCaseToArray
 {
     public static function toArray(): array
     {

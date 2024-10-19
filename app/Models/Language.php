@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  *
+ * @property mixed $id
  */
 class Language extends Model
 {

@@ -11,14 +11,17 @@ use App\Traits\Boolean;
 use App\Traits\HasLog;
 use App\Traits\Image;
 use App\Traits\Price;
+use Database\Factories\CourseFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
  *
@@ -75,6 +78,16 @@ class Course extends Model
         'target',
     ];
 
+    public static function newFactory(): Factory
+    {
+        return CourseFactory::new();
+    }
+
+    public function prices(): MorphMany
+    {
+        return $this->morphMany(Price::class, 'priceable');
+    }
+
     /**
      * @return BelongsToMany
      */
@@ -94,7 +107,7 @@ class Course extends Model
     /**
      * @return HasMany
      */
-    public function courses_modules(): HasMany
+    public function course_modules(): HasMany
     {
         return $this->hasMany(CourseModule::class);
     }

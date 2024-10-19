@@ -2,9 +2,11 @@
 
 namespace App\Enums;
 
+use App\Traits\EnumCaseToArray;
+
 enum Source
 {
-    use ToArray;
+    use EnumCaseToArray;
     case site;
     case mzrt;
     case platform;
